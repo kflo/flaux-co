@@ -7,9 +7,9 @@
     "types": []
   },
   "include": [
-    "src/**/*.ts"
+    "projects/flaux-co/src/**/*.ts"
   ],
   "exclude": [
-    "src/**/*.spec.ts"
+    "projects/flaux-co/src/**/*.spec.ts"
   ]
 }

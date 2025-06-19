@@ -12,18 +12,18 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kflo/flaux-co-sandbox.git"
+    "url": "git+https://github.com/kflo/flaux-co.git"
   },
-  "description": "flaux.co sandbox",
+  "description": "flaux.co",
   "main": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/kflo/flaux-co-sandbox/issues"
+    "url": "https://github.com/kflo/flaux-co/issues"
   },
-  "homepage": "https://github.com/kflo/flaux-co-sandbox#readme",
+  "homepage": "https://github.com/kflo/flaux-co#readme",
   "dependencies": {
     "@angular/common": "^20.0.0",
     "@angular/compiler": "^20.0.0",
