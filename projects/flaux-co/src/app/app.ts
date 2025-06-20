@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BgComponent } from '../bg/bg.component';
+import { BgComponent } from '../components/bg/bg.component';
 
 @Component({
   selector: 'app-root',
