@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/kflo/flaux-co#readme",
   "dependencies": {
+    "@angular/animations": "^20.0.4",
     "@angular/common": "^20.0.4",
     "@angular/compiler": "^20.0.4",
     "@angular/core": "^20.0.4",

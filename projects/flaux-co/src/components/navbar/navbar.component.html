@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <a routerLink="/" class="logo-link">
+      <div class="text-container-navbar">
+        <img [src]="logo" alt="FLAUX Logo" class="logo-navbar" />
+        <span class="fl-text">FL</span>
+        <span class="a-with-macron">&nbsp;&nbsp;</span>
+        <span class="ux-text">AUX</span>
+      </div>
+    </a>
+  </div>
+  <div class="navbar-center">
+    <a routerLink="/solutions" routerLinkActive="active" flauxRipple>Solutions</a>
+    <a routerLink="/demo" routerLinkActive="active">Demo</a>
+    <a routerLink="/pricing" routerLinkActive="active">Pricing</a>
+  </div>
+  <div class="navbar-right">
+    <button class="dropdown-trigger" (click)="toggleDropdown()" flauxRipple>
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>

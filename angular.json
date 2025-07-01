@@ -20,10 +20,15 @@
             "browser": "projects/flaux-co/src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "outputPath": {
+              "base": "dist/flaux-co",
+              "browser": ""
+            },
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets"
+                "input": "projects/flaux-co/src/assets",
+                "output": "assets"
               }
             ],
             "styles": [

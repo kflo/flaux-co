@@ -1,7 +1,7 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, type OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-bg',
+  selector: 'flaux-bg',
   host: {
     '(document:mousemove)': 'mouseGlow($event)',
   },
