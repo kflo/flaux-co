@@ -23,12 +23,12 @@ export class BgComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.interBubble = document.querySelector<HTMLDivElement>('.interactive')!;
+    console.debug({ interBubble: this.interBubble });
   }
 
   mouseGlow(event: MouseEvent) {
     this.tgX = event.clientX;
     this.tgY = event.clientY;
-    console.debug('mouseGlow', this.tgX, this.tgY);
     this.move();
   };
 

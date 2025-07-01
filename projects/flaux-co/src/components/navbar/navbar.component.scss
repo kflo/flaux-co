@@ -1,3 +1,5 @@
+@import '../../_variables.scss';
+
 :host {
   position: fixed;
   top: 0;
@@ -40,7 +42,7 @@
 
 .a-with-macron {
   text-decoration: overline;
-  text-decoration-color: #7fd7ff;
+  text-decoration-color: $highlight-color;
   text-decoration-thickness: 0.10em;
   text-decoration-skip-ink: none;
   position: relative;
@@ -65,13 +67,14 @@
   color: #fff;
   text-decoration: none;
   font-size: 1.1rem;
+  font-family: Montserrat, sans-serif;
   font-weight: 500;
   transition: color 0.2s;
 }
 
 .navbar-center a.active,
 .navbar-center a:hover {
-  color: #7fd7ff;
+  color: $highlight-color
 }
 
 .navbar-right {
