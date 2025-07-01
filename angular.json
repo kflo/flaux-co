@@ -31,6 +31,11 @@
                 "output": "assets"
               }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/flaux-co/src/"
+              ]
+            },
             "styles": [
               "projects/flaux-co/src/styles.scss"
             ]
