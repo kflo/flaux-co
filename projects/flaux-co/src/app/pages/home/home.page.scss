@@ -4,21 +4,43 @@
   // backdrop-filter: blur(20px);
   box-shadow: 0 1rem 3rem 0 rgba(0, 0, 0, 0.5);
   display: flex;
-  background: url("/assets/dots1.png") no-repeat;
-  background-size: cover;
-  background-blend-mode: hue;
-  filter: brightness(0.75) contrast(1.3);
+  filter: brightness(0.85);
   mix-blend-mode: color-dodge;
   height: 30rem;
 
   .hero-text-block {
     margin: auto;
-    h1 {
-      font-size: 4.5rem;
+
+    i {
       font-family: Josefin Sans, sans-serif;
-      text-shadow: 1px 1px 12px rgba(200,255,255,0.72);
+      font-weight: 500;
+    }
+
+    .flauxFnTxt {
+      display: flex;
+      align-items: center;
+    }
+
+    .parens {
+      font-family: "Roboto";
+      padding: 0 0.75rem;
+      font-size: 5rem;
+      position: relative;
+      bottom: 2px;
+    }
+
+    .fnTxt {
+      font-family: Josefin Sans, sans-serif;
+      font-size: 4rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      text-shadow: 1px 1px 12px rgba(200, 255, 255, 0.72);
       filter: drop-shadow(5px 5px 20px black) hue-rotate(90deg);
-      color: rgba(255,255,255,0.8);
+      color: rgba(255, 255, 255, 0.8);
       z-index: 10;
     }
     p {
@@ -29,6 +51,44 @@
   .hero-visual {
     // flex: 50%;
   }
+}
+
+.lottie-wrapper {
+  width: 30rem;
+  height: 10rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: -5rem;
+  margin-right: -2.5rem;
+  padding-top: 1rem;
+  z-index: -1;
+
+  /* mask fade (works in modern browsers) */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+
+#lottie-container {
+  width: 100%;
+  margin-top: 0;
 }
 
 .features-section {

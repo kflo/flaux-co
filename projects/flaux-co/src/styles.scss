@@ -22,7 +22,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Montserrat, "Helvetica Neue", sans-serif;
+  font-family: 'Montserrat';
   font-size: 14px;
 }
 
@@ -45,5 +45,28 @@ a {
   opacity: 0.8;
   user-select: none;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  // letter-spacing: 0.3rem;
+}
+
+h1 {
+  font-size: 4.5rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 3.5rem;
+}
+h4 {
+  font-size: 3rem;
+}
+h5 {
+  font-size: 2.5rem;
+}
+h6 {
+  font-size: 2rem;
 }
 
