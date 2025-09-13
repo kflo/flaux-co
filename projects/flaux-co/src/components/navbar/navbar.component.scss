@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 :host {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -14,8 +14,8 @@
   justify-content: space-between;
   padding: 0rem;
   height: 6rem;
-  backdrop-filter: brightness(.66) blur(100px) contrast(1.33);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  backdrop-filter: brightness(1) blur(10px) contrast(0.95);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
   position: relative;
   z-index: 1000;
 }
@@ -26,7 +26,7 @@
   padding-left: 2rem;
 }
 
-.text-container-navbar {
+.text-logo-wrapper {
   display: flex;
   align-items: center;
   font-size: 3rem;

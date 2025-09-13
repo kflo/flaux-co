@@ -9,6 +9,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, type OnInit } from '
   standalone: true,
   templateUrl: './bg.component.html',
   styleUrl: './bg.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BgComponent implements OnInit, AfterViewInit {
 

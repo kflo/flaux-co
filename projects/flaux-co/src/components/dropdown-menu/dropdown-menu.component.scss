@@ -2,7 +2,7 @@
   position: fixed;
   top: 6rem;
   right: 0;
-  backdrop-filter: brightness(.66) blur(100px) contrast(1.33);
+  backdrop-filter: brightness(.8) blur(20px) contrast(.95);
   border-radius: 0 0 0 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   min-width: 200px;
@@ -29,7 +29,7 @@
   font-weight: 500;
   transition: background-color 0.2s;
   border-radius: 4px;
-  margin: 0.25rem;
+  margin: 0.25rem 0;
 }
 
 .dropdown-menu a:hover {

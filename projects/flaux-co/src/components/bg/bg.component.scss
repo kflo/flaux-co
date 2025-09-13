@@ -1,3 +1,23 @@
+:host {
+  height: calc(54% + 3rem);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  --color-bg1: rgb(108, 0, 162);
+  --color-bg2: rgb(0, 17, 82);
+  --color1: 18, 113, 255;
+  --color2: 221, 74, 255;
+  --color3: 100, 220, 255;
+  --color4: 200, 50, 50;
+  --color5: 180, 180, 50;
+  --color-interactive: 140, 100, 255;
+  --circle-size: 80%;
+  --blending: hard-light;
+}
+
 @keyframes moveInCircle {
   0% {
     transform: rotate(0deg);
@@ -40,29 +60,10 @@
   }
 }
 
-:host {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-
-  --color-bg1: rgb(108, 0, 162);
-  --color-bg2: rgb(0, 17, 82);
-  --color1: 18, 113, 255;
-  --color2: 221, 74, 255;
-  --color3: 100, 220, 255;
-  --color4: 200, 50, 50;
-  --color5: 180, 180, 50;
-  --color-interactive: 140, 100, 255;
-  --circle-size: 80%;
-  --blending: hard-light;
-
-  }
-
 .gradient-bg {
-  width: 100vw;
-  height: 100vh;
+  will-change: transform, opacity;
+  width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
   background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
@@ -78,9 +79,19 @@
   }
 
   .gradients-container {
+    will-change: transform, opacity;
     filter: url(#goo) blur(25px);
     width: 100%;
     height: 100%;
+  }
+  /* Example: Use CSS filter instead of SVG filter */
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5,
+  .interactive {
+    will-change: transform, opacity;
   }
 
   .g1 {
@@ -99,7 +110,7 @@
     left: calc(50% - var(--circle-size) / 2);
 
     transform-origin: center center;
-    animation: moveVertical 30s ease infinite;
+    animation: moveVertical 30s;
 
     opacity: 1;
   }
