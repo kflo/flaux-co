@@ -7,12 +7,20 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
+          "type": "component",
           "style": "scss"
-        }
+        },
+        "@schematics/angular:directive": { "type": "directive" },
+        "@schematics/angular:service": { "type": "service" },
+        "@schematics/angular:guard": { "typeSeparator": "." },
+        "@schematics/angular:interceptor": { "typeSeparator": "." },
+        "@schematics/angular:module": { "typeSeparator": "." },
+        "@schematics/angular:pipe": { "typeSeparator": "." },
+        "@schematics/angular:resolver": { "typeSeparator": "." }
       },
       "root": "projects/flaux-co",
       "sourceRoot": "projects/flaux-co/src",
-      "prefix": "flaux-",
+      "prefix": "flaux",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -32,13 +40,9 @@
               }
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "projects/flaux-co/src/"
-              ]
+              "includePaths": ["projects/flaux-co/src/"]
             },
-            "styles": [
-              "projects/flaux-co/src/styles.scss"
-            ]
+            "styles": ["projects/flaux-co/src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -90,9 +94,7 @@
                 "input": "src/assets"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           }
         }
       }
