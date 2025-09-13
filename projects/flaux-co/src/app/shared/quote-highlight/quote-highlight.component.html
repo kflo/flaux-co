@@ -1,0 +1,12 @@
+<div class="quote-highlight-container">
+  <div class="quote-text">
+    {{ quoteStart }}
+    <span class="highlight">{{ highlight }}</span>
+    {{ quoteEnd }}
+  </div>
+  @if (source) {
+  <div class="quote-source">
+    Source: {{ source }}
+  </div>
+  }
+</div>
