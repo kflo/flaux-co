@@ -1,0 +1,36 @@
+.feature-section {
+  background: radial-gradient(transparent 50%, black),
+    black;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: all 3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+#bgVideo {
+  background: linear-gradient(90deg, transparent, black);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+  mask: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+.feature-content {
+  z-index: 1;
+  position: relative;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto 10em;
+  height: 100%;
+  width: 100%;
+  font-size: 150%;
+}
