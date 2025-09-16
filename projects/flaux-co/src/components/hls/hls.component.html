@@ -1,0 +1,45 @@
+<!-- <div class="bg2-container">
+  <video #bgVideo class="bg2-video" autoplay muted loop playsinline preload="auto">
+    <source src="assets/vid/flaux-hero-2.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div> -->
+
+<!-- --------------------------------- // ---------------------------------- -->
+
+<!-- app-video-bg.component.html -->
+<div class="video-bg" role="presentation" aria-hidden="true">
+  <video
+    #videoEl
+    class="video"
+    playsinline
+    [muted]="muted"
+    [autoplay]="autoplay"
+    [loop]="loop"
+    [attr.poster]="posterUrl || null"
+    [attr.preload]="preload"
+    crossorigin="anonymous"
+  ></video>
+
+  <div class="overlay">
+    <ng-content></ng-content>
+  </div>
+
+  @if (showMp4Fallback && mp4FallbackUrl) {
+    <!-- Optional progressive fallback if HLS fails -->
+    <ng-container>
+      <video
+        class="video"
+        playsinline
+        [muted]="muted"
+        [autoplay]="autoplay"
+        [loop]="loop"
+        [attr.poster]="posterUrl || null"
+        [attr.preload]="preload"
+        crossorigin="anonymous"
+      >
+        <source [attr.src]="mp4FallbackUrl" type="video/mp4" />
+      </video>
+    </ng-container>
+  }
+</div>
