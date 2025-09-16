@@ -1,0 +1,51 @@
+type AgencyInfo @table {
+  name: String!
+  tagline: String!
+  description: String!
+  missionStatement: String
+  foundingYear: Int
+  contactEmail: String
+  phoneNumber: String
+  address: String
+}
+
+type Service @table {
+  title: String!
+  description: String!
+  iconUrl: String
+  detailedDescription: String
+  features: [String]
+}
+
+type TeamMember @table {
+  name: String!
+  role: String!
+  bio: String
+  photoUrl: String
+  socialMediaLinks: [String]
+}
+
+type VideoAsset @table {
+  title: String!
+  hlsManifestUrl: String!
+  description: String
+  thumbnailUrl: String
+  durationSeconds: Int
+}
+
+type PageSection @table {
+  name: String!
+  order: Int!
+  heading: String
+  bodyText: String
+  imageUrl: String
+  videoAsset: VideoAsset
+}
+
+type Testimonial @table {
+  clientName: String!
+  quote: String!
+  clientCompany: String
+  clientTitle: String
+  clientLogoUrl: String
+}

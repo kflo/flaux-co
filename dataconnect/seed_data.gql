@@ -1,0 +1,104 @@
+mutation SeedDatabase @auth(level: USER) {
+  agencyInfo_insertMany(data: [
+    {
+      name: "Flaux Agency",
+      description: "A creative agency specializing in digital marketing.",
+      tagline: "Your vision, our expertise.",
+      address: "123 Main St, Anytown USA",
+      contactEmail: "info@flaux.com",
+      phoneNumber: "555-1212",
+      foundingYear: 2020,
+      missionStatement: "To empower businesses with innovative marketing solutions."
+    }
+    {
+      name: "Flaux Corp",
+      description: "A technology company focused on AI solutions.",
+      tagline: "Innovate with AI.",
+      address: "456 Tech Dr, Silicon Valley CA",
+      contactEmail: "contact@flauxcorp.com",
+      phoneNumber: "555-2323",
+      foundingYear: 2022,
+      missionStatement: "To transform industries with the power of artificial intelligence."
+    }
+  ])
+  service_insertMany(data: [
+    {
+      title: "Digital Marketing",
+      description: "Comprehensive digital marketing strategies.",
+      detailedDescription: "We offer SEO, SEM, social media marketing, and content marketing.",
+      iconUrl: "https://example.com/digital-marketing.png",
+      features: ["SEO", "SEM", "Social Media", "Content Marketing"]
+    }
+    {
+      title: "AI Solutions",
+      description: "Custom AI solutions for your business.",
+      detailedDescription: "We develop AI models, chatbots, and automation tools.",
+      iconUrl: "https://example.com/ai-solutions.png",
+      features: ["AI Models", "Chatbots", "Automation", "Machine Learning"]
+    }
+  ])
+  teamMember_insertMany(data: [
+    {
+      name: "Alice Smith",
+      role: "Marketing Manager",
+      bio: "Expert in digital marketing strategies.",
+      photoUrl: "https://example.com/alice-smith.jpg",
+      socialMediaLinks: ["https://linkedin.com/in/alicesmith"]
+    }
+    {
+      name: "Bob Johnson",
+      role: "AI Engineer",
+      bio: "Specialist in AI model development.",
+      photoUrl: "https://example.com/bob-johnson.jpg",
+      socialMediaLinks: ["https://linkedin.com/in/bobjohnson"]
+    }
+  ])
+  testimonial_insertMany(data: [
+    {
+      clientName: "Charlie Brown",
+      clientTitle: "CEO",
+      clientCompany: "Acme Corp",
+      clientLogoUrl: "https://example.com/acme-logo.png",
+      quote: "Flaux Agency helped us increase our online presence significantly."
+    }
+    {
+      clientName: "Diana Prince",
+      clientTitle: "CTO",
+      clientCompany: "Tech Solutions",
+      clientLogoUrl: "https://example.com/tech-solutions-logo.png",
+      quote: "Flaux Corp's AI solutions have revolutionized our operations."
+    }
+  ])
+  videoAsset_insertMany(data: [
+    {
+      title: "Marketing Video",
+      description: "Promotional video for digital marketing services.",
+      hlsManifestUrl: "https://example.com/marketing-video.m3u8",
+      thumbnailUrl: "https://example.com/marketing-video-thumbnail.png",
+      durationSeconds: 120
+    }
+    {
+      title: "AI Demo",
+      description: "Demonstration of our AI capabilities.",
+      hlsManifestUrl: "https://example.com/ai-demo.m3u8",
+      thumbnailUrl: "https://example.com/ai-demo-thumbnail.png",
+      durationSeconds: 180
+    }
+  ])
+  pageSection_insertMany(data: [
+    {
+      name: "About Us",
+      heading: "Learn more about Flaux",
+      bodyText: "We are a team of experts dedicated to your success.",
+      imageUrl: "https://example.com/about-us-image.png",
+      order: 1
+    }
+    {
+      name: "Services",
+      heading: "Our Services",
+      bodyText: "We offer a range of digital marketing and AI solutions.",
+      imageUrl: "https://example.com/services-image.png",
+      order: 2
+    }
+  ])
+}

@@ -10,6 +10,7 @@
     "projects/flaux-co/src/**/*.ts"
   ],
   "exclude": [
-    "projects/flaux-co/src/**/*.spec.ts"
+    "projects/flaux-co/src/**/*.spec.ts",
+    "projects/flaux-co/src/assets/vid/**/*.ts",
   ]
 }

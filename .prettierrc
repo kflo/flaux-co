@@ -3,6 +3,9 @@
   "useTabs": false,
   "htmlWhitespaceSensitivity": "ignore",
   "printWidth": 120,
-  "singleAttributePerLine": true,
-  "multiLineHTML": true
+  "multiLineHTML": true,
+  "html": {
+    "wrapAttributes": "force-aligned",
+    "endOfLine": "lf"
+  }
 }
