@@ -1,12 +1,4 @@
-import {
-  AfterContentInit,
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { FlauxFnComponent } from '@app/shared/fn/fn.component';
+import { AfterContentInit, Component } from '@angular/core';
 import { FlauxSectionComponent } from '@app/shared/section/section.component';
 
 @Component({
@@ -14,7 +6,7 @@ import { FlauxSectionComponent } from '@app/shared/section/section.component';
   standalone: true,
   templateUrl: './features-section.component.html',
   styleUrls: ['./features-section.component.scss'],
-  imports: [FlauxFnComponent, FlauxSectionComponent],
+  imports: [FlauxSectionComponent],
 })
 export class FeaturesSectionComponent implements AfterContentInit {
   ngAfterContentInit(): void {
