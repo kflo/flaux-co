@@ -1,0 +1,13 @@
+---
+config:
+  theme: neo-dark
+  layout: elk
+---
+flowchart TD
+    A["Home"] --> B["Solutions"] & C["Demo"] & D["Pricing"] & E["Blog / Insights"] & F["About"] & G["Contact"] & H["Login"] & I["Signup"] & J["Reset Password"] & L["Checkout"] & K["Dashboard"]
+    B --> B1["Quick Flaux"] & B2["Stream Flaux"] & B3["Tide Flaux"] & B4["Torrent Flaux"]
+    B1 --> B1a["quick"] & B1b["quick/pdf-chat"] & B1c["quick/image-enhancer"] & B1d["quick/code-explainer"]
+    C --> C1["Chat Demo"] & C2["Workflow Demo"] & C3["AI Agent Demo"] & C4["Video Showcase"]
+    K --> K1["Home"] & K2["My Assets"] & K3["Settings"]
+    K2 --> K2a["Tools"] & K2b["Chatbots"] & K2c["Workflows"] & K2d["Agents"]
+    K3 --> K3a["Profile"] & K3b["Billing"] & K3c["API Keys"] & K3d["Team Access"]

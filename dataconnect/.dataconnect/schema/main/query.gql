@@ -1,0 +1,320 @@
+extend type Query {
+  """
+  ✨ Look up a single `AgencyInfo` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  agencyInfo(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: AgencyInfo_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: AgencyInfo_FirstRow
+  ): AgencyInfo @fdc_generated(from: "AgencyInfo", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `PageSection` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  pageSection(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: PageSection_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: PageSection_FirstRow
+  ): PageSection @fdc_generated(from: "PageSection", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Service` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  service(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Service_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Service_FirstRow
+  ): Service @fdc_generated(from: "Service", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `TeamMember` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  teamMember(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: TeamMember_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: TeamMember_FirstRow
+  ): TeamMember @fdc_generated(from: "TeamMember", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Testimonial` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  testimonial(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Testimonial_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Testimonial_FirstRow
+  ): Testimonial @fdc_generated(from: "Testimonial", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `VideoAsset` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  videoAsset(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: VideoAsset_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: VideoAsset_FirstRow
+  ): VideoAsset @fdc_generated(from: "VideoAsset", purpose: QUERY_SINGLE)
+  """
+  ✨ List `AgencyInfo` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  agencyInfos(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: AgencyInfo_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [AgencyInfo_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: AgencyInfo_Having
+  ): [AgencyInfo!]! @fdc_generated(from: "AgencyInfo", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `PageSection` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  pageSections(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: PageSection_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [PageSection_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: PageSection_Having
+  ): [PageSection!]! @fdc_generated(from: "PageSection", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Service` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  services(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Service_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Service_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Service_Having
+  ): [Service!]! @fdc_generated(from: "Service", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `TeamMember` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  teamMembers(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: TeamMember_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [TeamMember_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: TeamMember_Having
+  ): [TeamMember!]! @fdc_generated(from: "TeamMember", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Testimonial` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  testimonials(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Testimonial_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Testimonial_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Testimonial_Having
+  ): [Testimonial!]! @fdc_generated(from: "Testimonial", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `VideoAsset` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  videoAssets(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: VideoAsset_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [VideoAsset_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: VideoAsset_Having
+  ): [VideoAsset!]! @fdc_generated(from: "VideoAsset", purpose: QUERY_MULTIPLE)
+}
