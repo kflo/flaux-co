@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navbar } from '@components/navbar/Navbar'
 import { DropdownMenu } from '@components/dropdown-menu/DropdownMenu'
+import { Footer } from '@components/footer/Footer'
 import { Home } from '@pages/home/Home'
 import { Solutions } from '@pages/solutions/Solutions'
 import { Demo } from '@pages/demo/Demo'
@@ -39,6 +40,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
+        <Footer />
       </div>
     </Router>
   )
