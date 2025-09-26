@@ -98,6 +98,28 @@
           }
         }
       }
+    },
+    "flaux-co-react": {
+      "projectType": "application",
+      "root": "projects/flaux-co-react",
+      "sourceRoot": "projects/flaux-co-react/src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/flaux-co-react",
+            "index": "projects/flaux-co-react/index.html",
+            "main": "projects/flaux-co-react/src/main.tsx",
+            "tsConfig": "projects/flaux-co-react/tsconfig.app.json"
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 5174
+          }
+        }
+      }
     }
   }
 }
