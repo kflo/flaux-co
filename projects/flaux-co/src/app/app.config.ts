@@ -10,7 +10,7 @@ import { routes } from './app.routes';
 import { environment } from '../../environments/environment';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideBrowserGlobalErrorListeners(), provideZonelessChangeDetection(), provideRouter(routes)],
+	providers: [provideBrowserGlobalErrorListeners(), provideZonelessChangeDetection(), provideRouter(routes)],
 };
 
 // Your web app's Firebase configuration

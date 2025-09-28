@@ -1,21 +1,23 @@
 :host {
-  font-size: 1em;
-  position: relative;
-  font-family: Josefin Sans, sans-serif;
-  font-weight: bold;
+	font-size: 1em;
+	position: relative;
+	font-family: Josefin Sans, sans-serif;
+	font-weight: bold;
 }
 
 i {
-  font-weight: 400;
+	font-weight: 400;
 }
 
 .fnTxt {
+	font-family: 'Lequire', sans-serif;
+	font-weight: normal;
 }
 
 .parens {
-  font-family: "Roboto";
-  padding: 0 0.75vw;
-  font-size: 120%;
-  position: relative;
-  bottom: 2px;
+	font-family: "Roboto";
+	padding: 0 0.75vw;
+	font-size: 120%;
+	position: relative;
+	bottom: 2px;
 }
