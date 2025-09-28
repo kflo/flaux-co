@@ -1,0 +1,110 @@
+@use '../../variables' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem;
+  height: 6rem;
+  backdrop-filter: brightness(1) blur(10px) contrast(0.95);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.text-logo-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  font-family: 'Sen', sans-serif;
+  color: #fff;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+}
+
+.ux-text {
+  margin-left: -2rem;
+}
+
+.a-with-macron {
+  text-decoration: overline;
+  text-decoration-color: $highlight-color;
+  text-decoration-thickness: 0.10em;
+  text-decoration-skip-ink: none;
+  position: relative;
+  left: 0.1rem;
+  top: 0.3rem;
+}
+
+.logo-navbar {
+  width: 4rem;
+  height: auto;
+  margin-right: 0.75rem;
+  // filter: brightness(0.2) invert(1) saturate(0) opacity(0.5);
+  padding-bottom: 0.25rem;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-center a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-center a.active,
+.navbar-center a:hover {
+  color: $highlight-color
+}
+
+.navbar-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-trigger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 6rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  gap: 6px;
+  z-index: 1100;
+  padding: 2rem;
+}
+
+.dropdown-trigger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+@media (max-width: 900px) {
+  .navbar-center {
+    display: none;
+  }
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+}
