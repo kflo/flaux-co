@@ -36,7 +36,6 @@
     "@angular/forms": "^20.0.4",
     "@angular/platform-browser": "^20.0.4",
     "@angular/router": "^20.0.4",
-    "@dataconnect/generated": "file:src/dataconnect-generated",
     "firebase": "^11.10.0",
     "hls.js": "^1.6.12",
     "lottie-web": "^5.13.0",
