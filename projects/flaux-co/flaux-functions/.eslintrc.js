@@ -28,8 +28,14 @@ module.exports = {
 	],
 	rules: {
 		"quotes": ["error", "double"],
+		"require-jsdoc": "off", // Disable JSDoc requirement
+		"valid-jsdoc": "off", // Disable JSDoc validation
+		"no-explicit-any": "off", // Allow usage of 'any' type
+		"@typescript-eslint/no-explicit-any": "off", // Allow usage of 'any' type
 		"import/no-unresolved": 0,
 		"indent": ["error", "tab"],
 		"no-tabs": "off", // Allow tabs in this config file
+		"linebreak-style": "off", // Allow Windows CRLF line endings
+		"max-len": ["warn", {"code": 120}], // Increase line length to 120
 	},
 };
