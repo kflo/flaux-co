@@ -1,8 +1,8 @@
 /* -------------------------------- FIREBASE -------------------------------- */
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore";
+
 /* ----------------------------------- // ----------------------------------- */
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
@@ -18,4 +18,5 @@ export const appConfig: ApplicationConfig = {
 
 // Initialize Firebase
 const app = initializeApp(environment.firebaseConfig);
+const db = getFirestore(app);
 const analytics = getAnalytics(app);
