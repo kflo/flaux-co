@@ -2,8 +2,8 @@
 	"firestore": {
 		"database": "(default)",
 		"location": "nam5",
-		"rules": "firestore.rules",
-		"indexes": "firestore.indexes.json"
+		"rules": "firebase/firestore.rules",
+		"indexes": "firebase/firestore.indexes.json"
 	},
 	"functions": [
 		{
@@ -37,7 +37,7 @@
 		]
 	},
 	"storage": {
-		"rules": "storage.rules"
+		"rules": "firebase/storage.rules"
 	},
 	"emulators": {
 		"auth": {
@@ -67,7 +67,7 @@
 		"singleProjectMode": true
 	},
 	"remoteconfig": {
-		"template": "remoteconfig.template.json"
+		"template": "firebase/remoteconfig.template.json"
 	},
 	"extensions": {}
 }
