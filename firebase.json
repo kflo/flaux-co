@@ -23,7 +23,7 @@
 		}
 	],
 	"hosting": {
-		"public": "projects/flaux-co/public",
+		"public": "dist/flaux-co",
 		"ignore": [
 			"firebase.json",
 			"**/.*",
