@@ -1,12 +1,12 @@
 export const environment = {
-  production: true,
-  firebaseConfig: {
-    apiKey: 'AIzaSyD7kLGq-z76CAcmdd8FpLIJRk8ltVjbDCM',
-    authDomain: 'flaux-agency.firebaseapp.com',
-    projectId: 'flaux-agency',
-    storageBucket: 'flaux-agency.firebasestorage.app',
-    messagingSenderId: '112669345200',
-    appId: '1:112669345200:web:c724121aaf6fb0ebfd0275',
-    measurementId: 'G-Q95N0EQ5LY',
-  },
+	production: true,
+	firebaseConfig: {
+		apiKey: "AIzaSyAWn-ISIUCWGbRj9zmr2tFeEXQ8BTi3b8E",
+		authDomain: "flaux-site-prod.firebaseapp.com",
+		projectId: "flaux-site-prod",
+		storageBucket: "flaux-site-prod.firebasestorage.app",
+		messagingSenderId: "325889727607",
+		appId: "1:325889727607:web:3befe63920e3ce02977a72",
+		measurementId: "G-KXL8Y31FB4"
+	},
 };
