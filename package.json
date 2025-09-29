@@ -8,7 +8,7 @@
 		"build": "ng build flaux-co",
 		"watch": "ng build flaux-co --watch --configuration development",
 		"test": "ng test flaux-co",
-		"clean": "node -e \"['dist','.angular'].forEach(p=>{try{require('fs').rmSync(p,{recursive:true,force:true})}catch(e){}})\"",
+		"clean": "node scripts/clean.js",
 		"react:dev": "cd projects/flaux-co-react && npm run dev",
 		"react:build": "cd projects/flaux-co-react && npm run build",
 		"react:preview": "cd projects/flaux-co-react && npm run preview",

@@ -11,7 +11,7 @@ import {RippleDirective} from '../../app/directives/ripple.directive';
 	styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-	@Input() logo: string = 'assets/logo/svg/flaux.svg';
+	@Input() logo: string = '../../assets/logo/svg/flaux.svg';
 
 	constructor(private uxService: UxService) { }
 
