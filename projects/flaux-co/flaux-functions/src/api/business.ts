@@ -3,7 +3,7 @@
  */
 
 import {onRequest} from "firebase-functions/v2/https";
-import {createBusiness, getBusiness} from "../utils/firestore";
+import {createBusiness, fetchBusiness} from "../utils/firestore";
 
 /**
  * Create a new business
@@ -40,7 +40,7 @@ export const createBusinessEndpoint = onRequest({
 
 /**
  * Get business details
- * GET /getBusiness?id=businessId
+ * GET /getBusiness?id=<businessId>
  */
 export const getBusinessEndpoint = onRequest({
 	cors: true,
@@ -51,6 +51,7 @@ export const getBusinessEndpoint = onRequest({
 			return;
 		}
 
+		// Extract ID from query parameter: /getBusiness?id=123
 		const businessId = req.query.id as string;
 
 		if (!businessId) {
@@ -58,7 +59,7 @@ export const getBusinessEndpoint = onRequest({
 			return;
 		}
 
-		const business = await getBusiness(businessId);
+		const business = await fetchBusiness(businessId);
 
 		if (!business) {
 			res.status(404).json({error: "Business not found"});

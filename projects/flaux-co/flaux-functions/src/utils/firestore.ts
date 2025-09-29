@@ -25,7 +25,7 @@ export async function createBusiness(businessData: {
 }
 
 // Get business by ID
-export async function getBusiness(businessId: string) {
+export async function fetchBusiness(businessId: string) {
 	const doc = await db.collection("businesses").doc(businessId).get();
 
 	if (!doc.exists) {
@@ -36,7 +36,7 @@ export async function getBusiness(businessId: string) {
 }
 
 // Get business by Vendasta business ID
-export async function getBusinessByVendastaId(vendastaBusinessId: string) {
+export async function fetchBusinessByVendastaId(vendastaBusinessId: string) {
 	const snapshot = await db.collection("businesses")
 		.where("vendastaBusinessId", "==", vendastaBusinessId)
 		.limit(1)
@@ -73,7 +73,7 @@ export async function addBusinessProduct(businessId: string, productData: {
 
 
 // Get all products for a business
-export async function getBusinessProducts(businessId: string) {
+export async function fetchBusinessProducts(businessId: string) {
 	const snapshot = await db.collection("businessProducts")
 		.where("businessId", "==", businessId)
 		.where("status", "==", "active")
