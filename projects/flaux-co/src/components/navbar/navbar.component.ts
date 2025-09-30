@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {UxService} from '../../services/ux.service';
+import {UxService} from '@app/services/ux.service';
 import {RippleDirective} from '../../app/directives/ripple.directive';
 
 @Component({

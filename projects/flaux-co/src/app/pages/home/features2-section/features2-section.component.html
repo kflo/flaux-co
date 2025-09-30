@@ -1,32 +1,51 @@
 <flaux-section>
-  <div class="quote-carousel" role="region" aria-roledescription="carousel" [attr.aria-label]="'Key business & AI impact statistics'" tabindex="0" (mouseenter)="pause()" (mouseleave)="resume()">
-    <div class="slides">
-      <div *ngFor="let q of quotes; let i = index; trackBy: trackByIndex"
-           class="slide"
-           [class.active]="i === current"
-           [attr.aria-hidden]="i === current ? 'false' : 'true'"
-           [attr.data-index]="i"
-           role="group"
-           [attr.aria-roledescription]="'slide'"
-           [attr.aria-label]="'Slide ' + (i+1) + ' of ' + quotes.length">
-        <flaux-quote-highlight [quoteStart]="q.quoteStart"
-                                 [highlight]="q.highlight"
-                                 [quoteEnd]="q.quoteEnd"
-                                 [source]="q.source"></flaux-quote-highlight>
-      </div>
-    </div>
+	<div class="quote-carousel"
+		  role="region"
+		  aria-roledescription="carousel"
+		  [attr.aria-label]="'Key business & AI impact statistics'"
+		  tabindex="0"
+		  (mouseenter)="pause()"
+		  (mouseleave)="resume()">
+		<div class="slides">
+			@for (q of quotes; let i = $index; track $index) {
+			<div class="slide"
+				  [class.active]="i === current"
+				  [attr.aria-hidden]="i === current ? 'false' : 'true'"
+				  [attr.data-index]="i"
+				  role="group"
+				  [attr.aria-roledescription]="'slide'"
+				  [attr.aria-label]="'Slide ' + (i+1) + ' of ' + quotes.length">
+				<flaux-quote-highlight [quoteStart]="q.quoteStart"
+											  [highlight]="q.highlight"
+											  [quoteEnd]="q.quoteEnd"
+											  [source]="q.source"></flaux-quote-highlight>
+			</div>
+			}
+		</div>
 
-    <button type="button" class="nav prev" (click)="prev()" aria-label="Previous quote">‹</button>
-    <button type="button" class="nav next" (click)="next()" aria-label="Next quote">›</button>
+		<button type="button"
+				  class="nav prev"
+				  (click)="prev()"
+				  aria-label="Previous quote">‹</button>
+		<button type="button"
+				  class="nav next"
+				  (click)="next()"
+				  aria-label="Next quote">›</button>
 
-    <div class="indicators" role="tablist" aria-label="Quote navigation">
-      <button *ngFor="let _ of quotes; let i = index" type="button"
-              class="indicator" [class.active]="i===current"
-              role="tab"
-              [attr.aria-selected]="i===current" [attr.aria-controls]="'slide-' + i"
-              (click)="goTo(i)">
-        <span class="visually-hidden">Go to slide {{i+1}}</span>
-      </button>
-    </div>
-  </div>
+		<div class="indicators"
+			  role="tablist"
+			  aria-label="Quote navigation">
+			@for (_ of quotes; let i = $index; track $index) {
+			<button type="button"
+					  class="indicator"
+					  [class.active]="i===current"
+					  role="tab"
+					  [attr.aria-selected]="i===current"
+					  [attr.aria-controls]="'slide-' + i"
+					  (click)="goTo(i)">
+				<span class="visually-hidden">Go to slide {{i+1}}</span>
+			</button>
+			}
+		</div>
+	</div>
 </flaux-section>

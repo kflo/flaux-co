@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { UxService } from '../../services/ux.service';
+import { UxService } from '@app/services/ux.service';
 
 @Component({
   selector: 'flaux-dropdown-menu',
