@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import {NavbarComponent} from '@components/navbar/navbar.component';
-import {DropdownMenuComponent} from '@components/dropdown-menu/dropdown-menu.component';
+import {NavMenuComponent} from '@components/nav-menu/nav-menu.component';
 import {RouterModule} from '@angular/router';
 import {FooterComponent} from '@components/footer/footer.component';
 
 @Component({
 	selector: 'app-root',
-	imports: [NavbarComponent, DropdownMenuComponent, FooterComponent, RouterModule],
+	imports: [NavbarComponent, NavMenuComponent, FooterComponent, RouterModule],
 	templateUrl: './app.html',
 	styleUrl: './app.scss',
 })

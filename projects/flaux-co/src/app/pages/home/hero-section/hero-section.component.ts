@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { FlauxFnComponent } from '@app/shared/fn/fn.component';
-import {HlsComponent} from '@components/hls/hls.component';
+import {HlsComponent} from '@app/shared/hls/hls.component';
 
 @Component({
 	selector: 'hero-section',
