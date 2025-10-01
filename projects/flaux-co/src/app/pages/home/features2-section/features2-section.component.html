@@ -18,7 +18,8 @@
 				<flaux-quote-highlight [quoteStart]="q.quoteStart"
 											  [highlight]="q.highlight"
 											  [quoteEnd]="q.quoteEnd"
-											  [source]="q.source"></flaux-quote-highlight>
+											  [isFlaux]="q.source === 'Flaux Research'"
+											  [source]="q.source !== 'Flaux Research' ? q.source : ''"></flaux-quote-highlight>
 			</div>
 			}
 		</div>

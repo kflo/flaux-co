@@ -2,8 +2,8 @@
 	background: #0a0a0a;
 	color: #fff;
 	padding-block: 1.5rem;
-	padding-inline: 2rem;
-	max-width: 500px;
+	padding-inline: 1.5rem;
+	max-width: 700px;
 	font-family: 'Raleway', Arial, sans-serif;
 	box-shadow: 0.66rem 0.66rem .1rem rgba(0, 0, 0, 0.9);
 }
@@ -16,6 +16,14 @@
 
 .highlight {
 	background: #ff2d6f;
+	color: #fff;
+	padding: 0 0.3em 0.1em;
+	// border-radius: 0.3em;
+	font-weight: bold;
+}
+
+.highlight-flaux {
+	background: #2FB1E5;
 	color: #fff;
 	padding: 0 0.3em 0.1em;
 	// border-radius: 0.3em;

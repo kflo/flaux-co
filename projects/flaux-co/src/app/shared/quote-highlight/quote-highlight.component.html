@@ -1,12 +1,12 @@
 <div class="quote-highlight-container">
-  <div class="quote-text">
-    {{ quoteStart }}
-    <span class="highlight">{{ highlight }}</span>
-    {{ quoteEnd }}
-  </div>
-  @if (source) {
-  <div class="quote-source">
-    Source: {{ source }}
-  </div>
-  }
+	<div class="quote-text">
+		{{ quoteStart }}
+		<span [ngClass]="isFlaux ? 'highlight-flaux' : 'highlight'">{{ highlight }}</span>
+		{{ quoteEnd }}
+	</div>
+	@if (source) {
+	<div class="quote-source">
+		Source: {{ source }}
+	</div>
+	}
 </div>

@@ -31,7 +31,7 @@ export const QUOTES: ReadonlyArray<QuoteItem> = [
 		quoteStart: 'Clients using our SMS Business App see',
 		highlight: '3× more engagement',
 		quoteEnd: 'compared to those without',
-		source: ''
+		source: 'Flaux Research'
 	},
 	{
 		quoteStart: '23% of small businesses have adopted AI -- ',
