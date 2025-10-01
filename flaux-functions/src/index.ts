@@ -20,3 +20,6 @@ export {
 	createBusinessEndpoint as createBusiness,
 	getBusinessEndpoint as getBusiness,
 } from "./api/business";
+
+// R2 example functions
+export {generateR2UploadUrl, generateR2DownloadUrl} from "./storage/r2-example";
