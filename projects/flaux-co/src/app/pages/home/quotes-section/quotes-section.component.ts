@@ -5,15 +5,25 @@ import {FlauxQuoteCarouselComponent} from '@components/quote-carousel/quote-caro
 import {QUOTES, QuoteItem} from './quotes.data';
 
 @Component({
-	selector: 'features2-section',
+	selector: 'quotes-section',
 	standalone: true,
 	imports: [FlauxSectionComponent, FlauxQuoteHighlightComponent, FlauxQuoteCarouselComponent],
-	templateUrl: './features2-section.component.html',
-	styleUrl: './features2-section.component.scss',
+	templateUrl: './quotes-section.component.html',
+	styleUrl: './quotes-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Features2SectionComponent {
+export class QuotesSectionComponent {
+	next() {
+		throw new Error('Method not implemented.');
+	}
+	goTo(arg0: number) {
+		throw new Error('Method not implemented.');
+	}
+	prev() {
+		throw new Error('Method not implemented.');
+	}
 	readonly quotes: ReadonlyArray<QuoteItem> = QUOTES;
+	current: any;
 }
 
 // QuoteItem interface moved to quotes.data.ts

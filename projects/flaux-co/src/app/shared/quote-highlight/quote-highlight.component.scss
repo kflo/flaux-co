@@ -1,5 +1,6 @@
 .quote-highlight-container {
-	background: #0a0a0a;
+	background: rgba(10, 10, 10, 0.7);
+	backdrop-filter: blur(8px) contrast(0.9);
 	color: #fff;
 	padding-block: 1.5rem;
 	padding-inline: 1.5rem;

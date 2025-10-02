@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { CtaSectionComponent } from './cta-section/cta-section.component';
-import { Features2SectionComponent } from './features2-section/features2-section.component';
 import {AllInOneSectionComponent} from './all-in-one-section/all-in-one-section.component';
+import {QuotesSectionComponent} from './quotes-section/quotes-section.component';
 
 @Component({
 	selector: 'flaux-home',
@@ -12,7 +12,7 @@ import {AllInOneSectionComponent} from './all-in-one-section/all-in-one-section.
 	imports: [
 		HeroSectionComponent,
 		AllInOneSectionComponent,
-		Features2SectionComponent,
+		QuotesSectionComponent,
 		CtaSectionComponent,
 	],
 })
