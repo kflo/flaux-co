@@ -3,7 +3,7 @@
  */
 
 import {onRequest} from "firebase-functions/v2/https";
-import {createBusiness, fetchBusiness} from "../utils/firestore";
+import {createBusiness, fetchBusiness} from "../models/business";
 
 /**
  * Create a new business
@@ -18,17 +18,17 @@ export const createBusinessEndpoint = onRequest({
 			return;
 		}
 
-		const {name, domain, subscriptionTier} = req.body;
+		const {name, domain, ownerId} = req.body;
 
-		if (!name) {
-			res.status(400).json({error: "Business name is required"});
+		if (!name || !ownerId) {
+			res.status(400).json({error: "Business name and owner ID are required"});
 			return;
 		}
 
 		const business = await createBusiness({
 			name,
 			domain,
-			subscriptionTier,
+			ownerId,
 		});
 
 		res.status(201).json(business);
