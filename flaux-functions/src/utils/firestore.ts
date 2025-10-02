@@ -2,9 +2,7 @@
  * Firestore database helper functions
  */
 
-import {getFirestore} from "firebase-admin/firestore";
-
-const db = getFirestore();
+import {db} from "./firebase";
 
 // Create or update a business document
 export async function createBusiness(businessData: {

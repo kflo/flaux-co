@@ -3,10 +3,8 @@
  */
 
 import {Request, Response, NextFunction} from "express";
-import {getFirestore} from "firebase-admin/firestore";
+import {db} from "../utils/firebase";
 import {verifyFirebaseToken} from "./firebase-auth";
-
-const db = getFirestore();
 
 /**
  * Middleware to require Vendasta SSO authentication

@@ -3,11 +3,7 @@
  * For users of custom Flaux products
  */
 
-import {getAuth} from "firebase-admin/auth";
-import {getFirestore} from "firebase-admin/firestore";
-
-const auth = getAuth();
-const db = getFirestore();
+import {auth, db} from "../utils/firebase";
 
 /**
  * Create a custom Firebase user for Flaux products
