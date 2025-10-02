@@ -37,5 +37,11 @@ module.exports = {
 		"no-tabs": "off", // Allow tabs in this config file
 		"linebreak-style": "off", // Allow Windows CRLF line endings
 		"max-len": ["warn", {"code": 120}], // Increase line length to 120
+		"object-curly-newline": ["error", {
+			"ImportDeclaration": "never",
+		}],
+		"object-property-newline": ["error", {
+			"allowAllPropertiesOnSameLine": true,
+		}],
 	},
 };

@@ -3,11 +3,6 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 import {defineConfig} from "eslint/config";
 
-/*
- * NOTE: We disable the newline object rules for this config file itself so ESLint-as-formatter
- * doesn't produce the staggered / jagged formatting you were seeing (it was inserting newlines
- * without handling indentation). Your project code still follows the style rules.
- */
 /* eslint object-property-newline: off, object-curly-newline: off */
 
 export default defineConfig([

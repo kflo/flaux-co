@@ -1,7 +1,7 @@
 import {onRequest} from "firebase-functions/v2/https";
 import {getFirestore} from "firebase-admin/firestore";
 import {initializeApp} from "firebase-admin/app";
-import {config} from "../utils/config";
+import {VENDASTA_CLIENT_ID, VENDASTA_CLIENT_SECRET, VENDASTA_REDIRECT_URI, APP_BASE_URL} from "../utils/config";
 
 initializeApp();
 const db = getFirestore();
@@ -14,8 +14,8 @@ export const vendastaLogin = onRequest({
 }, (req, res) => {
 	const state = generateState();
 	const authUrl = "https://sso.vendasta.com/oauth/authorize?" +
-		`client_id=${config.vendasta.clientId}&` +
-		`redirect_uri=${config.vendasta.redirectUri}&` +
+		`client_id=${VENDASTA_CLIENT_ID.value()}&` +
+		`redirect_uri=${VENDASTA_REDIRECT_URI.value()}&` +
 		"response_type=code&" +
 		"scope=user:read business:read&" +
 		`state=${state}`;
@@ -28,6 +28,7 @@ export const vendastaLogin = onRequest({
 export const vendastaCallback = onRequest({
 	cors: true,
 	region: "us-central1",
+	secrets: [VENDASTA_CLIENT_SECRET],
 }, async (req, res) => {
 	try {
 		const {code, state} = req.query;
@@ -50,7 +51,7 @@ export const vendastaCallback = onRequest({
 		const sessionToken = generateSessionToken(vendastaUser.id);
 
 		// Redirect to your app
-		res.redirect(`${config.app.baseUrl}/dashboard?token=${sessionToken}`);
+		res.redirect(`${APP_BASE_URL.value()}/dashboard?token=${sessionToken}`);
 		return;
 	} catch (error) {
 		console.error("Vendasta callback error:", error);
@@ -80,10 +81,10 @@ async function exchangeCodeForTokens(code: string) {
 		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify({
 			grant_type: "authorization_code",
-			client_id: config.vendasta.clientId,
-			client_secret: config.vendasta.clientSecret,
+			client_id: VENDASTA_CLIENT_ID.value(),
+			client_secret: VENDASTA_CLIENT_SECRET.value(),
 			code: code,
-			redirect_uri: config.vendasta.redirectUri,
+			redirect_uri: VENDASTA_REDIRECT_URI.value(),
 		}),
 	});
 
