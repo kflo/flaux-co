@@ -1,0 +1,46 @@
+<div class="quote-carousel"
+	  role="region"
+	  aria-roledescription="carousel"
+	  [attr.aria-label]="ariaLabel"
+	  tabindex="0"
+	  (mouseenter)="pause()"
+	  (mouseleave)="resume()">
+	<div class="slides">
+		@for (item of items; let i = $index; track trackByIndex(i)) {
+		<div class="slide"
+			  [class.active]="i === current"
+			  [attr.aria-hidden]="i === current ? 'false' : 'true'"
+			  [attr.data-index]="i"
+			  role="group"
+			  [attr.aria-roledescription]="slideAriaDescription"
+			  [attr.aria-label]="'Slide ' + (i+1) + ' of ' + items.length">
+			<ng-container *ngTemplateOutlet="slideTemplate; context: { $implicit: item, index: i }"></ng-container>
+		</div>
+		}
+	</div>
+
+	<button type="button"
+			  class="nav prev"
+			  (click)="prev()"
+			  aria-label="Previous slide">‹</button>
+	<button type="button"
+			  class="nav next"
+			  (click)="next()"
+			  aria-label="Next slide">›</button>
+
+	<div class="indicators"
+		  role="tablist"
+		  aria-label="Slide navigation">
+		@for (_ of items; let i = $index; track trackByIndex(i)) {
+		<button type="button"
+				  class="indicator"
+				  [class.active]="i===current"
+				  role="tab"
+				  [attr.aria-selected]="i===current"
+				  [attr.aria-controls]="'slide-' + i"
+				  (click)="goTo(i)">
+			<span class="visually-hidden">Go to slide {{i+1}}</span>
+		</button>
+		}
+	</div>
+</div>
