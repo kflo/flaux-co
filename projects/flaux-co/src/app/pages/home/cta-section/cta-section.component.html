@@ -1,26 +1,25 @@
 <flaux-section class="cta-section">
-  <div class="cta-content-left">
-    <div>Ready to Transform?</div>
-    <div class="cta-btn-wrapper">
-      <a routerLink="/contact" class="cta-btn">
-        <!-- <i>ƒlaux</i>
-        <span class="parens">(</span>
-        <span class="fnTxt">YOUR BUSINESS</span>
-        <span class="parens">)</span> -->
-        <flaux-fn italicText="ƒlaux" fnText="YOUR BUSINESS"></flaux-fn>
-      </a>
-    </div>
-    <div [style.font-size]="'80%'">You're one <strong>AI Audit</strong> away <br> from <em>growing</em> your business.
-    </div>
-    <div class="img-wrapper">
-      <img src="../../../../assets/img/arrow1.png" width="100%" height="100%" alt="arrow pointing up">
-    </div>
-    <!-- <br>
+	<div class="cta-content-left">
+		<div>Ready to Transform?</div>
+		<flaux-btn routerLink="/contact">
+			<flaux-fn italicText="ƒlaux"
+						 fnText="YOUR BUSINESS"></flaux-fn>
+		</flaux-btn>
+		<div [style.font-size]="'80%'">You're one <strong>AI Audit</strong> away <br> from <em>growing</em> your business.
+		</div>
+		<div class="img-wrapper">
+			<img src="../../../../assets/img/arrow1.png"
+				  width="100%"
+				  height="100%"
+				  alt="arrow pointing up">
+		</div>
+		<!-- <br>
         <div>Contact us today!</div> -->
-  </div>
-  <div class="cta-content-right">
-    <div class="lottie-wrapper">
-      <div #lottieContainer id="lottie-container"></div>
-    </div>
-  </div>
+	</div>
+	<div class="cta-content-right">
+		<flaux-lottie [name]="'list-scroll-wide'"
+						  [maskFade]="true"
+						  mixBlendMode="plus-lighter">
+		</flaux-lottie>
+	</div>
 </flaux-section>

@@ -1,5 +1,6 @@
 import {onRequest} from "firebase-functions/v2/https";
 import {createPresignedUploadUrl, createPresignedDownloadUrl} from "../utils/r2";
+import {R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY} from "../configs/r2";
 
 // Simple auth placeholder; replace with real auth/session validation
 function validateApiKey(req: any): boolean {
@@ -8,7 +9,10 @@ function validateApiKey(req: any): boolean {
 	return !!expected && headerKey === expected;
 }
 
-export const generateR2UploadUrl = onRequest({cors: true}, async (req, res) => {
+export const generateR2UploadUrl = onRequest({
+	cors: true,
+	secrets: [R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY],
+}, async (req, res) => {
 	if (req.method !== "POST") {
 		res.status(405).json({error: "Method not allowed"});
 		return;
@@ -32,7 +36,10 @@ export const generateR2UploadUrl = onRequest({cors: true}, async (req, res) => {
 	}
 });
 
-export const generateR2DownloadUrl = onRequest({cors: true}, async (req, res) => {
+export const generateR2DownloadUrl = onRequest({
+	cors: true,
+	secrets: [R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY],
+}, async (req, res) => {
 	if (req.method !== "GET") {
 		res.status(405).json({error: "Method not allowed"});
 		return;

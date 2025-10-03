@@ -38,7 +38,10 @@ module.exports = {
 		"linebreak-style": "off", // Allow Windows CRLF line endings
 		"max-len": ["warn", {"code": 120}], // Increase line length to 120
 		"object-curly-newline": ["error", {
-			"ImportDeclaration": "never",
+			"ImportDeclaration": {
+				"multiline": true,
+				"minProperties": 2
+			},
 		}],
 		"object-property-newline": ["error", {
 			"allowAllPropertiesOnSameLine": true,

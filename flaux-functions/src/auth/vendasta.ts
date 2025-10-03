@@ -1,13 +1,11 @@
 import {onRequest} from "firebase-functions/v2/https";
-import {getFirestore} from "firebase-admin/firestore";
-import {initializeApp} from "firebase-admin/app";
-import {VENDASTA_CLIENT_ID, VENDASTA_CLIENT_SECRET, VENDASTA_REDIRECT_URI, APP_BASE_URL} from "../utils/config";
+import {db} from "../utils/firebase";
+import {VENDASTA_CLIENT_ID, VENDASTA_CLIENT_SECRET, VENDASTA_REDIRECT_URI, APP_BASE_URL} from "../configs/vendasta";
 
-initializeApp();
-const db = getFirestore();
-
-// Initiates Vendasta OAuth flow
-// URL: /vendastaLogin
+/**
+ * Initiates Vendasta OAuth flow
+ * @endpoint /vendastaLogin
+ */
 export const vendastaLogin = onRequest({
 	cors: true,
 	region: "us-central1",
@@ -23,15 +21,17 @@ export const vendastaLogin = onRequest({
 	res.redirect(authUrl);
 });
 
-// Handles Vendasta OAuth callback
-// URL: /vendastaCallback
+/**
+ * Handles Vendasta OAuth callback
+ * @endpoint /vendastaCallback
+ */
 export const vendastaCallback = onRequest({
 	cors: true,
 	region: "us-central1",
 	secrets: [VENDASTA_CLIENT_SECRET],
 }, async (req, res) => {
 	try {
-		const {code, state} = req.query;
+		const {code} = req.query;
 
 		if (!code) {
 			res.status(400).json({error: "Missing authorization code"});
@@ -60,8 +60,10 @@ export const vendastaCallback = onRequest({
 	}
 });
 
-// Logout from Vendasta session
-// URL: /vendastaLogout
+/**
+ * Logout from Vendasta session
+ * @endpoint /vendastaLogout
+ */
 export const vendastaLogout = onRequest({
 	cors: true,
 }, async (req, res) => {
@@ -74,7 +76,11 @@ export const vendastaLogout = onRequest({
 	res.redirect("https://sso.vendasta.com/logout");
 });
 
-// Exchange OAuth code for access tokens
+/**
+ * Exchange OAuth code for access tokens
+ * @param code - Authorization code from OAuth callback
+ * @returns Promise with token response
+ */
 async function exchangeCodeForTokens(code: string) {
 	const response = await fetch("https://sso.vendasta.com/oauth/token", {
 		method: "POST",
@@ -95,7 +101,11 @@ async function exchangeCodeForTokens(code: string) {
 	return await response.json();
 }
 
-// Get user info from Vendasta API
+/**
+ * Get user info from Vendasta API
+ * @param accessToken - Access token for Vendasta API
+ * @returns Promise with user data
+ */
 async function getVendastaUser(accessToken: string) {
 	const response = await fetch("https://api.vendasta.com/user", {
 		headers: {"Authorization": `Bearer ${accessToken}`},
@@ -108,7 +118,11 @@ async function getVendastaUser(accessToken: string) {
 	return await response.json();
 }
 
-// Create or update user document in Firestore
+/**
+ * Create or update user document in Firestore
+ * @param vendastaUser - User data from Vendasta API
+ * @param tokens - OAuth tokens
+ */
 async function createOrUpdateUser(vendastaUser: any, tokens: any) {
 	const userDoc = {
 		vendastaUserId: vendastaUser.id,
@@ -139,23 +153,33 @@ async function createOrUpdateUser(vendastaUser: any, tokens: any) {
 	}
 }
 
-// Generate a secure session token
+/**
+ * Generate a secure session token
+ * @param userId - User ID for the session
+ * @returns Base64 encoded session token
+ * @todo Replace with proper JWT implementation in production
+ */
 function generateSessionToken(userId: string): string {
-	// Simple implementation - in production, use proper JWT or similar
 	const timestamp = Date.now();
 	const random = Math.random().toString(36).substring(2);
 	return Buffer.from(`${userId}:${timestamp}:${random}`).toString("base64");
 }
 
-// Generate a secure state parameter for OAuth
+/**
+ * Generate a secure state parameter for OAuth
+ * @returns Random state string for CSRF protection
+ */
 function generateState(): string {
 	return Math.random().toString(36).substring(2) +
 		Math.random().toString(36).substring(2);
 }
 
-// Invalidate a session token
+/**
+ * Invalidate a session token
+ * @param sessionToken - Session token to invalidate
+ * @todo Implementation: add token to blacklist or remove from active sessions
+ */
 async function invalidateSession(sessionToken: string) {
-	// Implementation: add token to blacklist or remove from active sessions
 	// For now, just log the logout
 	console.log(`Session invalidated: ${sessionToken}`);
 }

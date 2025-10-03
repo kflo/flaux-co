@@ -9,4 +9,5 @@ export const environment = {
 		appId: "1:710730588618:web:43d9698389f21b1a91af33",
 		measurementId: "G-SKKXK0E1EK"
 	},
+	r2BucketUrl: 'https://cdn.flaux.co/',
 };
