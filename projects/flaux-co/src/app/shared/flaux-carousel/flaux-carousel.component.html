@@ -1,0 +1,21 @@
+<div class="carousel-wrapper">
+	@for (element of itemElements; track element.id) {
+	<div class="carousel-item"
+		  [ngStyle]="getItemStyle(element)">
+		{{ element.item }}
+	</div>
+	}
+</div>
+
+@if (showControls) {
+<div class="carousel-controls">
+	<button matMiniFab
+			  (click)="turnRight()">
+		<mat-icon>chevron_left</mat-icon>
+	</button>
+	<button matMiniFab
+			  (click)="turnLeft()">
+		<mat-icon>chevron_right</mat-icon>
+	</button>
+</div>
+}
