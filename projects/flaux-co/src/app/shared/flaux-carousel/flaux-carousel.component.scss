@@ -13,14 +13,15 @@
 
 .carousel-wrapper {
 	position: absolute;
-	top: calc(90%);
-	left: calc(50% - 50px);
+	top: calc(70%);
+	left: calc(50% - 9em);
+	/* 3em = half of 6em width */
 }
 
 .carousel-item {
 	position: absolute;
-	width: 100px;
-	height: 100px;
+	width: 6em;
+	height: 6em;
 	border-radius: 50%;
 	border: 1px solid #4b134f;
 	background: rgba(255, 255, 255, 0.1);
@@ -39,6 +40,10 @@
 		border: 2px solid #fff;
 		background: rgba(255, 255, 255, 0.2);
 		box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+	}
+
+	img {
+		width: 100%;
 	}
 }
 
@@ -63,7 +68,7 @@
 
 .chevron-button {
 	position: relative;
-	width: 60px;
+	width: 3.75em;
 	/* height and border-radius are now set dynamically via [ngStyle] */
 	border: none;
 	background: rgba(255, 255, 255, 0.1);
@@ -120,14 +125,16 @@
 /* Responsive design */
 @media screen and (max-width: 768px) {
 	.carousel-item {
-		width: 60px;
-		height: 60px;
+		width: 4em;
+		height: 4em;
 		font-size: 1.5em;
 	}
 
 	.carousel-wrapper {
-		top: calc(50% - 30px);
-		left: calc(50% - 30px);
+		top: calc(50% - 2em);
+		/* 2em = half of 4em height */
+		left: calc(50% - 2em);
+		/* 2em = half of 4em width */
 	}
 
 	.carousel-controls {
@@ -136,10 +143,10 @@
 	}
 
 	.chevron-button {
-		width: 40px;
-		height: 120px;
-		/* Half the mobile carousel height */
-		border-radius: 20px;
+		width: 2.5em;
+		height: 7.5em;
+		/* Relative to font-size */
+		border-radius: 1.25em;
 
 		mat-icon {
 			font-size: 24px;
@@ -148,11 +155,11 @@
 		}
 
 		&.chevron-left {
-			border-radius: 20px 10px 10px 20px;
+			border-radius: 1.25em 0.625em 0.625em 1.25em;
 		}
 
 		&.chevron-right {
-			border-radius: 10px 20px 20px 10px;
+			border-radius: 0.625em 1.25em 1.25em 0.625em;
 		}
 	}
 }
