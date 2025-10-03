@@ -1,0 +1,60 @@
+/* text-cycler.component.scss */
+
+.text-container {
+	height: 120px;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+}
+
+.sliding-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	position: relative;
+	width: 100%;
+	/* Start positioned to show the second item as "current" */
+	transform: translateY(-60px);
+}
+
+.text-item {
+	height: 60px;
+	display: flex;
+	align-items: center;
+	margin: 0;
+	white-space: nowrap;
+	font-size: 2rem;
+	color: #fff;
+	font-weight: 500;
+
+	/* Apply blur and opacity based on position relative to center */
+	&:nth-child(1) {
+		opacity: 0.3;
+		filter: blur(2px);
+		font-size: 1.5rem;
+		font-weight: 300;
+	}
+
+	&:nth-child(2) {
+		opacity: 1;
+		filter: none;
+		font-size: 2rem;
+		font-weight: 500;
+	}
+
+	&:nth-child(3) {
+		opacity: 0.5;
+		filter: blur(1px);
+		font-size: 1.5rem;
+		font-weight: 300;
+	}
+
+	&:nth-child(n+4) {
+		opacity: 0.2;
+		filter: blur(2px);
+		font-size: 1.3rem;
+		font-weight: 300;
+	}
+}

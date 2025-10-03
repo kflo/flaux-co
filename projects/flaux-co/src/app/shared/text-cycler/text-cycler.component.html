@@ -1,0 +1,8 @@
+<div class="text-container">
+	<div class="sliding-container"
+		  [@slideContainer]="animationState">
+		@for (item of textItems; track item) {
+		<div class="text-item">{{ item }}</div>
+		}
+	</div>
+</div>

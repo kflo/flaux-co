@@ -4,6 +4,7 @@ import { CtaSectionComponent } from './cta-section/cta-section.component';
 import {AllInOneSectionComponent} from './all-in-one-section/all-in-one-section.component';
 import {QuotesSectionComponent} from './quotes-section/quotes-section.component';
 import {TrunksSectionComponent} from './trunks-section/trunks-section.component';
+import {MktQSectionComponent} from './mkt-q-section/mkt-q-section.component';
 
 @Component({
 	selector: 'flaux-home',
@@ -15,7 +16,8 @@ import {TrunksSectionComponent} from './trunks-section/trunks-section.component'
 		AllInOneSectionComponent,
 		QuotesSectionComponent,
 		CtaSectionComponent,
-		TrunksSectionComponent
+		TrunksSectionComponent,
+		MktQSectionComponent
 	],
 })
 export class FlauxHomePage {}
