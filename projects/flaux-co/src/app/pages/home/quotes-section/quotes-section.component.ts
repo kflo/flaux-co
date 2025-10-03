@@ -3,11 +3,12 @@ import {FlauxSectionComponent} from "@app/shared/section/section.component";
 import {FlauxQuoteHighlightComponent} from '@app/shared/quote-highlight/quote-highlight.component';
 import {FlauxQuoteCarouselComponent} from '@components/quote-carousel/quote-carousel.component';
 import {QUOTES, QuoteItem} from './quotes.data';
+import {FlauxBgVideoComponent} from '@app/shared/flaux-bg-video/flaux-bg-video.component';
 
 @Component({
 	selector: 'quotes-section',
 	standalone: true,
-	imports: [FlauxSectionComponent, FlauxQuoteHighlightComponent, FlauxQuoteCarouselComponent],
+	imports: [FlauxSectionComponent, FlauxQuoteHighlightComponent, FlauxQuoteCarouselComponent, FlauxBgVideoComponent],
 	templateUrl: './quotes-section.component.html',
 	styleUrl: './quotes-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
