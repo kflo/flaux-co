@@ -1,13 +1,20 @@
-<flaux-section class="feature-section">
-  <video id="bgVideo" autoplay muted loop playsinline preload="auto">
-    <source src="../../../../assets/vid/spiral2.mp4" type="video/mp4">
-  </video>
-  <div class="feature-content">
-    <h3>Your one-two digital punch</h3>
-    <p>Everything your business needs to succeed in the digital age.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consec tetur adip iscing elit quisque faucibus ex. Adipi scing elit quisque faucibus ex sapien vitae pelle ntesque.</p>
-    <!-- <div class="feature-title">
+<flaux-section class="spiral-container"
+					[inlinePadding]="'0'">
+	<flaux-bg-video [name]="'spiral2'"
+						 [vignette]="true"
+						 [vignettePosition]="'33%'"></flaux-bg-video>
+	<div class="feature-content">
+		<h3>Your one-two digital punch</h3>
+		<p>Everything your business needs to succeed in the digital age.</p>
+		<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consec tetur adip iscing elit quisque faucibus ex. Adipi scing elit quisque faucibus ex sapien vitae pelle ntesque.</p>
+		<!-- <div class="feature-title">
       <flaux-fn italicText="flaux" fnText="TIME"></flaux-fn>
     </div> -->
-  </div>
+	</div>
 </flaux-section>
+<div class="lottie-container">
+	<flaux-lottie [name]="'list-scroll-wide'"
+					  [maskFade]="true"
+					  mixBlendMode="plus-lighter">
+	</flaux-lottie>
+</div>
