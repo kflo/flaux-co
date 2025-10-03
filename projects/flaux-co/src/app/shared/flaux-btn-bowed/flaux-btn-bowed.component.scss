@@ -1,0 +1,50 @@
+.flx-arrow-button-host {
+	display: inline-block;
+	line-height: 0;
+}
+
+.flx-arrow-svg-btn {
+	border: 0;
+	padding: 0;
+	background: transparent;
+	cursor: pointer;
+	line-height: 0;
+	transition: transform 180ms ease, filter 150ms ease;
+
+	&:disabled {
+		cursor: default;
+		opacity: 0.5;
+	}
+
+	svg {
+		display: block;
+	}
+
+	.shape {
+		transition: fill 150ms ease;
+		pointer-events: visiblePainted; // only the painted area is clickable
+	}
+
+	&:hover:not(:disabled) {
+		.shape {
+			// fill: var(--bgHover, rgba(155, 155, 155, 0.3));
+		}
+
+		transform: translateX(var(--hoverShift, 4px)) scale(1.03);
+		filter: drop-shadow(0 0 0.65rem rgba(0, 0, 0, 0.25)) brightness(1) drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.8));
+		// box-shadow: 1px 1px 1.5em #ffffffa8;
+		// border: 1px solid rgba(255, 255, 255, 0.66);
+		// backdrop-filter: blur(6px) brightness(1.5);
+		transition: all 0.2s ease-in-out;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		transform: scale(0.95);
+		// backdrop-filter: blur(9px) brightness(1.8);
+		transition: all 0.1s ease-in-out;
+	}
+}

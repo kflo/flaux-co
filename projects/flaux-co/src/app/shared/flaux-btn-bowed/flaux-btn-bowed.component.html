@@ -1,0 +1,14 @@
+<button type="button"
+		  class="flx-arrow-svg-btn"
+		  [disabled]="disabled"
+		  (click)="onClick($event)"
+		  aria-label="Arrow">
+	<svg [attr.width]="width"
+		  [attr.height]="height"
+		  viewBox="0 0 100 100"
+		  focusable="false">
+		<path class="shape"
+				[attr.d]="d"
+				[attr.fill]="color" />
+	</svg>
+</button>

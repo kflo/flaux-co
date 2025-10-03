@@ -2,20 +2,38 @@ import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatRippleModule } from '@angular/material/core';
+import { FlauxBtnBowedComponent } from "../flaux-btn-bowed/flaux-btn-bowed.component";
+
+export interface CarouselItem {
+	id: number;
+	text?: string | null;
+	imageUrl?: string;
+	heading: string;
+	subheading?: string;
+	linkUrl?: string | null;
+}
 
 @Component({
 	standalone: true,
 	selector: 'flaux-carousel',
 	templateUrl: './flaux-carousel.component.html',
-	imports: [NgStyle, MatButtonModule, MatIconModule],
+	imports: [NgStyle, MatButtonModule, MatIconModule, MatRippleModule, FlauxBtnBowedComponent, FlauxBtnBowedComponent],
 	styleUrls: ['./flaux-carousel.component.scss']
 })
 export class FlauxCarouselComponent implements OnInit {
-	@Input() items: any[] = ['1', '2', '3', '4', '5'];
-	@Input() radius: number = 160;
+	@Input() items: CarouselItem[] = [];
+	@Input() radiusX: number = 240; // horizontal radius (wider)
+	@Input() radiusY: number = 120; // vertical radius (narrower)
 	@Input() showControls: boolean = true;
 
-	public itemElements: { item: any, id: string, positionIndex: number }[] = [];
+	// Deprecated: kept for backward compatibility
+	@Input() set radius(value: number) {
+		this.radiusX = value * 1.5; // Make it wider
+		this.radiusY = value * 0.75; // Make it narrower
+	}
+
+	public itemElements: { item: CarouselItem, id: string, positionIndex: number }[] = [];
 	private sectionDeg: number = 0;
 	private radianSectionDeg: number = 0;
 	private isAnimating: boolean = false;
@@ -35,9 +53,10 @@ export class FlauxCarouselComponent implements OnInit {
 	}
 
 	private getPositionCoords(positionIndex: number): { top: number; left: number } {
+		const angle = this.radianSectionDeg * positionIndex - 1.5708; // -1.5708 starts at top
 		return {
-			top: this.radius * Math.sin(this.radianSectionDeg * positionIndex - 1.5708),
-			left: this.radius * Math.cos(this.radianSectionDeg * positionIndex - 1.5708)
+			top: this.radiusY * Math.sin(angle),
+			left: this.radiusX * Math.cos(angle)
 		};
 	}
 
@@ -77,9 +96,28 @@ export class FlauxCarouselComponent implements OnInit {
 
 	public getItemStyle(element: { item: any, id: string, positionIndex: number }): any {
 		const position = this.getPositionCoords(element.positionIndex);
+		const isTopElement = element.positionIndex === 0;
+		const scale = isTopElement ? 1 : 0.5;
+
 		return {
 			top: position.top + 'px',
-			left: position.left + 'px'
+			left: position.left + 'px',
+			transform: `scale(${scale})`,
+			zIndex: isTopElement ? 10 : 1
+		};
+	}
+
+	public isTopElement(element: { item: any, id: string, positionIndex: number }): boolean {
+		return element.positionIndex === 0;
+	}
+
+	public getButtonStyle(isLeft: boolean): any {
+		const buttonRadius = this.radiusY;
+		return {
+			'border-radius': isLeft
+				? `${buttonRadius}px 20px 20px ${buttonRadius}px`
+				: `20px ${buttonRadius}px ${buttonRadius}px 20px`,
+			height: `${this.radiusY * 2}px`
 		};
 	}
 }

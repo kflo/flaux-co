@@ -1,21 +1,35 @@
 <div class="carousel-wrapper">
 	@for (element of itemElements; track element.id) {
 	<div class="carousel-item"
+		  [class.top-element]="isTopElement(element)"
 		  [ngStyle]="getItemStyle(element)">
-		{{ element.item }}
+		<img [src]="element.item.imageUrl"
+			  [width]="300"
+			  alt="{{element.item.heading}} image" />
 	</div>
 	}
 </div>
 
 @if (showControls) {
 <div class="carousel-controls">
-	<button matMiniFab
-			  (click)="turnRight()">
-		<mat-icon>chevron_left</mat-icon>
-	</button>
-	<button matMiniFab
-			  (click)="turnLeft()">
-		<mat-icon>chevron_right</mat-icon>
-	</button>
+	<flaux-btn-bowed [height]="radiusY * 1.5"
+						  [width]="radiusY / 2.5"
+						  [spread]="radiusY * 2"
+						  [curve]="radiusY /3"
+						  color="rgba(100, 100, 100, 0.2)"
+						  direction="left"
+						  (click)="turnLeft()">
+		<div class="curved-arrow right-arrow"></div>
+	</flaux-btn-bowed>
+
+	<flaux-btn-bowed [height]="radiusY * 1.5"
+						  [width]="radiusY / 2.5"
+						  [spread]="radiusY * 2"
+						  [curve]="radiusY /3"
+						  color="rgba(100, 100, 100, 0.2)"
+						  direction="right"
+						  (click)="turnRight()">
+		<div class="curved-arrow left-arrow"></div>
+	</flaux-btn-bowed>
 </div>
 }

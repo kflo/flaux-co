@@ -9,7 +9,7 @@
 
 .carousel-wrapper {
 	position: absolute;
-	top: calc(50% - 50px);
+	top: calc(80%);
 	left: calc(50% - 50px);
 }
 
@@ -26,41 +26,91 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: top 0.5s ease-in-out, left 0.5s ease-in-out;
+	transition: top 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out, z-index 0s ease-in-out;
 	user-select: none;
-	will-change: top, left;
-}
+	will-change: top, left, transform;
+	transform-origin: center center;
 
-.carousel-controls {
-	// position: absolute;
-	top: 10px;
-	// width: 100%;
-	// height: 50px;
-	text-align: center;
-	z-index: 1;
-}
-
-.control-left,
-.control-right {
-	z-index: 4;
-	display: inline-block;
-	color: #fff;
-	font-size: 3em;
-	cursor: pointer;
-	user-select: none;
-	transition: transform 0.3s ease;
-
-	&:hover {
-		transform: scale(1.1);
+	&.top-element {
+		border: 2px solid #fff;
+		background: rgba(255, 255, 255, 0.2);
+		box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 	}
 }
 
-.control-left {
-	margin-right: 10px;
+.carousel-controls {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 95%;
+	z-index: 100;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	pointer-events: none;
+	/* Allow clicks to pass through the container */
+
+	.chevron-button {
+		pointer-events: all;
+		/* Re-enable clicks on buttons */
+	}
 }
 
-.control-right {
-	margin-left: 10px;
+.chevron-button {
+	position: relative;
+	width: 60px;
+	/* height and border-radius are now set dynamically via [ngStyle] */
+	border: none;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	color: #fff;
+	cursor: pointer;
+	user-select: none;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	z-index: 100;
+
+	&:hover {
+		transform: scale(1.05);
+		background: rgba(255, 255, 255, 0.15);
+		box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+	}
+
+	&:active {
+		transform: scale(0.98);
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.curved-arrow {
+		width: 32px;
+		aspect-ratio: 1;
+		background: currentColor;
+		transition: transform 0.2s ease;
+		/* Curved triangle clip-path */
+		clip-path: path("M 3 0 Q 24 18 3 36 L 32 18 Z");
+
+		&.left-arrow {
+			/* Left-pointing arrow */
+			clip-path: path("M 3 0 Q 24 18 3 36 L 32 18 Z");
+		}
+
+		&.right-arrow {
+			/* Right-pointing arrow (mirrored) */
+			clip-path: path("M 29 0 Q 8 18 29 36 L 0 18 Z");
+		}
+	}
+
+	&.chevron-left:hover .curved-arrow {
+		transform: translateX(-3px);
+	}
+
+	&.chevron-right:hover .curved-arrow {
+		transform: translateX(3px);
+	}
 }
 
 /* Responsive design */
@@ -78,13 +128,27 @@
 
 	.carousel-controls {
 		top: 20px;
+		gap: 20%;
 	}
 
-	.control-left {
-		margin-right: 50px;
-	}
+	.chevron-button {
+		width: 40px;
+		height: 120px;
+		/* Half the mobile carousel height */
+		border-radius: 20px;
 
-	.control-right {
-		margin-left: 50px;
+		mat-icon {
+			font-size: 24px;
+			width: 24px;
+			height: 24px;
+		}
+
+		&.chevron-left {
+			border-radius: 20px 10px 10px 20px;
+		}
+
+		&.chevron-right {
+			border-radius: 10px 20px 20px 10px;
+		}
 	}
 }
