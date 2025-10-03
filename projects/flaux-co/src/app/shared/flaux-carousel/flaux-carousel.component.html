@@ -10,8 +10,18 @@
 	}
 </div>
 
+<div class="topmost-item-info">
+	<div class="topmost-item-heading">
+		{{ topmostItem?.heading }}
+	</div>
+	<div class="topmost-item-text">
+		{{ topmostItem?.text }}
+	</div>
+</div>
+
 @if (showControls) {
-<div class="carousel-controls">
+<div class="
+	  carousel-controls">
 	<flaux-btn-bowed [height]="radiusY * 1.5"
 						  [width]="radiusY / 2.5"
 						  [spread]="radiusY * 2"

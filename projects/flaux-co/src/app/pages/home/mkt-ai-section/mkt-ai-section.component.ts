@@ -14,7 +14,7 @@ export class MktAiSectionComponent {
 	public carouselItems: CarouselItem[] = [
 		{
 			id: 1,
-			text: null,
+			text: 'Provide fast, helpful responses through phone, chat, text, or connected sites. Answer questions, promote products and services, book appointments, and handle support issues —all hands-off!',
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Receptionist.png`,
 			heading: 'AI Receptionist',
 			subheading: 'Coming Soon',
@@ -22,7 +22,7 @@ export class MktAiSectionComponent {
 		},
 		{
 			id: 2,
-			text: null,
+			text: 'Helps businesses get chosen by more customers. Crafts thoughtful responses to reviews, posts on behalf of the business, and generates review requests to get more positive feedback and handle negative ones.',
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Reputation Specialist.png`,
 			heading: 'AI Reputation Specialist',
 			subheading: 'Coming Soon',
@@ -30,7 +30,7 @@ export class MktAiSectionComponent {
 		},
 		{
 			id: 3,
-			text: null,
+			text: 'Drives awareness and engagement with customers wherever they are. Drafts, schedules, and posts content for websites, blogs, and social media platforms that will educate leads and drive new business.',
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Content Creator.png`,
 			heading: 'AI Content Creator',
 			subheading: 'Coming Soon',

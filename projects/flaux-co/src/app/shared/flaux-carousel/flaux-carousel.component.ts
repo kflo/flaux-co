@@ -77,6 +77,11 @@ export class FlauxCarouselComponent implements OnInit {
 		}, 500);
 	}
 
+	get topmostItem(): CarouselItem | null {
+		const topElement = this.itemElements.find(el => el.positionIndex === 0);
+		return topElement ? topElement.item : null;
+	}
+
 	public turnLeft(): void {
 		if (this.isAnimating) return;
 		this.isAnimating = true;
