@@ -12,15 +12,4 @@ import { FlauxSectionComponent } from '@app/shared/section/section.component';
 })
 export class AllInOneSectionComponent {
 
-	// @ViewChild('lottieContainer', { static: true }) lottieContainer!: ElementRef;
-
-	// ngAfterViewInit(): void {
-	//	lottie.loadAnimation({
-	//		container: this.lottieContainer.nativeElement, // reference to the div
-	//		renderer: 'svg',
-	//		loop: true,
-	//		autoplay: true,
-	//		path: 'assets/lottie/list-scroll-wide.json',
-	//	});
-	// }
 }

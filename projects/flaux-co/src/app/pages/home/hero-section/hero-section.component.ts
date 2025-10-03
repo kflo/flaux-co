@@ -10,7 +10,7 @@ import {HlsComponent} from '@app/shared/hls/hls.component';
 	styleUrls: ['./hero-section.component.scss'],
 })
 export class HeroSectionComponent {
-	hlsUrl = 'https://cdn.flaux.co/vid/flaux-hero/hls/master.m3u8';
+	hlsUrl = 'https://cdn.flaux.co/vid/flaux-hero-c/hls/master.m3u8';
 	posterUrl = 'https://cdn.flaux.co/img/hero-poster.jpg';
 
 }

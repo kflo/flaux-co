@@ -30,25 +30,6 @@
 	}
 }
 
-.svg-wrapper {
-	display: flex;
-}
-
-.svg-container {
-	flex: 1;
-	height: 5rem;
-}
-
-.svg-container-right-fill {
-	flex: 1;
-	background: #111;
-}
-
-#text-mask {
-	width: 100%;
-	height: 100%;
-}
-
 .cta-section {
 	background: url("../../../../assets/img/fractal2.png");
 	background-size: cover;
@@ -73,71 +54,6 @@
 .cta-content-right {
 	display: flex;
 	flex: 1;
-}
-
-i {
-	font-family: Josefin Sans, sans-serif;
-	font-weight: 500;
-}
-
-.flauxFnTxt {
-	display: flex;
-	align-items: center;
-}
-
-.parens {
-	font-family: "Roboto";
-	padding: 0 0.75vw;
-	font-size: 120%;
-	position: relative;
-	bottom: 2px;
-}
-
-.fnTxt {
-	font-family: Josefin Sans, sans-serif;
-}
-
-.cta-btn-wrapper {
-	text-shadow: 1px 1px 12px rgba(200, 255, 255, 0.72);
-	color: rgba(255, 255, 255, 0.8);
-	z-index: 10;
-	margin: 2em 0;
-	font-weight: bold;
-}
-
-.cta-btn {
-	display: inline-block;
-	padding-inline: 0.8em 0.5em;
-	padding-block: 0.5em 0.65em;
-	color: #fff;
-	border-radius: 1em;
-	text-decoration: none;
-	box-shadow: 0.1em 0.1em 0.8em #aaa;
-	text-shadow: 0.1em 0.1em 0.8em black;
-	white-space: nowrap;
-	// transition: background 0.2s;
-	animation: pulse 3s ease-in-out infinite;
-	backdrop-filter: blur(2px);
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-	background: rgba(255, 255, 255, 0.2);
-
-	&:hover {
-		cursor: pointer;
-		background: rgba(55, 155, 155, 0.3);
-		box-shadow: 1px 1px 1.5em #ffffffa8;
-		border: 1px solid rgba(255, 255, 255, 0.66);
-		transform: scale(1.03);
-		backdrop-filter: blur(6px) brightness(1.5);
-		animation: none;
-		transition: all 0.3s ease-in-out;
-	}
-
-	&:active {
-		transform: scale(0.99);
-		backdrop-filter: blur(9px) brightness(1.8);
-		box-shadow: 0.1em 0.1em 0.8em #aaa;
-		transition: all 0.1s ease-in-out;
-	}
 }
 
 .img-wrapper {

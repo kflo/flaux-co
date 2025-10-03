@@ -1,0 +1,41 @@
+:host {
+	display: block;
+}
+
+.trunks-container {
+	background: url("../../../../assets/img/grad2.jpg") no-repeat center center/cover;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	font-size: clamp(1.20rem, 1.1vw, 1.75rem);
+	font-family: "Raleway", sans-serif;
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: normal !important;
+		font-size: 175% !important;
+		white-space: nowrap;
+	}
+}
+
+.left, .right {
+	flex: 1;
+	height: -webkit-fill-available;
+	padding: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.left {
+	backdrop-filter: brightness(0.6) saturate(0.0);
+	text-align: right
+}
+
+.right {
+	backdrop-filter: brightness(0.6) saturate(0.5);
+	text-align: left;
+}
+
+#logoFont {
+	text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+}

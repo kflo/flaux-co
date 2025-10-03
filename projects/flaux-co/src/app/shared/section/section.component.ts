@@ -14,6 +14,10 @@ export class FlauxSectionComponent {
 
 	@Input()
 	@HostBinding('style.padding-inline')
-		inlinePadding: string = '5vw';
+		inlinePadding: string = '4vw';
+
+	@Input()
+	@HostBinding('style.padding-block')
+		blockPadding: string = '5vh';
 
 }
