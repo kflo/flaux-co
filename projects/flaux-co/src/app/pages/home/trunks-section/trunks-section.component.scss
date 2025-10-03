@@ -3,7 +3,12 @@
 }
 
 .trunks-container {
-	background: url("../../../../assets/img/grad2.jpg") no-repeat center center/cover;
+	// background: url("../../../../assets/img/bg/10.jpg");
+	// background-position-y: center;
+	background: url("../../../../assets/img/bg/4b.jpg");
+	background-position-y: center;
+	background-size: cover;
+	// background: black;
 	display: flex;
 	width: 100%;
 	height: 100%;
@@ -18,23 +23,40 @@
 }
 
 .left, .right {
+	// background: url("../../../../assets/img/v-bg.webp");
+	background-size: cover;
 	flex: 1;
 	height: -webkit-fill-available;
 	padding: 4rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	&-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: -webkit-fill-available;
+	}
 }
 
 .left {
-	backdrop-filter: brightness(0.6) saturate(0.0);
+	backdrop-filter: brightness(1.1) saturate(0.5);
+	background: radial-gradient(circle FARTHEST-side at 100%,
+			transparent 70%,
+			rgb(0, 0, 0) 100%);
 	text-align: right
 }
 
 .right {
-	backdrop-filter: brightness(0.6) saturate(0.5);
+	backdrop-filter: brightness(1.1) saturate(0.5);
+	background: radial-gradient(circle FARTHEST-side at 0%,
+			transparent 70%,
+			rgb(0, 0, 0) 100%);
 	text-align: left;
 }
+
+.text-block {}
 
 #logoFont {
 	text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);

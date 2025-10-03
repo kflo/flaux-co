@@ -48,7 +48,13 @@
 	font-family: "Raleway", sans-serif;
 	text-align: -webkit-center;
 	height: 9.5em;
+	display: flex;
+	flex-direction: column;
 	// filter: brightness(1.25) opacity(0.9) contrast(0.95) drop-shadow(2px 2px 4px black);
+
+	flaux-btn {
+		margin: 2em 0 !important;
+	}
 }
 
 .cta-content-right {
@@ -63,4 +69,5 @@
 	position: relative;
 	left: -6.5em;
 	top: -3.5em;
+	align-self: center;
 }
