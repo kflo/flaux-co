@@ -33,8 +33,7 @@
 .cta-section {
 	background: url("../../../../assets/img/fractal2.png");
 	background-size: cover;
-	color: #fff;
-	font-size: clamp(1.67rem, 3vw, 3rem);
+	// font-size: clamp(1.67rem, 3vw, 3rem);
 	// padding-inline: 6vw;
 	text-align: center;
 	display: flex;
@@ -47,13 +46,15 @@
 	flex: 1;
 	font-family: "Raleway", sans-serif;
 	text-align: -webkit-center;
-	height: 9.5em;
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	margin-top: 3em;
+	font-size: 1.5rem;
 	// filter: brightness(1.25) opacity(0.9) contrast(0.95) drop-shadow(2px 2px 4px black);
 
 	flaux-btn {
-		margin: 2em 0 !important;
+		margin: 1.5em 0 !important;
 	}
 }
 

@@ -9,15 +9,11 @@ import { Component, HostBinding, Input } from '@angular/core';
 export class FlauxSectionComponent {
 
 	@Input()
-	@HostBinding('style.height')
-		height: string = '35rem';
-
-	@Input()
 	@HostBinding('style.padding-inline')
-		inlinePadding: string = '4rem';
+		inlinePadding: string = '2em';
 
 	@Input()
 	@HostBinding('style.padding-block')
-		blockPadding: string = '4rem';
+		blockPadding: string = '2em';
 
 }
