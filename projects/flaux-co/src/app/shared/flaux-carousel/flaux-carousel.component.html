@@ -1,4 +1,6 @@
-<div class="carousel-wrapper">
+<div class="carousel-wrapper"
+	  [style.--radiusY]="radiusY + 'em'"
+	  [style.--radiusX]="radiusX + 'em'">
 	@for (element of itemElements; track element.id) {
 	<div class="carousel-item"
 		  [class.top-element]="isTopElement(element)"
@@ -9,36 +11,36 @@
 	}
 </div>
 
-<div class="topmost-item-info">
-	<div class="topmost-item-heading">
+<div class="topmost-item-info"
+	  [style.--radiusY]="radiusY + 'em'">
+	<h3 class="topmost-item-heading">
 		{{ topmostItem?.heading }}
-	</div>
+	</h3>
+	<h5 class="topmost-item-subheading">
+		{{ topmostItem?.subheading }}
+	</h5>
 	<div class="topmost-item-text">
 		{{ topmostItem?.text }}
 	</div>
+	@if(topmostItem?.linkUrl) {
+	<flaux-btn routerLink="{{topmostItem?.linkUrl}}">
+		Learn More</flaux-btn>
+	}
 </div>
 
 @if (showControls) {
 <div class="
 	  carousel-controls">
-	<flaux-btn-bowed [height]="radiusY * 1.5"
-						  [width]="radiusY / 2.5"
-						  [spread]="radiusY * 2"
-						  [curve]="radiusY /3"
-						  color="rgba(100, 100, 100, 0.2)"
-						  direction="left"
-						  (click)="turnLeft()">
-		<div class="curved-arrow right-arrow"></div>
-	</flaux-btn-bowed>
+	<button matButton
+			  (click)="turnLeft()"
+			  aria-label="left arrow button">
+		<mat-icon>chevron_left</mat-icon>
+	</button>
 
-	<flaux-btn-bowed [height]="radiusY * 1.5"
-						  [width]="radiusY / 2.5"
-						  [spread]="radiusY * 2"
-						  [curve]="radiusY /3"
-						  color="rgba(100, 100, 100, 0.2)"
-						  direction="right"
-						  (click)="turnRight()">
-		<div class="curved-arrow left-arrow"></div>
-	</flaux-btn-bowed>
+	<button matButton
+			  (click)="turnRight()"
+			  aria-label="right arrow button">
+		<mat-icon>chevron_right</mat-icon>
+	</button>
 </div>
 }

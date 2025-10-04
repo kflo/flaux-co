@@ -4,41 +4,50 @@
 	display: block;
 	position: relative;
 	width: 100%;
-	height: 100%;
+	height: -webkit-fill-available;
+	min-height: calc(var(--radiusY, 4em) * 3);
+	/* Ensure enough space for ellipse */
 	font-family: 'Raleway', sans-serif;
 	font-weight: normal;
 	// font-size: clamp(1rem, 1.5vw, 1.544rem);
 }
 
 .carousel-wrapper {
-	position: absolute;
-	top: calc(70%);
-	left: calc(50% - 6em);
-	/* 3em = half of 6em width */
+	position: relative;
+	width: 100%;
+	height: -webkit-fill-available;
+	top: 13em;
+	left: 0.5rem
 }
 
 .carousel-item {
 	position: absolute;
-	width: 4em;
-	height: 4em;
+	width: 14rem;
+	height: 14rem;
 	border-radius: 50%;
 	border: 1px solid #4b134f;
 	background: rgba(255, 255, 255, 0.1);
 	font-size: 3em;
 	font-family: sans-serif;
-	// color: #fff;
+	filter: blur(0.25rem) brightness(0.4);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: top 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out, z-index 0s ease-in-out;
+	transition: top 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out, z-index 0s ease-in-out, filter 0.33s ease-in-out;
 	user-select: none;
 	will-change: top, left, transform;
 	transform-origin: center center;
+	/* Center the item within the carousel-wrapper */
+	margin-left: -2.5em;
+	/* Half of width to center */
+	margin-top: -2.5em;
+	/* Half of height to center */
 
 	&.top-element {
 		border: 2px solid #fff;
 		background: rgba(255, 255, 255, 0.2);
 		box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+		filter: blur(0) brightness(1);
 	}
 
 	img {
@@ -52,74 +61,35 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 95%;
+	height: 100%;
 	z-index: 100;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	pointer-events: none;
+
 	/* Allow clicks to pass through the container */
-
-	.chevron-button {
+	button {
 		pointer-events: all;
-		/* Re-enable clicks on buttons */
+		color: white !important;
+		width: 5em;
+		height: 5em;
+		transition: all 0.3s ease;
+		opacity: 0.7;
+
+		&:hover {
+			transform: scale(1.2);
+		}
+
+		mat-icon {
+			font-size: 5em;
+			width: auto;
+			height: auto;
+			margin: auto;
+		}
 	}
 }
 
-.chevron-button {
-	position: relative;
-	width: 3.75em;
-	/* height and border-radius are now set dynamically via [ngStyle] */
-	border: none;
-	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(10px);
-	color: #fff;
-	cursor: pointer;
-	user-select: none;
-	transition: all 0.3s ease;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-	z-index: 100;
-
-	&:hover {
-		transform: scale(1.05);
-		background: rgba(255, 255, 255, 0.15);
-		box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
-	}
-
-	&:active {
-		transform: scale(0.98);
-		background: rgba(255, 255, 255, 0.2);
-	}
-
-	.curved-arrow {
-		width: 32px;
-		aspect-ratio: 1;
-		background: currentColor;
-		transition: transform 0.2s ease;
-		/* Curved triangle clip-path */
-		clip-path: path("M 3 0 Q 24 18 3 36 L 32 18 Z");
-
-		&.left-arrow {
-			/* Left-pointing arrow */
-			clip-path: path("M 3 0 Q 24 18 3 36 L 32 18 Z");
-		}
-
-		&.right-arrow {
-			/* Right-pointing arrow (mirrored) */
-			clip-path: path("M 29 0 Q 8 18 29 36 L 0 18 Z");
-		}
-	}
-
-	&.chevron-left:hover .curved-arrow {
-		transform: translateX(-3px);
-	}
-
-	&.chevron-right:hover .curved-arrow {
-		transform: translateX(3px);
-	}
-}
 
 .topmost-item {
 	&-info {
@@ -127,67 +97,67 @@
 		flex-direction: column;
 		z-index: 11;
 		align-items: center;
-		justify-content: flex-start;
-		justify-self: center;
-		width: 40%;
-		height: 100%;
+		justify-content: center;
+		width: 55%;
+		margin: 2em auto;
+		padding: 1rem 0;
+		gap: 1rem;
+		text-align: center;
+		bottom: 24em;
 		position: relative;
-		top: 9em;
-		padding-block: 0rem 4rem;
-		gap: 5rem;
 	}
 
 	&-heading {
-		font-size: 1.5em;
-		font-weight: bold;
+		font-variant: all-small-caps;
+		letter-spacing: 0.2rem;
+		color: white;
+		text-shadow: 0 0 0.2em black;
+		font-family: 'Josefin Sans', sans-serif;
+		font-weight: 800;
+		filter: drop-shadow(0 4px 0.2em rgba(0, 0, 0, 0.4));
+	}
+
+	&-subheading {
+		font-variant: all-small-caps;
+		letter-spacing: 0.2rem;
+		font-family: 'Josefin Sans', sans-serif;
 		margin: 0;
 	}
 
 	&-text {
 		font-size: 1em;
 		margin: 0;
-		// color: #ddd;
+		margin-bottom: 0.75em;
 	}
 }
 
 /* Responsive design */
-@media screen and (max-width: 768px) {
-	.carousel-item {
-		width: 4em;
-		height: 4em;
-		font-size: 1.5em;
-	}
+@media screen and (max-width: 900px) {
+	// .carousel-item {
+	// 	width: 4em;
+	// 	height: 4em;
+	// 	font-size: 1.5em;
+	// 	margin-left: -2em;
+	// 	/* Half of width */
+	// 	margin-top: -2em;
+	// 	/* Half of height */
+	// }
 
-	.carousel-wrapper {
-		top: calc(50% - 2em);
-		/* 2em = half of 4em height */
-		left: calc(50% - 2em);
-		/* 2em = half of 4em width */
-	}
+	// .carousel-wrapper {
+	// 	height: 12em;
+	// 	/* Smaller height for mobile */
+	// 	margin: 1em auto;
+	// }
 
-	.carousel-controls {
-		top: 20px;
-		gap: 20%;
-	}
+	// .carousel-controls {
+	// 	top: 20px;
+	// 	gap: 20%;
+	// }
 
-	.chevron-button {
-		width: 2.5em;
-		height: 7.5em;
-		/* Relative to font-size */
-		border-radius: 1.25em;
-
-		mat-icon {
-			font-size: 24px;
-			width: 24px;
-			height: 24px;
-		}
-
-		&.chevron-left {
-			border-radius: 1.25em 0.625em 0.625em 1.25em;
-		}
-
-		&.chevron-right {
-			border-radius: 0.625em 1.25em 1.25em 0.625em;
+	.topmost-item {
+		&-info {
+			width: 70%;
 		}
 	}
+
 }

@@ -13,7 +13,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 0rem;
-	height: 6rem;
+	height: 4em;
 	backdrop-filter: brightness(1) blur(10px) contrast(0.95);
 	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 	position: relative;
@@ -29,7 +29,7 @@
 .text-logo-wrapper {
 	display: flex;
 	align-items: center;
-	font-size: 3rem;
+	font-size: 2.5em;
 	font-family: 'Sen', sans-serif;
 	color: #fff;
 	letter-spacing: 0.05em;
@@ -55,13 +55,13 @@
 
 .navbar-center {
 	display: flex;
-	gap: 2rem;
+	gap: 3rem;
 }
 
 .navbar-center a {
 	color: #fff;
 	text-decoration: none;
-	font-size: 1.1rem;
+	font-size: 1em;
 	font-family: Montserrat, sans-serif;
 	font-weight: 500;
 	transition: color 0.2s;

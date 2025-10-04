@@ -1,9 +1,10 @@
 import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NgStyle } from '@angular/common';
+// import { MatRippleModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatRippleModule } from '@angular/material/core';
-import { FlauxBtnBowedComponent } from "../flaux-btn-bowed/flaux-btn-bowed.component";
+import {MatRippleModule} from '@angular/material/core';
+import { FlauxBtnComponent } from "../flaux-btn/flaux-btn.component";
 
 export interface CarouselItem {
 	id: number;
@@ -18,19 +19,21 @@ export interface CarouselItem {
 	standalone: true,
 	selector: 'flaux-carousel',
 	templateUrl: './flaux-carousel.component.html',
-	imports: [NgStyle, MatButtonModule, MatIconModule, MatRippleModule, FlauxBtnBowedComponent, FlauxBtnBowedComponent],
+	imports: [NgStyle, MatButtonModule, MatIconModule, MatRippleModule, FlauxBtnComponent],
 	styleUrls: ['./flaux-carousel.component.scss']
 })
 export class FlauxCarouselComponent implements OnInit {
 	@Input() items: CarouselItem[] = [];
-	@Input() radiusX: number = 240; // horizontal radius (wider)
-	@Input() radiusY: number = 120; // vertical radius (narrower)
+	@Input() radiusX: number = 8; // horizontal radius in em (wider)
+	@Input() radiusY: number = 4; // vertical radius in em (narrower)
 	@Input() showControls: boolean = true;
 
 	// Deprecated: kept for backward compatibility
 	@Input() set radius(value: number) {
-		this.radiusX = value * 1.5; // Make it wider
-		this.radiusY = value * 0.75; // Make it narrower
+		// Convert pixel value to em (assuming 16px = 1em)
+		const emValue = value / 16;
+		this.radiusX = emValue * 1.5; // Make it wider
+		this.radiusY = emValue * 0.75; // Make it narrower
 	}
 
 	public itemElements: { item: CarouselItem, id: string, positionIndex: number }[] = [];
@@ -79,6 +82,8 @@ export class FlauxCarouselComponent implements OnInit {
 
 	get topmostItem(): CarouselItem | null {
 		const topElement = this.itemElements.find(el => el.positionIndex === 0);
+		console.log(topElement);
+
 		return topElement ? topElement.item : null;
 	}
 
@@ -102,11 +107,12 @@ export class FlauxCarouselComponent implements OnInit {
 	public getItemStyle(element: { item: any, id: string, positionIndex: number }): any {
 		const position = this.getPositionCoords(element.positionIndex);
 		const isTopElement = element.positionIndex === 0;
-		const scale = isTopElement ? 1 : 0.5;
+		const scale = isTopElement ? 1 : 0.66;
 
+		// Position relative to center of carousel-wrapper using em units
 		return {
-			top: position.top + 'px',
-			left: position.left + 'px',
+			top: `calc(50% + ${position.top}em)`,
+			left: `calc(50% + ${position.left}em)`,
 			transform: `scale(${scale})`,
 			zIndex: isTopElement ? 10 : 1
 		};
@@ -120,9 +126,9 @@ export class FlauxCarouselComponent implements OnInit {
 		const buttonRadius = this.radiusY;
 		return {
 			'border-radius': isLeft
-				? `${buttonRadius}px 20px 20px ${buttonRadius}px`
-				: `20px ${buttonRadius}px ${buttonRadius}px 20px`,
-			height: `${this.radiusY * 2}px`
+				? `${buttonRadius}em 1.25em 1.25em ${buttonRadius}em`
+				: `1.25em ${buttonRadius}em ${buttonRadius}em 1.25em`,
+			height: `${this.radiusY * 2}em`
 		};
 	}
 }

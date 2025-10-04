@@ -24,14 +24,15 @@
 
 .flaux-btn {
 	display: inline-block;
-	padding-inline: 0.8em;
-	padding-block: 0.5em 0.65em;
+	padding-inline: 2em;
+	padding-block: 0.5em;
 	color: #fff;
-	border-radius: 1em;
+	border-radius: 2em;
 	text-decoration: none;
 	box-shadow: 0.1em 0.1em 0.8em #aaa;
 	text-shadow: 0.1em 0.1em 0.8em black;
-	white-space: nowrap;
+	// white-space: nowrap;
+	text-align: center;
 	animation: pulse 3s ease-in-out infinite;
 	backdrop-filter: blur(2px);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -39,18 +40,19 @@
 
 	&:hover {
 		cursor: pointer;
-		background: rgba(55, 155, 155, 0.3);
-		box-shadow: 1px 1px 1.5em #ffffffa8;
+		// background: var(--mat-sys-on-primary-fixed-variant);
+		// background-blend-mode: soft-light;
+		box-shadow: 1px 1px 1em #ffffffa4;
 		border: 1px solid rgba(255, 255, 255, 0.66);
 		transform: scale(1.03);
-		backdrop-filter: blur(6px) brightness(1.5);
+		backdrop-filter: blur(7px) brightness(1.5);
 		animation: none;
 		transition: all 0.3s ease-in-out;
 	}
 
 	&:active {
 		transform: scale(0.99);
-		backdrop-filter: blur(9px) brightness(1.8);
+		backdrop-filter: blur(12px) brightness(1.8);
 		box-shadow: 0.1em 0.1em 0.8em #aaa;
 		transition: all 0.1s ease-in-out;
 	}

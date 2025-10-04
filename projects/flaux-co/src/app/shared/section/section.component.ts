@@ -9,6 +9,10 @@ import { Component, HostBinding, Input } from '@angular/core';
 export class FlauxSectionComponent {
 
 	@Input()
+	@HostBinding('style.height')
+		height: string = '27em';
+
+	@Input()
 	@HostBinding('style.padding-inline')
 		inlinePadding: string = '2em';
 

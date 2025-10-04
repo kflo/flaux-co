@@ -14,50 +14,50 @@ export class MktAiSectionComponent {
 	public carouselItems: CarouselItem[] = [
 		{
 			id: 1,
-			text: 'Provide fast, helpful responses through phone, chat, text, or connected sites. Answer questions, promote products and services, book appointments, and handle support issues —all hands-off!',
+			text: 'Have an AI employee available 24/7 to capture leads, answer customer questions, and provide a delightful experience that gets more customers. And keeps them.',
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Receptionist.png`,
 			heading: 'AI Receptionist',
-			subheading: 'Coming Soon',
-			linkUrl: null
+			subheading: 'Never leave a lead waiting',
+			linkUrl: '/contact'
 		},
 		{
 			id: 2,
 			text: 'Helps businesses get chosen by more customers. Crafts thoughtful responses to reviews, posts on behalf of the business, and generates review requests to get more positive feedback and handle negative ones.',
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Reputation Specialist.png`,
 			heading: 'AI Reputation Specialist',
-			subheading: 'Coming Soon',
-			linkUrl: null
+			subheading: 'Crafting Your Online Image',
+			linkUrl: '/contact'
 		},
 		{
 			id: 3,
 			text: 'Drives awareness and engagement with customers wherever they are. Drafts, schedules, and posts content for websites, blogs, and social media platforms that will educate leads and drive new business.',
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Content Creator.png`,
 			heading: 'AI Content Creator',
-			subheading: 'Coming Soon',
-			linkUrl: null
+			subheading: 'Content That Connects',
+			linkUrl: '/contact'
 		},
 		{
 			id: 4,
-			text: null,
+			text: 'Coming Soon!',
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI SEO Expert.png`,
 			heading: 'SEO Expert',
-			subheading: 'Coming Soon',
+			subheading: 'Rank Higher, Get Found',
 			linkUrl: null
 		},
 		{
 			id: 5,
-			text: null,
+			text: 'Coming Soon!',
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Sales Assistant.png`,
 			heading: 'Sales Assistant',
-			subheading: 'Coming Soon',
+			subheading: 'Your Always-On Sales Support',
 			linkUrl: null
 		},
 		{
 			id: 6,
-			text: null,
+			text: 'Coming Soon!',
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Salesperson.png`,
 			heading: 'Salesperson',
-			subheading: 'Coming Soon',
+			subheading: 'Closing Deals, Around the Clock',
 			linkUrl: null
 		},
 	];
