@@ -1,4 +1,5 @@
 <flaux-section class="trunks-container"
+					[height]="'99vh'"
 					[blockPadding]="'0'"
 					[inlinePadding]="'0'">
 	<section class="left">
@@ -9,9 +10,18 @@
 				<p>Empowering your business with cutting-edge AI solutions.</p>
 				<p>Leverage the power of AI to streamline operations, enhance customer experiences, and drive innovation. Our tailored solutions are designed to meet your unique business needs.</p>
 			</div>
-			<flaux-btn>How can I 10x my business?</flaux-btn>
+			<flaux-btn [routerLink]="'/contact'">How can I 10x my business?</flaux-btn>
 		</div>
 	</section>
+	<div class="laser-wrapper">
+		<app-laser-flow [color]="'#FAAE51'"
+							 [wispDensity]="1.5"
+							 [horizontalBeamOffset]="-0.0005"
+							 [verticalBeamOffset]="-0.525"
+							 [flowSpeed]="0.5"
+							 [fogIntensity]="0.6">
+		</app-laser-flow>
+	</div>
 	<section class="right">
 		<div class="right-content">
 			<h3><span id="logoFont"
@@ -20,7 +30,7 @@
 				<p>Complete digital marketing and web solutions for your business.</p>
 				<p>From CRM and SEO to social media management and SMS marketing, we provide everything you need to establish a strong digital presence&mdash;empowering your business to lead, not chase.</p>
 			</div>
-			<flaux-btn>Am I truly owning my digital presence?</flaux-btn>
+			<flaux-btn [routerLink]="'/contact'">Am I truly owning my digital presence?</flaux-btn>
 			<!-- <div class="feature-title">
 		<flaux-fn italicText="flaux" fnText="TIME"></flaux-fn>
 	 </div> -->
