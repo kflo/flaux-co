@@ -1,9 +1,14 @@
 <div class="carousel-wrapper"
-	  [style.--radiusY]="radiusY + 'em'"
-	  [style.--radiusX]="radiusX + 'em'">
+	  [style.--radius]="radius + 'em'"
+	  [style.--arc-span]="arcSpan + 'deg'"
+	  [style.--center-top]="centerTop + 'em'"
+	  [style.--height-offset]="heightOffset + 'em'">
 	@for (element of itemElements; track element.id) {
 	<div class="carousel-item"
+		  [class.center-element]="isCenterElement(element)"
 		  [class.top-element]="isTopElement(element)"
+		  [class.last-item]="isLastItem(element)"
+		  [class.first-item]="isFirstItem(element)"
 		  [ngStyle]="getItemStyle(element)">
 		<img [src]="element.item.imageUrl"
 			  alt="{{element.item.heading}} image" />
@@ -12,7 +17,7 @@
 </div>
 
 <div class="topmost-item-info"
-	  [style.--radiusY]="radiusY + 'em'">
+	  [style.--radius]="radius + 'em'">
 	<h3 class="topmost-item-heading">
 		{{ topmostItem?.heading }}
 	</h3>

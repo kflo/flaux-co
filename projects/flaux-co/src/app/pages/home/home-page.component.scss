@@ -5,7 +5,7 @@
 	// Make each section snap to the top
 	>* {
 		scroll-snap-align: start;
-		min-height: 100vh; // Ensure each section takes at least full viewport height
+		min-height: 66vh; // Ensure each section takes at least full viewport height
 	}
 }
 
