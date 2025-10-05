@@ -1,0 +1,16 @@
+.sections-wrapper {
+	height: 100%;
+	width: 100%;
+
+	// Make each section snap to the top
+	>* {
+		scroll-snap-align: start;
+		min-height: 100vh; // Ensure each section takes at least full viewport height
+	}
+}
+
+.filler {
+	height: 10rem;
+	width: 100%;
+	background: black;
+}

@@ -6,6 +6,7 @@
 	left: 0;
 	right: 0;
 	z-index: 1000;
+	scroll-snap-align: none; // Navbar should not be a snap point
 }
 
 .navbar {

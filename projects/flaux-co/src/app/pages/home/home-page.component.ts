@@ -7,10 +7,10 @@ import {TrunksSectionComponent} from './trunks-section/trunks-section.component'
 import {MktAiSectionComponent} from './mkt-ai-section/mkt-ai-section.component';
 
 @Component({
-	selector: 'flaux-home',
+	selector: 'home-page',
 	standalone: true,
-	templateUrl: './home.page.html',
-	styleUrls: ['./home.page.scss'],
+	templateUrl: './home-page.component.html',
+	styleUrls: ['./home-page.component.scss'],
 	imports: [
 		HeroSectionComponent,
 		AllInOneSectionComponent,
@@ -20,4 +20,4 @@ import {MktAiSectionComponent} from './mkt-ai-section/mkt-ai-section.component';
 		MktAiSectionComponent
 	],
 })
-export class FlauxHomePage {}
+export class FlauxHomePageComponent {}
