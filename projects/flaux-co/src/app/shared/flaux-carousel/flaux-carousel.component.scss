@@ -105,6 +105,10 @@
 		text-align: center;
 		bottom: 24em;
 		position: relative;
+		// backdrop-filter: blur(8px) brightness(0.95) saturate(0.9);
+		// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);
+		// background: rgba(255, 255, 255, 0.1);
+		// border-radius: 1em;
 	}
 
 	&-heading {
@@ -131,28 +135,7 @@
 	}
 }
 
-/* Responsive design */
 @media screen and (max-width: 900px) {
-	// .carousel-item {
-	// 	width: 4em;
-	// 	height: 4em;
-	// 	font-size: 1.5em;
-	// 	margin-left: -2em;
-	// 	/* Half of width */
-	// 	margin-top: -2em;
-	// 	/* Half of height */
-	// }
-
-	// .carousel-wrapper {
-	// 	height: 12em;
-	// 	/* Smaller height for mobile */
-	// 	margin: 1em auto;
-	// }
-
-	// .carousel-controls {
-	// 	top: 20px;
-	// 	gap: 20%;
-	// }
 
 	.topmost-item {
 		&-info {

@@ -9,7 +9,7 @@ import { Component, HostBinding, Input } from '@angular/core';
 export class FlauxSectionComponent {
 
 	@Input()
-	@HostBinding('style.height')
+	@HostBinding('style.min-height')
 		height: string = '27em';
 
 	@Input()
