@@ -39,10 +39,12 @@
     "@angular/material": "^20.2.7",
     "@angular/platform-browser": "^20.0.4",
     "@angular/router": "^20.0.4",
+    "@types/three": "^0.180.0",
     "firebase": "^11.10.0",
     "hls.js": "^1.6.12",
     "lottie-web": "^5.13.0",
     "rxjs": "~7.8.0",
+    "three": "^0.180.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

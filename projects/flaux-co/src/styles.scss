@@ -81,6 +81,12 @@ html, body {
 	color: #111;
 }
 
+/* Scroll snap for full page sections */
+html {
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+}
+
 /* Links */
 a {
 	user-select: none;
