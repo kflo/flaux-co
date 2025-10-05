@@ -1,14 +1,13 @@
 <div class="carousel-wrapper"
-	  [style.--radius]="radius + 'em'"
-	  [style.--arc-span]="arcSpan + 'deg'"
-	  [style.--center-top]="centerTop + 'em'"
-	  [style.--height-offset]="heightOffset + 'em'">
+	  [style.--item-width]="itemWidth + 'em'"
+	  [style.--item-spacing]="itemSpacing + 'em'">
 	@for (element of itemElements; track element.id) {
 	<div class="carousel-item"
 		  [class.center-element]="isCenterElement(element)"
-		  [class.top-element]="isTopElement(element)"
+		  [class.featured-element]="isTopElement(element)"
 		  [class.last-item]="isLastItem(element)"
 		  [class.first-item]="isFirstItem(element)"
+		  [class.wrap-around-hidden]="isWrapAroundElement(element)"
 		  [ngStyle]="getItemStyle(element)">
 		<img [src]="element.item.imageUrl"
 			  alt="{{element.item.heading}} image" />
@@ -16,19 +15,18 @@
 	}
 </div>
 
-<div class="topmost-item-info"
-	  [style.--radius]="radius + 'em'">
-	<h3 class="topmost-item-heading">
-		{{ topmostItem?.heading }}
+<div class="featured-item-info">
+	<h3 class="featured-item-heading">
+		{{ featuredItem?.heading }}
 	</h3>
-	<h5 class="topmost-item-subheading">
-		{{ topmostItem?.subheading }}
+	<h5 class="featured-item-subheading">
+		{{ featuredItem?.subheading }}
 	</h5>
-	<div class="topmost-item-text">
-		{{ topmostItem?.text }}
+	<div class="featured-item-text">
+		{{ featuredItem?.text }}
 	</div>
-	@if(topmostItem?.linkUrl) {
-	<flaux-btn routerLink="{{topmostItem?.linkUrl}}">
+	@if(featuredItem?.linkUrl) {
+	<flaux-btn routerLink="{{featuredItem?.linkUrl}}">
 		Learn More</flaux-btn>
 	}
 </div>

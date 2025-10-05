@@ -16,15 +16,14 @@ export interface CarouselItem {
 }
 
 /**
- * Arc-based carousel component that displays items fanning out from top center.
- * Creates an arc where items are positioned symmetrically around the top center point.
+ * Linear carousel component that displays items in a horizontal line.
  * Features:
- * - Single radius for arc curvature
- * - Fan-out layout from top center
- * - Configurable arc span (default 120°)
- * - Adjustable spacing between items
- * - Edge handling: first element can go to last, last can go to first
+ * - Linear horizontal layout
+ * - Configurable item spacing
+ * - Smooth transitions between items
+ * - Wrap-around with invisible transitions (first to last, last to first)
  * - Center element is highlighted and featured
+ * - Responsive item sizing
  */
 
 @Component({
@@ -36,62 +35,46 @@ export interface CarouselItem {
 })
 export class FlauxCarouselComponent implements OnInit {
 	@Input() items: CarouselItem[] = [];
-	@Input() radius: number = 6; // single radius for arc in em
-	@Input() arcSpan: number = 120; // arc span in degrees (default 120°)
-	@Input() itemSpacing: number = 1; // spacing multiplier between items
+	@Input() itemWidth: number = 4; // width of each item in rem
+	@Input() itemSpacing: number = 2; // spacing between items in rem
 	@Input() showControls: boolean = true;
+	@Input() visibleItems: number = 5; // number of items visible at once
 
 	public itemElements: { item: CarouselItem, id: string, positionIndex: number }[] = [];
-	private sectionDeg: number = 0;
-	private radianSectionDeg: number = 0;
 	private isAnimating: boolean = false;
-	centerTop = 0;
+	private wrapAroundElements: Set<string> = new Set(); // Track elements in wrap-around transition
+	public currentOffset: number = 0; // Current scroll offset
 
 	constructor(private cdr: ChangeDetectorRef) {}
 
 	ngOnInit(): void {
-		// Calculate spacing between items on the arc
-		const totalSpan = this.arcSpan * this.itemSpacing;
-		this.sectionDeg = this.items.length > 1 ? totalSpan / (this.items.length - 1) : 0;
-		this.radianSectionDeg = this.sectionDeg * Math.PI / 180;
-
 		// Create stable element objects with unique IDs and initial positions
 		this.itemElements = this.items.map((item, index) => ({
 			item,
 			id: `item-${index}-${item.id || index}`,
-			positionIndex: index // This tracks where on the arc this element should be
+			positionIndex: index // This tracks the linear position
 		}));
-	}
 
-	get heightOffset(): number {
-		const res = Math.abs(this.radius * Math.cos(this.radianSectionDeg));
-		console.log(res, this.radius);
-		return res + this.radius;
-	}
+		// Center the initial view on the middle item
+		const centerIndex = Math.floor(this.items.length / 2);
+		this.currentOffset = -centerIndex * (this.itemWidth + this.itemSpacing);
 
-	private getPositionCoords(positionIndex: number): { top: number; left: number } {
-		// Create an arc that fans out symmetrically from top center
-		// Center the arc around the top (90°) by spanning equally left and right
-		const isEven = this.items.length % 2 === 0;
-		let startAngle = -(this.arcSpan / 2); // Start from left side of arc
-		if (isEven) startAngle -= this.sectionDeg/2;
-		const angle = (startAngle + (this.sectionDeg * positionIndex)) * Math.PI / 180; // Convert to radians
+		console.log(this.itemWidth, this.itemSpacing);
 
-		// Position items along the arc fanning out from top center
-		return {
-			top: -this.radius * Math.cos(angle), // Use cosine for vertical positioning from top
-			left: this.radius * Math.sin(angle)  // Use sine for horizontal positioning
-		};
 	}
 
 	public turnRight(): void {
 		if (this.isAnimating) return;
 		this.isAnimating = true;
 
-		// For arc: move elements right, handle edge cases
+		// Clear previous wrap-around elements
+		this.wrapAroundElements.clear();
+
+		// Move elements right in linear fashion
 		this.itemElements.forEach(element => {
 			if (element.positionIndex === 0) {
-				// First element can go to second position or last
+				// First element wrapping to last - hide during transition
+				this.wrapAroundElements.add(element.id);
 				element.positionIndex = this.items.length - 1;
 			} else {
 				element.positionIndex = element.positionIndex - 1;
@@ -100,20 +83,22 @@ export class FlauxCarouselComponent implements OnInit {
 
 		this.cdr.markForCheck();
 
-		// Reset animation flag after transition completes
+		// Reset animation flag and clear wrap-around elements after transition completes
 		setTimeout(() => {
 			this.isAnimating = false;
+			this.wrapAroundElements.clear();
+			this.cdr.markForCheck();
 		}, 500);
 	}
 
-	get topmostItem(): CarouselItem | null {
+	get featuredItem(): CarouselItem | null {
 		const centerElement = this.itemElements.find(el => this.isCenterElement(el));
 		return centerElement ? centerElement.item : null;
 	}
 
 	public isCenterElement(element: { item: any, id: string, positionIndex: number }): boolean {
-		// Center element is at the middle of the arc
-		const centerIndex = Math.floor(this.items.length / 2);
+		// Center element in linear layout
+		const centerIndex = Math.floor(this.visibleItems / 2);
 		return element.positionIndex === centerIndex;
 	}
 
@@ -121,10 +106,14 @@ export class FlauxCarouselComponent implements OnInit {
 		if (this.isAnimating) return;
 		this.isAnimating = true;
 
-		// For arc: move elements left, handle edge cases
+		// Clear previous wrap-around elements
+		this.wrapAroundElements.clear();
+
+		// Move elements left in linear fashion
 		this.itemElements.forEach(element => {
 			if (element.positionIndex === this.items.length - 1) {
-				// Last element can go to penultimate position or first
+				// Last element wrapping to first - hide during transition
+				this.wrapAroundElements.add(element.id);
 				element.positionIndex = 0;
 			} else {
 				element.positionIndex = element.positionIndex + 1;
@@ -133,26 +122,29 @@ export class FlauxCarouselComponent implements OnInit {
 
 		this.cdr.markForCheck();
 
-		// Reset animation flag after transition completes
+		// Reset animation flag and clear wrap-around elements after transition completes
 		setTimeout(() => {
 			this.isAnimating = false;
+			this.wrapAroundElements.clear();
+			this.cdr.markForCheck();
 		}, 500);
 	}
 
 	public getItemStyle(element: { item: any, id: string, positionIndex: number }): any {
-		const position = this.getPositionCoords(element.positionIndex);
 		const isCenterElement = this.isCenterElement(element);
 		const scale = isCenterElement ? 1 : 0.66;
-		if (isCenterElement) {
-			this.centerTop = -position.top;
-		}
 
-		// Position relative to center of carousel-wrapper using em units
+		// Calculate offset relative to center position
+		const centerIndex = Math.floor(this.visibleItems / 2);
+		const relativePosition = element.positionIndex - centerIndex;
+		const offset = relativePosition * (this.itemWidth + this.itemSpacing);
+
+		// Position items in a linear horizontal layout
+		// Negative for left of center, positive for right of center
 		return {
-			top: `calc(50% + ${position.top}em)`,
-			left: `calc(50% + ${position.left}em)`,
-			transform: `scale(${scale})`,
-			zIndex: isCenterElement ? 10 : 1
+			transform: `translateX(${offset}em) scale(${scale})`,
+			zIndex: isCenterElement ? 10 : 1,
+			opacity: this.isItemVisible(element.positionIndex) ? 1 : 0.3
 		};
 	}
 
@@ -168,13 +160,23 @@ export class FlauxCarouselComponent implements OnInit {
 		return element.positionIndex === 0;
 	}
 
-	public getButtonStyle(isLeft: boolean): any {
-		const buttonRadius = this.radius * 0.6;
+	public isWrapAroundElement(element: { item: any, id: string, positionIndex: number }): boolean {
+		return this.wrapAroundElements.has(element.id);
+	}
+
+	public isItemVisible(positionIndex: number): boolean {
+		// Check if item is within visible range
+		const centerIndex = Math.floor(this.visibleItems / 2);
+		const minVisible = centerIndex - Math.floor(this.visibleItems / 2);
+		const maxVisible = centerIndex + Math.floor(this.visibleItems / 2);
+		return positionIndex >= minVisible && positionIndex <= maxVisible;
+	}
+
+	public getButtonStyle(): any {
 		return {
-			'border-radius': isLeft
-				? `${buttonRadius}em 1.25em 1.25em ${buttonRadius}em`
-				: `1.25em ${buttonRadius}em ${buttonRadius}em 1.25em`,
-			height: `${this.radius * 1.2}em`
+			'border-radius': '0.5rem',
+			height: '3em',
+			width: '3em'
 		};
 	}
 }

@@ -5,46 +5,48 @@
 	position: relative;
 	width: 100%;
 	height: -webkit-fill-available;
-	min-height: calc(var(--radius, 6em) * 2.5);
-	/* Ensure enough space for arc */
+	min-height: calc(var(--item-width, 14em) + 4em);
+	/* Ensure enough space for linear layout */
 	font-family: 'Raleway', sans-serif;
 	font-weight: normal;
+	overflow: hidden;
 	// font-size: clamp(1rem, 1.5vw, 1.544rem);
 }
 
 .carousel-wrapper {
-	position: absolute;
+	display: flex;
+	position: relative;
 	width: 100%;
-	height: -webkit-fill-available;
-	// bottom: calc(-1* var(--center-top) - var(--radius));
-	top: calc(var(--height-offset) + 18em);
-	left: 0.5rem
+	overflow: hidden;
+	// height: calc(var(--item-width, 14em) + 2em);
+	height: calc(var(--item-width, 4em) *3.1); // display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 0 2em;
 }
 
 .carousel-item {
 	position: absolute;
-	width: 14rem;
-	height: 14rem;
+	width: var(--item-width, 14em);
+	height: var(--item-width, 14em);
 	border-radius: 50%;
 	border: 1px solid #4b134f;
 	background: rgba(255, 255, 255, 0.1);
 	font-size: 3em;
 	font-family: sans-serif;
-	filter: blur(0.25rem) brightness(0.4);
+	filter: blur(0.1em) brightness(0.4);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: top 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out, z-index 0s ease-in-out, filter 0.33s ease-in-out;
+	transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, filter 0.33s ease-in-out;
 	user-select: none;
-	will-change: top, left, transform;
+	will-change: transform, opacity;
 	transform-origin: center center;
-	/* Center the item within the carousel-wrapper */
-	margin-left: -2.5em;
-	/* Half of width to center */
-	margin-top: -2.5em;
-	/* Half of height to center */
+	// left: -1em;
+	// top: 50%;
+	margin: 0 auto;
 
-	&.top-element,
+	&.featured-element,
 	&.center-element {
 		border: 2px solid #fff;
 		background: rgba(255, 255, 255, 0.2);
@@ -54,17 +56,23 @@
 
 	img {
 		width: 100%;
+		border-radius: 50%;
 	}
 }
 
-.first-item {
-	// transition: transform 0.5s ease-in-out, z-index 0s ease-in-out;
-	// transition: none;
-}
+// .first-item {
+// 	transition: transform 0.5s ease-in-out, z-index 0s ease-in-out;
+// 	transition: none;
+// }
 
-.last-item {
-	// transition: transform 0.5s ease-in-out, z-index 0s ease-in-out;
-	// transition: none;
+// .last-item {
+// 	transition: transform 0.5s ease-in-out, z-index 0s ease-in-out;
+// 	transition: none;
+// }
+
+.wrap-around-hidden {
+	opacity: 0;
+	visibility: hidden;
 }
 
 .carousel-controls {
@@ -103,7 +111,7 @@
 }
 
 
-.topmost-item {
+.featured-item {
 	&-info {
 		display: flex;
 		flex-direction: column;
@@ -112,11 +120,11 @@
 		justify-content: center;
 		width: 55%;
 		margin: 2em auto;
-		padding: 1rem 0;
-		gap: 1rem;
+		padding: 1em 0;
+		gap: 1em;
 		text-align: center;
-		bottom: calc(var(--radius, 6em) * 4);
 		position: relative;
+		top: -7rem;
 		// backdrop-filter: blur(8px) brightness(0.95) saturate(0.9);
 		// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);
 		// background: rgba(255, 255, 255, 0.1);
@@ -125,7 +133,7 @@
 
 	&-heading {
 		font-variant: all-small-caps;
-		letter-spacing: 0.2rem;
+		letter-spacing: 0.2em;
 		color: white;
 		text-shadow: 0 0 0.2em black;
 		font-family: 'Josefin Sans', sans-serif;
@@ -135,7 +143,7 @@
 
 	&-subheading {
 		font-variant: all-small-caps;
-		letter-spacing: 0.2rem;
+		letter-spacing: 0.2em;
 		font-family: 'Josefin Sans', sans-serif;
 		margin: 0;
 	}
@@ -149,10 +157,9 @@
 
 @media screen and (max-width: 900px) {
 
-	.topmost-item {
+	.featured-item {
 		&-info {
 			width: 70%;
 		}
 	}
-
 }
