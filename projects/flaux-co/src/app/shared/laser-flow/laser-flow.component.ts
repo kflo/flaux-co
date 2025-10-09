@@ -43,24 +43,24 @@ export class LaserFlowComponent implements OnInit, AfterViewInit, OnDestroy {
 	@ViewChild('mountRef', { static: true }) mountRef!: ElementRef<HTMLDivElement>;
 
 	@Input() className?: string;
-	@Input() wispDensity: number = 1;
+	@Input() color: string = '#DDD';
+	@Input() decay: number = 1.1;
 	@Input() dpr?: number;
+	@Input() horizontalBeamOffset: number = 0.1;
+	@Input() horizontalSizing: number = 0.5;
+	@Input() falloffStart: number = 0.75;
+	@Input() flowSpeed: number = 0.35;
+	@Input() flowStrength: number = 0.25;
+	@Input() fogIntensity: number = 0.45
+	@Input() fogFallSpeed: number = 0.6;
+	@Input() fogScale: number = 0.3;
 	@Input() mouseSmoothTime: number = 0.0;
 	@Input() mouseTiltStrength: number = 0.01;
-	@Input() horizontalBeamOffset: number = 0.1;
-	@Input() verticalBeamOffset: number = 0.0;
-	@Input() flowSpeed: number = 0.35;
-	@Input() verticalSizing: number = 3;
-	@Input() horizontalSizing: number = 0.5;
-	@Input() fogIntensity: number = 0.45;
-	@Input() fogScale: number = 0.3;
-	@Input() wispSpeed: number = 15.0;
+	@Input() wispDensity: number = 1;
 	@Input() wispIntensity: number = 5.0;
-	@Input() flowStrength: number = 0.25;
-	@Input() decay: number = 1.1;
-	@Input() falloffStart: number = 0.5;
-	@Input() fogFallSpeed: number = 0.6;
-	@Input() color: string = '#DDD';
+	@Input() wispSpeed: number = 7.0;
+	@Input() verticalBeamOffset: number = 0.0;
+	@Input() verticalSizing: number = 8;
 
 	private renderer?: THREE.WebGLRenderer;
 	private uniforms?: any;

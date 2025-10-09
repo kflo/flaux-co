@@ -40,3 +40,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+projects/flaux-co/src/assets/img/*
+projects/flaux-co/src/assets/img/driveDL/*

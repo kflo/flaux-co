@@ -10,14 +10,14 @@ export class FlauxSectionComponent {
 
 	@Input()
 	@HostBinding('style.min-height')
-		height: string = '27em';
+		height: string = '100vh';
 
 	@Input()
 	@HostBinding('style.padding-inline')
-		inlinePadding: string = '2em';
+		inlinePadding: string = '0';
 
 	@Input()
 	@HostBinding('style.padding-block')
-		blockPadding: string = '2em';
+		blockPadding: string = '0';
 
 }

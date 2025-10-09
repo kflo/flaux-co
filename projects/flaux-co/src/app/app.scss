@@ -1,7 +1,12 @@
+:host {
+	height: 100%;
+}
+
 .router-wrapper {
 	position: relative;
-	margin-top: -6rem;
-	height: max-content;
+	// margin-top: -4rem;
+	height: 100%;
 	width: 100%;
+	background: black;
 	scroll-behavior: smooth;
 }

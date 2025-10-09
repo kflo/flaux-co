@@ -19,16 +19,20 @@
 	<h3 class="featured-item-heading">
 		{{ featuredItem?.heading }}
 	</h3>
-	<h5 class="featured-item-subheading">
-		{{ featuredItem?.subheading }}
-	</h5>
-	<div class="featured-item-text">
-		{{ featuredItem?.text }}
+	<div class="featured-item-card">
+		<h5 class="featured-item-subheading">
+			{{ featuredItem?.subheading }}
+		</h5>
+		<div class="featured-item-text">
+			<p>
+				{{ featuredItem?.text }}
+			</p>
+		</div>
+		@if(featuredItem?.linkUrl) {
+		<flaux-btn routerLink="{{featuredItem?.linkUrl}}">
+			Learn More</flaux-btn>
+		}
 	</div>
-	@if(featuredItem?.linkUrl) {
-	<flaux-btn routerLink="{{featuredItem?.linkUrl}}">
-		Learn More</flaux-btn>
-	}
 </div>
 
 @if (showControls) {

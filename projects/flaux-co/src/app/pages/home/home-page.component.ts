@@ -5,6 +5,7 @@ import {AllInOneSectionComponent} from './all-in-one-section/all-in-one-section.
 import {QuotesSectionComponent} from './quotes-section/quotes-section.component';
 import {TrunksSectionComponent} from './trunks-section/trunks-section.component';
 import {MktAiSectionComponent} from './mkt-ai-section/mkt-ai-section.component';
+import {FooterComponent} from '@components/footer/footer.component';
 
 @Component({
 	selector: 'home-page',
@@ -17,7 +18,8 @@ import {MktAiSectionComponent} from './mkt-ai-section/mkt-ai-section.component';
 		QuotesSectionComponent,
 		CtaSectionComponent,
 		TrunksSectionComponent,
-		MktAiSectionComponent
+		MktAiSectionComponent,
+		FooterComponent
 	],
 })
 export class FlauxHomePageComponent {}
