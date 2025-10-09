@@ -1,0 +1,97 @@
+<div class="container">
+	<div class="wrap">
+		<!-- deepest -->
+		@if (blobCount >= 1) {
+		<div class="blob b1"></div>
+		}
+		<!-- middle (primary) -->
+		@if (blobCount >= 2) {
+		<div class="blob b2"></div>
+		}
+		<!-- foremost (#111 for 3) -->
+		@if (blobCount === 3) {
+		<div class="blob b3"></div>
+		}
+
+		<img class="hero"
+			  [src]="imageUrl"
+			  [attr.alt]="alt || null"
+			  [style.overflow]="'visible'"
+			  [style.objectFit]="imageResize" />
+	</div>
+
+	<!-- <div class="controls-container">
+		<button class="toggle-btn"
+				  (click)="toggleControls()"
+				  [attr.aria-expanded]="showControls">
+			{{ showControls ? '👁️ Hide Controls' : '⚙️ Show Controls' }}
+		</button>
+
+		@if (showControls) {
+		<div class="controls">
+			@if (blobCount >= 1) {
+			<div class="control-group">
+				<label>Blob 1</label>
+				<div class="slider-group">
+					<label>Rotate: {{blob1Rotate}}°</label>
+					<input type="range"
+							 min="-180"
+							 max="180"
+							 [value]="blob1Rotate"
+							 (input)="blob1Rotate = +$any($event.target).value" />
+					<label>Scale: {{blob1Scale}}</label>
+					<input type="range"
+							 min="0.1"
+							 max="3"
+							 step="0.1"
+							 [value]="blob1Scale"
+							 (input)="blob1Scale = +$any($event.target).value" />
+				</div>
+			</div>
+			}
+
+			@if (blobCount >= 2) {
+			<div class="control-group">
+				<label>Blob 2</label>
+				<div class="slider-group">
+					<label>Rotate: {{blob2Rotate}}°</label>
+					<input type="range"
+							 min="-180"
+							 max="180"
+							 [value]="blob2Rotate"
+							 (input)="blob2Rotate = +$any($event.target).value" />
+					<label>Scale: {{blob2Scale}}</label>
+					<input type="range"
+							 min="0.1"
+							 max="3"
+							 step="0.1"
+							 [value]="blob2Scale"
+							 (input)="blob2Scale = +$any($event.target).value" />
+				</div>
+			</div>
+			}
+
+			@if (blobCount === 3) {
+			<div class="control-group">
+				<label>Blob 3</label>
+				<div class="slider-group">
+					<label>Rotate: {{blob3Rotate}}°</label>
+					<input type="range"
+							 min="-180"
+							 max="180"
+							 [value]="blob3Rotate"
+							 (input)="blob3Rotate = +$any($event.target).value" />
+					<label>Scale: {{blob3Scale}}</label>
+					<input type="range"
+							 min="0.1"
+							 max="3"
+							 step="0.1"
+							 [value]="blob3Scale"
+							 (input)="blob3Scale = +$any($event.target).value" />
+				</div>
+			</div>
+			}
+		</div>
+		}
+	</div> -->
+</div>
