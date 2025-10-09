@@ -1,5 +1,5 @@
 :host {
-	display: block;
+	display: flex;
 }
 
 .mkt-ai-section {
@@ -8,7 +8,6 @@
 			#fce25d 15%,
 			#993793 60%,
 			#000000 100%);
-	padding: 100px 0;
 	position: relative;
 	z-index: 0;
 	background-size: cover;

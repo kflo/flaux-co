@@ -1,5 +1,5 @@
 :host {
-	display: block;
+	display: flex;
 }
 
 .trunks-container {
@@ -31,60 +31,12 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: url("../../../../assets/img/bg/18.jpg"), #111;
+		background-color: #111;
+		// background: url("../../../../assets/img/bg/18.jpg"), #111;
 		background-position-y: 25%;
 		background-size: cover;
 		z-index: -1;
 		filter: blur(2px) brightness(0.5) contrast(1.2);
-	}
-}
-
-.left, .right {
-	// background: url("../../../../assets/img/v-bg.webp");
-	background-size: cover;
-	flex: 1;
-	height: -webkit-fill-available;
-	padding: 3em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	&-content {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		height: -webkit-fill-available;
-	}
-}
-
-.left {
-	// backdrop-filter: brightness(1.1) saturate(0.5);
-	padding-inline: 3em 5em;
-	background: radial-gradient(circle FARTHEST-side at 100%,
-			transparent 70%,
-			rgb(0, 0, 0) 100%);
-	text-align: right
-}
-
-.right {
-	// backdrop-filter: brightness(1.1) saturate(0.5);
-	padding-inline: 5em 3em;
-	background: radial-gradient(circle FARTHEST-side at 0%,
-			transparent 70%,
-			rgb(0, 0, 0) 100%);
-	text-align: left;
-}
-
-.text-block {}
-
-#logoFont {
-	text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
-}
-
-@media (max-width: 768px) {
-	.trunks-container {
-		flex-direction: column;
-		height: auto;
 	}
 }
 
@@ -97,4 +49,143 @@
 	pointer-events: none;
 	overflow: hidden;
 	z-index: 0;
+}
+
+.left, .right {
+	// background: url("../../../../assets/img/v-bg.webp");
+	background-size: cover;
+	flex: 1;
+	height: -webkit-fill-available;
+	padding: 4em 4em 4.5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: -webkit-fill-available;
+		backdrop-filter: brightness(99) blur(11em) hue-rotate(0) saturate(7.5) sepia(0.25) contrast(0.87);
+		padding: 4em;
+
+	}
+}
+
+.left {
+	// backdrop-filter: brightness(1.1) saturate(0.5);
+	padding-inline: 3em 5em;
+	background: black;
+	text-align: right;
+
+	&-content {
+		border-radius: 3em 0 3em 0;
+	}
+}
+
+.right {
+	// backdrop-filter: brightness(1.1) saturate(0.5);
+	padding-inline: 5em 3em;
+	background: black;
+	text-align: left;
+
+	&-content {
+		border-radius: 0 3em 0 3em;
+		overflow: hidden;
+	}
+}
+
+.text-block {}
+
+#logoFont {
+	text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.automation-img-container {
+	width: calc(100% + 7.98em); // Extend past the 4em padding on both sides
+	height: 200px; // Adjust height as needed
+	overflow: hidden;
+	border-radius: 1em;
+	margin: 1.5em -4em; // Negative margin to pull it out of the parent's padding
+	filter: saturate(2) contrast(1.5);
+
+}
+
+.automation-img {
+	width: 120%; // Zoom effect - makes image larger than container
+	height: 120%; // Zoom effect - makes image larger than container
+	object-fit: cover;
+	transform: translate(-8.33%, -1%); // Centers the zoomed image (-100/12 = -8.33%)
+	transition: transform 0.3s ease;
+
+	&:hover {
+		transform: translate(-8.33%, -1%) scale(1.15); // Slight zoom on hover
+	}
+}
+
+.agency-img-container {
+	width: calc(50%); // Extend past the 4em padding on both sides
+	// height: 200px; // Adjust height as needed
+	overflow: hidden;
+	border-radius: 1em;
+	position: absolute;
+	top: 2.4em;
+	right: -2em;
+	z-index: -2;
+	opacity: 0.6;
+	filter: saturate(1.2) contrast(1.5);
+}
+
+.agency-img {
+	width: 100%; // Zoom effect - makes image larger than container
+	height: 100%; // Zoom effect - makes image larger than container
+	object-fit: cover;
+	transition: transform 0.3s ease;
+
+	&:hover {
+		transform: translate(-8.33%, -1%) scale(1.15); // Slight zoom on hover
+	}
+}
+
+/* ------------------------------ MEDIA QUERIES ----------------------------- */
+
+@media (max-width: 1200px) {
+
+	.left, .right {
+		padding: 3rem;
+
+		&-content {
+			padding: 3rem;
+		}
+
+		.automation-img-container {
+			width: calc(100% + 6em); // Extend past the 2em padding on both sides
+			margin: 0 auto;
+			height: 150px; // Adjust height as needed
+			margin: 1.5em -3em; // Negative margin to pull it out of the parent's padding
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	.trunks-container {
+		flex-direction: column;
+		height: auto;
+	}
+
+	.laser-wrapper {
+		// transform: rotate(90deg);
+		// width: auto;
+		top: -40%;
+		// left: 14.5em !important;
+	}
+
+	.left, .right {
+		padding: 2rem;
+
+		&-content {
+			padding: 3rem;
+		}
+	}
+
 }

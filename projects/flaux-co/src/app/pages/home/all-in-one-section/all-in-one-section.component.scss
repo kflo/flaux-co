@@ -3,12 +3,13 @@
 	background: black;
 }
 
-.spiral-container {
-	flex: 2;
+.all-in-one-section {
+	// flex: 2;
 }
 
 .feature-content {
 	z-index: 1;
+	flex: 1;
 	position: relative;
 	align-items: center;
 	justify-content: center;
@@ -17,11 +18,47 @@
 	margin: auto 5em;
 	height: 100%;
 	width: 100%;
+	filter: drop-shadow(0 0 3px black);
 }
 
 .lottie-container {
+	position: relative;
 	flex: 1;
 	align-items: center;
 	justify-content: center;
+	height: 60%;
+	width: 100%;
 	display: flex;
+
+	flaux-lottie {
+		z-index: 1;
+	}
+
+	&-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: black;
+		z-index: 0;
+		background: linear-gradient(transparent 0%, black 30%, black 70%, transparent 100%);
+		mask: linear-gradient(to right,
+				transparent 0%,
+				black 40%,
+				black 100%);
+		-webkit-mask: linear-gradient(to right,
+				transparent 0%,
+				black 40%,
+				black 100%)
+	}
+}
+
+.vignette {
+	top: 0;
+	left: 0;
+	height: 150%;
+	width: 100%;
+	z-index: 111;
+	// background: linear-gradient(transparent 0%, black 10%, transparent 20%, transparent 80%, black 90%, transparent 100%);
 }
