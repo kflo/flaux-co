@@ -1,0 +1,99 @@
+:host {
+	display: grid;
+}
+
+.marquee-container {
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+	-webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+}
+
+.marquee-row {
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	margin-bottom: 16px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.marquee-track {
+	display: inline-flex;
+	gap: var(--gap-size, 15px);
+	animation: marquee-left linear infinite;
+	will-change: transform;
+
+	&.reverse {
+		animation: marquee-right linear infinite;
+	}
+}
+
+.icon-square {
+	flex-shrink: 0;
+	width: var(--icon-size, 40px);
+	height: var(--icon-size, 40px);
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	transition: all 0.3s ease;
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.2);
+		transform: scale(1.05);
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		filter: brightness(1.2);
+	}
+}
+
+@keyframes marquee-left {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes marquee-right {
+	from {
+		transform: translateX(-50%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+	.icon-square {
+		width: var(--icon-size-mobile, 32px);
+		height: var(--icon-size-mobile, 32px);
+		padding: 6px;
+	}
+
+	.marquee-track {
+		gap: var(--gap-size-mobile, 12px);
+	}
+}
+
+// Pause animation on hover for better UX
+.marquee-container:hover .marquee-track {
+	animation-play-state: paused;
+}

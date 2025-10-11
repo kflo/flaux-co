@@ -1,0 +1,41 @@
+<div class="marquee-container">
+	<!-- First Row -->
+	<div class="marquee-row row-1">
+		<div class="marquee-track"
+			  [style.animation-duration.s]="animationSpeed">
+			<div class="icon-square"
+				  *ngFor="let icon of row1Icons; trackBy: trackByIcon">
+				<img [src]="getIconPath(icon)"
+					  [alt]="icon"
+					  loading="lazy" />
+			</div>
+			<!-- Duplicate for seamless loop -->
+			<div class="icon-square"
+				  *ngFor="let icon of row1Icons; trackBy: trackByIcon">
+				<img [src]="getIconPath(icon)"
+					  [alt]="icon"
+					  loading="lazy" />
+			</div>
+		</div>
+	</div>
+
+	<!-- Second Row -->
+	<div class="marquee-row row-2">
+		<div class="marquee-track reverse"
+			  [style.animation-duration.s]="animationSpeed">
+			<div class="icon-square"
+				  *ngFor="let icon of row2Icons; trackBy: trackByIcon">
+				<img [src]="getIconPath(icon)"
+					  [alt]="icon"
+					  loading="lazy" />
+			</div>
+			<!-- Duplicate for seamless loop -->
+			<div class="icon-square"
+				  *ngFor="let icon of row2Icons; trackBy: trackByIcon">
+				<img [src]="getIconPath(icon)"
+					  [alt]="icon"
+					  loading="lazy" />
+			</div>
+		</div>
+	</div>
+</div>

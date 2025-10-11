@@ -1,0 +1,38 @@
+<div class="content-wrapper"
+	  [class.reverse]="imagePosition === 'right'">
+	@if (imageUrls?.length || imageUrl) {
+	<div class="image-container">
+		@if (blobBackdrop) {
+		<flaux-blob-backdrop [blobCount]="1"
+									[animate]="false"></flaux-blob-backdrop>
+		}
+		@if (imageUrls && imageUrls.length > 1) {
+		@for (url of imageUrls; track url; let i = $index) {
+		<img class="carousel-image"
+			  [src]="url"
+			  [alt]="imageAlt"
+			  [class.active]="i === currentImageIndex" />
+		}
+		} @else {
+		<img [src]="currentImageUrl"
+			  [alt]="imageAlt" />
+		}
+	</div>
+	}
+	@if (title || description) {
+	<div class="section-heading">
+		@if (title) {
+		<h2>{{title}}
+			@if (titleSpacing) {&nbsp;}
+			@if (titleIcon) {<img [src]="titleIcon"
+				  [alt]="titleIconAlt" />}</h2>
+		}
+		@if (description) {
+		<p>{{description}}</p>
+		}
+	</div>
+	}
+
+	<!-- Allow custom content projection -->
+	<ng-content></ng-content>
+</div>
