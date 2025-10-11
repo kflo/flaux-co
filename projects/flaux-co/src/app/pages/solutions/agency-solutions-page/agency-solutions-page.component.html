@@ -1,15 +1,24 @@
-<flaux-section class="agency-hero-section">
-	<flaux-blob-backdrop [blobCount]="3"
-								[imageUrl]="imageUrl">
-		<div class="content">
-			<h2>Your amazing content</h2>
-		</div>
-	</flaux-blob-backdrop>
-	<div class="hero-header">
-		<h1>Your Amazing Title</h1>
+<flaux-gradient-background></flaux-gradient-background>
+<flaux-section class="agency-hero-section"
+					[inlinePadding]="'2rem'">
+	<div class="hero-heading">
+		<h2>Your unfair <br><strong><em>advantage</em></strong> is here.</h2>
+		<p>Don't just compete, conquer the digital landscape. <br>We provide every tool and strategy you need—from AI-powered conversations to targeted ads—to build an unbeatable online presence and achieve your growth goals.</p>
 	</div>
+	<flaux-blob-backdrop [blobCount]="3"
+								[imageUrls]="formattedImageUrls">
+	</flaux-blob-backdrop>
 </flaux-section>
-<flaux-section>
-	<h2>Another Section</h2>
-	<p>More content goes here.</p>
+<flaux-section class="content-section"
+					[height]="'auto'"
+					[blockPadding]="'3em'"
+					[inlinePadding]="'2em'">
+	<div class="image-container">
+		<img [src]="imageUrl2"
+			  alt="Conversations AI" />
+	</div>
+	<div class="section-heading">
+		<h2>Conversations <span class="icon"></span></h2>
+		<p>Our conversations platform not only connects your business with customers across various channels, but also makes use of AI so that you never miss a lead, opportunity, or followup.</p>
+	</div>
 </flaux-section>

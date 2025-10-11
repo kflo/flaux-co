@@ -1,0 +1,49 @@
+@use 'variables' as *;
+
+:host {
+    display: contents;
+}
+
+.gradient-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    background: linear-gradient(-45deg,
+            $flaux-navy,
+            $flaux-blue,
+            $flaux-purple,
+            $flaux-pink,
+            $flaux-orange,
+            $flaux-yellow);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+.gradient-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
+    opacity: 1;
+    transform: scale(1.5);
+    z-index: 1;
+    mix-blend-mode: overlay;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

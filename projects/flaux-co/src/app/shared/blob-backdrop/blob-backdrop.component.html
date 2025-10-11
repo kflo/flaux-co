@@ -13,11 +13,20 @@
 		<div class="blob b3"></div>
 		}
 
-		<img class="hero"
-			  [src]="imageUrl"
-			  [attr.alt]="alt || null"
-			  [style.overflow]="'visible'"
-			  [style.objectFit]="imageResize" />
+		<div class="blob-image-wrapper">
+			@if (imageUrls.length > 1) {
+			@for (imageUrl of imageUrls; track imageUrl; let i = $index) {
+			<img class="blob-image carousel-image"
+				  [src]="imageUrl"
+				  [attr.alt]="alt || null"
+				  [class.active]="i === currentImageIndex" />
+			}
+			} @else {
+			<img class="blob-image"
+				  [src]="currentImageUrl"
+				  [attr.alt]="alt || null" />
+			}
+		</div>
 	</div>
 
 	<!-- <div class="controls-container">

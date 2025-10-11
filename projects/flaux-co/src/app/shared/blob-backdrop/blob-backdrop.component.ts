@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	ChangeDetectorRef,
+	Component,
+	Input,
+	OnInit,
+	OnDestroy
+} from '@angular/core';
 
 type ObjectFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 
@@ -20,20 +27,27 @@ type ObjectFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 		'[class.blob-3]': 'blobCount === 3',
 		'[class.blob-2]': 'blobCount === 2',
 		'[class.blob-1]': 'blobCount === 1',
+
 	}
 })
-export class BlobBackdropComponent {
+export class BlobBackdropComponent implements OnInit, OnDestroy {
   /** 1..3 (default 2) */
   @Input() blobCount: 1 | 2 | 3 = 2;
 
   /** middle blob color (CSS color)… e.g. '#4f7cff' or 'rgb(80,120,255)' */
   @Input() primaryColor: string = '#2b3a84';
 
-  /** shown on top of blobs */
+  /** array of image URLs for carousel */
+  @Input() imageUrls: string[] = [];
+
+  /** shown on top of blobs (legacy support) */
   @Input() imageUrl = '';
 
   /** CSS object-fit for the image */
   @Input() imageResize: ObjectFit = 'cover';
+
+  /** current image index */
+  currentImageIndex = 0;
 
   /** optional alt text */
   @Input() alt = '';
@@ -56,8 +70,41 @@ export class BlobBackdropComponent {
   /** Blob 3 scale */
   @Input() blob3Scale = 2.0;
 
+  /** Position of the blob: 'left' or 'right' */
+  //   @Input() position: 'left' | 'right' = 'right';
+
   /** Show/hide controls */
   showControls = true;
+
+  private intervalId?: number;
+
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngOnInit() {
+  	if (this.imageUrls.length > 1) {
+  		this.startCarousel();
+  	}
+  }
+
+  ngOnDestroy() {
+  	if (this.intervalId) {
+  		clearInterval(this.intervalId);
+  	}
+  }
+
+  private startCarousel() {
+  	this.intervalId = window.setInterval(() => {
+  		this.currentImageIndex = (this.currentImageIndex + 1) % this.imageUrls.length;
+  		this.cdr.markForCheck();
+  	}, 4000);
+  }
+
+  get currentImageUrl(): string {
+  	if (this.imageUrls.length > 0) {
+  		return this.imageUrls[this.currentImageIndex];
+  	}
+  	return this.imageUrl;
+  }
 
   toggleControls() {
   	this.showControls = !this.showControls;
@@ -71,6 +118,10 @@ export class BlobBackdropComponent {
   	return this.blobCount === 3 ? '#111111' : 'transparent';
   }
 }
+
+// ! TODO: replace adjust logic with simple desaturation and brightness multipliers
+// ! TODO: seeded random variations based on input color to avoid exact matches, though still deterministic
+// ! TOOD: small mode,
 
 /** Adjust color saturation and brightness */
 function adjustColor(color: string, saturation: number, brightness: number): string {
