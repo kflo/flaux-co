@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FlauxFnComponent } from '@app/shared/fn/fn.component';
 import {HlsComponent} from '@app/shared/hls/hls.component';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
 	selector: 'hero-section',
@@ -10,7 +11,7 @@ import {HlsComponent} from '@app/shared/hls/hls.component';
 	styleUrls: ['./hero-section.component.scss'],
 })
 export class HeroSectionComponent {
-	hlsUrl = 'https://cdn.flaux.co/vid/flaux-hero-c/hls/master.m3u8';
-	posterUrl = 'https://cdn.flaux.co/img/hero-poster.jpg';
+	hlsUrl = `${environment.r2BucketUrl}vid/flaux-hero-c/hls/master.m3u8`;
+	posterUrl = `${environment.r2BucketUrl}img/hero-poster.jpg`;
 
 }

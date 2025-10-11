@@ -31,6 +31,8 @@ type ObjectFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 	}
 })
 export class BlobBackdropComponent implements OnInit, OnDestroy {
+
+	@Input() animate = true;
   /** 1..3 (default 2) */
   @Input() blobCount: 1 | 2 | 3 = 2;
 

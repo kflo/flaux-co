@@ -2,15 +2,18 @@
 	<div class="wrap">
 		<!-- deepest -->
 		@if (blobCount >= 1) {
-		<div class="blob b1"></div>
+		<div class="blob b1"
+			  [class.animate]="animate"></div>
 		}
 		<!-- middle (primary) -->
 		@if (blobCount >= 2) {
-		<div class="blob b2"></div>
+		<div class="blob b2"
+			  [class.animate]="animate"></div>
 		}
 		<!-- foremost (#111 for 3) -->
 		@if (blobCount === 3) {
-		<div class="blob b3"></div>
+		<div class="blob b3"
+			  [class.animate]="animate"></div>
 		}
 
 		<div class="blob-image-wrapper">

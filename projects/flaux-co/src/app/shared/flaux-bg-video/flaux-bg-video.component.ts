@@ -20,6 +20,7 @@ import { environment } from 'projects/flaux-co/environments/environment';
 export class FlauxBgVideoComponent implements AfterViewInit, OnDestroy {
 
 	@Input() vignette = false;
+	@Input() relative = false;
 	@Input() name = '';
 	@Input() threshold = 0.25; // How much of the video should be visible before playing
 	@Input() vignettePosition = '50%'; // Position of the vignette gradient center

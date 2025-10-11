@@ -2,23 +2,27 @@
 <flaux-section class="agency-hero-section"
 					[inlinePadding]="'2rem'">
 	<div class="hero-heading">
-		<h2>Your unfair <br><strong><em>advantage</em></strong> is here.</h2>
+		<h2><img class="ast-icon"
+				  src="../../../../assets/img/icons/asterisk.svg"
+				  alt="AI Icon" /> Your unfair <br><strong><em>advantage</em></strong> is here.</h2>
 		<p>Don't just compete, conquer the digital landscape. <br>We provide every tool and strategy you need—from AI-powered conversations to targeted ads—to build an unbeatable online presence and achieve your growth goals.</p>
 	</div>
 	<flaux-blob-backdrop [blobCount]="3"
 								[imageUrls]="formattedImageUrls">
 	</flaux-blob-backdrop>
 </flaux-section>
+
+@for (section of featureSections; track section.title) {
 <flaux-section class="content-section"
-					[height]="'auto'"
-					[blockPadding]="'3em'"
-					[inlinePadding]="'2em'">
-	<div class="image-container">
-		<img [src]="imageUrl2"
-			  alt="Conversations AI" />
-	</div>
-	<div class="section-heading">
-		<h2>Conversations <span class="icon"></span></h2>
-		<p>Our conversations platform not only connects your business with customers across various channels, but also makes use of AI so that you never miss a lead, opportunity, or followup.</p>
-	</div>
+					[height]="'auto'">
+	<flaux-glass-section [imageUrls]="section.imageUrls"
+								[imageAlt]="section.imageAlt"
+								[blobBackdrop]="section.blobBackdrop"
+								[title]="section.title"
+								[titleIcon]="section.titleIcon"
+								titleIconAlt="AI Icon"
+								[description]="section.description"
+								[imagePosition]="section.imagePosition">
+	</flaux-glass-section>
 </flaux-section>
+}

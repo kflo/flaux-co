@@ -61,7 +61,11 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+.animate {
 	animation: blobFloat 7s ease-in-out infinite;
+
 }
 
 .blob-image-wrapper {

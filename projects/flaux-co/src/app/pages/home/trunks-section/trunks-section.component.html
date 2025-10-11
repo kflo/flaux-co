@@ -2,19 +2,21 @@
 					[height]="'100vh'"
 					[blockPadding]="'0'"
 					[inlinePadding]="'0'">
+	<!-- ----------------------------- LASER FLOW ------------------------------ -->
 	<div class="laser-wrapper">
-		<app-laser-flow [color]="'#FAAE51'"
+		<app-laser-flow [color]="'#faaf53'"
 							 [decay]="2.5"
 							 [fogFallSpeed]="1.2"
 							 [fogIntensity]="0.2"
 							 [flowSpeed]=".4"
 							 [flowStrength]="0.3"
-							 [horizontalBeamOffset]="-0.0004"
+							 [horizontalBeamOffset]="-0.00029"
 							 [horizontalSizing]="1"
-							 [verticalBeamOffset]="-0.503"
+							 [verticalBeamOffset]="-0.505"
 							 [verticalSizing]="25">
 		</app-laser-flow>
 	</div>
+	<!-- -------------------------------- LEFT --------------------------------- -->
 	<section class="left">
 		<div class="left-content">
 			<h3>Grow with <span id="logoFont"
@@ -24,15 +26,24 @@
 				<p>Leverage the power of AI to streamline operations, enhance customer experiences, and drive innovation. Our tailored solutions are designed to meet your unique business needs.</p>
 
 			</div>
-			<div class="automation-img-container">
+
+			<div class="marquee-wrapper">
+				<app-icon-marquee [animationSpeed]="80"
+										[iconSize]="'48px'"
+										[gapSize]="'24px'">
+				</app-icon-marquee>
+			</div>
+
+			<!-- <div class="automation-img-container">
 				<img src="../../../../assets/img/automation/n8n-automation.png"
 					  alt="workflows automation illustration"
 					  class="automation-img" />
-			</div>
+			</div> -->
 			<flaux-btn [routerLink]="'/solutions/ai'"
 						  fragment="">How can I 10x my business?</flaux-btn>
 		</div>
 	</section>
+	<!-- -------------------------------- RIGHT -------------------------------- -->
 	<section class="right">
 		<div class="right-content">
 			<h3><span id="logoFont"
