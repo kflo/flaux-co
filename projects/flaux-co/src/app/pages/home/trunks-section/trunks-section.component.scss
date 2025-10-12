@@ -60,8 +60,8 @@
 		flex-direction: column;
 		justify-content: space-between;
 		height: -webkit-fill-available;
-		backdrop-filter: brightness(99) blur(11em) hue-rotate(0) saturate(7.5) sepia(0.25) contrast(0.87);
-		padding: 4em;
+		backdrop-filter: brightness(50) blur(15em) hue-rotate(-15deg) saturate(4.5) contrast(0.85) sepia(0.1);
+		padding: 2em 3.5em 3.0em;
 
 	}
 }
@@ -74,7 +74,7 @@
 
 	&-content {
 		border-radius: 8% 0 8% 0;
-		backdrop-filter: brightness(99) blur(11em) hue-rotate(220deg) saturate(7.5) sepia(0.25) contrast(0.87);
+		backdrop-filter: brightness(50) blur(15em) hue-rotate(180deg) saturate(4.5) contrast(0.85) sepia(0.1)
 	}
 }
 
@@ -96,8 +96,8 @@
 
 .marquee-wrapper {
 	max-width: fit-content;
-	margin-block: 2em;
-	margin-inline: -2em; // Pull it out of the parent's padding
+	margin-block: 1em;
+	margin-inline: -1em; // Pull it out of the parent's padding
 }
 
 .automation-img-container {

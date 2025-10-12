@@ -4,10 +4,12 @@
 
 .mkt-ai-section {
 	// background: url('/assets/img/bg/18.jpg') no-repeat center center;
-	background: radial-gradient(ellipse FARTHEST-side at top center,
-			#fce25d 15%,
-			#993793 60%,
-			#000000 100%);
+	background: radial-gradient(ellipse FARTHEST-corner at top center,
+			#fce25d 20%,
+			#f06b86 40%,
+			#dd569f 60%,
+			#9556a2 80%,
+			#2b3a84 100%);
 	position: relative;
 	z-index: 0;
 	background-size: cover;

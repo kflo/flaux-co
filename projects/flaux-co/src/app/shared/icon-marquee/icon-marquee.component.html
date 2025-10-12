@@ -2,10 +2,12 @@
 	<!-- First Row -->
 	<div class="marquee-row row-1">
 		<div class="marquee-track"
+			  [ngClass]="{ 'overflow': overflow }"
 			  [style.animation-duration.s]="animationSpeed">
 			<div class="icon-square"
 				  *ngFor="let icon of row1Icons; trackBy: trackByIcon">
 				<img [src]="getIconPath(icon)"
+					  [ngClass]="{ 'overflow': overflow }"
 					  [alt]="icon"
 					  loading="lazy" />
 			</div>
@@ -13,6 +15,7 @@
 			<div class="icon-square"
 				  *ngFor="let icon of row1Icons; trackBy: trackByIcon">
 				<img [src]="getIconPath(icon)"
+					  [ngClass]="{ 'overflow': overflow }"
 					  [alt]="icon"
 					  loading="lazy" />
 			</div>
@@ -20,7 +23,8 @@
 	</div>
 
 	<!-- Second Row -->
-	<div class="marquee-row row-2">
+	<div class="marquee-row row-2"
+		  *ngIf="!singleRow && row2Icons.length > 0">
 		<div class="marquee-track reverse"
 			  [style.animation-duration.s]="animationSpeed">
 			<div class="icon-square"

@@ -30,7 +30,7 @@
 			<div class="marquee-wrapper">
 				<app-icon-marquee [animationSpeed]="80"
 										[iconSize]="'48px'"
-										[gapSize]="'24px'">
+										[iconFiles]="aiMarqueeFiles">
 				</app-icon-marquee>
 			</div>
 
@@ -52,11 +52,22 @@
 				<p>Complete digital marketing and web solutions for your business.</p>
 				<p>From CRM and SEO to social media management and SMS marketing, we provide everything you need to establish a strong digital presence&mdash;empowering your business to lead, not chase.</p>
 			</div>
-			<div class="agency-img-container">
+			<div class="marquee-wrapper">
+				<app-icon-marquee [animationSpeed]="80"
+										[iconSize]="'7em'"
+										[borderRadius]="'50%'"
+										[iconPath]="'../../../../assets/img/driveDL/picks/'"
+										[iconFiles]="agencyMarqueeFiles"
+										[singleRow]="true"
+										[overflow]="true"
+										[gapSize]="'5em'">
+				</app-icon-marquee>
+			</div>
+			<!-- <div class="agency-img-container">
 				<img src="../../../../assets/img/agency/marketing-phone.png"
 					  alt="workflows automation illustration"
 					  class="agency-img" />
-			</div>
+			</div> -->
 			<flaux-btn [routerLink]="'/solutions/agency'"
 						  fragment="">Am I truly owning my digital presence?</flaux-btn>
 			<!-- <div class="feature-title">

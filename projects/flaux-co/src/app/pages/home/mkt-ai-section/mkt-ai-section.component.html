@@ -2,9 +2,12 @@
 					[inlinePadding]="'0'"
 					class="mkt-ai-section"
 					flauxVignette>
-	<flaux-carousel [items]="carouselItems"
+	<flaux-carousel #carousel
+						 [items]="carouselItems"
 						 [showControls]="true"
 						 [itemWidth]="5"
-						 [itemSpacing]="1">
+						 [itemSpacing]="1"
+						 (keydown.arrowLeft)="carousel.turnLeft()"
+						 (keydown.arrowRight)="carousel.turnRight()">
 	</flaux-carousel>
 </flaux-section>

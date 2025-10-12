@@ -1,7 +1,9 @@
 <div class="content-wrapper"
 	  [class.reverse]="imagePosition === 'right'">
 	@if (imageUrls?.length || imageUrl) {
-	<div class="image-container">
+	<div class="image-container"
+		  (mouseenter)="onImageHover(true)"
+		  (mouseleave)="onImageHover(false)">
 		@if (blobBackdrop) {
 		<flaux-blob-backdrop [blobCount]="1"
 									[animate]="false"></flaux-blob-backdrop>
@@ -11,11 +13,13 @@
 		<img class="carousel-image"
 			  [src]="url"
 			  [alt]="imageAlt"
-			  [class.active]="i === currentImageIndex" />
+			  [class.active]="i === currentImageIndex"
+			  [class.hovered]="isHovered" />
 		}
 		} @else {
 		<img [src]="currentImageUrl"
-			  [alt]="imageAlt" />
+			  [alt]="imageAlt"
+			  [class.hovered]="isHovered" />
 		}
 	</div>
 	}

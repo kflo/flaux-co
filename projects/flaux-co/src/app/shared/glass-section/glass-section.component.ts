@@ -31,6 +31,8 @@ export class FlauxGlassSectionComponent implements OnInit, OnDestroy {
 
 	/** current image index */
 	currentImageIndex = 0;
+	/** hover state for pausing carousel */
+	isHovered = false;
 
 	private intervalId?: number;
 
@@ -48,13 +50,47 @@ export class FlauxGlassSectionComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	private startCarousel() {
+	private startCarousel(delay: number = 4000) {
 		this.intervalId = window.setInterval(() => {
 			if (this.imageUrls && this.imageUrls.length > 0) {
 				this.currentImageIndex = (this.currentImageIndex + 1) % this.imageUrls.length;
 				this.cdr.markForCheck();
 			}
-		}, 4000);
+		}, delay);
+	}
+
+	private stopCarousel() {
+		if (this.intervalId) {
+			clearInterval(this.intervalId);
+			this.intervalId = undefined;
+		}
+	}
+
+	private resumeCarouselAfterHover() {
+		// Start with a shorter delay (1 second) after mouse leave
+		setTimeout(() => {
+			if (!this.isHovered && this.imageUrls && this.imageUrls.length > 1) {
+				// Advance to next image immediately
+				this.currentImageIndex = (this.currentImageIndex + 1) % this.imageUrls.length;
+				this.cdr.markForCheck();
+				// Then start normal 4-second interval
+				this.startCarousel(4000);
+			}
+		}, 1000);
+	}
+
+	onImageHover(hovered: boolean) {
+		this.isHovered = hovered;
+
+		if (this.imageUrls && this.imageUrls.length > 1) {
+			if (hovered) {
+				// Pause the carousel
+				this.stopCarousel();
+			} else {
+				// Resume the carousel with shorter initial delay
+				this.resumeCarouselAfterHover();
+			}
+		}
 	}
 
 	get currentImageUrl(): string {

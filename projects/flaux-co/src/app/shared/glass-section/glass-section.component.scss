@@ -44,14 +44,18 @@
 			filter: drop-shadow(.5em .5em 0.5em rgba(40, 40, 40, 0.4));
 			max-height: 215%;
 			max-width: 115%;
+			transition: transform 0.3s ease, opacity 1.5s ease-in-out;
 
 			&.carousel-image {
 				opacity: 0;
-				transition: opacity 1.5s ease-in-out;
 
 				&.active {
 					opacity: 1;
 				}
+			}
+
+			&.hovered {
+				transform: scale(1.05);
 			}
 		}
 	}
