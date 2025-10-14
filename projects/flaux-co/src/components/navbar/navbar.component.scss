@@ -56,7 +56,8 @@
 
 .navbar-center {
 	display: flex;
-	gap: 3rem;
+	// gap: 3rem;
+	height: 100%;
 }
 
 .navbar-center a {
@@ -66,11 +67,17 @@
 	font-family: Montserrat, sans-serif;
 	font-weight: 500;
 	transition: color 0.2s;
+	cursor: pointer;
+	height: 100%;
+	align-content: center;
+	padding-inline: 2rem;
 }
 
-.navbar-center a.active,
 .navbar-center a:hover {
-	color: $highlight-color
+	color: $flaux-salmon;
+	background: rgba(255, 255, 255, 0.09);
+	// filter: brightness(1.1) contrast(1.5);
+	transition: background-color 0.6s, color 0.6s;
 }
 
 .navbar-right {
@@ -83,22 +90,23 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 6rem;
+	width: 4rem;
+	height: 4rem;
 	background: transparent;
 	border: none;
 	cursor: pointer;
 	gap: 6px;
 	z-index: 100;
-	padding: 2rem;
+	padding: 1rem;
 
 }
 
 .dropdown-trigger span {
 	display: block;
-	height: 4px;
+	height: 0.2em;
 	width: 100%;
 	background: #fff;
-	border-radius: 2px;
+	border-radius: 1px;
 	transition: all 0.3s;
 }
 

@@ -1,80 +1,11 @@
 @use 'variables' as *;
 
 :host {
-	display: block;
-	overflow-y: auto;
-	overflow-x: hidden;
-	scroll-snap-type: y mandatory;
-	scroll-behavior: smooth;
-	height: 100vh;
-}
 
-/* ----------------------------------- // ----------------------------------- */
-
-.video-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 80%;
-	height: 80%;
-	overflow: hidden;
-	z-index: 0;
-	margin: auto;
-	margin-top: 0;
-	mask: radial-gradient(ellipse farthest-side, black 0%, black 75%, transparent 100%);
-
-	flaux-bg-video video {
-		position: relative !important;
-	}
-}
-
-.content-container {
-	position: relative;
-	display: flex;
-	width: 100%;
-	scroll-snap-align: start;
-	z-index: 1;
-	pointer-events: none;
-	align-items: center;
-	justify-content: center;
-}
-
-
-
-.content-txt {
-	flex: 1;
-	position: relative;
-	justify-self: flex-end;
-	max-width: 50vw;
-	z-index: 1;
-	// padding: 2rem;
-	color: white;
-	text-align: center;
-	bottom: 0;
-	// backdrop-filter: blur(1rem) brightness(1.2) contrast(0.9);
-	// border-radius: 2rem;
-	// pointer-events: auto;
-	// box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
-
-	h3 {
-		font-size: 3rem;
-	}
-
-	p {
-		font-size: 1.25rem;
-		line-height: 1.5;
+	// Make each section snap to the top
+	>*:not(flaux-footer) {
+		scroll-snap-align: start;
 	}
 }
 
 /* ----------------------------------- // ----------------------------------- */
-
-.laser-wrapper {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	overflow: hidden;
-	z-index: 0;
-}

@@ -1,0 +1,36 @@
+@use 'variables' as *;
+
+:host {
+	display: block;
+}
+
+flaux-section {
+	background: linear-gradient(30deg, $flaux-violet 10%, $flaux-blue 130%);
+}
+
+.privacy-confirmed {
+
+	&-content {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+
+		h3 {
+			font-size: 2rem;
+			margin-bottom: var(--space-md);
+		}
+
+		p {
+			margin-bottom: var(--space-md);
+		}
+	}
+
+	&-image {
+		align-self: self-end;
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}

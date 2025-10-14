@@ -1,0 +1,164 @@
+@use 'variables' as *;
+
+:host {
+	display: block;
+	overflow-y: auto;
+	overflow-x: hidden;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+	height: 100vh;
+}
+
+/* ----------------------------------- // ----------------------------------- */
+
+.video-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80%;
+	height: 80%;
+	overflow: hidden;
+	z-index: 0;
+	margin: auto;
+	margin-top: 0;
+	mask: radial-gradient(ellipse farthest-side, black 0%, black 75%, transparent 100%);
+
+	flaux-bg-video video {
+		position: relative !important;
+	}
+}
+
+.content-container {
+	position: relative;
+	display: flex;
+	width: 100%;
+	scroll-snap-align: start;
+	z-index: 1;
+	pointer-events: none;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+.content-txt {
+	flex: 1;
+	position: relative;
+	justify-self: flex-end;
+	max-width: 50vw;
+	z-index: 1;
+	// padding: 2rem;
+	color: white;
+	text-align: center;
+	bottom: 0;
+	// backdrop-filter: blur(1rem) brightness(1.2) contrast(0.9);
+	// border-radius: 2rem;
+	// pointer-events: auto;
+	// box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+
+	h3 {
+		font-size: 3rem;
+	}
+
+	p {
+		font-size: 1.25rem;
+		line-height: 1.5;
+	}
+}
+
+/* ----------------------------------- // ----------------------------------- */
+
+.laser-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	overflow: hidden;
+	z-index: 0;
+}
+
+/* ----------------------------------- // ----------------------------------- */
+
+.agency-hero-section {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	color: white;
+	overflow: hidden;
+	font-family: "Montserrat", sans-serif;
+	text-align: center;
+	gap: 9em;
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+
+	flaux-blob-backdrop {
+		flex: 5;
+		overflow: visible !important;
+	}
+
+	.hero-heading {
+		flex: 4;
+		position: relative;
+		z-index: 3;
+		text-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7);
+		text-align: end;
+
+		h1, h2, h3, h4 {
+			text-shadow: 1px 1px 1.3rem rgba(0, 0, 0, 0.8);
+			margin: 0;
+			font-weight: 400;
+
+			.ast-icon {
+				max-width: .5em;
+				margin-bottom: 0.5em;
+				filter: invert(1) drop-shadow(1px 1px 0.75rem rgba(0, 0, 0, 0.7));
+			}
+		}
+
+		p {
+			margin-top: 2em;
+			line-height: 1.75em;
+		}
+	}
+}
+
+/* ----------------------------------- // ----------------------------------- */
+
+.content-section {
+	position: relative;
+	z-index: 3;
+	color: white;
+	padding: 9em 3em !important;
+	margin-block: -7em;
+	overflow: visible;
+	min-height: 100vh;
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.quote-carousel {
+		max-width: 50%;
+		opacity: 0.8;
+		align-self: flex-start;
+		margin-inline: -1em;
+	}
+
+	&-list {
+		text-align: left;
+	}
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA QUERIES                               */
+/* -------------------------------------------------------------------------- */
+
+@media (min-width: 1800px) {
+	.agency-hero-section, .content-section {
+		max-width: 1700px;
+		margin: auto;
+	}
+}
