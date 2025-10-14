@@ -7,9 +7,9 @@ export const routes: Routes = [
 	{ path: 'solutions',
 		children: [
 			{ path: 'agency',
-				loadComponent: () => import('@pages/solutions/agency-solutions-page/agency-solutions-page.component').then(m => m.AgencySolutionsPageComponent) },
+				loadComponent: () => import('@app/pages/solutions/agency-solutions/agency-solutions-page.component').then(m => m.AgencySolutionsPageComponent) },
 			{ path: 'ai',
-				loadComponent: () => import('@pages/solutions/ai-solutions-page/ai-solutions-page.component').then(m => m.AiSolutionsPageComponent) },
+				loadComponent: () => import('@app/pages/solutions/ai-solutions/ai-solutions-page.component').then(m => m.AiSolutionsPageComponent) },
 			{
 				path: '**',
 				redirectTo: '/'
