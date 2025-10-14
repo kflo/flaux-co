@@ -7,6 +7,7 @@ import {
 	OnDestroy
 } from '@angular/core';
 import { BlobBackdropComponent } from "../blob-backdrop";
+import {NgClass} from '@angular/common';
 
 @Component({
 	selector: 'flaux-glass-section',
@@ -14,7 +15,7 @@ import { BlobBackdropComponent } from "../blob-backdrop";
 	templateUrl: './glass-section.component.html',
 	styleUrl: './glass-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	imports: [BlobBackdropComponent]
+	imports: [BlobBackdropComponent, NgClass]
 })
 export class FlauxGlassSectionComponent implements OnInit, OnDestroy {
 

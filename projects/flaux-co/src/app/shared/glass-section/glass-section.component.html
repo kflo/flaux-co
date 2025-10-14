@@ -1,16 +1,23 @@
-<div class="content-wrapper"
+<div class="section-wrapper"
 	  [class.reverse]="imagePosition === 'right'">
+
+	<!-- ------------------------------- IMAGES -------------------------------- -->
+
 	@if (imageUrls?.length || imageUrl) {
 	<div class="image-container"
 		  (mouseenter)="onImageHover(true)"
 		  (mouseleave)="onImageHover(false)">
 		@if (blobBackdrop) {
-		<flaux-blob-backdrop [blobCount]="1"
+		<flaux-blob-backdrop [ngClass]="{'margin-left': imagePosition === 'left', 'margin-right': imagePosition === 'right'}"
+									[blobCount]="1"
+									[blob1Scale]="1.5"
+									[imageUrls]="imageUrls || []"
 									[animate]="false"></flaux-blob-backdrop>
 		}
-		@if (imageUrls && imageUrls.length > 1) {
+		@else if (imageUrls && imageUrls.length > 1) {
 		@for (url of imageUrls; track url; let i = $index) {
-		<img class="carousel-image"
+		<img [ngClass]="{'margin-left': imagePosition === 'left', 'margin-right': imagePosition === 'right'}"
+			  class="carousel-image"
 			  [src]="url"
 			  [alt]="imageAlt"
 			  [class.active]="i === currentImageIndex"
@@ -23,8 +30,11 @@
 		}
 	</div>
 	}
+
+	<!-- ---------------------------- TEXT CONTENT ----------------------------- -->
+
 	@if (title || description) {
-	<div class="section-heading">
+	<div class="content-wrapper">
 		@if (title) {
 		<h2>{{title}}
 			@if (titleSpacing) {&nbsp;}
@@ -34,9 +44,13 @@
 		@if (description) {
 		<p>{{description}}</p>
 		}
+
+		<!-- --------------------------- CONTENT SLOT ------------------------------ -->
+
+		<ng-content></ng-content>
+
 	</div>
 	}
 
-	<!-- Allow custom content projection -->
-	<ng-content></ng-content>
+
 </div>

@@ -18,6 +18,13 @@ export class MktAiSectionComponent {
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Workforce Team/AI Receptionist.png`,
 			heading: 'AI Receptionist',
 			subheading: 'Never leave a lead waiting',
+			description: `<h6>Out of the box, AI Receptionist can:</h6>
+				<ul class="checkmark-list">
+					<li>Engage website visitors and answer calls.</li>
+					<li>Use business data for fast and accurate responses 24/7.</li>
+					<li>Capture leads directly into Vendasta's CRM for easy follow-up.</li>
+					<li>Schedule appointments and follow up via SMS.</li>
+				</ul>`,
 			linkUrl: '/contact'
 		},
 		{
@@ -26,6 +33,14 @@ export class MktAiSectionComponent {
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Workforce Team/AI Reputation Specialist.png`,
 			heading: 'AI Reputation Specialist',
 			subheading: 'Crafting Your Online Image',
+			description: `<h6>Out of the box, AI Reputation Specialist can help craft your online image by:</h6>
+				<ul class="checkmark-list">
+					<li>asking for Net Promoter Scores</li>
+					<li>requesting reviews from promoters</li>
+					<li>preparing responses for detractors</li>
+					<li>responding to reviews across platforms</li>
+				</ul>
+				<p>ensuring all feedback is collected and handled promptly.</p>`,
 			linkUrl: '/contact'
 		},
 		{
