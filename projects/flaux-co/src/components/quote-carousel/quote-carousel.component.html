@@ -19,6 +19,7 @@
 		}
 	</div>
 
+	@if(items.length > 1) {
 	<button type="button"
 			  class="nav prev"
 			  (click)="prev()"
@@ -27,6 +28,7 @@
 			  class="nav next"
 			  (click)="next()"
 			  aria-label="Next slide">›</button>
+
 
 	<div class="indicators"
 		  role="tablist"
@@ -43,4 +45,5 @@
 		</button>
 		}
 	</div>
+	}
 </div>

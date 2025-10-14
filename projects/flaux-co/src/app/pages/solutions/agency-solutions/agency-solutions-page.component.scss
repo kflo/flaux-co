@@ -60,14 +60,26 @@
 	position: relative;
 	z-index: 3;
 	color: white;
-	padding: 13em 3em !important;
+	padding: 9em 3em !important;
 	margin-block: -7em;
 	overflow: visible;
 	min-height: 100vh;
 	scroll-snap-align: start;
 	scroll-snap-stop: always;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
+
+	.quote-carousel {
+		max-width: 50%;
+		opacity: 0.8;
+		align-self: flex-start;
+		margin-inline: -1em;
+	}
+
+	&-list {
+		text-align: left;
+	}
 }
 
 /* -------------------------------------------------------------------------- */

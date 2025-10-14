@@ -3,10 +3,13 @@ import { FlauxSectionComponent } from "@app/shared/section/section.component";
 import { BlobBackdropComponent } from "@app/shared/blob-backdrop";
 import { GradientBackgroundComponent } from "@app/shared/gradient-background/gradient-background.component";
 import { FlauxGlassSectionComponent } from "@app/shared/glass-section";
+import {QuoteItem} from '@app/pages/home/quotes-section/quotes.data';
+import {FlauxQuoteCarouselComponent} from '@components/quote-carousel/quote-carousel.component';
+import {FlauxQuoteHighlightComponent} from '@app/shared/quote-highlight/quote-highlight.component';
 
 @Component({
 	selector: 'agency-solutions-page',
-	imports: [FlauxSectionComponent, BlobBackdropComponent, GradientBackgroundComponent, FlauxGlassSectionComponent],
+	imports: [FlauxSectionComponent, BlobBackdropComponent, GradientBackgroundComponent, FlauxGlassSectionComponent, FlauxQuoteCarouselComponent, FlauxQuoteHighlightComponent],
 	hostDirectives: [],
 	templateUrl: './agency-solutions-page.component.html',
 	styleUrl: './agency-solutions-page.component.scss',
@@ -50,6 +53,8 @@ export class AgencySolutionsPageComponent {
 		titleIcon: string;
 		titleSpacing?: boolean;
 		description: string;
+		list?: string[];
+		quotes?: QuoteItem[];
 	}[] = [
 			{
 				title: 'CONVERSATIONS',
@@ -68,15 +73,21 @@ export class AgencySolutionsPageComponent {
 				titleIcon: '../../../../assets/img/icons/local.svg',
 				description: 'Improve your local search presence and attract more customers with our comprehensive Local SEO solutions, including accurate business listings, review management, and localized content strategies.'
 			},
-			{
-				title: 'REPUTATION MANAGEMENT',
+			{title: 'REPUTATION MANAGEMENT',
 				titleSpacing: true,
 				imageUrls: this.formatImageUrls(['Reputation-Overview', 'Reputation Management group', 'Competition', 'Copy of Reviews from top review sites']),
 				imageAlt: 'Reputation Management',
 				imagePosition: 'left' as const,
 				titleIcon: '../../../../assets/img/icons/star.svg',
-				description: 'Protect and enhance your brand’s reputation with our tailored Reputation Management solutions, including review monitoring, response strategies, and customer feedback analysis.'
-			},
+				description: 'Protect and enhance your brand’s reputation with our tailored Reputation Management solutions, including review monitoring, response strategies, and customer feedback analysis.',
+				quotes: [
+					{
+						quoteStart: 'Businesses with a 4+ star rating',
+						highlight: 'earn 28% more',
+						quoteEnd: 'in annual revenue than those who don’t',
+						source: 'Womply'
+					}
+				]},
 			{
 				title: 'SOCIAL MEDIA MANAGEMENT',
 				imageUrls: this.formatImageUrls(['Social Marketing post performance', 'sm3-2', 'SM-AI-BulkPost-Creation']),
@@ -85,7 +96,23 @@ export class AgencySolutionsPageComponent {
 				blobBackdrop: true,
 				titleSpacing: true,
 				titleIcon: '../../../../assets/img/icons/social.svg',
-				description: 'Boost your social media presence and engagement with our Social Media Management services, featuring content creation, scheduling, and performance analytics across all major platforms.'
+				description: 'Boost your social media presence and engagement with our Social Media Management services, featuring content creation, scheduling, and performance analytics across all major platforms.',
+				list: [
+					'Publish consistently across all your social media accounts with one-click posting',
+					'Generate on-brand content effortlessly using AI-powered tools',
+					'Grow your audience and build a loyal fanbase',
+					'Increase sales with shoppable bios that convert followers to customers',
+					'Track your ROI with detailed social media performance reports'
+				],
+				quotes: [
+					{
+						quoteStart: '77% of businesses use social media to ',
+						highlight: 'reach customers',
+						quoteEnd: '.',
+						source: 'Statista'
+					},
+				]
+
 			}
 
 		]

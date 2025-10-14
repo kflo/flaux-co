@@ -7,14 +7,13 @@ footer {
 	text-align: center;
 	padding: 0.5rem;
 	border-top: 1px solid #e7e7e7;
-	background-color: rgba(0, 0, 0, 0.85);
+	background-color: black;
 
 	.footer-content {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: 3rem;
-		margin-bottom: 0.1rem;
 	}
 
 	.footer-logo {
@@ -24,6 +23,8 @@ footer {
 
 	.footer-links {
 		display: flex;
+		flex-flow: wrap;
+		line-height: .5em;
 		gap: 20px;
 
 		a {
@@ -42,5 +43,12 @@ footer {
 		margin: 0;
 		font-size: 80%;
 		color: #666;
+	}
+}
+
+@media (max-width: 600px) {
+	.footer-links {
+		justify-content: center;
+		flex-flow: wrap;
 	}
 }

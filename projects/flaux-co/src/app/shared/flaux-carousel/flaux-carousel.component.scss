@@ -1,12 +1,9 @@
 /* flaux-carousel.component.scss */
 
 :host {
-	display: block;
-	position: relative;
+	height: 100%;
 	width: 100%;
 	/* Ensure enough space for linear layout */
-	font-family: 'Raleway', sans-serif;
-	font-weight: normal;
 	overflow: hidden;
 	// font-size: clamp(1rem, 1.5vw, 1.544rem);
 }
@@ -20,7 +17,17 @@
 	height: calc(var(--item-width, 4em) *3.1); // display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 0 2em;
+	margin: 3em 0 0;
+	touch-action: pan-y pinch-zoom;
+	/* Allow vertical scrolling but enable horizontal touch handling */
+
+	&.swipe-enabled {
+		cursor: grab;
+
+		&:active {
+			cursor: grabbing;
+		}
+	}
 }
 
 .carousel-item {
@@ -32,7 +39,7 @@
 	background: rgba(255, 255, 255, 0.1);
 	font-size: 3em;
 	font-family: sans-serif;
-	filter: blur(0.1em) brightness(0.4);
+	filter: blur(0.1em) brightness(0.9) contrast(0.8);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -75,10 +82,10 @@
 
 .carousel-controls {
 	position: absolute;
-	top: 50%;
+	top: 18em;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 95%;
+	width: 97%;
 	height: 100%;
 	z-index: 100;
 	display: flex;
@@ -116,12 +123,10 @@
 		z-index: 11;
 		align-items: center;
 		justify-content: center;
-		margin: 0 15%;
-		padding: 1em 0;
-		gap: 3em;
+		margin: 0 auto;
+		// gap: 1em;
 		text-align: center;
 		position: relative;
-		top: -7rem;
 
 	}
 
@@ -134,6 +139,9 @@
 		font-weight: 800;
 		line-height: normal;
 		filter: drop-shadow(0 4px 0.2em rgba(0, 0, 0, 0.4));
+
+		margin-top: -1em;
+		margin-bottom: 1em;
 	}
 
 	&-card {
@@ -141,10 +149,10 @@
 		color: #111;
 		box-shadow: 0 0.25em 1.5em rgba(0, 0, 0, 0.6);
 		background: rgba(255, 255, 255, 0.1);
-		border-radius: 1em;
+		border-radius: 4em;
 		padding: 1em 2em;
-		min-width: 50%;
-
+		max-width: 80%;
+		min-width: 60%;
 	}
 
 	&-subheading {
@@ -158,13 +166,81 @@
 		margin: 0;
 		padding-bottom: 0.5em;
 	}
+
+	&-description {
+		margin: auto;
+		margin-bottom: 1em;
+	}
 }
 
 @media screen and (max-width: 900px) {
 
+	.carousel-wrapper {
+		--item-width: 4em;
+		touch-action: pan-y pinch-zoom;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		user-select: none;
+
+		/* Add subtle visual hint that it's swipable */
+		&.swipe-enabled::after {
+			content: '';
+			position: absolute;
+			bottom: -1.5em;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 3em;
+			height: 0.2em;
+			background: rgba(255, 255, 255, 0.3);
+			border-radius: 0.1em;
+			animation: swipe-hint 2s ease-in-out infinite;
+		}
+	}
+
+	.carousel-controls {
+		top: 11em;
+	}
+
 	.featured-item {
 		&-info {
-			width: 70%;
+			width: 100%;
+			margin: auto;
 		}
+
+		&-card {
+			min-width: 80%;
+			padding: 1.5em;
+		}
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.featured-item {
+		&-info {
+			width: 100%;
+			margin: auto;
+		}
+
+		&-card {
+			min-width: 100%;
+			padding: 1.5em;
+			box-shadow: none;
+			border-radius: 0;
+			box-sizing: border-box;
+		}
+	}
+
+}
+
+/* Swipe hint animation */
+@keyframes swipe-hint {
+	0%, 100% {
+		opacity: 0.3;
+		transform: translateX(-50%) scaleX(1);
+	}
+
+	50% {
+		opacity: 0.6;
+		transform: translateX(-50%) scaleX(1.2);
 	}
 }

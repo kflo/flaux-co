@@ -27,6 +27,7 @@ type ObjectFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 		'[class.blob-3]': 'blobCount === 3',
 		'[class.blob-2]': 'blobCount === 2',
 		'[class.blob-1]': 'blobCount === 1',
+		'[style.--changeOrigin]': 'changeOrigin',
 
 	}
 })
@@ -35,6 +36,8 @@ export class BlobBackdropComponent implements OnInit, OnDestroy {
 	@Input() animate = true;
   /** 1..3 (default 2) */
   @Input() blobCount: 1 | 2 | 3 = 2;
+
+  @Input() changeOrigin = 'center center';
 
   /** middle blob color (CSS color)… e.g. '#4f7cff' or 'rgb(80,120,255)' */
   @Input() primaryColor: string = '#2b3a84';

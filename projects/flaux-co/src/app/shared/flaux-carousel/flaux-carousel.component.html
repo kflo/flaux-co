@@ -1,6 +1,10 @@
 <div class="carousel-wrapper"
 	  [style.--item-width]="itemWidth + 'em'"
-	  [style.--item-spacing]="itemSpacing + 'em'">
+	  [style.--item-spacing]="itemSpacing + 'em'"
+	  [class.swipe-enabled]="enableSwipe"
+	  (touchstart)="enableSwipe ? onTouchStart($event) : null"
+	  (touchmove)="enableSwipe ? onTouchMove($event) : null"
+	  (touchend)="enableSwipe ? onTouchEnd($event) : null">
 	@for (element of itemElements; track element.id) {
 	<div class="carousel-item"
 		  [class.center-element]="isCenterElement(element)"
@@ -27,9 +31,12 @@
 			<p>
 				{{ featuredItem?.text }}
 			</p>
+			<div class="featured-item-description"
+				  [innerHTML]="featuredItem?.description"></div>
 		</div>
 		@if(featuredItem?.linkUrl) {
-		<flaux-btn routerLink="{{featuredItem?.linkUrl}}">
+		<flaux-btn routerLink="{{featuredItem?.linkUrl}}"
+					  [height]="'1.5em'">
 			Learn More</flaux-btn>
 		}
 	</div>

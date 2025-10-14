@@ -8,7 +8,8 @@
 		<p>Don't just compete, conquer the digital landscape. <br>We provide every tool and strategy you need—from AI-powered conversations to targeted ads—to build an unbeatable online presence and achieve your growth goals.</p>
 	</div>
 	<flaux-blob-backdrop [blobCount]="3"
-								[imageUrls]="formattedImageUrls">
+								[imageUrls]="formattedImageUrls"
+								changeOrigin="47% 57%">
 	</flaux-blob-backdrop>
 </flaux-section>
 
@@ -23,6 +24,32 @@
 								titleIconAlt="AI Icon"
 								[description]="section.description"
 								[imagePosition]="section.imagePosition">
+		@if(section.list?.length) {
+		<ul class="content-section-list">
+			@for (item of section.list; track item) {
+			<li>{{ item }}</li>
+			}
+		</ul>
+		}
 	</flaux-glass-section>
+	@if(section.quotes?.length) {
+	<flaux-quote-carousel [items]="section.quotes || []"
+								 [intervalMs]="8000"
+								 ariaLabel="Key business & AI impact statistics"
+								 class="quote-carousel"
+								 [style.align-self]="section.imagePosition === 'right' ? 'flex-start' : 'flex-end'"
+								 slideAriaDescription="quote">
+		<ng-template #slideTemplate
+						 let-quote
+						 let-index="index">
+			<flaux-quote-highlight [quoteStart]="quote.quoteStart"
+										  [highlight]="quote.highlight"
+										  [quoteEnd]="quote.quoteEnd"
+										  [isFlaux]="quote.source === 'Flaux Research'"
+										  [source]="quote.source !== 'Flaux Research' ? quote.source : ''"></flaux-quote-highlight>
+		</ng-template>
+	</flaux-quote-carousel>
+	}
+
 </flaux-section>
 }

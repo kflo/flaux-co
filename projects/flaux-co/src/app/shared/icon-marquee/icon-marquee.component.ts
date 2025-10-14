@@ -23,8 +23,8 @@ import { CommonModule } from '@angular/common';
 export class IconMarqueeComponent implements OnInit {
 	@Input() iconPath: string = '../../../../assets/img/icons/n8n/';
 	@Input() animationSpeed: number = 60; // seconds for full cycle
-	@Input() iconSize: string = '40px';
-	@Input() gapSize: string = '15px';
+	@Input() iconSize: string = '3em';
+	@Input() gapSize: string = '0.5em';
 	@Input() borderRadius: string = '10px';
 	@Input() iconFiles: string[] = [];
 	@Input() singleRow: boolean = false;

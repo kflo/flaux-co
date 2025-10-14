@@ -12,6 +12,7 @@ export interface CarouselItem {
 	imageUrl?: string;
 	heading: string;
 	subheading?: string;
+	description?: string;
 	linkUrl?: string | null;
 }
 
@@ -39,11 +40,20 @@ export class FlauxCarouselComponent implements OnInit {
 	@Input() itemSpacing: number = 2; // spacing between items in rem
 	@Input() showControls: boolean = true;
 	@Input() visibleItems: number = 5; // number of items visible at once
+	@Input() enableSwipe: boolean = true; // Enable/disable swipe functionality
 
 	public itemElements: { item: CarouselItem, id: string, positionIndex: number }[] = [];
 	private isAnimating: boolean = false;
 	private wrapAroundElements: Set<string> = new Set(); // Track elements in wrap-around transition
 	public currentOffset: number = 0; // Current scroll offset
+
+	// Touch/Swipe properties
+	private touchStartX: number = 0;
+	private touchStartY: number = 0;
+	private touchEndX: number = 0;
+	private touchEndY: number = 0;
+	private minSwipeDistance: number = 50; // Minimum distance for a valid swipe
+	private isTouching: boolean = false;
 
 	constructor(private cdr: ChangeDetectorRef) {}
 
@@ -178,5 +188,57 @@ export class FlauxCarouselComponent implements OnInit {
 			height: '3em',
 			width: '3em'
 		};
+	}
+
+	// Touch event handlers for swipe functionality
+	public onTouchStart(event: TouchEvent): void {
+		if (this.isAnimating || !this.enableSwipe) return;
+
+		this.isTouching = true;
+		this.touchStartX = event.touches[0].clientX;
+		this.touchStartY = event.touches[0].clientY;
+	}
+
+	public onTouchMove(event: TouchEvent): void {
+		if (!this.isTouching || this.isAnimating || !this.enableSwipe) return;
+
+		// Prevent default scrolling behavior during horizontal swipes
+		const touchCurrentX = event.touches[0].clientX;
+		const touchCurrentY = event.touches[0].clientY;
+		const deltaX = Math.abs(touchCurrentX - this.touchStartX);
+		const deltaY = Math.abs(touchCurrentY - this.touchStartY);
+
+		// If horizontal movement is greater than vertical, prevent scrolling
+		if (deltaX > deltaY) {
+			event.preventDefault();
+		}
+	}
+
+	public onTouchEnd(event: TouchEvent): void {
+		if (!this.isTouching || this.isAnimating || !this.enableSwipe) return;
+
+		this.isTouching = false;
+		this.touchEndX = event.changedTouches[0].clientX;
+		this.touchEndY = event.changedTouches[0].clientY;
+
+		this.handleSwipe();
+	}
+
+	private handleSwipe(): void {
+		const deltaX = this.touchEndX - this.touchStartX;
+		const deltaY = this.touchEndY - this.touchStartY;
+		const absDeltaX = Math.abs(deltaX);
+		const absDeltaY = Math.abs(deltaY);
+
+		// Check if it's a horizontal swipe (horizontal movement > vertical movement)
+		if (absDeltaX > absDeltaY && absDeltaX > this.minSwipeDistance) {
+			if (deltaX > 0) {
+				// Swipe right - go to previous item (turn left)
+				this.turnLeft();
+			} else {
+				// Swipe left - go to next item (turn right)
+				this.turnRight();
+			}
+		}
 	}
 }
