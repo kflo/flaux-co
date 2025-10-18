@@ -1,10 +1,19 @@
-<div class="dropdown-menu" [class.open]="isMenuOpen()">
-  <a routerLink="/blog" routerLinkActive="active">Blog / Insights</a>
-  <a routerLink="/about" routerLinkActive="active">About</a>
-  <a routerLink="/contact" routerLinkActive="active">Contact</a>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
-  <a routerLink="/signup" routerLinkActive="active">Signup</a>
-  <a routerLink="/reset-password" routerLinkActive="active">Reset Password</a>
-  <a routerLink="/checkout" routerLinkActive="active">Checkout</a>
-  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+<div class="dropdown-menu"
+	  [class.open]="isMenuOpen()">
+	<a routerLink="/solutions/ai"
+		routerLinkActive="active"
+		class="mobile-only">AI SOLUTIONS</a>
+	<a routerLink="/solutions/ai"
+		routerLinkActive="active"
+		class="mobile-only">DIGITAL SOLUTIONS</a>
+	<a routerLink="/contact"
+		routerLinkActive="active"
+		class="mobile-only">CONTACT US</a>
+	<a routerLink="/about"
+		routerLinkActive="active">ABOUT US</a>
+	<a routerLink="/login"
+		routerLinkActive="active">LOGIN</a>
+	<!-- <a
+		routerLink="/dashboard"
+		routerLinkActive="active">DASHBOARD</a> -->
 </div>

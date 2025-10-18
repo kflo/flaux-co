@@ -24,7 +24,7 @@
 .navbar-left {
 	display: flex;
 	align-items: center;
-	padding-left: 2rem;
+	padding-left: 1rem;
 }
 
 .text-logo-wrapper {
@@ -38,7 +38,7 @@
 
 // .a-with-macron {
 //   text-decoration: overline;
-//   text-decoration-color: $highlight-color;
+//   text-decoration-color: $highlight;
 //   text-decoration-thickness: 0.10em;
 //   text-decoration-skip-ink: none;
 //   position: relative;
@@ -49,9 +49,9 @@
 .logo-navbar {
 	width: 4rem;
 	height: auto;
-	margin-right: 0.75rem;
+	margin-right: 1rem;
 	// filter: brightness(0.2) invert(1) saturate(0) opacity(0.5);
-	padding-bottom: 0.25rem;
+	padding-bottom: 0.2rem;
 }
 
 .navbar-center {
@@ -74,7 +74,7 @@
 }
 
 .navbar-center a:hover {
-	color: $flaux-salmon;
+	color: $flaux-highlight;
 	background: rgba(255, 255, 255, 0.09);
 	// filter: brightness(1.1) contrast(1.5);
 	transition: background-color 0.6s, color 0.6s;

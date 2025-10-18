@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { CtaSectionComponent } from './cta-section/cta-section.component';
 import {AllInOneSectionComponent} from './all-in-one-section/all-in-one-section.component';
-import {QuotesSectionComponent} from './quotes-section/quotes-section.component';
 import {TrunksSectionComponent} from './trunks-section/trunks-section.component';
 import {MktAiSectionComponent} from './mkt-ai-section/mkt-ai-section.component';
 import {FooterComponent} from '@components/footer/footer.component';
@@ -15,7 +14,6 @@ import {FooterComponent} from '@components/footer/footer.component';
 	imports: [
 		HeroSectionComponent,
 		AllInOneSectionComponent,
-		QuotesSectionComponent,
 		CtaSectionComponent,
 		TrunksSectionComponent,
 		MktAiSectionComponent,

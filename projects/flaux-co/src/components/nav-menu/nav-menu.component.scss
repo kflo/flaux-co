@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 .dropdown-menu {
 	position: fixed;
 	top: 4rem;
@@ -22,11 +24,13 @@
 
 .dropdown-menu a {
 	display: block;
-	padding: 0.75rem 1rem;
+	padding: 1rem 1.5rem;
 	color: #fff;
 	text-decoration: none;
 	font-size: 1rem;
-	font-weight: 500;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 300;
+	letter-spacing: 0.05em;
 	transition: background-color 0.2s;
 	border-radius: 4px;
 	margin: 0.25rem 0;
@@ -34,10 +38,32 @@
 
 .dropdown-menu a:hover {
 	background: rgba(127, 215, 255, 0.1);
-	color: #7fd7ff;
+	color: $flaux-highlight;
 }
 
 .dropdown-menu a.active {
-	color: #7fd7ff;
+	color: $flaux-highlight;
 	background: rgba(127, 215, 255, 0.1);
+}
+
+.mobile-only {
+	display: none !important;
+}
+
+@media screen and (max-width: 900px) {
+	.dropdown-menu {
+		border-radius: 0 !important;
+
+		a {
+			padding: 1.5rem 2rem;
+			border-radius: 0;
+			border-bottom: $flaux-blue2 solid 1px;
+			border-radius: 0 !important;
+			margin: 0 !important;
+		}
+	}
+
+	.mobile-only {
+		display: block !important;
+	}
 }
