@@ -5,11 +5,13 @@
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 @use 'variables';
+@use '_theme-colors' as colors;
 
 
 html {
-	@include mat.theme((color: (primary: mat.$rose-palette,
-				tertiary: mat.$blue-palette,
+	@include mat.theme((color: (primary: colors.$primary-palette,
+				// secondary: colors.$secondary-palette,
+				tertiary: colors.$tertiary-palette,
 			),
 			density: 0,
 		));
