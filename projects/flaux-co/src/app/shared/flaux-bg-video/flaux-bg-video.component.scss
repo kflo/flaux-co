@@ -5,6 +5,7 @@
 	flex-direction: column;
 	transition: all 3s ease-in-out;
 	overflow: hidden;
+	border-radius: inherit;
 }
 
 .bg-video {
@@ -16,6 +17,7 @@
 	width: 100%;
 	object-fit: cover;
 	z-index: 0;
+	border-radius: inherit;
 }
 
 .vignette {
