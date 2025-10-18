@@ -1,4 +1,23 @@
-<div class="page-content">
-  <h1>Login</h1>
-  <p>Login page works!</p>
-</div>
+<flaux-section>
+	<div class="login-container">
+		<h1>LOGIn</h1>
+		<form class="login-form">
+			<label for="username">Username:</label>
+			<input type="text"
+					 id="username"
+					 name="username"
+					 required>
+
+			<label for="password">Password:</label>
+			<input type="password"
+					 id="password"
+					 name="password"
+					 required>
+
+			<!-- <flaux-btn type="submit">Login</flaux-btn> -->
+			<button matButton="filled"
+					  color="accent"
+					  type="submit">Login</button>
+		</form>
+	</div>
+</flaux-section>

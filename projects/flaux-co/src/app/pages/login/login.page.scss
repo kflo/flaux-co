@@ -1,1 +1,36 @@
-.page-content { padding: 2rem; }
+@use 'variables' as *;
+
+.login-container {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	background: linear-gradient(170deg, $flaux-blue 0%, $flaux-violet 50%, #111 100%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Lequire', sans-serif;
+
+	h1 {
+		letter-spacing: 0.1em;
+		;
+	}
+}
+
+.login-form {
+	position: relative;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	// border-radius: 1em;
+	padding: 2em;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	display: grid;
+	grid-template-rows: auto auto auto;
+	width: 20em;
+	color: #eee;
+	font-family: 'Sen', sans-serif;
+	gap: 1em;
+
+}
