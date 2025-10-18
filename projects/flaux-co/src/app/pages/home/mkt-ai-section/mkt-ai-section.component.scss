@@ -1,9 +1,11 @@
+@use 'variables' as *;
+
 :host {
 	display: flex;
 }
 
 .mkt-ai-section {
-	background: linear-gradient(180deg, #fce25d 0%, #faaf53 5%, #f06b86 50%, #dd569f 70%, #2b3a84 105%);
+	background: linear-gradient(180deg, $flaux-orange 0%, $flaux-salmon 40%, $flaux-blue2 85%, $flaux-blue3 105%);
 	backdrop-filter: brightness(0.8) saturate(1.2);
 	position: relative;
 	z-index: 0;
