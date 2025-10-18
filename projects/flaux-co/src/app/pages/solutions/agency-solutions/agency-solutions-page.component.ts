@@ -71,11 +71,18 @@ export class AgencySolutionsPageComponent {
 				imageAlt: 'Local SEO',
 				imagePosition: 'right' as const,
 				titleIcon: '../../../../assets/img/icons/local.svg',
-				description: 'Improve your local search presence and attract more customers with our comprehensive Local SEO solutions, including accurate business listings, review management, and localized content strategies.'
+				description: 'Improve your local search presence and attract more customers with our comprehensive Local SEO solutions, including accurate business listings, review management, and localized content strategies.',
+				quotes: [
+					{
+						quoteStart: 'Clients using our SMS Business App see',
+						highlight: '3× more engagement',
+						quoteEnd: 'compared to those without',
+						source: 'Flaux Research'
+					},]
 			},
 			{title: 'REPUTATION MANAGEMENT',
 				titleSpacing: true,
-				imageUrls: this.formatImageUrls(['Reputation-Overview', 'Reputation Management group', 'Competition', 'Copy of Reviews from top review sites']),
+				imageUrls: this.formatImageUrls(['Reputation-Overview', 'Competition', 'Copy of Reviews from top review sites']),
 				imageAlt: 'Reputation Management',
 				imagePosition: 'left' as const,
 				titleIcon: '../../../../assets/img/icons/star.svg',
@@ -108,7 +115,7 @@ export class AgencySolutionsPageComponent {
 					{
 						quoteStart: '77% of businesses use social media to ',
 						highlight: 'reach customers',
-						quoteEnd: '.',
+						quoteEnd: '',
 						source: 'Statista'
 					},
 				]

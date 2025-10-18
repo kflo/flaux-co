@@ -31,25 +31,25 @@
 			}
 		</ul>
 		}
+		@if(section.quotes?.length) {
+		<flaux-quote-carousel [items]="section.quotes || []"
+									 [intervalMs]="8000"
+									 ariaLabel="Key business & AI impact statistics"
+									 class="quote-carousel-wrapper"
+									 [style.align-self]="section.imagePosition === 'right' ? 'flex-start' : 'flex-end'"
+									 slideAriaDescription="quote">
+			<ng-template #slideTemplate
+							 let-quote
+							 let-index="index">
+				<flaux-quote-highlight [quoteStart]="quote.quoteStart"
+											  [highlight]="quote.highlight"
+											  [quoteEnd]="quote.quoteEnd"
+											  [isFlaux]="quote.source === 'Flaux Research'"
+											  [source]="quote.source"></flaux-quote-highlight>
+			</ng-template>
+		</flaux-quote-carousel>
+		}
 	</flaux-glass-section>
-	@if(section.quotes?.length) {
-	<flaux-quote-carousel [items]="section.quotes || []"
-								 [intervalMs]="8000"
-								 ariaLabel="Key business & AI impact statistics"
-								 class="quote-carousel"
-								 [style.align-self]="section.imagePosition === 'right' ? 'flex-start' : 'flex-end'"
-								 slideAriaDescription="quote">
-		<ng-template #slideTemplate
-						 let-quote
-						 let-index="index">
-			<flaux-quote-highlight [quoteStart]="quote.quoteStart"
-										  [highlight]="quote.highlight"
-										  [quoteEnd]="quote.quoteEnd"
-										  [isFlaux]="quote.source === 'Flaux Research'"
-										  [source]="quote.source !== 'Flaux Research' ? quote.source : ''"></flaux-quote-highlight>
-		</ng-template>
-	</flaux-quote-carousel>
-	}
 
 </flaux-section>
 }
