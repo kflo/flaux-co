@@ -56,12 +56,18 @@
 	justify-content: center;
 
 	&-content {
-		display: grid;
-		grid-template-rows: 1fr 3fr 3fr 1fr;
+		// display: grid;
+		// grid-template-rows: 1fr 3fr 3fr 1fr;
+		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
 		height: -webkit-fill-available;
 		backdrop-filter: brightness(50) blur(15em) hue-rotate(-15deg) saturate(4.5) contrast(0.85) sepia(0.1);
 		padding: 2em 3.5em 3.0em;
+
+		flaux-btn {
+			min-width: 80%;
+		}
 
 	}
 }
@@ -87,6 +93,24 @@
 	&-content {
 		border-radius: 0 8% 0 8%;
 		overflow: hidden;
+
+		flaux-bg-video {
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			border-radius: 0 8% 0 8%;
+			filter: contrast(0.9) saturate(1.5);
+			opacity: 0.5;
+
+
+			video {
+				border-radius: 0 8% 0 8%;
+			}
+		}
+
+		.agency-marquee-bg {
+			max-width: 75%;
+		}
 	}
 }
 
@@ -95,7 +119,9 @@
 }
 
 .marquee-wrapper {
-	max-width: fit-content;
+	// max-width: fit-content;
+	max-width: 100%;
+	text-align: center;
 	margin-block: auto;
 	margin-inline: -1em; // Pull it out of the parent's padding
 }

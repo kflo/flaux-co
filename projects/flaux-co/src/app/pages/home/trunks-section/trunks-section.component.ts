@@ -3,10 +3,11 @@ import {FlauxSectionComponent} from '@app/shared/section/section.component';
 import { FlauxBtnComponent } from "@app/shared/flaux-btn/flaux-btn.component";
 import {LaserFlowComponent} from '@app/shared/laser-flow';
 import { IconMarqueeComponent } from '@app/shared/icon-marquee';
+import {FlauxBgVideoComponent} from '@app/shared/flaux-bg-video/flaux-bg-video.component';
 
 @Component({
 	selector: 'trunks-section',
-	imports: [FlauxSectionComponent, FlauxBtnComponent, LaserFlowComponent, IconMarqueeComponent],
+	imports: [FlauxSectionComponent, FlauxBtnComponent, LaserFlowComponent, IconMarqueeComponent, FlauxBgVideoComponent],
 	templateUrl: './trunks-section.component.html',
 	styleUrl: './trunks-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,7 +32,6 @@ export class TrunksSectionComponent {
 		'Embeddings Azure OpenAI integration.svg',
 		'Embeddings Hugging Face Inference integration.svg',
 		'Embeddings Ollama integration.svg',
-		'Facebook Trigger integration.svg',
 		'Google Calendar Trigger integration.svg',
 		'Google Drive integration.svg',
 		'Google Gemini integration.svg',

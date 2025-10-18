@@ -5,14 +5,14 @@
 	<!-- ----------------------------- LASER FLOW ------------------------------ -->
 	<div class="laser-wrapper">
 		<app-laser-flow [color]="'#faaf53'"
-							 [decay]="2.5"
+							 [decay]="2.0"
 							 [fogFallSpeed]="1.2"
 							 [fogIntensity]="0.2"
 							 [flowSpeed]=".4"
 							 [flowStrength]="0.3"
 							 [horizontalBeamOffset]="-0.00029"
-							 [horizontalSizing]="1"
-							 [verticalBeamOffset]="-0.505"
+							 [horizontalSizing]="1.5"
+							 [verticalBeamOffset]="-0.50"
 							 [verticalSizing]="25">
 		</app-laser-flow>
 	</div>
@@ -41,12 +41,13 @@
 					  class="automation-img" />
 			</div> -->
 			<flaux-btn [routerLink]="'/solutions/ai'"
-						  fragment="">How can I 10x my business?</flaux-btn>
+						  fragment="">Unlock AI-powered Growth</flaux-btn>
 		</div>
 	</section>
 	<!-- -------------------------------- RIGHT -------------------------------- -->
 	<section class="right">
 		<div class="right-content">
+			<flaux-bg-video [name]="'spiral2b'"></flaux-bg-video>
 			<h3><span id="logoFont"
 						class="logo-font">FLaUX AGENCY</span> Solutions</h3>
 			<div class="text-block">
@@ -54,7 +55,10 @@
 				<p>From CRM and SEO to social media management and SMS marketing, we provide everything you need to establish a strong digital presence&mdash;empowering your business to lead, not chase.</p>
 			</div>
 			<div class="marquee-wrapper">
-				<app-icon-marquee [animationSpeed]="80"
+				<img src="../../../../assets/img/agency/Attract-convert-engage.png"
+					  alt="agency marquee background"
+					  class="agency-marquee-bg" />
+				<!-- <app-icon-marquee [animationSpeed]="80"
 										[iconSize]="'7em'"
 										[borderRadius]="'50%'"
 										[iconPath]="'../../../../assets/img/driveDL/picks/'"
@@ -62,18 +66,10 @@
 										[singleRow]="true"
 										[overflow]="true"
 										[gapSize]="'5em'">
-				</app-icon-marquee>
+				</app-icon-marquee> -->
 			</div>
-			<!-- <div class="agency-img-container">
-				<img src="../../../../assets/img/agency/marketing-phone.png"
-					  alt="workflows automation illustration"
-					  class="agency-img" />
-			</div> -->
 			<flaux-btn [routerLink]="'/solutions/agency'"
-						  fragment="">Am I truly owning my digital presence?</flaux-btn>
-			<!-- <div class="feature-title">
-		<flaux-fn italicText="flaux" fnText="TIME"></flaux-fn>
-	 </div> -->
+						  fragment="">Dominate Your Digital Space</flaux-btn>
 		</div>
 	</section>
 </flaux-section>
