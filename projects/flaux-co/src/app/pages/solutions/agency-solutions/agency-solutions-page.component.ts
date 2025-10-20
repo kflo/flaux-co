@@ -6,10 +6,12 @@ import { FlauxGlassSectionComponent } from "@app/shared/glass-section";
 import {QuoteItem} from '@app/pages/home/quotes-section/quotes.data';
 import {FlauxQuoteCarouselComponent} from '@components/quote-carousel/quote-carousel.component';
 import {FlauxQuoteHighlightComponent} from '@app/shared/quote-highlight/quote-highlight.component';
+import {MktAiSectionComponent} from '@app/pages/home/mkt-ai-section/mkt-ai-section.component';
+import {FooterComponent} from '@components/footer/footer.component';
 
 @Component({
 	selector: 'agency-solutions-page',
-	imports: [FlauxSectionComponent, BlobBackdropComponent, GradientBackgroundComponent, FlauxGlassSectionComponent, FlauxQuoteCarouselComponent, FlauxQuoteHighlightComponent],
+	imports: [FlauxSectionComponent, BlobBackdropComponent, GradientBackgroundComponent, FlauxGlassSectionComponent, FlauxQuoteCarouselComponent, FlauxQuoteHighlightComponent, MktAiSectionComponent, FooterComponent],
 	hostDirectives: [],
 	templateUrl: './agency-solutions-page.component.html',
 	styleUrl: './agency-solutions-page.component.scss',
@@ -63,7 +65,17 @@ export class AgencySolutionsPageComponent {
 				blobBackdrop: true,
 				imagePosition: 'left' as const,
 				titleIcon: '../../../../assets/img/icons/ai1.svg',
-				description: 'Our conversations platform not only connects your business with customers across various channels, but also makes use of AI so that you never miss a lead, opportunity, or followup.'
+				description: 'Our conversations platform not only connects your business with customers across various channels, but also makes use of AI so that you never miss a lead, opportunity, or followup.',
+				quotes: [
+					{quoteStart: 'Response time reduction from 24–48 hours to under 30 seconds yields',
+						highlight: 'a 70% ROI boost',
+						quoteEnd: ' by capturing leads while interest remains high.',
+						source: 'Resonate AI'},
+					{	quoteStart: 'AI has driven a ',
+						highlight: '372% increase',
+						quoteEnd: ' in lead-to-revenue conversion, compared to human-only communication.',
+						source: 'Vendasta Research'}
+				]
 			},
 			{
 				title: 'LOCAL SEO',
@@ -73,12 +85,19 @@ export class AgencySolutionsPageComponent {
 				titleIcon: '../../../../assets/img/icons/local.svg',
 				description: 'Improve your local search presence and attract more customers with our comprehensive Local SEO solutions, including accurate business listings, review management, and localized content strategies.',
 				quotes: [
-					{
-						quoteStart: 'Clients using our SMS Business App see',
-						highlight: '3× more engagement',
-						quoteEnd: 'compared to those without',
-						source: 'Flaux Research'
-					},]
+					{ quoteStart: '76% of “near me” mobile searches lead to a store visit within 24 hours, and',
+						highlight: '28% of local searches result in a purchase.',
+						quoteEnd: ' 46% of all Google searches have local intent.',
+						source: 'WiserReview / Search Endurance' },
+					{ quoteStart: 'Customers are ',
+						highlight: '70% more likely to visit and 50% more likely to make a purchase',
+						quoteEnd: ' from a business with a complete Google Business Profile.',
+						source: 'Searchonic / Google' },
+					{	quoteStart: 'Businesses with complete listings on local directories see ',
+						highlight: '7x more clicks',
+						quoteEnd: ' than those without complete information.',
+						source: 'Searchonic / Google'},
+				]
 			},
 			{title: 'REPUTATION MANAGEMENT',
 				titleSpacing: true,
@@ -88,12 +107,14 @@ export class AgencySolutionsPageComponent {
 				titleIcon: '../../../../assets/img/icons/star.svg',
 				description: 'Protect and enhance your brand’s reputation with our tailored Reputation Management solutions, including review monitoring, response strategies, and customer feedback analysis.',
 				quotes: [
-					{
-						quoteStart: 'Businesses with a 4+ star rating',
+					{	quoteStart: 'Businesses with a 4+ star rating',
 						highlight: 'earn 28% more',
-						quoteEnd: 'in annual revenue than those who don’t',
-						source: 'Womply'
-					}
+						quoteEnd: 'in annual revenue than those who don’t.',
+						source: 'Womply'},
+					{	quoteStart: 'A customer is 21% more likely to make a purchase after seeing',
+						highlight: 'just one verified review',
+						quoteEnd: ' of a product or service.',
+						source: 'BrightLocal'}
 				]},
 			{
 				title: 'SOCIAL MEDIA MANAGEMENT',
@@ -104,24 +125,27 @@ export class AgencySolutionsPageComponent {
 				titleSpacing: true,
 				titleIcon: '../../../../assets/img/icons/social.svg',
 				description: 'Boost your social media presence and engagement with our Social Media Management services, featuring content creation, scheduling, and performance analytics across all major platforms.',
-				list: [
-					'Publish consistently across all your social media accounts with one-click posting',
-					'Generate on-brand content effortlessly using AI-powered tools',
-					'Grow your audience and build a loyal fanbase',
-					'Increase sales with shoppable bios that convert followers to customers',
-					'Track your ROI with detailed social media performance reports'
-				],
+				// list: [
+				// 	'Publish consistently across all your social media accounts with one-click posting',
+				// 	'Generate on-brand content effortlessly using AI-powered tools',
+				// 	'Grow your audience and build a loyal fanbase',
+				// 	'Increase sales with shoppable bios that convert followers to customers',
+				// 	'Track your ROI with detailed social media performance reports'
+				// ],
 				quotes: [
-					{
-						quoteStart: '77% of businesses use social media to ',
-						highlight: 'reach customers',
-						quoteEnd: '',
-						source: 'Statista'
-					},
+					{quoteStart: '78% of businesses that engage in social media',
+						highlight: 'outperform their peers who do not',
+						quoteEnd: ' in customer acquisition and retention.',
+						source: 'Forrester'},
+					{	quoteStart: '',
+						highlight: '58% of consumers',
+						quoteEnd: ' first discover new businesses on social media.',
+						source: 'Synup'},
+					{	quoteStart: 'A good social media experience with a brand makes customers',
+						highlight: '76% more likely to recommend',
+						quoteEnd: ' it to others.',
+						source: 'Synup'}
 				]
-
 			}
-
 		]
-
 }

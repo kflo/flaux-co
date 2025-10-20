@@ -1,55 +1,61 @@
 <flaux-gradient-background></flaux-gradient-background>
-<flaux-section class="agency-hero-section"
-					[inlinePadding]="'2rem'">
-	<div class="hero-heading">
-		<h2><img class="ast-icon"
-				  src="../../../../assets/img/icons/asterisk.svg"
-				  alt="AI Icon" /> Your unfair <br><strong><em>advantage</em></strong> is here.</h2>
-		<p>Don't just compete, conquer the digital landscape. <br>We provide every tool and strategy you need—from AI-powered conversations to targeted ads—to build an unbeatable online presence and achieve your growth goals.</p>
-	</div>
-	<flaux-blob-backdrop [blobCount]="3"
-								[imageUrls]="formattedImageUrls"
-								changeOrigin="47% 57%">
-	</flaux-blob-backdrop>
-</flaux-section>
+<div class="sections-wrapper">
+	<flaux-section class="agency-hero-section"
+						[height]="'82vh'"
+						[blockPadding]="'2rem'"
+						[inlinePadding]="'2rem'">
+		<div class="hero-heading">
+			<h2><img class="ast-icon"
+					  src="../../../../assets/img/icons/asterisk.svg"
+					  alt="AI Icon" /> Your unfair <br><strong><em>advantage</em></strong> is here.</h2>
+			<p>Don't just compete, conquer the digital landscape. <br>We provide every tool and strategy you need—from AI-powered conversations to targeted ads—to build an unbeatable online presence and achieve your growth goals.</p>
+		</div>
+		<flaux-blob-backdrop [blobCount]="3"
+									[imageUrls]="formattedImageUrls"
+									changeOrigin="47% 57%">
+		</flaux-blob-backdrop>
+	</flaux-section>
 
-@for (section of featureSections; track section.title) {
-<flaux-section class="content-section"
-					[height]="'auto'">
-	<flaux-glass-section [imageUrls]="section.imageUrls"
-								[imageAlt]="section.imageAlt"
-								[blobBackdrop]="section.blobBackdrop"
-								[title]="section.title"
-								[titleIcon]="section.titleIcon"
-								titleIconAlt="AI Icon"
-								[description]="section.description"
-								[imagePosition]="section.imagePosition">
-		@if(section.list?.length) {
-		<ul class="content-section-list">
-			@for (item of section.list; track item) {
-			<li>{{ item }}</li>
+	@for (section of featureSections; track section.title) {
+	<flaux-section class="content-section"
+						[height]="'70vh'">
+		<flaux-glass-section [imageUrls]="section.imageUrls"
+									[imageAlt]="section.imageAlt"
+									[blobBackdrop]="section.blobBackdrop"
+									[title]="section.title"
+									[titleIcon]="section.titleIcon"
+									titleIconAlt="AI Icon"
+									[description]="section.description"
+									[imagePosition]="section.imagePosition">
+			@if(section.list?.length) {
+			<ul class="content-section-list">
+				@for (item of section.list; track item) {
+				<li>{{ item }}</li>
+				}
+			</ul>
 			}
-		</ul>
-		}
-		@if(section.quotes?.length) {
-		<flaux-quote-carousel [items]="section.quotes || []"
-									 [intervalMs]="8000"
-									 ariaLabel="Key business & AI impact statistics"
-									 class="quote-carousel-wrapper"
-									 [style.align-self]="section.imagePosition === 'right' ? 'flex-start' : 'flex-end'"
-									 slideAriaDescription="quote">
-			<ng-template #slideTemplate
-							 let-quote
-							 let-index="index">
-				<flaux-quote-highlight [quoteStart]="quote.quoteStart"
-											  [highlight]="quote.highlight"
-											  [quoteEnd]="quote.quoteEnd"
-											  [isFlaux]="quote.source === 'Flaux Research'"
-											  [source]="quote.source"></flaux-quote-highlight>
-			</ng-template>
-		</flaux-quote-carousel>
-		}
-	</flaux-glass-section>
+			@if(section.quotes?.length) {
+			<flaux-quote-carousel [items]="section.quotes || []"
+										 [intervalMs]="8000"
+										 ariaLabel="Key business & AI impact statistics"
+										 class="quote-carousel-wrapper"
+										 [style.align-self]="section.imagePosition === 'right' ? 'flex-start' : 'flex-end'"
+										 slideAriaDescription="quote">
+				<ng-template #slideTemplate
+								 let-quote
+								 let-index="index">
+					<flaux-quote-highlight [quoteStart]="quote.quoteStart"
+												  [highlight]="quote.highlight"
+												  [quoteEnd]="quote.quoteEnd"
+												  [isFlaux]="quote.source === 'Flaux Research'"
+												  [source]="quote.source"></flaux-quote-highlight>
+				</ng-template>
+			</flaux-quote-carousel>
+			}
+		</flaux-glass-section>
 
-</flaux-section>
-}
+	</flaux-section>
+	}
+</div>
+<mkt-ai-section></mkt-ai-section>
+<flaux-footer></flaux-footer>

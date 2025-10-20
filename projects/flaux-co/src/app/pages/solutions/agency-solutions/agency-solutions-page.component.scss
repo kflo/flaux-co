@@ -2,26 +2,35 @@
 
 :host {
 	display: block;
-	overflow-y: auto;
-	overflow-x: hidden;
-	scroll-snap-type: y mandatory;
-	scroll-behavior: smooth;
-	height: 100vh;
+	// Remove overflow: hidden to allow main page scroll snapping to work
+	// overflow-x: hidden;
+	// height: 100vh;
+}
+
+flaux-section {
+	scroll-snap-align: start !important;
+	scroll-snap-stop: always; // Forces a stop at each snap point
 }
 
 /* ----------------------------------- // ----------------------------------- */
 
+.sections-wrapper {
+	// gap: 4em;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 6em;
+}
+
 .agency-hero-section {
-	height: 100vh;
+	// height: 100vh;
 	display: flex;
 	align-items: center;
 	color: white;
-	overflow: hidden;
+	overflow: visible;
 	font-family: "Montserrat", sans-serif;
 	text-align: center;
 	gap: 9em;
-	scroll-snap-align: start;
-	scroll-snap-stop: always;
+	margin-bottom: 4em !important;
 
 	flaux-blob-backdrop {
 		flex: 5;
@@ -60,12 +69,9 @@
 	position: relative;
 	z-index: 3;
 	color: white;
-	padding: 11em 3em !important;
-	margin-block: -7em;
+	padding: 8em 4em 0 !important;
 	overflow: visible;
-	min-height: 100vh;
 	scroll-snap-align: start;
-	scroll-snap-stop: always;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -82,6 +88,10 @@
 		text-align: left;
 		padding-inline: 1em 0;
 	}
+}
+
+mkt-ai-section {
+	scroll-snap-align: start;
 }
 
 /* -------------------------------------------------------------------------- */
