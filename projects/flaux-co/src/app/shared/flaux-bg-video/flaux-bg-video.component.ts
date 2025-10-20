@@ -21,6 +21,7 @@ export class FlauxBgVideoComponent implements AfterViewInit, OnDestroy {
 
 	@Input() vignette = false;
 	@Input() relative = false;
+	@Input() local = false;
 	@Input() name = '';
 	@Input() threshold = 0.25; // How much of the video should be visible before playing
 	@Input() vignettePosition = '50%'; // Position of the vignette gradient center
@@ -35,7 +36,7 @@ export class FlauxBgVideoComponent implements AfterViewInit, OnDestroy {
 	}
 
 	get src() {
-		return `${environment.r2BucketUrl}vid/${this.name}.mp4`;
+		return !this.local ? `${environment.r2BucketUrl}vid/${this.name}.mp4` : `../../../assets/vid/${this.name}.mp4`;
 	}
 
 	ngAfterViewInit(): void {

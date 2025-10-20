@@ -58,19 +58,19 @@ export class BlobBackdropComponent implements OnInit, OnDestroy {
   @Input() alt = '';
 
   /** Blob 1 rotation in degrees */
-  @Input() blob1Rotate = -132;
+  @Input() blob1Rotate = -90;
 
   /** Blob 1 scale */
   @Input() blob1Scale = 2.1;
 
   /** Blob 2 rotation in degrees */
-  @Input() blob2Rotate = -115;
+  @Input() blob2Rotate = -90;
 
   /** Blob 2 scale */
   @Input() blob2Scale = 2.1;
 
   /** Blob 3 rotation in degrees */
-  @Input() blob3Rotate = -95;
+  @Input() blob3Rotate = -90;
 
   /** Blob 3 scale */
   @Input() blob3Scale = 2.0;
