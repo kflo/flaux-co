@@ -1,15 +1,11 @@
 @use 'variables' as *;
 
-:host {
-	display: contents;
-}
-
 .gradient-background {
 	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
+	inset: 0;
+	// width: 100%;
+	// height: 100vh;
+	overflow: hidden;
 	z-index: 0;
 	background: linear-gradient(-45deg,
 			$flaux-violet,
@@ -26,10 +22,11 @@
 	content: "";
 	position: absolute;
 	inset: 0;
+	overflow: hidden;
 	pointer-events: none;
 	background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
 	opacity: 1;
-	transform: scale(1.5);
+	transform: scale(2.2);
 	z-index: 1;
 	mix-blend-mode: overlay;
 }
