@@ -35,9 +35,9 @@
 	// white-space: nowrap;
 	text-align: center;
 	animation: pulse 3s ease-in-out infinite;
-	backdrop-filter: blur(2px);
+	backdrop-filter: blur(3px);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-	background: rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.33);
 	height: var(--height, 3em);
 	align-content: center;
 
@@ -45,8 +45,8 @@
 		cursor: pointer;
 		// background: var(--mat-sys-on-primary-fixed-variant);
 		// background-blend-mode: soft-light;
-		box-shadow: 1px 1px 1em #ffffffa4;
-		border: 1px solid rgba(14, 12, 12, 0.66);
+		box-shadow: 1px 1px 1em #ffffffa9;
+		border: 1px solid rgba(255, 255, 255, 0.66);
 		transform: scale(1.03);
 		backdrop-filter: blur(7px) brightness(1.2) contrast(1.2) saturate(1.1);
 		animation: none;

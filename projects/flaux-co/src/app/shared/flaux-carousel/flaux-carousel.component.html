@@ -12,7 +12,9 @@
 		  [class.last-item]="isLastItem(element)"
 		  [class.first-item]="isFirstItem(element)"
 		  [class.wrap-around-hidden]="isWrapAroundElement(element)"
-		  [ngStyle]="getItemStyle(element)">
+		  [class.clickable]="!isCenterElement(element)"
+		  [ngStyle]="getItemStyle(element)"
+		  (click)="onCarouselItemClick(element)">
 		<img [src]="element.item.imageUrl"
 			  alt="{{element.item.heading}} image" />
 	</div>

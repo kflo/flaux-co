@@ -241,4 +241,19 @@ export class FlauxCarouselComponent implements OnInit {
 			}
 		}
 	}
+
+	public onCarouselItemClick(element: { item: CarouselItem, id: string, positionIndex: number }): void {
+		if (this.isAnimating || this.isCenterElement(element)) return;
+
+		const centerIndex = Math.floor(this.visibleItems / 2);
+		const relativePosition = element.positionIndex - centerIndex;
+
+		if (relativePosition < 0) {
+			// Item is to the left of center - turn left to bring it to center
+			this.turnLeft();
+		} else if (relativePosition > 0) {
+			// Item is to the right of center - turn right to bring it to center
+			this.turnRight();
+		}
+	}
 }
