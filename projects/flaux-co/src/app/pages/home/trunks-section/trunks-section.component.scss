@@ -62,11 +62,12 @@
 		flex-direction: column;
 		justify-content: space-between;
 		height: -webkit-fill-available;
-		backdrop-filter: brightness(50) blur(15em) hue-rotate(-15deg) saturate(4.5) contrast(0.85) sepia(0.1);
+		backdrop-filter: brightness(70) blur(15em) hue-rotate(-15deg) saturate(5) contrast(0.95) sepia(0.1);
 		padding: 2em 3.5em 3.0em;
 
 		flaux-btn {
 			min-width: 80%;
+
 		}
 
 	}
@@ -80,7 +81,16 @@
 
 	&-content {
 		border-radius: 8% 0 8% 0;
-		backdrop-filter: brightness(50) blur(15em) hue-rotate(180deg) saturate(4.5) contrast(0.85) sepia(0.1)
+		backdrop-filter: brightness(50) blur(15em) hue-rotate(180deg) saturate(4.5) contrast(0.85) sepia(0.1);
+
+		flaux-bg-video {
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			border-radius: 8% 0 8% 0;
+			filter: contrast(0.9) saturate(1.5);
+			opacity: 0.12;
+		}
 	}
 }
 
@@ -100,16 +110,11 @@
 			z-index: -1;
 			border-radius: 0 8% 0 8%;
 			filter: contrast(0.9) saturate(1.5);
-			opacity: 0.5;
-
-
-			video {
-				border-radius: 0 8% 0 8%;
-			}
+			opacity: 0.55;
 		}
 
 		.agency-marquee-bg {
-			max-width: 75%;
+			max-width: 55%;
 		}
 	}
 }
