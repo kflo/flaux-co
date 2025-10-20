@@ -13,6 +13,23 @@ import {environment} from 'projects/flaux-co/environments/environment';
 export class MktAiSectionComponent {
 	public carouselItems: CarouselItem[] = [
 		{
+			id: 6,
+			text: 'Coming Soon!',
+			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Workforce Team/AI Salesperson.png`,
+			heading: 'Salesperson',
+			subheading: 'Closing Deals, Around the Clock',
+			description: 'Your go-to for nurturing prospects and closing new business. The Salesperson interacts with leads across multiple channels, offering personalized responses and moving prospects through the sales funnel.',
+			linkUrl: null
+		},
+		{
+			id: 3,
+			text: 'Drives awareness and engagement with customers wherever they are. Drafts, schedules, and posts content for websites, blogs, and social media platforms that will educate leads and drive new business.',
+			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Workforce Team/AI Content Creator.png`,
+			heading: 'AI Content Creator',
+			subheading: 'Content That Connects',
+			linkUrl: '/contact'
+		},
+		{
 			id: 1,
 			text: 'Have an AI employee available 24/7 to capture leads, answer customer questions, and provide a delightful experience that gets more customers. And keeps them.',
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Workforce Team/AI Receptionist.png`,
@@ -39,16 +56,7 @@ export class MktAiSectionComponent {
 					<li>requesting reviews from promoters</li>
 					<li>preparing responses for detractors</li>
 					<li>responding to reviews across platforms</li>
-				</ul>
-				<p>ensuring all feedback is collected and handled promptly.</p>`,
-			linkUrl: '/contact'
-		},
-		{
-			id: 3,
-			text: 'Drives awareness and engagement with customers wherever they are. Drafts, schedules, and posts content for websites, blogs, and social media platforms that will educate leads and drive new business.',
-			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Workforce Team/AI Content Creator.png`,
-			heading: 'AI Content Creator',
-			subheading: 'Content That Connects',
+				</ul>`,
 			linkUrl: '/contact'
 		},
 		{
@@ -57,6 +65,7 @@ export class MktAiSectionComponent {
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Workforce Team/AI SEO Expert.png`,
 			heading: 'SEO Expert',
 			subheading: 'Rank Higher, Get Found',
+			description: 'Boost your online visibility with an AI-driven SEO Expert. Optimizes website content, suggests keywords, and monitors performance to help your business rank higher in search results and attract more customers.',
 			linkUrl: null
 		},
 		{
@@ -65,15 +74,9 @@ export class MktAiSectionComponent {
 			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Workforce Team/AI Sales Assistant.png`,
 			heading: 'Sales Assistant',
 			subheading: 'Your Always-On Sales Support',
+			description: 'Win more business with every call. Transcribe, analyze, and summarize sales activity to capture key insights and provide actionable tips to gain new customers.',
 			linkUrl: null
 		},
-		{
-			id: 6,
-			text: 'Coming Soon!',
-			imageUrl: `${environment.r2BucketUrl}img/mkt/ai/AI Workforce Team/AI Salesperson.png`,
-			heading: 'Salesperson',
-			subheading: 'Closing Deals, Around the Clock',
-			linkUrl: null
-		},
+
 	];
 }
