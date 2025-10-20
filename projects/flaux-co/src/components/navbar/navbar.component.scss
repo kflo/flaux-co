@@ -33,6 +33,7 @@
 	font-size: 2.5em;
 	font-family: 'Sen', sans-serif;
 	color: #fff;
+	text-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
 	letter-spacing: 0.05em;
 }
 
@@ -71,6 +72,7 @@
 	height: 100%;
 	align-content: center;
 	padding-inline: 2rem;
+	text-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7);
 }
 
 .navbar-center a:hover {
@@ -108,6 +110,14 @@
 	background: #fff;
 	border-radius: 1px;
 	transition: all 0.3s;
+}
+
+@media screen and (max-width: 1150px) {
+	.navbar-center a {
+		font-size: 0.75em;
+		padding-inline: 1.5rem;
+	}
+
 }
 
 @media (max-width: 900px) {

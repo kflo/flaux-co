@@ -63,6 +63,7 @@
 	backdrop-filter: blur(4px);
 	transition: background 200ms ease, transform 200ms ease;
 	z-index: 3;
+	padding-bottom: 0.12em;
 
 	&:hover {
 		background: rgba(255, 255, 255, 0.22);
@@ -77,11 +78,11 @@
 	}
 
 	&.prev {
-		left: -0.5rem;
+		left: -1.5rem;
 	}
 
 	&.next {
-		right: -0.5rem;
+		right: -1.5rem;
 	}
 
 	@media (max-width: 800px) {
@@ -98,7 +99,7 @@
 // Indicators
 .indicators {
 	position: absolute;
-	bottom: 0.75rem;
+	bottom: -1em;
 	left: 50%;
 	transform: translateX(-50%);
 	display: flex;
