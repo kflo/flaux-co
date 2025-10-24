@@ -1,0 +1,36 @@
+<flaux-section height="'100vh'">
+	<div class="industries-container">
+		<div class="section-header">
+			<h2>Industries We Transform</h2>
+			<p>Delivering tailored AI solutions across diverse sectors with proven expertise and measurable results</p>
+		</div>
+
+		<div class="industries-grid">
+			@for (industry of industries; track industry.name) {
+			<div class="industry-card">
+				<div class="industry-icon">
+					<i class="icon-{{ industry.icon }}"></i>
+				</div>
+				<div class="industry-content">
+					<h3>{{ industry.name }}</h3>
+					<p>{{ industry.description }}</p>
+					<div class="use-cases">
+						<h4>Key Applications:</h4>
+						<ul>
+							@for (useCase of industry.useCases; track useCase) {
+							<li>{{ useCase }}</li>
+							}
+						</ul>
+					</div>
+				</div>
+			</div>
+			}
+		</div>
+
+		<div class="cta-section">
+			<h3>Don't See Your Industry?</h3>
+			<p>We adapt our AI solutions to any sector. Let's discuss how AI can transform your specific business challenges.</p>
+			<button class="cta-button">Get Custom Solution</button>
+		</div>
+	</div>
+</flaux-section>

@@ -1,0 +1,29 @@
+<flaux-section height="'100vh'">
+	<div class="process-container">
+		<div class="section-header">
+			<h2>Our AI Development Process</h2>
+			<p>A proven methodology that ensures successful AI implementation from concept to deployment</p>
+		</div>
+
+		<div class="process-timeline">
+			@for (step of processSteps; track step.step) {
+			<div class="process-step"
+				  [class.last]="$last">
+				<div class="step-number">
+					<span>{{ step.step }}</span>
+				</div>
+				<div class="step-content">
+					<div class="step-header">
+						<h3>{{ step.title }}</h3>
+						<span class="duration">{{ step.duration }}</span>
+					</div>
+					<p>{{ step.description }}</p>
+				</div>
+				@if (!$last) {
+				<div class="step-connector"></div>
+				}
+			</div>
+			}
+		</div>
+	</div>
+</flaux-section>

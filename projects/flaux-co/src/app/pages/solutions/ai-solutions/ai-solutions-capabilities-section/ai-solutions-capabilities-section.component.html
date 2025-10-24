@@ -1,0 +1,114 @@
+<flaux-section height="'100vh'">
+	<div class="capabilities-container">
+		<div class="section-header">
+			<h2>Our Services</h2>
+			<p>Cutting-edge AI solutions designed to transform your business operations.</p>
+		</div>
+
+		<div class="capabilities-grid">
+			<!-- Row 1: Voice Agents (full width) -->
+			<div class="capability-card voice-agents">
+				<div class="capability-icon">
+					<i class="icon-{{ capabilities.voiceAgents.icon }}"></i>
+				</div>
+				<img [src]="capabilities.voiceAgents.image"
+					  width="100%"
+					  alt="Voice Agent Illustration"
+					  class="capability-img">
+				<div class="text-wrapper">
+					<h3>{{ capabilities.voiceAgents.title }}</h3>
+					<p>Meet your <strong>always‑on</strong> AI receptionist. It answers calls, captures intent, and follows up instantly by SMS — even after hours.</p>
+					<p>Every conversation is transcribed and summarized to your CRM so your team picks up right where the AI left off.</p>
+					<p>Fewer missed calls, faster resolutions, <strong>more booked appointments</strong>. You can even clone your own voice for a personalized touch.</p>
+				</div>
+
+			</div>
+
+			<!-- Row 2: Chat Agents, SMB AI Education -->
+			<div class="capability-card chat-agents">
+				<div class="capability-icon">
+					<i class="icon-{{ capabilities.chatAgents.icon }}"></i>
+				</div>
+				<h3>{{ capabilities.chatAgents.title }}</h3>
+				<p>An AI chatbot can handle customer inquiries, provide support, capture leads, book appointments, and engage users <strong>in natural conversations</strong>.</p>
+
+				<p>It triages complex requests, integrates with your calendar and CRM, and sends confirmations by SMS or email, all while pulling from <strong>your knowledge base</strong>.</p>
+				<p><strong>Available 24/7.</strong></p>
+				<img [src]="capabilities.chatAgents.image"
+					  width="100%"
+					  alt="Chat Agent Illustration"
+					  class="capability-img">
+			</div>
+
+			<div class="capability-card smb-ai-education">
+				<div class="capability-icon">
+					<i class="icon-{{ capabilities.smbAiEducation.icon }}"></i>
+				</div>
+				<h3>{{ capabilities.smbAiEducation.title }}</h3>
+
+				<p>Equip your team to <strong>use AI with confidence</strong>. Whether virtually or in person, our interactive, role‑based workshops and labs teach how to spot high‑ROI use cases, craft effective prompts, automate daily tasks, and stay
+					compliant with data
+					and privacy.</p>
+
+				<p>Your team leaves with working prototypes, curated tool playbooks, and a <b>90‑day adoption plan</b> tailored to your business.</p>
+				<img [src]="capabilities.smbAiEducation.image"
+					  width="100%"
+					  alt="AI Education Illustration"
+					  class="capability-img">
+			</div>
+
+			<!-- Row 3: Custom AI Solutions (full width) -->
+			<div class="capability-card custom-ai-solutions">
+				<div class="capability-icon">
+					<i class="icon-{{ capabilities.customAiSolutions.icon }}"></i>
+				</div>
+				<!-- <div class="shape"></div> -->
+				<img [src]="capabilities.customAiSolutions.image"
+					  width="100%"
+					  alt="Automation Workflow Illustration"
+					  class="capability-img">
+				<div class="text-wrapper">
+					<h3>{{ capabilities.customAiSolutions.title }}</h3>
+					<p>Put your <strong>operations on autopilot</strong>.</p>
+					<p>We design and deploy custom AI pipelines that read, decide, and act across your stack—ingesting emails and calls, querying your knowledge base, hitting APIs, updating CRM/ERP, and triggering human approvals only when needed.</p>
+					<p>Production‑grade and auditable from day one: security-first, role‑based controls, observability, and graceful fallbacks. Turn <strong>scattered tasks</strong> into a single, <strong>automated system</strong> that ships faster,
+						reduces
+						busywork, and never misses a
+						handoff.</p>
+				</div>
+
+			</div>
+
+			<!-- Row 4: AI Powered Marketing, SMB AI Consulting -->
+			<div class="capability-card ai-powered-marketing">
+				<div class="capability-icon">
+					<i class="icon-{{ capabilities.aiPoweredMarketing.icon }}"></i>
+				</div>
+				<h3>{{ capabilities.aiPoweredMarketing.title }}</h3>
+
+				<p>Find more of the right customers with practical AI.</p>
+
+				<p>We help you identify your best audience, create on‑brand posts and ads in minutes, and run them on the channels your customers already use.</p>
+				<p>Clear reports show what’s working, and automated email/SMS follow‑ups turn interest into
+					bookings or sales. Start small, keep costs predictable, and scale as results grow.</p>
+				<img [src]="capabilities.aiPoweredMarketing.image"
+					  width="100%"
+					  alt="AI Marketing Illustration"
+					  class="capability-img">
+			</div>
+
+			<div class="capability-card smb-ai-consulting">
+				<div class="capability-icon">
+					<i class="icon-{{ capabilities.smbAiConsulting.icon }}"></i>
+				</div>
+				<h3>{{ capabilities.smbAiConsulting.title }}</h3>
+				<img [src]="capabilities.smbAiConsulting.image"
+					  width="100%"
+					  alt="AI Consulting Illustration"
+					  class="capability-img">
+				<p>Start with a fast AI Audit of your workflows, tools, and customer touchpoints to identify the quickest, <strong>highest‑ROI wins</strong>.</p>
+				<p>From there, we tailor practical solutions—assistants, marketing boosts, and click‑free internal workflows—with clear pricing, training, and metrics so your team owns it.</p>
+			</div>
+		</div>
+	</div>
+</flaux-section>
