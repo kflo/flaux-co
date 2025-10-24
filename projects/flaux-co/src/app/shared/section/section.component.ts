@@ -10,7 +10,7 @@ export class FlauxSectionComponent {
 
 	@Input()
 	@HostBinding('style.min-height')
-		height: string = '100vh';
+		height: string = 'inherit';
 
 	@Input()
 	@HostBinding('style.padding-inline')
@@ -19,5 +19,9 @@ export class FlauxSectionComponent {
 	@Input()
 	@HostBinding('style.padding-block')
 		blockPadding: string = '0';
+
+	@Input()
+	@HostBinding('style.position')
+		positioning: string = 'relative';
 
 }

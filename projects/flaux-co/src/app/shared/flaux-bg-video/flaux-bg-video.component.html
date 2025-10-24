@@ -10,6 +10,7 @@
 			 disableRemotePlayback
 			 preload="auto"
 			 [style.position]="relative ? 'relative' : 'absolute'"
+			 [style.opacity]="opacity ? opacity : 1"
 			 [attr.webkit-playsinline]="true">
 		<source [src]="src"
 				  type="video/mp4">

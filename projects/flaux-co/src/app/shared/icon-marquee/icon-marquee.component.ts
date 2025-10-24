@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 @Component({
-	selector: 'app-icon-marquee',
+	selector: 'flaux-icon-marquee',
 	standalone: true,
 	imports: [CommonModule],
 	templateUrl: './icon-marquee.component.html',

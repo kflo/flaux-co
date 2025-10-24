@@ -24,6 +24,7 @@ export class FlauxBgVideoComponent implements AfterViewInit, OnDestroy {
 	@Input() local = false;
 	@Input() name = '';
 	@Input() threshold = 0.25; // How much of the video should be visible before playing
+	@Input() opacity = 1;
 	@Input() vignettePosition = '50%'; // Position of the vignette gradient center
 
 	@ViewChild('videoElement', { static: true }) videoRef!: ElementRef<HTMLVideoElement>;
