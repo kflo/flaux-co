@@ -2,52 +2,43 @@
 
 :host {
 	display: block;
-	overflow-y: auto;
-	overflow-x: hidden;
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
-	height: 100vh;
+	// background: url('../../../../../assets/img/bg/yellow_grunge_brush_ink_background.jpg') black;
+	// background-size: cover;
+	// background-position: left;
+	// opacity: 0;
 }
 
 /* ----------------------------------- // ----------------------------------- */
 
-.video-container {
+.bg {
+	background: url('../../../../../assets/img/bg/flaux/Firefly\ 20251004173302.png') no-repeat;
+	background-size: cover;
+	background-position: center;
+	// backdrop-filter: contrast(0.8) brightness(0.7);
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 80%;
-	height: 80%;
-	overflow: hidden;
-	z-index: 0;
-	margin: auto;
-	margin-top: 0;
-	mask: radial-gradient(ellipse farthest-side, black 0%, black 75%, transparent 100%);
+	inset: 0;
+	z-index: 1;
+	opacity: 0.75;
+	filter: contrast(0.8) hue-rotate(140deg);
+	mix-blend-mode: normal;
+	mask: radial-gradient(ellipse farthest-side, black 0%, black 70%, rgba(0, 0, 0, 0.33) 100%);
+}
+
+.video-container {
+	// mask: radial-gradient(ellipse farthest-side, black 0%, black 75%, transparent 100%);
 
 	flaux-bg-video video {
 		position: relative !important;
 	}
 }
 
-.content-container {
-	position: relative;
-	display: flex;
-	width: 100%;
-	scroll-snap-align: start;
-	z-index: 1;
-	pointer-events: none;
-	align-items: center;
-	justify-content: center;
-}
-
-
-
 .content-txt {
 	flex: 1;
 	position: relative;
 	justify-self: flex-end;
-	max-width: 50vw;
 	z-index: 1;
-	// padding: 2rem;
 	color: white;
 	text-align: center;
 	bottom: 0;
@@ -57,12 +48,35 @@
 	// box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
 
 	h3 {
-		font-size: 3rem;
+		font-family: 'script2';
+		font-size: 5rem;
+		font-weight: normal;
+		line-height: 1.3em;
+		-webkit-text-stroke: 2px;
+		text-shadow: 0 0 0.66rem rgba(0, 0, 0, 0.8);
+
+		.ai {
+			position: relative;
+			font-family: 'Lequire', sans-serif;
+			top: 0.1em;
+			font-size: 1.5em;
+			color: white;
+			filter: drop-shadow(0 0 0.5rem white) brightness(1.05) opacity(0.9);
+			mask-clip: text;
+			text-shadow: 9px 5px 0rem $flaux-violet,
+				5px 9px 0rem $flaux-orange,
+				-5px 6px 0rem $flaux-salmon,
+				-5px -5px 0rem $flaux-blue;
+			// text-shadow: none !important;
+			-webkit-text-stroke: 1px #fff;
+		}
 	}
 
 	p {
 		font-size: 1.25rem;
 		line-height: 1.5;
+		letter-spacing: 0.05em;
+		word-spacing: 0.05em;
 	}
 }
 
@@ -126,30 +140,15 @@
 
 /* ----------------------------------- // ----------------------------------- */
 
-.content-section {
+.content-container {
 	position: relative;
 	z-index: 3;
 	color: white;
-	padding: 9em 3em !important;
-	margin-block: -7em;
-	overflow: visible;
-	min-height: 100vh;
-	scroll-snap-align: start;
-	scroll-snap-stop: always;
+	padding: 9em 3em 3em !important;
+	gap: 5em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
-	.quote-carousel {
-		max-width: 50%;
-		opacity: 0.8;
-		align-self: flex-start;
-		margin-inline: -1em;
-	}
-
-	&-list {
-		text-align: left;
-	}
 }
 
 /* -------------------------------------------------------------------------- */
@@ -160,5 +159,11 @@
 	.agency-hero-section, .content-section {
 		max-width: 1700px;
 		margin: auto;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.content-container {
+		padding: 5em 3em 3em !important;
 	}
 }

@@ -1,12 +1,23 @@
-<flaux-section>
-	<div class="video-container">
-		<flaux-bg-video [name]="'flaux-test'"
-							 [relative]="true"></flaux-bg-video>
-	</div>
+<flaux-section [height]="'100vh'">
+	<!-- <div class="bg"></div> -->
+	<flaux-bg-video class="video-container"
+						 [name]="'tunnel-vid'"
+						 [opacity]="0.75"
+						 [local]="true"></flaux-bg-video>
 	<div class="content-container">
 		<div class="content-txt">
-			<h3>AI Solutions</h3>
-			<p>Empowering Your Business with Tailored AI Solutions</p>
+			<h3>Custom <span class="ai">aI</span> Solutions</h3>
+			<p>Automation. Precision. Velocity.</p>
+			<p>The new standard.</p>
+			<!-- <p>Automate. Orchestrate. Accelerate.</p> -->
+			<!-- <p>Automate. Orchestrate. Accelerate.</p> -->
+		</div>
+		<div class="marquee-wrapper">
+			<flaux-icon-marquee [animationSpeed]="80"
+									  [iconSize]="'2em'"
+									  [gapSize]="'0.66em'"
+									  [iconFiles]="aiMarqueeFiles">
+			</flaux-icon-marquee>
 		</div>
 	</div>
 </flaux-section>
