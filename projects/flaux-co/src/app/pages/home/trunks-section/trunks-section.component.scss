@@ -65,6 +65,10 @@
 		backdrop-filter: brightness(70) blur(15em) hue-rotate(-15deg) saturate(5) contrast(0.95) sepia(0.1);
 		padding: 2em 3.5em 3.0em;
 
+		.text-block {
+			line-height: 2em;
+		}
+
 		flaux-btn {
 			min-width: 80%;
 
