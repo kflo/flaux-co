@@ -1,7 +1,9 @@
-<section class="hero-section">
-	<flaux-hls [style]="{ filter: 'brightness(0.85)' }"
-				  [hlsUrl]="hlsUrl"
-				  [posterUrl]="posterUrl"></flaux-hls>
+<flaux-section class="hero-section"
+					[height]="'100vh'">
+    <flaux-hls [style]="{ filter: 'brightness(0.85)' }"
+                [hlsUrl]="hlsUrl"
+                [posterUrl]="posterUrl"
+                [widthPercent]="180"></flaux-hls>
 	<div class="hero-content">
 		<div class="hero-title">
 			<h1>
@@ -9,10 +11,7 @@
 							 fnText="FAUX INTELLIGENCE"></flaux-fn>
 			</h1>
 		</div>
-		<div style="justify-items: center">
-			<h4 class="hero-subtitle">Nature Flows. Business Flauxs.</h4>
-			<p class="hero-text">Your AI Supercharged Digital Agency</p>
-		</div>
-		<div class="hero-visual"></div>
+		<h4 class="hero-subtitle">Nature Flows. Business Flauxs.</h4>
 	</div>
-</section>
+	<p class="hero-text">Your AI Supercharged Digital Agency</p>
+</flaux-section>
