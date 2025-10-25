@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FlauxSectionComponent } from "@app/shared/section/section.component";
-import { BlobBackdropComponent } from "@app/shared/blob-backdrop";
-import { GradientBackgroundComponent } from "@app/shared/gradient-background/gradient-background.component";
 
 @Component({
 	selector: 'ai-solutions-capabilities-section',
-	imports: [FlauxSectionComponent, BlobBackdropComponent, GradientBackgroundComponent],
+	imports: [FlauxSectionComponent],
 	templateUrl: './ai-solutions-capabilities-section.component.html',
 	styleUrl: './ai-solutions-capabilities-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

@@ -50,8 +50,8 @@ export class HlsComponent implements AfterViewInit {
   showMp4Fallback = false;
 
   // Host style bindings for width and auto-centering when over 100%
-  @HostBinding('style.width') private hostWidth: string = '100%';
-  @HostBinding('style.margin-left') private hostMarginLeft: string | null = null;
+  @HostBinding('style.width') protected hostWidth: string = '100%';
+  @HostBinding('style.margin-left') protected hostMarginLeft: string | null = null;
 
   /**
    * Optional: set host width in percent. If >100, auto-center by applying
@@ -60,19 +60,19 @@ export class HlsComponent implements AfterViewInit {
    */
   @Input()
   set widthPercent(value: number | null | undefined) {
-    const v = Number(value);
-    if (!isFinite(v) || v <= 0) {
-      this.hostWidth = '100%';
-      this.hostMarginLeft = null;
-      return;
-    }
-    this.hostWidth = `${v}%`;
-    if (v > 100) {
-      const overflowHalf = (v - 100) / 2;
-      this.hostMarginLeft = `-${overflowHalf}%`;
-    } else {
-      this.hostMarginLeft = null;
-    }
+  	const v = Number(value);
+  	if (!isFinite(v) || v <= 0) {
+  		this.hostWidth = '100%';
+  		this.hostMarginLeft = null;
+  		return;
+  	}
+  	this.hostWidth = `${v}%`;
+  	if (v > 100) {
+  		const overflowHalf = (v - 100) / 2;
+  		this.hostMarginLeft = `-${overflowHalf}%`;
+  	} else {
+  		this.hostMarginLeft = null;
+  	}
   }
 
   async ngAfterViewInit(): Promise<void> {
