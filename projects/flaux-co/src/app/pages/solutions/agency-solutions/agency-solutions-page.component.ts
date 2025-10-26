@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FlauxSectionComponent } from "@app/shared/section/section.component";
 import { BlobBackdropComponent } from "@app/shared/blob-backdrop";
 import { GradientBackgroundComponent } from "@app/shared/gradient-background/gradient-background.component";
@@ -8,6 +8,7 @@ import {FlauxQuoteCarouselComponent} from '@components/quote-carousel/quote-caro
 import {FlauxQuoteHighlightComponent} from '@app/shared/quote-highlight/quote-highlight.component';
 import {MktAiSectionComponent} from '@app/pages/home/mkt-ai-section/mkt-ai-section.component';
 import {FooterComponent} from '@components/footer/footer.component';
+import { SeoService } from '@app/shared/seo/seo.service';
 
 @Component({
 	selector: 'agency-solutions-page',
@@ -17,7 +18,17 @@ import {FooterComponent} from '@components/footer/footer.component';
 	styleUrl: './agency-solutions-page.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AgencySolutionsPageComponent {
+export class AgencySolutionsPageComponent implements OnInit {
+
+	constructor(private readonly seo: SeoService) {}
+
+	ngOnInit(): void {
+		this.seo.update({
+			title: 'Agency Solutions | Flaux',
+			description: 'All-in-one platform and services to attract, convert, and retain clients with AI-assisted operations.',
+			image: '/assets/img/agency/agency-phone.svg'
+		});
+	}
 	imagesPath = `../../../../assets/img/driveDL/picks/`;
 	imageUrls = [
 		'Attract-convert-engage',

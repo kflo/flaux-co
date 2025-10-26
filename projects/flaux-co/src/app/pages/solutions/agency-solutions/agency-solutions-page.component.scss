@@ -2,14 +2,15 @@
 
 :host {
 	display: block;
-	// Remove overflow: hidden to allow main page scroll snapping to work
-	// overflow-x: hidden;
-	// height: 100vh;
 }
 
 flaux-section {
 	scroll-snap-align: start !important;
 	scroll-snap-stop: always; // Forces a stop at each snap point
+}
+
+mkt-ai-section {
+	scroll-snap-align: start;
 }
 
 /* ----------------------------------- // ----------------------------------- */
@@ -22,7 +23,6 @@ flaux-section {
 }
 
 .agency-hero-section {
-	// height: 100vh;
 	display: flex;
 	align-items: center;
 	color: white;
@@ -63,9 +63,7 @@ flaux-section {
 	}
 }
 
-/* ----------------------------------- // ----------------------------------- */
-
-.content-section {
+.feature-section {
 	position: relative;
 	z-index: 3;
 	color: white;
@@ -88,10 +86,6 @@ flaux-section {
 		text-align: left;
 		padding-inline: 1em 0;
 	}
-}
-
-mkt-ai-section {
-	scroll-snap-align: start;
 }
 
 /* -------------------------------------------------------------------------- */
