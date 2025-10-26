@@ -24,4 +24,8 @@ export class FlauxSectionComponent {
 	@HostBinding('style.position')
 		positioning: string = 'relative';
 
+	@Input()
+	@HostBinding('style.flex-direction')
+		flexDirection: string = 'row';
+
 }

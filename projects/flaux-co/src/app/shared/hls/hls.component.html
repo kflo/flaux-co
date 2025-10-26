@@ -2,7 +2,7 @@
 	  role="presentation"
 	  aria-hidden="true">
 	<video #videoEl
-			 class="video"
+			 class="video responsive-video"
 			 disableRemotePlayback
 			 playsinline
 			 [muted]="muted"
@@ -19,7 +19,7 @@
 	@if (showMp4Fallback && mp4FallbackUrl) {
 	<!-- Optional progressive fallback if HLS fails -->
 	<ng-container>
-		<video class="video"
+		<video class="video responsive-video"
 				 playsinline
 				 disableRemotePlayback
 				 [muted]="muted"

@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {PrivacyConfirmedSectionComponent} from '../agency-solutions/privacy-confirmed-section/privacy-confirmed-section.component';
 import { AiSolutionsHeroSectionComponent } from "./ai-solutions-hero-section/ai-solutions-hero-section.component";
 import {AiSolutionsCapabilitiesSection} from './ai-solutions-capabilities-section/ai-solutions-capabilities-section.component';
 import { CtaSectionComponent } from "@app/pages/home/cta-section/cta-section.component";
 import { FooterComponent } from "@components/footer/footer.component";
+import { SeoService } from '@app/shared/seo/seo.service';
 
 @Component({
 	selector: 'ai-solutions-page',
@@ -13,6 +14,14 @@ import { FooterComponent } from "@components/footer/footer.component";
 	styleUrl: './ai-solutions-page.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AiSolutionsPageComponent {
+export class AiSolutionsPageComponent implements OnInit {
+	constructor(private readonly seo: SeoService) {}
 
+	ngOnInit(): void {
+		this.seo.update({
+			title: 'AI Solutions for SMBs | Flaux',
+			description: 'Chat and voice agents, custom AI workflows, and practical marketing to grow your business.',
+			image: '/assets/img/agency/ai-web-chat-collage.png'
+		});
+	}
 }

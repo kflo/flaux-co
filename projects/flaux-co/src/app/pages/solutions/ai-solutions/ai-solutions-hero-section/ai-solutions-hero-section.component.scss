@@ -4,27 +4,9 @@
 	display: block;
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
-	// background: url('../../../../../assets/img/bg/yellow_grunge_brush_ink_background.jpg') black;
-	// background-size: cover;
-	// background-position: left;
-	// opacity: 0;
 }
 
 /* ----------------------------------- // ----------------------------------- */
-
-.bg {
-	background: url('../../../../../assets/img/bg/flaux/Firefly\ 20251004173302.png') no-repeat;
-	background-size: cover;
-	background-position: center;
-	// backdrop-filter: contrast(0.8) brightness(0.7);
-	position: absolute;
-	inset: 0;
-	z-index: 1;
-	opacity: 0.75;
-	filter: contrast(0.8) hue-rotate(140deg);
-	mix-blend-mode: normal;
-	mask: radial-gradient(ellipse farthest-side, black 0%, black 70%, rgba(0, 0, 0, 0.33) 100%);
-}
 
 .video-container {
 	// mask: radial-gradient(ellipse farthest-side, black 0%, black 75%, transparent 100%);
@@ -33,112 +15,6 @@
 		position: relative !important;
 	}
 }
-
-.content-txt {
-	flex: 1;
-	position: relative;
-	justify-self: flex-end;
-	z-index: 1;
-	color: white;
-	text-align: center;
-	bottom: 0;
-	// backdrop-filter: blur(1rem) brightness(1.2) contrast(0.9);
-	// border-radius: 2rem;
-	// pointer-events: auto;
-	// box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
-
-	h3 {
-		font-family: 'script2';
-		font-size: 5rem;
-		font-weight: normal;
-		line-height: 1.3em;
-		-webkit-text-stroke: 2px;
-		text-shadow: 0 0 0.66rem rgba(0, 0, 0, 0.8);
-
-		.ai {
-			position: relative;
-			font-family: 'Lequire', sans-serif;
-			top: 0.1em;
-			font-size: 1.5em;
-			color: white;
-			filter: drop-shadow(0 0 0.5rem white) brightness(1.05) opacity(0.9);
-			mask-clip: text;
-			text-shadow: 9px 5px 0rem $flaux-violet,
-				5px 9px 0rem $flaux-orange,
-				-5px 6px 0rem $flaux-salmon,
-				-5px -5px 0rem $flaux-blue;
-			// text-shadow: none !important;
-			-webkit-text-stroke: 1px #fff;
-		}
-	}
-
-	p {
-		font-size: 1.25rem;
-		line-height: 1.5;
-		letter-spacing: 0.05em;
-		word-spacing: 0.05em;
-	}
-}
-
-/* ----------------------------------- // ----------------------------------- */
-
-.laser-wrapper {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	overflow: hidden;
-	z-index: 0;
-}
-
-/* ----------------------------------- // ----------------------------------- */
-
-.agency-hero-section {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	color: white;
-	overflow: hidden;
-	font-family: "Montserrat", sans-serif;
-	text-align: center;
-	gap: 9em;
-	scroll-snap-align: start;
-	scroll-snap-stop: always;
-
-	flaux-blob-backdrop {
-		flex: 5;
-		overflow: visible !important;
-	}
-
-	.hero-heading {
-		flex: 4;
-		position: relative;
-		z-index: 3;
-		text-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7);
-		text-align: end;
-
-		h1, h2, h3, h4 {
-			text-shadow: 1px 1px 1.3rem rgba(0, 0, 0, 0.8);
-			margin: 0;
-			font-weight: 400;
-
-			.ast-icon {
-				max-width: .5em;
-				margin-bottom: 0.5em;
-				filter: invert(1) drop-shadow(1px 1px 0.75rem rgba(0, 0, 0, 0.7));
-			}
-		}
-
-		p {
-			margin-top: 2em;
-			line-height: 1.75em;
-		}
-	}
-}
-
-/* ----------------------------------- // ----------------------------------- */
 
 .content-container {
 	position: relative;
@@ -149,6 +25,48 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	.content-txt {
+		flex: 1;
+		position: relative;
+		justify-self: flex-end;
+		z-index: 1;
+		color: white;
+		text-align: center;
+		bottom: 0;
+
+		h3 {
+			font-family: 'script2';
+			font-size: 5rem;
+			font-weight: normal;
+			line-height: 1.3em;
+			-webkit-text-stroke: 2px;
+			text-shadow: 0 0 0.66rem rgba(0, 0, 0, 0.8);
+
+			.ai {
+				position: relative;
+				font-family: 'Lequire', sans-serif;
+				top: 0.1em;
+				font-size: 1.5em;
+				color: white;
+				filter: drop-shadow(0 0 0.5rem white) brightness(1.05) opacity(0.9);
+				mask-clip: text;
+				text-shadow: 9px 5px 0rem $flaux-violet,
+					5px 9px 0rem $flaux-orange,
+					-5px 6px 0rem $flaux-salmon,
+					-5px -5px 0rem $flaux-blue;
+				// text-shadow: none !important;
+				-webkit-text-stroke: 1px #fff;
+			}
+		}
+
+		p {
+			font-size: 1.25rem;
+			line-height: 1.5;
+			letter-spacing: 0.05em;
+			word-spacing: 0.05em;
+		}
+	}
 }
 
 /* -------------------------------------------------------------------------- */
