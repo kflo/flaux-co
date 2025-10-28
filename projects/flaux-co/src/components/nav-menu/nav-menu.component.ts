@@ -26,4 +26,8 @@ export class NavMenuComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		// Clean up is handled automatically by the service
 	}
+
+	onLinkClick() {
+		this.uxService.closeDropdown();
+	}
 }

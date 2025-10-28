@@ -54,7 +54,7 @@ body {
 /* Root-level tokens and fluid typography scale */
 :root {
 	/* Fluid root font-size scales with viewport (14px → 20px) */
-	font-size: clamp(14px, 14px + 0.4vw, 36px);
+	font-size: clamp(14px, 14px + 0.4vw, 28px);
 
 	/* Spacing scale (all relative to root font size) */
 	--space-xs: 0.25rem;
@@ -66,7 +66,7 @@ body {
 	/* Heading scale */
 	--h1-size: clamp(2.5rem, 2rem + 3vw, 4rem);
 	--h2-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
-	--h3-size: clamp(1.5rem, 1.25rem + 1.5vw, 2.3rem);
+	--h3-size: clamp(1.5rem, 1.25rem + 1.2vw, 2.1rem);
 	--h4-size: clamp(1.25rem, 1rem + 1vw, 2.0rem);
 	--h5-size: clamp(1.1rem, 0.9rem + 0.75vw, 1.5rem);
 	--h6-size: clamp(1rem, 0.85rem + 0.25vw, 1.25rem);

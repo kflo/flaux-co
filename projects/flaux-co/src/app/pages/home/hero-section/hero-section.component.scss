@@ -85,15 +85,21 @@
 
 .hero-text {
 	position: absolute;
+	align-content: center;
 	justify-self: center;
 	text-align: center;
 	font-family: "Raleway", sans-serif;
+	backdrop-filter: blur(0.7em);
 	letter-spacing: 0.2rem;
 	font-weight: 300;
 	font-size: 1em;
 	width: 100%;
 	bottom: 0;
-	height: 4em;
+	height: 3em;
+
+	p {
+		margin: 0;
+	}
 }
 
 /* -------------------------------------------------------------------------- */
@@ -108,14 +114,10 @@
 	.hero-subtitle {
 		width: 13em;
 	}
+
+
 }
 
-@media screen and (max-aspect-ratio: 16/9) {
-	.hero-text {
-		background: rgba(white, 0.01);
-		backdrop-filter: blur(1em);
-		margin-top: 0;
-		flex: 1;
-		align-content: center;
-	}
+@media screen and (max-aspect-ratio: 3/4) {
+	.hero-text {}
 }

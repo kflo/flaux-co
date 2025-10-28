@@ -1,14 +1,21 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FlauxSectionComponent } from "@app/shared/section/section.component";
+import {MatExpansionModule} from '@angular/material/expansion';
+import {UxService} from '@app/services/ux.service';
+
 
 @Component({
 	selector: 'ai-solutions-capabilities-section',
-	imports: [FlauxSectionComponent],
+	imports: [FlauxSectionComponent, MatExpansionModule, CommonModule],
 	templateUrl: './ai-solutions-capabilities-section.component.html',
 	styleUrl: './ai-solutions-capabilities-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AiSolutionsCapabilitiesSection {
+	uxService = inject(UxService);
+	isMobile = this.uxService.isMobile;
+
 	capabilities = {
 		voiceAgents: {
 			title: 'Voice Agents',

@@ -4,6 +4,10 @@
 	>*:not(flaux-footer) {
 		scroll-snap-align: start;
 	}
+
+	flaux-footer {
+		scroll-snap-align: start;
+	}
 }
 
 .filler {

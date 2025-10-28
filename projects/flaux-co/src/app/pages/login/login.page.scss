@@ -20,12 +20,12 @@
 
 .login-form {
 	position: relative;
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.85);
 	backdrop-filter: blur(10px);
-	// border-radius: 1em;
 	padding: 2em;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: var(--mat-form-field-outlined-container-shape, var(--mat-sys-corner-extra-small));
 	display: grid;
 	grid-template-rows: auto auto auto;
 	width: 20em;

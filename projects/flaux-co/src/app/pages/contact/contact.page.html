@@ -1,4 +1,140 @@
-<div class="page-content">
-  <h1>Contact</h1>
-  <p>Contact page works!</p>
-</div>
+<flaux-section height="'100vh'">
+	<div class="contact-container">
+		<div class="section-header">
+			<h3>Ready to Transform Your Business with <span class="ai">aI</span>?</h3>
+			<p>Let's discuss your AI project and create a solution that drives real results for your organization</p>
+		</div>
+
+		<div class="contact-content">
+			<div class="contact-info">
+				<h3>Why Choose Flaux for<br>Your AI Journey?</h3>
+				<div class="benefits-list">
+					<div class="benefit">
+						<div class="benefit-icon">⚡</div>
+						<div>
+							<h4>Rapid Prototyping</h4>
+							<p>From concept to live pilot in weeks</p>
+						</div>
+					</div>
+					<div class="benefit">
+						<div class="benefit-icon">🎯</div>
+						<div>
+							<h4>Business-First Approach</h4>
+							<p>Solutions mapped to your outcomes&mdash;not hype</p>
+						</div>
+					</div>
+					<div class="benefit">
+						<div class="benefit-icon">🔧</div>
+						<div>
+							<h4>End-to-End Support</h4>
+							<p>We cover plan to ops&mdash;then keep improving</p>
+						</div>
+					</div>
+					<div class="benefit">
+						<div class="benefit-icon">📈</div>
+						<div>
+							<h4>Proven ROI</h4>
+							<p>Measurable results that justify your AI investment</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- -------------------------------- NAME --------------------------------- -->
+			<div class="contact-form">
+				<form [formGroup]="form"
+						(ngSubmit)="onSubmit()">
+					<mat-form-field appearance="outline"
+										 class="form-field">
+						<mat-label>Full Name</mat-label>
+						<input matInput
+								 type="text"
+								 id="name"
+								 formControlName="name"
+								 required
+								 placeholder="Your full name">
+					</mat-form-field>
+					<!-- -------------------------------- EMAIL -------------------------------- -->
+					<mat-form-field appearance="outline"
+										 class="form-field">
+						<mat-label>Email Address</mat-label>
+						<input matInput
+								 type="email"
+								 id="email"
+								 formControlName="email"
+								 required
+								 placeholder="your.email@company.com">
+					</mat-form-field>
+					<!-- ------------------------------- COMPANY ------------------------------- -->
+					<mat-form-field appearance="outline"
+										 class="form-field">
+						<mat-label>Company</mat-label>
+						<input matInput
+								 type="text"
+								 id="company"
+								 formControlName="company"
+								 placeholder="Your company name">
+					</mat-form-field>
+					<!-- ---------------------------- PROJECT TYPE ----------------------------- -->
+					<mat-form-field appearance="outline"
+										 class="form-field">
+						<mat-label>Project Type</mat-label>
+						<mat-select formControlName="projectType"
+										id="projectType">
+							<mat-option value="">Select project type</mat-option>
+							@for (type of projectTypes; track type) {
+							<mat-option [value]="type">{{ type }}</mat-option>
+							}
+						</mat-select>
+					</mat-form-field>
+					<!-- ------------------------------- BUDGET -------------------------------- -->
+					<div class="form-field slider">
+						<div class="slider-labels">
+							<label for="budget-slider">Estimated Budget: </label><span>{{ budgetDisplayFn(form.value.budgetIndex) }}</span>
+						</div>
+						<mat-slider id="budget-slider"
+										min="0"
+										max="8"
+										step="1"
+										showTickMarks>
+							<input matSliderThumb
+									 formControlName="budgetIndex">
+						</mat-slider>
+					</div>
+					<!-- ------------------------------ TIMELINE ------------------------------- -->
+					<div class="form-field slider">
+						<div class="slider-labels">
+							<label for="timeline-slider">Estimated Timeline: </label><span>{{ timelineDisplayFn(form.value.timelineIndex) }}</span>
+						</div>
+						<mat-slider id="timeline-slider"
+										min="0"
+										max="5"
+										step="1"
+										showTickMarks>
+							<input matSliderThumb
+									 formControlName="timelineIndex">
+						</mat-slider>
+					</div>
+					<!-- ----------------------------- DESCRIPTION ----------------------------- -->
+					<mat-form-field appearance="outline"
+										 class="form-field">
+						<mat-label>Project Description</mat-label>
+						<textarea matInput
+									 id="description"
+									 formControlName="description"
+									 required
+									 rows="5"
+									 placeholder="Describe your AI project, business challenges, and goals in detail..."></textarea>
+					</mat-form-field>
+					<!-- ------------------------------- BUTTON -------------------------------- -->
+					<button mat-raised-button
+							  color="primary"
+							  type="submit"
+							  class="submit-button"
+							  [disabled]="form.invalid">
+						Start Your AI Project
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</flaux-section>

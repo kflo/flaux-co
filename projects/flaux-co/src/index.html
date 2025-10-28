@@ -33,33 +33,54 @@
 			rel="stylesheet">
 
 	<!-- SEO: base meta -->
-	<meta name="robots" content="index,follow">
-	<meta name="description" content="Flaux helps SMBs ship AI: voice and chat agents, custom workflows, and practical marketing that turns attention into revenue.">
+	<meta name="robots"
+			content="index,follow">
+	<meta name="description"
+			content="Flaux helps SMBs ship AI: voice and chat agents, custom workflows, and practical marketing that turns attention into revenue.">
 
 	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website">
-	<meta property="og:site_name" content="Flaux">
-	<meta property="og:locale" content="en_US">
-	<meta property="og:title" content="Flaux | AI Partner for Growth">
-	<meta property="og:description" content="Voice & chat agents, automations, and AI marketing built for small and mid‑sized businesses.">
-	<meta property="og:url" content="https://flaux.co/">
-	<meta property="og:image" content="/assets/img/hero-poster.jpg">
-	<meta property="og:image:alt" content="Flaux — AI that works for your business">
-	<meta property="og:image:width" content="1200">
-	<meta property="og:image:height" content="630">
+	<meta property="og:type"
+			content="website">
+	<meta property="og:site_name"
+			content="Flaux">
+	<meta property="og:locale"
+			content="en_US">
+	<meta property="og:title"
+			content="Flaux | AI Partner for Growth">
+	<meta property="og:description"
+			content="Voice & chat agents, automations, and AI marketing built for small and mid‑sized businesses.">
+	<meta property="og:url"
+			content="https://flaux.co/">
+	<meta property="og:image"
+			content="/assets/img/hero-poster.jpg">
+	<meta property="og:image:alt"
+			content="Flaux — AI that works for your business">
+	<meta property="og:image:width"
+			content="1200">
+	<meta property="og:image:height"
+			content="630">
 
 	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Flaux | AI Partner for Growth">
-	<meta name="twitter:description" content="Voice & chat agents, automations, and AI marketing for SMBs.">
-	<meta name="twitter:image" content="/assets/img/hero-poster.jpg">
+	<meta name="twitter:card"
+			content="summary_large_image">
+	<meta name="twitter:title"
+			content="Flaux | AI Partner for Growth">
+	<meta name="twitter:description"
+			content="Voice & chat agents, automations, and AI marketing for SMBs.">
+	<meta name="twitter:image"
+			content="/assets/img/hero-poster.jpg">
 
 	<!-- Icons / PWA hints -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/Logo Set 4.png">
-	<link rel="apple-touch-icon" sizes="192x192" href="/assets/logo/png/Logo Set 4@2x.png">
+	<link rel="apple-touch-icon"
+			sizes="180x180"
+			href="/assets/logo/png/Logo Set 4.png">
+	<link rel="apple-touch-icon"
+			sizes="192x192"
+			href="/assets/logo/png/Logo Set 4@2x.png">
 
 	<!-- Canonical -->
-	<link rel="canonical" href="https://flaux.co/">
+	<link rel="canonical"
+			href="https://flaux.co/">
 
 	<!-- JSON‑LD: WebSite -->
 	<script type="application/ld+json">
@@ -108,9 +129,6 @@
 	@font-face {
 		font-family: 'ampersand';
 		src: url('./assets/fonts/QuinchoScript.ttf') format('opentype');
-		/* src: url('./assets/fonts/ChristmasWish.otf') format('opentype'); */
-		/* src: url('./assets/fonts/Catalish\ Huntera.ttf') format('opentype'); */
-		/* src: url('./assets/fonts/Cathalia.ttf') format('opentype'); */
 		font-weight: normal;
 		font-style: normal;
 	}
@@ -118,8 +136,6 @@
 	@font-face {
 		font-family: 'script';
 		src: url('./assets/fonts/script/Hourglass\ of\ Shine.otf') format('truetype');
-		/* src: url('./assets/fonts/script/Driftline.ttf') format('truetype'); */
-		/* src: url('./assets/fonts/script/Autography.otf') format('truetype'); */
 		font-weight: normal;
 		font-style: normal;
 	}
@@ -127,7 +143,6 @@
 	@font-face {
 		font-family: 'script2';
 		src: url('./assets/fonts/script/Autography.otf') format('truetype');
-		/* src: url('./assets/fonts/script/Autography.otf') format('truetype'); */
 		font-weight: normal;
 		font-style: normal;
 	}
@@ -137,7 +152,27 @@
 <!-- ----------------------------------------------------------------------- -->
 
 <body>
-	<app-root></app-root>
+	<app-root>
+		<div id="loading-spinner"
+			  style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #000; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;">
+			<div style="border: 8px solid #f3f3f3; border-top: 8px solid #3498db; border-radius: 50%; width: 60px; height: 60px; animation: spin 2s linear infinite;"></div>
+		</div>
+
+		<script>
+			window.addEventListener('load', function () {
+				const spinner = document.getElementById('loading-spinner');
+				if (spinner) {
+					spinner.style.display = 'none';
+				}
+			});
+
+			const styleSheet = document.createElement("style");
+			styleSheet.type = "text/css";
+			styleSheet.innerText = "@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }";
+			document.head.appendChild(styleSheet);
+		</script>
+
+	</app-root>
 </body>
 
 </html>

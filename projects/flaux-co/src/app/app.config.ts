@@ -26,5 +26,5 @@ export const appConfig: ApplicationConfig = {
 
 // Initialize Firebase
 const app = initializeApp(environment.firebaseConfig);
-const db = getFirestore(app);
-const analytics = getAnalytics(app);
+// const db = getFirestore(app);
+// const analytics = getAnalytics(app);

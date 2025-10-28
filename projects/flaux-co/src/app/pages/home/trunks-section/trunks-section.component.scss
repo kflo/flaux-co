@@ -9,13 +9,11 @@
 	display: flex;
 	width: 100%;
 	height: 100%;
-	// font-size: clamp(1.20rem, 1.1vw, 1.75rem);
 	font-family: "Raleway", sans-serif;
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: normal !important;
 		font-size: 175% !important;
-		// white-space: nowrap;
 	}
 
 	&::before {
@@ -26,7 +24,6 @@
 		right: 0;
 		bottom: 0;
 		background-color: #111;
-		// background: url("../../../../assets/img/bg/18.jpg"), #111;
 		background-position-y: 25%;
 		background-size: cover;
 		z-index: -1;
@@ -46,7 +43,6 @@
 }
 
 .left, .right {
-	// background: url("../../../../assets/img/v-bg.webp");
 	background-size: cover;
 	flex: 1;
 	height: -webkit-fill-available;
@@ -56,8 +52,6 @@
 	justify-content: center;
 
 	&-content {
-		// display: grid;
-		// grid-template-rows: 1fr 3fr 3fr 1fr;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -78,7 +72,6 @@
 }
 
 .left {
-	// backdrop-filter: brightness(1.1) saturate(0.5);
 	padding-inline: 3%;
 	background: black;
 	text-align: right;
@@ -99,7 +92,6 @@
 }
 
 .right {
-	// backdrop-filter: brightness(1.1) saturate(0.5);
 	padding-inline: 3%;
 	background: black;
 	text-align: left;
@@ -128,7 +120,6 @@
 }
 
 .marquee-wrapper {
-	// max-width: fit-content;
 	max-width: 100%;
 	text-align: center;
 	margin-block: auto;
@@ -159,7 +150,6 @@
 
 .agency-img-container {
 	width: calc(50%); // Extend past the 4em padding on both sides
-	// height: 200px; // Adjust height as needed
 	overflow: hidden;
 	border-radius: 1em;
 	position: absolute;
@@ -210,33 +200,35 @@
 	}
 }
 
-@media (min-width: 901px) and (max-width: 1100px) {
-	.right, .left {
-		&-content h3 {
-			font-size: 150% !important;
-		}
-	}
-}
 
 @media (max-width: 900px) {
 	.trunks-container {
-		flex-direction: column;
+		flex-direction: column !important;
 		height: auto;
 	}
 
 	.laser-wrapper {
-		// transform: rotate(90deg);
-		// width: auto;
-		top: -40%;
-		// left: 14.5em !important;
+
+
+		&-left {
+			transform: rotate(90deg);
+			height: 100vw;
+			top: 32%;
+		}
+
+		&-right {
+			transform: rotate(-90deg);
+			height: 100vw;
+			top: 32%;
+		}
 	}
 
 	.left, .right {
 		padding: 2rem;
 
 		&-content {
+			text-align: center;
 			padding: 3rem;
 		}
 	}
-
 }

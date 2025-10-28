@@ -1,0 +1,28 @@
+// Mixin for pattern background with gradient and blend mode
+// $image-filename: name of texture from transparenttextures.com (without .png extension)
+// $gradient: gradient to overlay
+// $pattern-size: size of pattern (e.g., auto, cover, repeat, 50%); default is repeat
+// $blend-mode: blend mode to use (e.g., overlay, difference, multiply); default is overlay
+@mixin pattern-background($image-filename, $gradient, $pattern-size: repeat, $blend-mode: overlay) {
+	background: url('https://www.transparenttextures.com/patterns/#{$image-filename}.png'),
+	$gradient;
+	background-size: $pattern-size, cover;
+	background-position: center, center;
+	background-blend-mode: $blend-mode;
+}
+
+// Reusable hover effect for capability cards
+// $scale: e.g., 101%; $contrast: e.g., 110%;
+// $img-translate-y: set to a percentage to lift image; null to skip
+@mixin hover-lift($scale: 101%, $contrast: 110%, $img-translate-y: -5%, $img-translate-x: null) {
+	transform: scale($scale);
+	filter: contrast($contrast);
+
+	img {
+		transform: translateY($img-translate-y);
+
+		@if $img-translate-x !=null {
+			transform: translate($img-translate-x, $img-translate-y);
+		}
+	}
+}

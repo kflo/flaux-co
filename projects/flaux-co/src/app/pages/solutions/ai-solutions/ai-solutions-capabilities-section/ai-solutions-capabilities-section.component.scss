@@ -1,29 +1,5 @@
 @use 'variables' as *;
-
-// Mixin for pattern background with gradient and blend mode
-@mixin pattern-background($image-filename, $gradient, $pattern-size: repeat, $blend-mode: overlay) {
-	background: url('https://www.transparenttextures.com/patterns/#{$image-filename}.png'),
-	$gradient;
-	background-size: $pattern-size, cover;
-	background-position: center, center;
-	background-blend-mode: $blend-mode;
-}
-
-// Reusable hover effect for capability cards
-// $scale: e.g., 101%; $contrast: e.g., 110%;
-// $img-translate-y: set to a percentage to lift image; null to skip
-@mixin hover-lift($scale: 101%, $contrast: 110%, $img-translate-y: -5%, $img-translate-x: null) {
-	transform: scale($scale);
-	filter: contrast($contrast);
-
-	img {
-		transform: translateY($img-translate-y);
-
-		@if $img-translate-x !=null {
-			transform: translate($img-translate-x, $img-translate-y);
-		}
-	}
-}
+@use 'mixins' as *;
 
 :host {
 	display: block;
@@ -69,13 +45,13 @@
 
 .capability-card {
 	background: white;
-	// border-radius: 1rem;
+	position: relative;
 	padding: 2rem;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.5s ease;
 	min-height: 30em;
-	max-height: 32em;
-	filter: contrast(90%);
+	max-height: fit-content;
+	// filter: contrast(100%);
 	overflow: hidden;
 
 	h3 {
@@ -85,7 +61,23 @@
 		line-height: normal;
 	}
 
-	p {}
+	.list-wrapper {
+		display: grid;
+		gap: 0.5em;
+		margin-top: 2em;
+
+		li {
+			padding-left: 1em;
+
+			&::marker {
+				content: "✓";
+				color: $flaux-orange;
+				font-weight: bold;
+				font-size: 1.1em;
+			}
+		}
+
+	}
 
 	img {
 		position: absolute;
@@ -113,13 +105,19 @@
 
 		.text-wrapper {}
 
+		.features-expansion {
+			--mat-expansion-container-background-color: rgba(0, 0, 0, 0.33);
+			--mat-expansion-container-text-color: #ddd;
+			--mat-expansion-container-shape: 0;
+		}
+
 		img {
 			width: 40%;
 			opacity: .8;
 			shape-outside: url('../../../../../assets/img/automation/voice-agents@2x.png');
-			shape-margin: 1.5em;
+			shape-margin: 2em;
 			float: left;
-			top: 2.5%;
+			top: 0%;
 			display: inline;
 			position: relative;
 			filter: drop-shadow(0 0 1em rgba(0, 0, 0, 0.66));
@@ -139,44 +137,46 @@
 		}
 
 		img {
-			width: 66%;
+			width: 60%;
 			opacity: .8;
 			mix-blend-mode: lighten;
 			shape-outside: url('../../../../../assets/img/automation/ai-brain-7@3x.png');
-			shape-margin: 2.5em;
+			shape-margin: 3.5em;
 			float: right;
 			display: inline;
 			position: relative;
 		}
 
 		&:hover {
-			@include hover-lift(101%, 110%, -5%);
+			@include hover-lift(101%, 110%, -2%);
 		}
 	}
 
 	&.chat-agents {
-		@include pattern-background('type', linear-gradient(135deg, $flaux-blue, $flaux-blue3), auto, difference);
+		@include pattern-background('type', linear-gradient(135deg, $flaux-blue, $flaux-blue3), auto, color-burn);
 
 		// filter: contrast(1.2);
 		img {
 			width: 60%;
-			bottom: 0;
-			right: 0;
+			bottom: -18%;
+			justify-self: anchor-center;
+		}
+
+		&:hover {
+			@include hover-lift(101%, 110%, -3%);
 		}
 	}
 
 	&.smb-ai-education {
 		@include pattern-background('pixel-weave', linear-gradient(135deg, $flaux-orange, $flaux-salmon), auto, difference);
+		filter: saturate(1.25);
 
 		img {
-			width: 80%;
-			opacity: .8;
-			mix-blend-mode: overlay;
-			// shape-outside: url('../../../../../assets/img/automation/education-2@0.5x.png');
-			// shape-margin: 0.5em;
-			// float: right;
-			display: inline;
-			position: relative;
+			width: 70%;
+			bottom: -7%;
+			opacity: .7;
+			mix-blend-mode: normal;
+			justify-self: anchor-center;
 		}
 	}
 
@@ -186,13 +186,11 @@
 		img {
 			width: 100%;
 			padding: 0;
-			opacity: .7;
+			opacity: .6;
 			shape-outside: url('../../../../../assets/img/agency/soc-media-splash-2.png');
-			margin: 1em;
-			float: right;
-			top: 1%;
-			display: inline;
-			position: relative;
+			bottom: 0%;
+			left: -1em;
+			justify-self: anchor-center;
 		}
 	}
 
@@ -202,10 +200,10 @@
 		// filter: contrast(0.99) brightness(0.9);
 
 		img {
-			width: 83%;
-			top: 6%;
+			width: 80%;
+			top: 0%;
 			right: -2%;
-			opacity: .8;
+			opacity: .85;
 			mix-blend-mode: multiply;
 			shape-outside: url('../../../../../assets/img/automation/consulting-1@2x.png');
 			shape-margin: .8em;
@@ -235,9 +233,13 @@
 	}
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA QUERIES                               */
+/* -------------------------------------------------------------------------- */
+
 @media screen and (max-width: 768px) {
 	.capabilities-container {
-		padding: 3rem 1rem;
+		padding: 0rem;
 	}
 
 	.section-header h2 {
@@ -247,11 +249,50 @@
 	.capabilities-grid {
 		grid-template-columns: 1fr;
 		gap: 1.5rem;
+
+		.voice-agents {
+			max-height: max-content;
+
+			.list-wrapper {
+				padding-inline: 1em;
+			}
+
+			.capability-img {
+				margin-top: 5%;
+			}
+		}
+
+		.smb-ai-consulting {
+
+			.capability-img {
+				margin-top: 16%;
+
+			}
+		}
+	}
+
+	.capability-card {
+		max-height: max-content;
+	}
+
+	.custom-ai-solutions {
+		img {
+			position: absolute !important;
+			bottom: -15%;
+			left: 5%;
+			width: 75% !important;
+		}
+	}
+
+	.features-expansion {
+		margin-left: -2rem;
+		margin-right: -2rem;
+		margin-bottom: -2rem;
 	}
 }
 
 @media screen and (min-width: 1800px) {
 	.capabilities-container {
-		max-width: 1700px;
+		max-width: 2100px;
 	}
 }

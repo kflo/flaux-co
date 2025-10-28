@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FlauxFnComponent } from '@app/shared/fn/fn.component';
 import { HlsComponent } from '@app/shared/hls/hls.component';
 import { environment } from '../../../../../environments/environment';
 import { FlauxSectionComponent } from '@app/shared/section/section.component';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { map } from 'rxjs';
+import { UxService } from '@app/services/ux.service';
 
 @Component({
 	selector: 'hero-section',
@@ -17,21 +15,9 @@ import { map } from 'rxjs';
 export class HeroSectionComponent {
 	hlsUrl = `${environment.r2BucketUrl}vid/flaux-hero-c/hls/master.m3u8`;
 	posterUrl = `${environment.r2BucketUrl}img/hero-poster.jpg`;
-	isMobile;
-	webLandscape;
 
-	constructor(private breakpointObserver: BreakpointObserver) {
-		const breakpoints = [Breakpoints.XSmall, Breakpoints.WebLandscape];
-		const breakpoint$ = this.breakpointObserver.observe(breakpoints);
+	private readonly uxService = inject(UxService);
 
-		this.isMobile = toSignal(
-			breakpoint$.pipe(map(result => result.breakpoints[Breakpoints.XSmall])),
-			{ initialValue: false }
-		);
-
-		this.webLandscape = toSignal(
-			breakpoint$.pipe(map(result => result.breakpoints[Breakpoints.WebLandscape])),
-			{ initialValue: false }
-		);
-	}
+	readonly isMobile = this.uxService.isMobile;
+	readonly webLandscape = this.uxService.webLandscape;
 }

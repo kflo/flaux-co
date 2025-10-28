@@ -2,18 +2,24 @@
 	  [class.open]="isMenuOpen()">
 	<a routerLink="/solutions/ai"
 		routerLinkActive="active"
-		class="mobile-only">AI SOLUTIONS</a>
+		class="mobile-only"
+		(click)="onLinkClick()">AI SOLUTIONS</a>
 	<a routerLink="/solutions/ai"
 		routerLinkActive="active"
-		class="mobile-only">DIGITAL SOLUTIONS</a>
+		class="mobile-only"
+		(click)="onLinkClick()">DIGITAL SOLUTIONS</a>
 	<a routerLink="/contact"
 		routerLinkActive="active"
-		class="mobile-only">CONTACT US</a>
+		class="mobile-only"
+		(click)="onLinkClick()">CONTACT US</a>
 	<a routerLink="/about"
-		routerLinkActive="active">ABOUT US</a>
+		routerLinkActive="active"
+		(click)="onLinkClick()">ABOUT US</a>
 	<a routerLink="/login"
-		routerLinkActive="active">LOGIN</a>
+		routerLinkActive="active"
+		(click)="onLinkClick()">LOGIN</a>
 	<!-- <a
 		routerLink="/dashboard"
-		routerLinkActive="active">DASHBOARD</a> -->
+		routerLinkActive="active"
+		(click)="onLinkClick()">DASHBOARD</a> -->
 </div>

@@ -5,7 +5,7 @@
 }
 
 flaux-section {
-	background: linear-gradient(30deg, $flaux-violet 10%, $flaux-blue 130%);
+	background: linear-gradient(30deg, $flaux-violet 10%, black 130%);
 }
 
 .privacy-confirmed {
@@ -22,6 +22,10 @@ flaux-section {
 
 		p {
 			margin-bottom: var(--space-md);
+
+			.flaux-logo-text {
+				font-family: 'Lequire', sans-serif;
+			}
 		}
 	}
 
@@ -32,5 +36,21 @@ flaux-section {
 			max-width: 150%;
 			height: auto;
 		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	flaux-section {
+		flex-direction: column !important;
+	}
+
+	.privacy-confirmed-image {
+		position: absolute;
+		bottom: 0;
+
+		img {
+			max-width: 120%;
+		}
+
 	}
 }
