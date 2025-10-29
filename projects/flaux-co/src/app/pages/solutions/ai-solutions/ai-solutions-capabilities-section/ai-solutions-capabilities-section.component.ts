@@ -15,6 +15,7 @@ import {UxService} from '@app/services/ux.service';
 export class AiSolutionsCapabilitiesSection {
 	uxService = inject(UxService);
 	isMobile = this.uxService.isMobile;
+	lessThan900 = this.uxService.lessThan900;
 
 	capabilities = {
 		voiceAgents: {
@@ -48,7 +49,7 @@ export class AiSolutionsCapabilitiesSection {
 			image: '../../../../../assets/img/automation/ai-brain-7@3x.png'
 		},
 		aiPoweredMarketing: {
-			title: 'Marketing & Lead Generation',
+			title: 'Marketing & Lead Gen',
 			description: '',
 			icon: 'gear',
 			image: '../../../../../assets/img/agency/soc-media-splash-2.png'

@@ -3,7 +3,7 @@
 
 :host {
 	display: block;
-	background-color: black;
+	// background-color: black;
 }
 
 .capabilities-container {
@@ -14,7 +14,7 @@
 
 .section-header {
 	text-align: center;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 
 	h2 {
 		font-size: 2.8rem;
@@ -49,8 +49,8 @@
 	padding: 2rem;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.5s ease;
-	min-height: 30em;
-	max-height: fit-content;
+	min-height: 29em;
+	max-height: -webkit-fill-available;
 	// filter: contrast(100%);
 	overflow: hidden;
 
@@ -62,18 +62,25 @@
 	}
 
 	.list-wrapper {
-		display: grid;
+		display: block;
 		gap: 0.5em;
 		margin-top: 2em;
 
 		li {
-			padding-left: 1em;
 
-			&::marker {
+			&:before {
 				content: "✓";
 				color: $flaux-orange;
 				font-weight: bold;
 				font-size: 1.1em;
+				display: inline-block;
+				width: 1em;
+				margin-left: -1em;
+				padding-right: 0.5em;
+			}
+
+			&::marker {
+				content: "";
 			}
 		}
 
@@ -137,7 +144,7 @@
 		}
 
 		img {
-			width: 60%;
+			width: 55%;
 			opacity: .8;
 			mix-blend-mode: lighten;
 			shape-outside: url('../../../../../assets/img/automation/ai-brain-7@3x.png');
@@ -157,8 +164,8 @@
 
 		// filter: contrast(1.2);
 		img {
-			width: 60%;
-			bottom: -18%;
+			width: 75%;
+			bottom: -6%;
 			justify-self: anchor-center;
 		}
 
@@ -173,7 +180,7 @@
 
 		img {
 			width: 70%;
-			bottom: -7%;
+			bottom: -5%;
 			opacity: .7;
 			mix-blend-mode: normal;
 			justify-self: anchor-center;
@@ -184,7 +191,7 @@
 		@include pattern-background('shattered-dark', linear-gradient(135deg, $flaux-salmon, $flaux-violet), auto, difference);
 
 		img {
-			width: 100%;
+			width: 80%;
 			padding: 0;
 			opacity: .6;
 			shape-outside: url('../../../../../assets/img/agency/soc-media-splash-2.png');
@@ -200,9 +207,9 @@
 		// filter: contrast(0.99) brightness(0.9);
 
 		img {
-			width: 80%;
-			top: 0%;
-			right: -2%;
+			width: 90%;
+			bottom: -4%;
+			right: -5%;
 			opacity: .85;
 			mix-blend-mode: multiply;
 			shape-outside: url('../../../../../assets/img/automation/consulting-1@2x.png');
@@ -237,9 +244,9 @@
 /*                                MEDIA QUERIES                               */
 /* -------------------------------------------------------------------------- */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
 	.capabilities-container {
-		padding: 0rem;
+		padding: 4rem 0 0;
 	}
 
 	.section-header h2 {
@@ -281,6 +288,18 @@
 			bottom: -15%;
 			left: 5%;
 			width: 75% !important;
+		}
+	}
+
+	.voice-agents {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.chat-agents {
+		img {
+			bottom: -13% !important;
+			width: 50% !important;
 		}
 	}
 

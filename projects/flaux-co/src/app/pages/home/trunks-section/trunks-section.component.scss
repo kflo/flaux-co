@@ -5,6 +5,7 @@
 /* ----------------------------------- // ----------------------------------- */
 
 .trunks-container {
+	scroll-snap-align: start;
 	position: relative;
 	display: flex;
 	width: 100%;
@@ -46,7 +47,7 @@
 	background-size: cover;
 	flex: 1;
 	height: -webkit-fill-available;
-	padding-block: 3% 3.5%;
+	padding-block: 5.5% 3.5%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -54,18 +55,25 @@
 	&-content {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		// justify-content: space-between;
 		height: -webkit-fill-available;
 		backdrop-filter: brightness(70) blur(15em) hue-rotate(-15deg) saturate(5) contrast(0.95) sepia(0.1);
 		padding: 2em 3.5em 3.0em;
 
+		.lower {
+			display: flex;
+			flex-direction: column;
+			height: -webkit-fill-available;
+			justify-content: space-between;
+		}
+
 		.text-block {
 			line-height: 2em;
+			margin-block: 4em;
 		}
 
 		flaux-btn {
 			min-width: 80%;
-
 		}
 
 	}
@@ -77,14 +85,14 @@
 	text-align: right;
 
 	&-content {
-		border-radius: 8% 0 8% 0;
+		border-radius: 3rem 0 3rem 0;
 		backdrop-filter: brightness(50) blur(15em) hue-rotate(180deg) saturate(4.5) contrast(0.85) sepia(0.1);
 
 		flaux-bg-video {
 			position: absolute;
 			inset: 0;
 			z-index: -1;
-			border-radius: 8% 0 8% 0;
+			border-radius: 3rem 0 3rem 0;
 			filter: contrast(0.9) saturate(1.5);
 			opacity: 0.12;
 		}
@@ -97,14 +105,14 @@
 	text-align: left;
 
 	&-content {
-		border-radius: 0 8% 0 8%;
+		border-radius: 0 3rem 0 3rem;
 		overflow: hidden;
 
 		flaux-hls {
 			position: absolute;
 			inset: 0;
 			z-index: -1;
-			border-radius: 0 8% 0 8%;
+			border-radius: 0 3rem 0 3rem;
 			filter: contrast(0.9) saturate(1.5);
 			opacity: 0.55;
 		}
@@ -188,7 +196,7 @@
 	.left, .right {
 
 		&-content {
-			padding: 2rem;
+			padding: 3rem;
 		}
 
 		.automation-img-container {
@@ -205,30 +213,56 @@
 	.trunks-container {
 		flex-direction: column !important;
 		height: auto;
+		scroll-snap-align: center;
+		// scroll-snap-type: y mandatory;
+		// overflow-y: auto;
 	}
 
 	.laser-wrapper {
 
+		height: 100vw;
+		inset: 0;
+		margin: auto;
 
 		&-left {
 			transform: rotate(90deg);
-			height: 100vw;
-			top: 32%;
 		}
 
 		&-right {
 			transform: rotate(-90deg);
-			height: 100vw;
-			top: 32%;
 		}
 	}
 
 	.left, .right {
 		padding: 2rem;
 
+
 		&-content {
 			text-align: center;
 			padding: 3rem;
 		}
 	}
+
+	.left {
+
+		&-content {
+			border-radius: 0 0 2rem 2rem;
+
+			flaux-bg-video {
+				border-radius: 0 0 2rem 2rem;
+			}
+		}
+	}
+
+	.right {
+
+		&-content {
+			border-radius: 2rem 2rem 0 0;
+
+			flaux-hls {
+				border-radius: 2rem 2rem 0 0;
+			}
+		}
+	}
+
 }

@@ -14,9 +14,10 @@ export class UxService {
 
 	readonly isMobile;
 	readonly webLandscape;
+	readonly lessThan900;
 
 	constructor(private breakpointObserver: BreakpointObserver) {
-		const breakpoints = [Breakpoints.XSmall, Breakpoints.WebLandscape];
+		const breakpoints = [Breakpoints.XSmall, Breakpoints.WebLandscape, '(max-width: 900px)'];
 		const breakpoint$ = this.breakpointObserver.observe(breakpoints);
 
 		this.isMobile = toSignal(
@@ -26,6 +27,11 @@ export class UxService {
 
 		this.webLandscape = toSignal(
 			breakpoint$.pipe(map(result => result.breakpoints[Breakpoints.WebLandscape])),
+			{ initialValue: false }
+		);
+
+		this.lessThan900 = toSignal(
+			breakpoint$.pipe(map(result => result.breakpoints['(max-width: 900px)'])),
 			{ initialValue: false }
 		);
 	}

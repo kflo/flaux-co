@@ -1,11 +1,9 @@
 :host {
+	scroll-snap-type: y mandatory;
+	scroll-snap-stop: always;
 
 	// Make each section snap to the top
-	>*:not(flaux-footer) {
-		scroll-snap-align: start;
-	}
-
-	flaux-footer {
+	>*:not(flaux-footer, trunks-section) {
 		scroll-snap-align: start;
 	}
 }

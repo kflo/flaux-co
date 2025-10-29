@@ -1,12 +1,12 @@
 :host {
 	position: relative;
 	display: block;
+	scroll-snap-align: start;
 }
 
 footer {
 	text-align: center;
 	padding: 0.5rem;
-	background-color: black;
 
 	.footer-content {
 		display: flex;
@@ -30,10 +30,10 @@ footer {
 
 	.footer-columns {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 4rem;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2rem;
 		width: 100%;
-		max-width: 800px;
+		max-width: 1200px;
 		text-align: left;
 	}
 

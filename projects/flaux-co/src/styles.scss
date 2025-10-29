@@ -70,6 +70,8 @@ body {
 	--h4-size: clamp(1.25rem, 1rem + 1vw, 2.0rem);
 	--h5-size: clamp(1.1rem, 0.9rem + 0.75vw, 1.5rem);
 	--h6-size: clamp(1rem, 0.85rem + 0.25vw, 1.25rem);
+
+	--background-color: #000;
 }
 
 /* Base reset */
@@ -79,7 +81,7 @@ html, body {
 	padding: 0;
 	font-family: 'Raleway', sans-serif;
 	line-height: 1.5;
-	background: #000;
+	background: var(--background-color);
 	color: #111;
 }
 

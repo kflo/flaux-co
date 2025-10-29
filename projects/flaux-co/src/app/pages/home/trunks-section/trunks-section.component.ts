@@ -45,6 +45,7 @@ export class TrunksSectionComponent {
 
 	readonly isMobile = this.uxService.isMobile;
 	readonly webLandscape = this.uxService.webLandscape;
+	readonly lessThan900 = this.uxService.lessThan900;
 
 	agencySpiralHlsUrl = `${environment.r2BucketUrl}vid/agency-spiral/hls/master.m3u8`;
 	agencySpiralPosterUrl = `${environment.r2BucketUrl}img/agency-spiral-poster.jpg`;
