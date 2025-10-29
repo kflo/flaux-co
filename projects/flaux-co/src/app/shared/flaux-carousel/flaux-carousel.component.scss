@@ -8,6 +8,20 @@
 	// font-size: clamp(1rem, 1.5vw, 1.544rem);
 }
 
+.carousel-title {
+	font-family: 'Josefin Sans', sans-serif;
+	font-variant: all-small-caps;
+	font-weight: 400;
+	font-size: clamp(2.5rem, 8vw, 4rem);
+	margin: 3.75rem 0 0;
+	text-align: center;
+	color: #111;
+
+	.font-logo {
+		// font-weight: 600;
+	}
+}
+
 .carousel-wrapper {
 	display: flex;
 	position: relative;
@@ -17,7 +31,6 @@
 	height: calc(var(--item-width, 4em) *3.1); // display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 4.5em 0 0;
 	touch-action: pan-y pinch-zoom;
 	/* Allow vertical scrolling but enable horizontal touch handling */
 
@@ -90,8 +103,9 @@
 }
 
 .carousel-controls {
-	position: absolute;
-	top: 18em;
+	position: relative;
+	// top: 18em;
+	// align-items: center;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 97%;
@@ -99,7 +113,6 @@
 	z-index: 100;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	pointer-events: none;
 
 	/* Allow clicks to pass through the container */

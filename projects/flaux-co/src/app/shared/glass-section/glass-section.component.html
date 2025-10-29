@@ -4,7 +4,7 @@
 	<!-- ------------------------------- IMAGES -------------------------------- -->
 
 	@if (imageUrls?.length || imageUrl) {
-	<div class="image-container"
+	<div class="image-wrapper"
 		  (mouseenter)="onImageHover(true)"
 		  (mouseleave)="onImageHover(false)">
 		@if (blobBackdrop) {
@@ -38,7 +38,9 @@
 		@if (title) {
 		<h2>{{title}}
 			@if (titleSpacing) {&nbsp;}
-			@if (titleIcon) {<img [src]="titleIcon"
+			@if (titleIcon) {<img class="icon-img"
+				  [src]="titleIcon"
+				  [ngClass]="{'left': imagePosition === 'right', 'right': imagePosition === 'left', 'extra-spacing': title === 'SOCIAL MEDIA MANAGEMENT'}"
 				  [alt]="titleIconAlt" />}</h2>
 		}
 		@if (description) {

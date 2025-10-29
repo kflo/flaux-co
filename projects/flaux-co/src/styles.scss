@@ -54,7 +54,7 @@ body {
 /* Root-level tokens and fluid typography scale */
 :root {
 	/* Fluid root font-size scales with viewport (14px → 20px) */
-	font-size: clamp(14px, 14px + 0.4vw, 28px);
+	font-size: clamp(14px, 14px + 0.3vw, 23px);
 
 	/* Spacing scale (all relative to root font size) */
 	--space-xs: 0.25rem;
