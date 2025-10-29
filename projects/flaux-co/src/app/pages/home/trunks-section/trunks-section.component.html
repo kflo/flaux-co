@@ -1,36 +1,36 @@
 <flaux-section class="trunks-container"
-					[height]="'100vh'"
-					[blockPadding]="'0'"
-					[inlinePadding]="'0'">
+			   [height]="'100dvh'"
+			   [blockPadding]="'0'"
+			   [inlinePadding]="'0'">
 	<!-- ----------------------------- LASER FLOW ------------------------------ -->
 	@defer (on viewport) {
 	<div class="laser-wrapper"
-		  [ngClass]="{'laser-wrapper-left': lessThan900()}">
+		 [ngClass]="{'laser-wrapper-left': lessThan900()}">
 		<app-laser-flow [color]="'#faaf53'"
-							 [decay]="2.0"
-							 [fogFallSpeed]="1.2"
-							 [fogIntensity]="0.2"
-							 [flowSpeed]=".4"
-							 [flowStrength]="0.3"
-							 [horizontalBeamOffset]="-0.00029"
-							 [horizontalSizing]="1.5"
-							 [verticalBeamOffset]="-0.50"
-							 [verticalSizing]="55">
+						[decay]="2.0"
+						[fogFallSpeed]="1.2"
+						[fogIntensity]="0.2"
+						[flowSpeed]=".4"
+						[flowStrength]="0.3"
+						[horizontalBeamOffset]="-0.00029"
+						[horizontalSizing]="1.5"
+						[verticalBeamOffset]="-0.50"
+						[verticalSizing]="55">
 		</app-laser-flow>
 	</div>
 	@if (lessThan900()) {
 	<div class="laser-wrapper"
-		  [ngClass]="{'laser-wrapper-right': lessThan900()}">
+		 [ngClass]="{'laser-wrapper-right': lessThan900()}">
 		<app-laser-flow [color]="'#faaf53'"
-							 [decay]="2.0"
-							 [fogFallSpeed]="1.2"
-							 [fogIntensity]="0.2"
-							 [flowSpeed]=".4"
-							 [flowStrength]="0.3"
-							 [horizontalBeamOffset]="-0.00029"
-							 [horizontalSizing]="1.5"
-							 [verticalBeamOffset]="-0.50"
-							 [verticalSizing]="25">
+						[decay]="2.0"
+						[fogFallSpeed]="1.2"
+						[fogIntensity]="0.2"
+						[flowSpeed]=".4"
+						[flowStrength]="0.3"
+						[horizontalBeamOffset]="-0.00029"
+						[horizontalSizing]="1.5"
+						[verticalBeamOffset]="-0.50"
+						[verticalSizing]="25">
 		</app-laser-flow>
 	</div>
 	}
@@ -41,9 +41,9 @@
 	<section class="left">
 		<div class="left-content">
 			<flaux-bg-video [name]="'ai-loop'"
-								 [local]="true"></flaux-bg-video>
+							[local]="true"></flaux-bg-video>
 			<h3>Grow with <span id="logoFont"
-						class="logo-font">FLaUX AI</span></h3>
+					  class="logo-font">FLaUX AI</span></h3>
 			<div class="lower">
 				<div class="text-block">
 					<p>Empowering your business with cutting-edge AI solutions.</p>
@@ -61,8 +61,8 @@
 
 				<!-- --------------------------------- // ---------------------------------- -->
 				<flaux-btn [routerLink]="'/solutions/ai'"
-							  [height]="'1.5em'"
-							  fragment="">Unlock AI-powered Growth</flaux-btn>
+						   [height]="'1.5em'"
+						   fragment="">Unlock AI-powered Growth</flaux-btn>
 			</div>
 		</div>
 	</section>
@@ -71,9 +71,9 @@
 		<div class="right-content">
 			<!-- <flaux-bg-video [name]="'agency-spiral'"></flaux-bg-video> -->
 			<flaux-hls [hlsUrl]="agencySpiralHlsUrl"
-						  [posterUrl]="agencySpiralPosterUrl"></flaux-hls>
+					   [posterUrl]="agencySpiralPosterUrl"></flaux-hls>
 			<h3><span id="logoFont"
-						class="logo-font">FLaUX </span> Digital Studio</h3>
+					  class="logo-font">FLaUX </span> Digital Studio</h3>
 			<div class="lower">
 				<div class="text-block">
 					<p>Complete digital marketing and web solutions for your business.</p>
@@ -89,8 +89,8 @@
 										[gapSize]="'5em'">
 				</flaux-icon-marquee> -->
 				<flaux-btn [routerLink]="'/solutions/agency'"
-							  [height]="'1.5em'"
-							  fragment="">Dominate Your Digital Space</flaux-btn>
+						   [height]="'1.5em'"
+						   fragment="">Dominate Your Digital Space</flaux-btn>
 
 			</div>
 		</div>

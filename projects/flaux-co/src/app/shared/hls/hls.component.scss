@@ -45,7 +45,7 @@
 @media (min-aspect-ratio: 16/9) {
 	.responsive-video {
 		object-fit: cover;
-		// --zoom: clamp(1, calc(100vh / 56.25vw), 2);
+		// --zoom: clamp(1, calc(100dvh / 56.25vw), 2);
 		// transform: translate(-50%, -50%) scale(var(--zoom));
 	}
 }

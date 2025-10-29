@@ -1,4 +1,4 @@
-<flaux-section height="'100vh'">
+<flaux-section height="'100dvh'">
 	<div class="process-container">
 		<div class="section-header">
 			<h2>Our AI Development Process</h2>
@@ -8,7 +8,7 @@
 		<div class="process-timeline">
 			@for (step of processSteps; track step.step) {
 			<div class="process-step"
-				  [class.last]="$last">
+				 [class.last]="$last">
 				<div class="step-number">
 					<span>{{ step.step }}</span>
 				</div>
