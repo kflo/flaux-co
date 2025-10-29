@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { FlauxSectionComponent } from '@app/shared/section/section.component';
 import { CommonModule } from '@angular/common';
@@ -31,8 +31,8 @@ export class ContactPage {
 
 	constructor(private fb: FormBuilder) {
 		this.form = this.fb.group({
-			name: [''],
-			email: [''],
+			name: ['', {validators: [Validators.required]}],
+			email: ['', {validators: [Validators.required, Validators.email]}],
 			company: [''],
 			projectType: [''],
 			budgetIndex: [0],

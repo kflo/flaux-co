@@ -47,7 +47,7 @@
 	background-size: cover;
 	flex: 1;
 	height: -webkit-fill-available;
-	padding-block: 5.5% 3.5%;
+	padding-block: 6.5em 3em;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -74,13 +74,14 @@
 
 		flaux-btn {
 			min-width: 80%;
+			white-space: nowrap;
 		}
 
 	}
 }
 
 .left {
-	padding-inline: 3%;
+	padding-inline: 3em;
 	background: black;
 	text-align: right;
 
@@ -100,7 +101,7 @@
 }
 
 .right {
-	padding-inline: 3%;
+	padding-inline: 3em;
 	background: black;
 	text-align: left;
 
@@ -186,11 +187,11 @@
 @media (max-width: 1200px) {
 
 	.left {
-		padding-inline: 0em 3%;
+		padding-inline: 0em 3em;
 	}
 
 	.right {
-		padding-inline: 3% 0em;
+		padding-inline: 3em 0em;
 	}
 
 	.left, .right {
@@ -240,6 +241,10 @@
 		&-content {
 			text-align: center;
 			padding: 3rem;
+
+			.text-block {
+				margin-block: auto;
+			}
 		}
 	}
 
