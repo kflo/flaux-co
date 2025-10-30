@@ -127,6 +127,7 @@ export class ContactPage {
 		const value = this.form.value;
 		const result = {
 			...value,
+			phone: value.phone ? value.phone.replace(/\D/g, '') : '', // Strip to digits only
 			budget: this.budgetSliderLabels[value.budgetIndex],
 			timeline: this.timelineSliderLabels[value.timelineIndex]
 		};

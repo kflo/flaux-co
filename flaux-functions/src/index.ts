@@ -53,3 +53,7 @@ export {
 
 // R2 example functions
 export {generateR2UploadUrl, generateR2DownloadUrl} from "./storage/r2-example";
+
+// Contact form -> Vendasta CRM
+export {submitContact} from "./api/contact-submit";
+export {vendastaSaConfigHealth} from "./auth/vendasta-service-account";
