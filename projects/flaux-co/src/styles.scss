@@ -4,7 +4,7 @@
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
-@use 'variables';
+@use 'variables' as *;
 @use '_theme-colors' as colors;
 
 
@@ -54,7 +54,7 @@ body {
 /* Root-level tokens and fluid typography scale */
 :root {
 	/* Fluid root font-size scales with viewport (14px → 20px) */
-	font-size: clamp(14px, 14px + 0.3vw, 23px);
+	font-size: clamp(14px, 14px + 0.3vw, 20px);
 
 	/* Spacing scale (all relative to root font size) */
 	--space-xs: 0.25rem;
@@ -157,4 +157,16 @@ h6 {
 			// top: 0;
 		}
 	}
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  OVERRIDE                                  */
+/* -------------------------------------------------------------------------- */
+
+.mdc-list-item__primary-text {
+	font-size: 0.85em !important;
+}
+
+.mat-mdc-optgroup-label {
+	background-color: rgba($flaux-blue, 0.2);
 }

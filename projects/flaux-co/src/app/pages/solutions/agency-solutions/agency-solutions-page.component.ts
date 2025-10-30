@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { FlauxSectionComponent } from "@app/shared/section/section.component";
 import { BlobBackdropComponent } from "@app/shared/blob-backdrop";
 import { GradientBackgroundComponent } from "@app/shared/gradient-background/gradient-background.component";
@@ -9,6 +9,7 @@ import {FlauxQuoteHighlightComponent} from '@app/shared/quote-highlight/quote-hi
 import {MktAiSectionComponent} from '@app/pages/home/mkt-ai-section/mkt-ai-section.component';
 import {FooterComponent} from '@components/footer/footer.component';
 import { SeoService } from '@app/shared/seo/seo.service';
+import {UxService} from '@app/services/ux.service';
 
 @Component({
 	selector: 'agency-solutions-page',
@@ -19,6 +20,10 @@ import { SeoService } from '@app/shared/seo/seo.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AgencySolutionsPageComponent implements OnInit {
+
+	private uxService = inject(UxService);
+
+	readonly isLessThan900 = this.uxService.lessThan900;
 
 	constructor(private readonly seo: SeoService) {}
 

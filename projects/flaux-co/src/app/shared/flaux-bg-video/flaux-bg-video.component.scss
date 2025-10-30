@@ -15,7 +15,6 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	object-fit: cover;
 	z-index: 0;
 	border-radius: inherit;
 }
@@ -26,11 +25,8 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	z-index: 1;
-	background: radial-gradient(circle FARTHEST-side at 0%,
+	z-index: 0;
+	background: radial-gradient(circle closest-side at 0% 50%,
 			transparent 70%,
 			rgb(0, 0, 0) 100%);
-	// background: radial-gradient(circle at center,
-	// 		transparent 50%,
-	// 		rgb(0, 0, 0) 90%);
 }

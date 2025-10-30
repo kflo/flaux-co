@@ -4,7 +4,7 @@ import {
 	Component,
 	Input,
 	OnInit,
-	OnDestroy
+	OnDestroy,
 } from '@angular/core';
 import { BlobBackdropComponent } from "../blob-backdrop";
 import {NgClass} from '@angular/common';

@@ -39,7 +39,7 @@
 		flaux-blob-backdrop {
 			position: absolute;
 			z-index: 0;
-			width: 120%;
+			width: 100%;
 		}
 
 		img {
@@ -141,7 +141,7 @@
 	}
 
 	.section-wrapper {
-		border-radius: 10em 10em;
+		border-radius: 4em 4em;
 		height: -webkit-fill-available;
 		width: fit-content;
 		margin: 1.5em;
@@ -174,7 +174,7 @@
 			}
 
 			flaux-blob-backdrop {
-				width: 90%;
+				width: 120%;
 				max-height: 18em !important;
 			}
 

@@ -32,14 +32,14 @@ flaux-section {
 	margin-bottom: 4rem;
 
 	h3 {
-		font-family: 'hello america';
+		font-family: 'HelloAmerica';
 		font-weight: 100;
 		background: linear-gradient(135deg, $flaux-yellow, $flaux-salmon);
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		margin-bottom: 1rem;
-
+		line-height: normal;
 
 		.ai {
 			font-family: 'Lequire';
@@ -53,7 +53,7 @@ flaux-section {
 	p {
 		font-size: 1.2em;
 		color: #ddd;
-		max-width: 66%;
+		max-width: 92%;
 		margin: 0 auto;
 	}
 }
@@ -156,8 +156,8 @@ flaux-section {
 		width: 100%;
 		max-width: 35em;
 		align-self: center;
-		font-size: 0.9em;
-		;
+		font-size: 1em;
+		margin-bottom: 1em;
 
 		.slider-labels {
 			display: flex;
@@ -169,14 +169,30 @@ flaux-section {
 			}
 		}
 	}
+
+	&.contact-method {
+		label {
+			font-size: 0.9em;
+			margin-bottom: 0.25rem;
+			display: block;
+		}
+
+		.checkbox-group {
+			display: flex;
+			gap: 2rem;
+			flex-wrap: wrap;
+		}
+
+		margin-bottom: 0.5em;
+	}
 }
 
 .submit-button {
 	background: linear-gradient(135deg, $flaux-blue, $flaux-blue3);
 	color: white;
 	// border: none;
-	padding: 1.25rem 2rem;
-	font-size: 1.25rem;
+	padding: 1.5rem 2rem;
+	font-size: 1.4rem;
 	font-family: 'Montserrat', sans-serif;
 	font-variant: all-small-caps;
 	letter-spacing: 0.1em;
@@ -198,7 +214,7 @@ flaux-section {
 
 @media screen and (max-width: 900px) {
 	.contact-container {
-		padding: 7em 1em 2em;
+		padding: 7em 2em 2em;
 	}
 
 	.section-header h2 {
@@ -219,6 +235,26 @@ flaux-section {
 		h3 {
 			font-size: 1.75rem;
 		}
+
+		h5 {
+			text-align: center;
+
+		}
+	}
+
+	.benefit {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 0.5rem;
+
+		.benefit-icon {
+			margin-bottom: 0.5rem;
+		}
+
+		h4 {
+			margin: 0 0 0.5em 0;
+		}
 	}
 
 	.form-row {
@@ -226,10 +262,9 @@ flaux-section {
 	}
 
 	.contact-form {
-		padding: 2rem 2rem 5em;
+		padding: 3rem 2rem 5em;
 		border-radius: 0;
-		margin-left: -1em;
-		margin-right: -1em;
+		margin-inline: -2em;
 		margin-bottom: -2em;
 	}
 }

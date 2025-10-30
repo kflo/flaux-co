@@ -69,6 +69,32 @@
 						</mat-error>
 						}
 					</mat-form-field>
+					<!-- ------------------------------- PHONE ------------------------------- -->
+					<mat-form-field appearance="outline"
+										 class="form-field">
+						<mat-label>Phone Number</mat-label>
+						<input matInput
+								 type="tel"
+								 id="phone"
+								 formControlName="phone"
+								 required
+								 placeholder="(555) 123-4567 or +1 (555) 123-4567"
+								 (input)="onPhoneInput($event)">
+						@if (form.get('phone')?.hasError('pattern') && !form.get('phone')?.hasError('required')) {
+						<mat-error>
+							Please enter a valid phone number
+						</mat-error>
+						}
+					</mat-form-field>
+					<!-- ---------------------- PREFERRED CONTACT METHOD ----------------------- -->
+					<div class="form-field contact-method">
+						<label>Preferred Contact Method</label>
+						<div class="checkbox-group">
+							<mat-checkbox formControlName="prefersEmail"> Email </mat-checkbox>
+							<mat-checkbox formControlName="prefersPhone"> Phone </mat-checkbox>
+							<mat-checkbox formControlName="prefersSms"> SMS </mat-checkbox>
+						</div>
+					</div>
 					<!-- ------------------------------- COMPANY ------------------------------- -->
 					<mat-form-field appearance="outline"
 										 class="form-field">
@@ -84,10 +110,13 @@
 										 class="form-field">
 						<mat-label>Project Type</mat-label>
 						<mat-select formControlName="projectType"
-										id="projectType">
-							<mat-option value="">Select project type</mat-option>
-							@for (type of projectTypes; track type) {
-							<mat-option [value]="type">{{ type }}</mat-option>
+										multiple>
+							@for (group of projectTypeGroups; track group.label) {
+							<mat-optgroup [label]="group.label">
+								@for (option of group.options; track option) {
+								<mat-option [value]="option">{{ option }}</mat-option>
+								}
+							</mat-optgroup>
 							}
 						</mat-select>
 					</mat-form-field>
@@ -140,6 +169,7 @@
 							  color="primary"
 							  type="submit"
 							  class="submit-button"
+							  (submit)="onSubmit()"
 							  [disabled]="form.invalid">
 						Start Your AI Project
 					</button>

@@ -13,7 +13,10 @@
 		</div>
 		<flaux-blob-backdrop [blobCount]="3"
 									[imageUrls]="formattedImageUrls"
-									changeOrigin="47% 57%">
+									[blob1Scale]="isLessThan900() ? 1.7 : 2.1"
+									[blob2Scale]="isLessThan900() ? 1.7 : 2.1"
+									[blob3Scale]="isLessThan900() ? 1.6 : 2.0"
+									[changeOrigin]="isLessThan900() ? '48% 52%' : '47% 57%'">
 		</flaux-blob-backdrop>
 	</flaux-section>
 

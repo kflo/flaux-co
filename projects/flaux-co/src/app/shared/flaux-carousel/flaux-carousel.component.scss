@@ -11,11 +11,28 @@
 .carousel-title {
 	font-family: 'Josefin Sans', sans-serif;
 	font-variant: all-small-caps;
-	font-weight: 400;
+	font-weight: 300;
 	font-size: clamp(2.5rem, 8vw, 4rem);
 	margin: 3.75rem 0 0;
 	text-align: center;
-	color: #111;
+	color: white;
+	text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.8);
+
+	&::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		margin-inline: auto;
+		width: 70vw;
+		left: 14vw;
+		top: 4.8rem;
+		height: 4rem;
+		background-color: transparent;
+		backdrop-filter: blur(7px) contrast(1.2);
+		box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+		border-radius: 2rem;
+
+	}
 
 	.font-logo {
 		// font-weight: 600;
@@ -103,7 +120,7 @@
 }
 
 .carousel-controls {
-	position: relative;
+	position: absolute;
 	// top: 18em;
 	// align-items: center;
 	left: 50%;
@@ -167,7 +184,7 @@
 	}
 
 	&-card {
-		backdrop-filter: blur(1em) brightness(1.15) saturate(0.9);
+		backdrop-filter: blur(1em) brightness(1.25) saturate(0.9);
 		background: rgba(255, 255, 255, 0.1);
 		color: #111;
 		z-index: 2;
@@ -182,7 +199,7 @@
 
 	&-subheading {
 		font-variant: all-small-caps;
-		letter-spacing: 0.2em;
+		font-size: 1.4em;
 		font-family: 'Josefin Sans', sans-serif;
 		margin: 0;
 	}
@@ -199,6 +216,16 @@
 }
 
 @media screen and (max-width: 900px) {
+
+	.carousel-title {
+		&::before {
+			width: 100%;
+			left: 0;
+			border-radius: 0;
+			height: 1.3em;
+			top: 4rem;
+		}
+	}
 
 	.carousel-wrapper {
 		--item-width: 4em;
@@ -223,7 +250,7 @@
 	}
 
 	.carousel-controls {
-		top: 11em;
+		top: 85vh;
 	}
 
 	.featured-item {

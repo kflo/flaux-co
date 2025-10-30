@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 
@@ -20,6 +21,7 @@ import { MatSliderModule } from '@angular/material/slider';
 		MatFormFieldModule,
 		MatInputModule,
 		MatSelectModule,
+		MatCheckboxModule,
 		MatButtonModule,
 		MatSliderModule,
 	],
@@ -33,24 +35,44 @@ export class ContactPage {
 		this.form = this.fb.group({
 			name: ['', {validators: [Validators.required]}],
 			email: ['', {validators: [Validators.required, Validators.email]}],
-			company: [''],
-			projectType: [''],
+			phone: ['', {validators: [Validators.required, Validators.pattern(/^[0-9\s\-.+()]{12,20}$/)]}],
+			prefersEmail: [false],
+			prefersPhone: [false],
+			prefersSms: [false],
+			company: ['', ],
+			projectType: [[]],
 			budgetIndex: [0],
 			timelineIndex: [0],
 			description: ['']
 		});
 	}
 
-	projectTypes = [
-		'AI Education & Training',
-		'AI Chat Agent',
-		'AI Strategy & Consulting',
-		'AI Voice Agent',
-		'Automation & Integrations',
-		'Marketing & Lead Generation',
-		'Custom AI Integration',
-		'Computer Vision',
-		'Other'
+	projectTypeGroups = [
+		{
+			label: 'FLAUX AI',
+			options: [
+				'AI Chat Agent',
+				'AI Education & Training',
+				'AI Strategy & Consulting',
+				'AI Voice Agent',
+				'Automation & Integrations',
+				'Marketing & Lead Generation',
+				'Other'
+			]
+		},
+		{
+			label: 'FLAUX AGENCY',
+			options: [
+				'Branding & Identity',
+				'Content Creation',
+				'Digital Marketing, Ads, SEO',
+				'Social Media Management',
+				'CRM',
+				'AI Workforce (Receptionist, etc)',
+				'Website Design & Development',
+				'Other'
+			]
+		}
 	];
 
 	budgetSliderLabels = [
@@ -77,6 +99,29 @@ export class ContactPage {
 
 	budgetDisplayFn = (index: number) => this.budgetSliderLabels[index] ?? '';
 	timelineDisplayFn = (index: number) => this.timelineSliderLabels[index] ?? '';
+
+	formatPhoneNumber(value: string): string {
+		if (!value) return '';
+		const cleaned = value.replace(/\D/g, '');
+
+		if (cleaned.length === 0) return '';
+		if (cleaned.length <= 3) return cleaned;
+		if (cleaned.length <= 6) return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3)}`;
+		if (cleaned.length <= 10) return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
+
+		// International format
+		const areaCode = cleaned.slice(-10, -7);
+		const exchange = cleaned.slice(-7, -4);
+		const subscriber = cleaned.slice(-4);
+		const countryCode = cleaned.slice(0, -10);
+		return `+${countryCode} (${areaCode}) ${exchange}-${subscriber}`;
+	}
+
+	onPhoneInput(event: any) {
+		const input = event.target.value;
+		const formatted = this.formatPhoneNumber(input);
+		this.form.patchValue({phone: formatted}, {emitEvent: false});
+	}
 
 	onSubmit() {
 		const value = this.form.value;
