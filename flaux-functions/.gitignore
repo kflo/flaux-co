@@ -10,3 +10,7 @@ node_modules/
 *.local
 firebase-debug.log
 firebase-debug.*.log
+
+# Local secrets (do not commit)
+.secrets-staging
+vendasta-service-account.json
