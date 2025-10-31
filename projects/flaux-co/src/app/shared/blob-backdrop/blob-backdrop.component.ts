@@ -101,7 +101,7 @@ export class BlobBackdropComponent implements OnInit, OnDestroy {
   	this.intervalId = window.setInterval(() => {
   		this.currentImageIndex = (this.currentImageIndex + 1) % this.imageUrls.length;
   		this.cdr.markForCheck();
-  	}, 4000);
+  	}, 6000);
   }
 
   get currentImageUrl(): string {

@@ -58,10 +58,11 @@ footer {
 			font-weight: 400;
 			font-size: 0.75rem;
 			line-height: 1.4;
+			cursor: pointer;
 
 			&:hover {
 				color: #fff;
-				font-style: italic;
+				// font-style: italic;
 			}
 		}
 	}
