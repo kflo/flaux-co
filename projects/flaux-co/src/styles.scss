@@ -170,3 +170,22 @@ h6 {
 .mat-mdc-optgroup-label {
 	background-color: rgba($flaux-blue, 0.2);
 }
+
+/* -------------------------------------------------------------------------- */
+/*                          LEGAL BOTTOM SHEET STYLES                         */
+/* -------------------------------------------------------------------------- */
+
+.legal-bottom-sheet {
+	background: #000 !important;
+	max-height: 90vh !important;
+	
+	.mat-bottom-sheet-container {
+		background: #000 !important;
+		color: #fff !important;
+		padding: 0 !important;
+	}
+}
+
+.legal-bottom-sheet-backdrop {
+	background: rgba(0, 0, 0, 0.8) !important;
+}
