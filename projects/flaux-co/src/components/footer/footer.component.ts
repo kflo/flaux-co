@@ -6,33 +6,33 @@ import { PrivacyPolicyComponent } from '../legal-policies/privacy-policy.compone
 import { CookiePolicyComponent } from '../legal-policies/cookie-policy.component';
 
 @Component({
-  selector: 'flaux-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
-  standalone: true,
-  imports: [RouterModule, MatBottomSheetModule]
+	selector: 'flaux-footer',
+	templateUrl: './footer.component.html',
+	styleUrls: ['./footer.component.scss'],
+	standalone: true,
+	imports: [RouterModule, MatBottomSheetModule]
 })
 export class FooterComponent {
-  private bottomSheet = inject(MatBottomSheet);
+	private bottomSheet = inject(MatBottomSheet);
 
-  openPrivacyPolicy(): void {
-    this.bottomSheet.open(PrivacyPolicyComponent, {
-      panelClass: 'legal-bottom-sheet',
-      backdropClass: 'legal-bottom-sheet-backdrop'
-    });
-  }
+	openPrivacyPolicy(): void {
+		this.bottomSheet.open(PrivacyPolicyComponent, {
+			panelClass: 'legal-bottom-sheet',
+			backdropClass: 'legal-bottom-sheet-backdrop'
+		});
+	}
 
-  openTermsOfService(): void {
-    this.bottomSheet.open(TermsOfServiceComponent, {
-      panelClass: 'legal-bottom-sheet',
-      backdropClass: 'legal-bottom-sheet-backdrop'
-    });
-  }
+	openTermsOfService(): void {
+		this.bottomSheet.open(TermsOfServiceComponent, {
+			panelClass: 'legal-bottom-sheet',
+			backdropClass: 'legal-bottom-sheet-backdrop'
+		});
+	}
 
-  openCookiePolicy(): void {
-    this.bottomSheet.open(CookiePolicyComponent, {
-      panelClass: 'legal-bottom-sheet',
-      backdropClass: 'legal-bottom-sheet-backdrop'
-    });
-  }
+	openCookiePolicy(): void {
+		this.bottomSheet.open(CookiePolicyComponent, {
+			panelClass: 'legal-bottom-sheet',
+			backdropClass: 'legal-bottom-sheet-backdrop'
+		});
+	}
 }

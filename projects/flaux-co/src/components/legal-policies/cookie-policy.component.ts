@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'flaux-cookie-policy',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './cookie-policy.component.html',
-  styleUrls: ['./cookie-policy.component.scss']
+	selector: 'flaux-cookie-policy',
+	standalone: true,
+	imports: [CommonModule],
+	templateUrl: './cookie-policy.component.html',
+	styleUrls: ['./cookie-policy.component.scss']
 })
 export class CookiePolicyComponent {}
