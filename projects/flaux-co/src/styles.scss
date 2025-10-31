@@ -7,6 +7,9 @@
 @use 'variables' as *;
 @use '_theme-colors' as colors;
 
+/* -------------------------------------------------------------------------- */
+/*                                   THEMING                                  */
+/* -------------------------------------------------------------------------- */
 
 html {
 	@include mat.theme((color: (primary: colors.$primary-palette,
@@ -16,6 +19,10 @@ html {
 			density: 0,
 		));
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                GLOBAL STYLES                               */
+/* -------------------------------------------------------------------------- */
 
 body {
 	// Default the application to a light color theme. This can be changed to
@@ -32,23 +39,6 @@ body {
 
 	// Reset the user agent margin.
 	margin: 0;
-}
-
-/* You can add global styles to this file, and also import other style files */
-@keyframes ripple-animation {
-	to {
-		transform: scale(3);
-		opacity: 0;
-	}
-}
-
-.ripple {
-	position: absolute;
-	border-radius: 50% !important;
-	background: rgba(255, 255, 255);
-	opacity: 0.7;
-	transform: scale(0);
-	animation: ripple-animation 0.6s linear;
 }
 
 /* Root-level tokens and fluid typography scale */
@@ -83,6 +73,34 @@ html, body {
 	line-height: 1.5;
 	background: var(--background-color);
 	color: #111;
+	scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Webkit scrollbar styling (Chrome, Safari, Edge) */
+::-webkit-scrollbar {}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-button {}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 6px;
+	border: 3px solid transparent;
+	background-clip: padding-box;
+	transition: background 0.2s ease;
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.5);
+		background-clip: padding-box;
+	}
+
+	&:active {
+		background: rgba(255, 255, 255, 0.7);
+		background-clip: padding-box;
+	}
 }
 
 /* Scroll snap for full page sections */
@@ -130,6 +148,23 @@ h6 {
 	font-size: var(--h6-size);
 }
 
+/* You can add global styles to this file, and also import other style files */
+@keyframes ripple-animation {
+	to {
+		transform: scale(3);
+		opacity: 0;
+	}
+}
+
+.ripple {
+	position: absolute;
+	border-radius: 50% !important;
+	background: rgba(255, 255, 255);
+	opacity: 0.7;
+	transform: scale(0);
+	animation: ripple-animation 0.6s linear;
+}
+
 /* Special logo font */
 .logo-font {
 	font-family: 'Lequire', sans-serif;
@@ -160,7 +195,7 @@ h6 {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                  OVERRIDE                                  */
+/*                         ANGULAR MATERIAL OVERRIDES                         */
 /* -------------------------------------------------------------------------- */
 
 .mdc-list-item__primary-text {
@@ -176,16 +211,16 @@ h6 {
 /* -------------------------------------------------------------------------- */
 
 .legal-bottom-sheet {
-	background: #000 !important;
+	background: transparent !important;
 	max-height: 90vh !important;
-	
+
 	.mat-bottom-sheet-container {
-		background: #000 !important;
+		background: #222 !important;
 		color: #fff !important;
 		padding: 0 !important;
 	}
 }
 
 .legal-bottom-sheet-backdrop {
-	background: rgba(0, 0, 0, 0.8) !important;
+	background: rgba(#111, 0.8) !important;
 }

@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
 })
 export class FlauxQuoteCarouselComponent<T = any> implements OnInit, OnDestroy {
 	@Input() items: ReadonlyArray<T> = [];
-	@Input() intervalMs = 10000;
+	@Input() intervalMs = 13000;
 	@Input() ariaLabel = 'Carousel';
 	@Input() slideAriaDescription = 'slide';
 

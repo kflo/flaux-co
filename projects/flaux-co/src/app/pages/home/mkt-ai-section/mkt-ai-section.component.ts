@@ -39,7 +39,7 @@ export class MktAiSectionComponent {
 				<ul class="checkmark-list">
 					<li>Engage website visitors and answer calls.</li>
 					<li>Use business data for fast and accurate responses 24/7.</li>
-					<li>Capture leads directly into Vendasta's CRM for easy follow-up.</li>
+					<li>Capture leads directly into Flaux's CRM for easy follow-up.</li>
 					<li>Schedule appointments and follow up via SMS.</li>
 				</ul>`,
 			linkUrl: '/contact'
