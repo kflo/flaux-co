@@ -1,20 +1,25 @@
 <flaux-section [height]="'100dvh'">
 	<!-- <div class="bg"></div> -->
-	<flaux-bg-video class="video-container"
+	<!-- <flaux-bg-video class="video-container"
 					[name]="'tunnel-vid'"
 					[opacity]="0.75"
-					[local]="true"></flaux-bg-video>
+					[local]="true"></flaux-bg-video> -->
+	<flaux-prismatic-burst [intensity]="4"
+								  [speed]="0.5"
+								  [distort]="3"
+								  [animationType]="'rotate3d'">
+	</flaux-prismatic-burst>
 	<div class="content-container">
 		<div class="content-txt">
 			<h3>Custom <span class="ai">aI</span> Solutions</h3>
 			<p class="subheading">Go with the flāux.</p>
-			<p>Business voice, chat, and ops that run themselves.</p>
+			<p>Genius-level voice, chat, and ops on <strong><em>autopilot</em></strong>.</p>
 		</div>
 		<div class="marquee-wrapper">
 			<flaux-icon-marquee [animationSpeed]="80"
-								[iconSize]="'2em'"
-								[gapSize]="'0.66em'"
-								[iconFiles]="aiMarqueeFiles">
+									  [iconSize]="'2em'"
+									  [gapSize]="'0.66em'"
+									  [iconFiles]="aiMarqueeFiles">
 			</flaux-icon-marquee>
 		</div>
 	</div>

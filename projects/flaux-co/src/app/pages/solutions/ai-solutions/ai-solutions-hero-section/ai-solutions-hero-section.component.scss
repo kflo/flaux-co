@@ -8,6 +8,14 @@
 
 /* ----------------------------------- // ----------------------------------- */
 
+flaux-prismatic-burst {
+	width: 100%;
+	height: -webkit-fill-available;
+	position: absolute;
+	max-width: 1800px;
+	mask: radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, black 33%);
+}
+
 .video-container {
 	// mask: radial-gradient(ellipse farthest-side, black 0%, black 75%, transparent 100%);
 
@@ -83,6 +91,10 @@
 	.agency-hero-section, .content-section {
 		max-width: 1700px;
 		margin: auto;
+	}
+
+	flaux-prismatic-burst {
+		mask: radial-gradient(circle farthest-side, black 60%, transparent 100%);
 	}
 }
 
