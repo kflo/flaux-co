@@ -192,9 +192,9 @@ export class AgencySolutionsPageComponent implements OnInit {
 				sectionId: 'social-media-management'
 			},
 			{
-				title: 'Digital Marketing & Ads',
+				title: 'DIGITAL MARKETING',
 				imageUrls: this.formatImageUrls(['Campaign-performance', 'Create content with AI', 'Add to campaign', 'Campaign-automation', 'Campaign-Dynamic-fields']),
-				imageAlt: 'Digital Marketing & Ads',
+				imageAlt: 'Digital Marketing',
 				imagePosition: 'left' as const,
 				blobBackdrop: true,
 				titleSpacing: true,

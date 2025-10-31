@@ -10,9 +10,9 @@
 		@if (blobBackdrop) {
 		<flaux-blob-backdrop [ngClass]="{'margin-left': imagePosition === 'left', 'margin-right': imagePosition === 'right'}"
 									[blobCount]="1"
+									[animate]="true"
 									[blob1Scale]="1.5"
-									[imageUrls]="imageUrls || []"
-									[animate]="false"></flaux-blob-backdrop>
+									[imageUrls]="imageUrls || []"></flaux-blob-backdrop>
 		}
 		@else if (imageUrls && imageUrls.length > 1) {
 		@for (url of imageUrls; track url; let i = $index) {
