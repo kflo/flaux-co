@@ -1,0 +1,192 @@
+:host {
+  display: block;
+  background: #000;
+  color: #fff;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.legal-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Montserrat', sans-serif;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-align: center;
+  }
+
+  .last-updated {
+    text-align: center;
+    color: #999;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  section {
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #fff;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 1rem;
+
+      a {
+        color: #6c9bff;
+        text-decoration: underline;
+
+        &:hover {
+          color: #89b0ff;
+        }
+      }
+    }
+
+    ul {
+      margin: 1rem 0;
+      padding-left: 2rem;
+
+      li {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #ccc;
+        margin-bottom: 0.5rem;
+
+        strong {
+          color: #fff;
+          font-weight: 600;
+        }
+
+        a {
+          color: #6c9bff;
+          text-decoration: underline;
+
+          &:hover {
+            color: #89b0ff;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-info {
+    background: #111;
+    padding: 1rem;
+    border-radius: 4px;
+    border-left: 3px solid #666;
+  }
+
+  .cookie-table {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #111;
+      border: 1px solid #333;
+
+      thead {
+        background: #1a1a1a;
+
+        tr {
+          border-bottom: 2px solid #444;
+        }
+
+        th {
+          padding: 0.75rem;
+          text-align: left;
+          font-weight: 600;
+          color: #fff;
+          font-size: 0.9rem;
+          border-right: 1px solid #333;
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          border-bottom: 1px solid #333;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          &:hover {
+            background: #1a1a1a;
+          }
+        }
+
+        td {
+          padding: 0.75rem;
+          font-size: 0.85rem;
+          color: #ccc;
+          border-right: 1px solid #333;
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+
+  .note {
+    font-size: 0.85rem;
+    color: #999;
+    font-style: italic;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .legal-content {
+    padding: 1rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    section h2 {
+      font-size: 1.1rem;
+    }
+
+    section h3 {
+      font-size: 1rem;
+    }
+
+    .cookie-table {
+      font-size: 0.8rem;
+
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+  }
+}
