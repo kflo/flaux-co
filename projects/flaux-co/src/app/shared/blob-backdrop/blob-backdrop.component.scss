@@ -111,6 +111,26 @@
 	}
 }
 
+.blob-image-description {
+	position: absolute;
+	bottom: -4rem;
+	max-width: 7.2rem;
+	right: 4rem;
+	// transform: translateX(-50%);
+	background: rgba(0, 0, 0, 0.3);
+	color: #ddd;
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.5rem;
+	font-size: 0.55rem;
+	font-family: 'Sen', sans-serif;
+	z-index: 10;
+	opacity: 0;
+
+	&.active {
+		opacity: 1;
+	}
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                MEDIA QUERIES                               */
 /* -------------------------------------------------------------------------- */

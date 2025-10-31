@@ -85,10 +85,12 @@
 			.icon-img {
 				// max-width: 0.8em;
 				position: absolute;
+				filter: grayscale(1);
 				font-size: 5em;
 				width: 1em;
 				opacity: .17;
 				top: 0.06em;
+				z-index: -1;
 
 				&.left {
 					left: 0.09em;

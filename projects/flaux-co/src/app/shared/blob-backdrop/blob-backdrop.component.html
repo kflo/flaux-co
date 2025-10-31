@@ -23,6 +23,10 @@
 				  [src]="imageUrl"
 				  [attr.alt]="alt || null"
 				  [class.active]="i === currentImageIndex" />
+			@if (imageLabels && imageLabels.length === imageUrls.length && imageLabels[i]) {
+			<div class="blob-image-description"
+				  [class.active]="i === currentImageIndex">{{imageLabels[i]}}</div>
+			}
 			}
 			} @else {
 			<img class="blob-image"
@@ -30,6 +34,7 @@
 				  [attr.alt]="alt || null" />
 			}
 		</div>
+
 	</div>
 
 	<!-- <div class="controls-container">

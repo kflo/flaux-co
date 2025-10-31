@@ -34,6 +34,7 @@ type ObjectFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 export class BlobBackdropComponent implements OnInit, OnDestroy {
 
 	@Input() animate = true;
+	@Input() interval = 7000;
   /** 1..3 (default 2) */
   @Input() blobCount: 1 | 2 | 3 = 2;
 
@@ -45,6 +46,9 @@ export class BlobBackdropComponent implements OnInit, OnDestroy {
   /** array of image URLs for carousel */
   @Input() imageUrls: string[] = [];
 
+  /** array of image labels for carousel */
+  @Input() imageLabels: string[] = [];
+
   /** shown on top of blobs (legacy support) */
   @Input() imageUrl = '';
 
@@ -55,7 +59,7 @@ export class BlobBackdropComponent implements OnInit, OnDestroy {
   currentImageIndex = 0;
 
   /** optional alt text */
-  @Input() alt = '';
+  @Input() alt = 'Digital Solutions Image Carousel';
 
   /** Blob 1 rotation in degrees */
   @Input() blob1Rotate = -90;
@@ -86,8 +90,8 @@ export class BlobBackdropComponent implements OnInit, OnDestroy {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-  	if (this.imageUrls.length > 1) {
-  		this.startCarousel();
+  	if (this.imageUrls.length > 1 && this.animate) {
+  		this.startCarousel(this.interval);
   	}
   }
 
@@ -97,11 +101,11 @@ export class BlobBackdropComponent implements OnInit, OnDestroy {
   	}
   }
 
-  private startCarousel() {
+  private startCarousel(interval: number) {
   	this.intervalId = window.setInterval(() => {
   		this.currentImageIndex = (this.currentImageIndex + 1) % this.imageUrls.length;
   		this.cdr.markForCheck();
-  	}, 7000);
+  	}, interval);
   }
 
   get currentImageUrl(): string {

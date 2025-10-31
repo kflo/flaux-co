@@ -34,7 +34,7 @@ export class AgencySolutionsPageComponent implements OnInit {
 			image: '/assets/img/agency/agency-phone.svg'
 		});
 	}
-	imagesPath = `../../../../assets/img/driveDL/picks/`;
+	imagesPath = `../../../../assets/img/agency/`;
 	imageUrls = [
 		'Attract-convert-engage',
 		'Business-App-callouts2',
@@ -53,11 +53,27 @@ export class AgencySolutionsPageComponent implements OnInit {
 		'Conversations - custom1',
 		'Copy of Group 48491'
 	];
+	heroImageLabels = [
+		'',
+		'FLAUX Business App',
+		'FLAUX Business App',
+		'FLAUX Digital Ads',
+		'FLAUX Conversations Platform',
+		'FLAUX NPS Feedback Automation',
+		'FLAUX Reputation Management',
+		'FLAUX Local SEO',
+		'FLAUX Multi Location Reputation Management',
+		'FLAUX Local SEO',
+		'FLAUX Executive Reporting',
+		'FLAUX Email Marketing',
+		'FLAUX Conversations Platform',
+		'FLAUX Executive Reporting'
+	];
 	private formatImageUrls(names: string[]): string[] {
 		return names.map(name => `${this.imagesPath}${name}.png`);
 	}
 
-	formattedImageUrls = this.formatImageUrls(this.imageUrls);
+	heroImageUrls = this.formatImageUrls(this.imageUrls);
 
 	imageUrl2 = `../../../../assets/img/driveDL/picks/Conversations - custom1.png`;
 
@@ -65,6 +81,7 @@ export class AgencySolutionsPageComponent implements OnInit {
 	featureSections: {
 		title: string;
 		imageUrls: string[];
+		imageLabels?: string[];
 		imageAlt: string;
 		blobBackdrop?: boolean;
 		imagePosition: 'left' | 'right';
@@ -73,6 +90,7 @@ export class AgencySolutionsPageComponent implements OnInit {
 		description: string;
 		list?: string[];
 		quotes?: QuoteItem[];
+		sectionId?: string;
 	}[] = [
 			{
 				title: 'CONVERSATIONS',
@@ -91,7 +109,8 @@ export class AgencySolutionsPageComponent implements OnInit {
 						highlight: '372% increase',
 						quoteEnd: ' in lead-to-revenue conversion, compared to human-only communication.',
 						source: 'Vendasta Research'}
-				]
+				],
+				sectionId: 'conversations'
 			},
 			{
 				title: 'LOCAL SEO',
@@ -113,7 +132,14 @@ export class AgencySolutionsPageComponent implements OnInit {
 						highlight: '7x more clicks',
 						quoteEnd: ' than those without complete information.',
 						source: 'Searchonic / Google'},
-				]
+					{
+						quoteStart: 'Consumers read online reviews for local businesses',
+						highlight: '98%',
+						quoteEnd: ' of the time before making a decision.',
+						source: 'BrightLocal'
+					},
+				],
+				sectionId: 'local-seo'
 			},
 			{title: 'REPUTATION MANAGEMENT',
 				titleSpacing: true,
@@ -131,7 +157,8 @@ export class AgencySolutionsPageComponent implements OnInit {
 						highlight: 'just one verified review',
 						quoteEnd: ' of a product or service.',
 						source: 'BrightLocal'}
-				]},
+				],
+				sectionId: 'reputation-management'},
 			{
 				title: 'SOCIAL MEDIA MANAGEMENT',
 				imageUrls: this.formatImageUrls(['Social Marketing post performance', 'sm3-2', 'SM-AI-BulkPost-Creation']),
@@ -161,7 +188,31 @@ export class AgencySolutionsPageComponent implements OnInit {
 						highlight: '76% more likely to recommend',
 						quoteEnd: ' it to others.',
 						source: 'Synup'}
-				]
+				],
+				sectionId: 'social-media-management'
+			},
+			{
+				title: 'Digital Marketing & Ads',
+				imageUrls: this.formatImageUrls(['Campaign-performance', 'Create content with AI', 'Add to campaign', 'Campaign-automation', 'Campaign-Dynamic-fields']),
+				imageAlt: 'Digital Marketing & Ads',
+				imagePosition: 'left' as const,
+				blobBackdrop: true,
+				titleSpacing: true,
+				titleIcon: '../../../../assets/img/icons/marketing-mega.svg',
+				description: 'Maximize your online reach and conversions with our comprehensive Digital Marketing & Ads solutions, including targeted ad campaigns, AI-driven content creation, and performance optimization across multiple channels.',
+				quotes: [
+					{	quoteStart: 'Businesses that utilize targeted digital advertising see an average',
+						highlight: '20% increase',
+						quoteEnd: ' in sales within the first three months.',
+						source: 'WordStream'},
+					{
+						quoteStart: 'Email marketing delivers a median ROI of',
+						highlight: '$36 for every $1 spent',
+						quoteEnd: ' across industries.',
+						source: 'Litmus'
+					},
+				],
+				sectionId: 'digital-marketing-ads'
 			}
 		]
 }

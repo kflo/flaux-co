@@ -15,7 +15,8 @@
 			<p> We provide every tool and strategy you need—from CRM to targeted ads to AI-powered conversations—helping you build an unbeatable online presence and flow past your growth goals.</p>
 		</div>
 		<flaux-blob-backdrop [blobCount]="3"
-									[imageUrls]="formattedImageUrls"
+									[imageUrls]="heroImageUrls"
+									[imageLabels]="heroImageLabels"
 									[blob1Scale]="isLessThan900() ? 1.7 : 2.1"
 									[blob2Scale]="isLessThan900() ? 1.7 : 2.1"
 									[blob3Scale]="isLessThan900() ? 1.6 : 2.0"
@@ -25,6 +26,7 @@
 
 	@for (section of featureSections; track section.title) {
 	<flaux-section class="feature-section"
+						[id]="section.sectionId"
 						[height]="'90vh'">
 		<flaux-glass-section [imageUrls]="section.imageUrls"
 									[imageAlt]="section.imageAlt"
