@@ -17,6 +17,7 @@
 @mixin hover-lift($scale: 101%, $contrast: 110%, $img-translate-y: -5%, $img-translate-x: null) {
 	transform: scale($scale);
 	filter: contrast($contrast);
+	// backdrop-filter: contrast($contrast);
 
 	img {
 		transform: translateY($img-translate-y);

@@ -24,6 +24,7 @@ export class FlauxQuoteCarouselComponent<T = any> implements OnInit, OnDestroy {
 	@Input() intervalMs = 13000;
 	@Input() ariaLabel = 'Carousel';
 	@Input() slideAriaDescription = 'slide';
+	@Input() showNavigation = true;
 
 	@ContentChild('slideTemplate', {
 		static: false

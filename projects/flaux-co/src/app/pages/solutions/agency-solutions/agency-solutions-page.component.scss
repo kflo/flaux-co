@@ -5,14 +5,18 @@
 }
 
 flaux-section {
-	scroll-snap-align: start !important;
-	scroll-snap-stop: always; // Forces a stop at each snap point
+	// scroll-snap-align: start !important;
+	// scroll-snap-stop: always; // Forces a stop at each snap point
 	max-width: 1600px;
 	align-self: center;
 }
 
 mkt-ai-section {
-	scroll-snap-align: start;
+	// scroll-snap-align: start;
+}
+
+footer-section {
+	// scroll-snap-align: start;
 }
 
 /* ----------------------------------- // ----------------------------------- */
@@ -21,7 +25,7 @@ mkt-ai-section {
 	// gap: 4em;
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 6em;
+	margin-bottom: 2em;
 }
 
 .agency-hero-section {
@@ -77,9 +81,8 @@ mkt-ai-section {
 	position: relative;
 	z-index: 3;
 	color: white;
-	padding: 5em 3em 0 !important;
+	padding: 0 3em !important;
 	overflow: visible;
-	scroll-snap-align: start;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -123,6 +126,10 @@ mkt-ai-section {
 		.hero-heading {
 			text-align: center;
 			flex: 3;
+
+			p {
+				margin-top: 0.2em;
+			}
 		}
 
 		flaux-blob-backdrop {
@@ -134,10 +141,9 @@ mkt-ai-section {
 
 	.feature-section {
 		height: 95dvh !important;
-		padding: 2em 0 0 !important;
-		// padding-top: 5rem !important;
+		padding: 0 !important;
 		margin: 0 !important;
-		scroll-snap-align: center !important;
+		// scroll-snap-align: center !important;
 
 		.quote-carousel-wrapper {
 			flex: 3 !important;

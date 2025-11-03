@@ -5,7 +5,8 @@
 }
 
 flaux-section {
-	background: linear-gradient(30deg, $flaux-violet 10%, black 130%);
+	background: linear-gradient(180deg, transparent 0%, rgba($flaux-violet, 0.75) 110%);
+	max-width: 1600px;
 }
 
 .privacy-confirmed {
@@ -13,6 +14,7 @@ flaux-section {
 	&-content {
 		max-width: 800px;
 		margin: 0 auto;
+		padding: 4rem;
 		text-align: center;
 
 		h3 {
@@ -29,7 +31,7 @@ flaux-section {
 		align-self: self-end;
 
 		img {
-			max-width: 150%;
+			max-width: 90%;
 			height: auto;
 		}
 	}

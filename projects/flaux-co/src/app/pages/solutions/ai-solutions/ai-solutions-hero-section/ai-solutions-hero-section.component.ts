@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {FlauxBgVideoComponent} from '@app/shared/flaux-bg-video/flaux-bg-video.component';
+// import {FlauxBgVideoComponent} from '@app/shared/flaux-bg-video/flaux-bg-video.component';
 import {IconMarqueeComponent} from '@app/shared/icon-marquee';
 import {PrismaticBurstComponent} from '@app/shared/prismatic-burst/prismatic-burst.component';
 import {FlauxSectionComponent} from '@app/shared/section/section.component';
 
 @Component({
 	selector: 'ai-solutions-hero-section',
-	imports: [FlauxSectionComponent, FlauxBgVideoComponent, IconMarqueeComponent, PrismaticBurstComponent],
+	imports: [FlauxSectionComponent, IconMarqueeComponent, PrismaticBurstComponent],
 	templateUrl: './ai-solutions-hero-section.component.html',
 	styleUrl: './ai-solutions-hero-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

@@ -34,7 +34,7 @@ export class AiSolutionsCapabilitiesSection {
 			title: 'SMB AI Consulting',
 			description: '',
 			icon: 'eye',
-			image: '../../../../../assets/img/automation/consulting-1@2x.png'
+			image: '../../../../../assets/img/automation/consulting-process@0.5x.png'
 		},
 		smbAiEducation: {
 			title: 'SMB AI Education',

@@ -13,11 +13,10 @@ flaux-prismatic-burst {
 	height: -webkit-fill-available;
 	position: absolute;
 	max-width: 1800px;
-	mask: radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, black 33%);
+	mask: radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, black 20%);
 }
 
 .video-container {
-	// mask: radial-gradient(ellipse farthest-side, black 0%, black 75%, transparent 100%);
 
 	flaux-bg-video video {
 		position: relative !important;
@@ -100,6 +99,13 @@ flaux-prismatic-burst {
 
 @media screen and (max-width: 900px) {
 	.content-container {
-		padding: 5em 3em 3em !important;
+		padding: 15em 3em 1em !important;
+		gap: 2em;
+
+		.content-txt {
+			p {
+				text-shadow: 0.05rem 0.05rem 0.33rem black
+			}
+		}
 	}
 }

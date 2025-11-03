@@ -4,7 +4,7 @@
 	display: flex;
 	width: inherit;
 	height: inherit;
-	background-color: #111;
+	// background-color: #111;
 }
 
 @keyframes hue-rotate-animation {
@@ -18,7 +18,7 @@
 }
 
 .cta-section {
-	background: radial-gradient(circle 50vw at 15%, $flaux-blue 20%, $flaux-blue2 60%, $flaux-violet 120%, black 180%);
+	// background: radial-gradient(circle 50vw at 15%, $flaux-blue 20%, $flaux-blue2 60%, $flaux-violet 120%, black 180%);
 	// font-size: clamp(1.67rem, 3vw, 3rem);
 	// padding-inline: 6vw;
 	text-align: center;
@@ -29,7 +29,7 @@
 
 	&::after {
 		content: '';
-		background: url('../../../../assets/img/bg/6d348869-900d-4cc3-93d9-e56ac6d6b9ef.jpg') no-repeat center center;
+		// background: url('../../../../assets/img/bg/6d348869-900d-4cc3-93d9-e56ac6d6b9ef.jpg') no-repeat center center;
 		filter: invert(1);
 		opacity: 0.2;
 		background-position: right;

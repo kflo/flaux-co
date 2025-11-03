@@ -19,7 +19,7 @@
 		}
 	</div>
 
-	@if(items.length > 1) {
+	@if(items.length > 1 && showNavigation) {
 	<button type="button"
 			  class="nav prev"
 			  (click)="prev()"

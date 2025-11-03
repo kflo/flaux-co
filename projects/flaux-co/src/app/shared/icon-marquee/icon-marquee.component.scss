@@ -95,7 +95,8 @@
 	.icon-square {
 		width: var(--icon-size-mobile, 32px);
 		height: var(--icon-size-mobile, 32px);
-		padding: 6px;
+		padding: 9px;
+		background: rgba(255, 255, 255, 0.3);
 	}
 
 	.marquee-track {

@@ -1,5 +1,12 @@
+@use 'mixins' as mixins;
+
 :host {
-	--background-color: #111 !important;
+	// --background-color: #111 !important;
+	@include mixins.pattern-background('white-diamond-dark',
+		linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.02) 7.5%, rgba(0, 0, 0, 0.14) 90%, black 120%),
+		auto,
+		overlay);
+	position: absolute;
 
 	// Make each section snap to the top
 	>*:not(flaux-footer) {
@@ -7,7 +14,7 @@
 	}
 
 	>*:not(ai-solutions-hero-section) {
-		max-width: 1600px;
+		// max-width: 1600px;
 		justify-self: center;
 	}
 }

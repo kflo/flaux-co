@@ -3,24 +3,27 @@
 
 :host {
 	display: block;
+	width: -webkit-fill-available;
 	// background-color: black;
 }
 
 .capabilities-container {
 	padding: 4rem 2rem;
-	max-width: 100%;
+	width: 100%;
 	margin: 0 auto;
+	background: linear-gradient(180deg, black 0%, transparent 15%);
 }
 
 .section-header {
 	text-align: center;
 	margin-bottom: 2rem;
+	padding-inline: 2rem;
 
 	h2 {
 		font-size: 2.8rem;
-		font-family: 'Montserrat';
-		font-variant: all-small-caps;
-		font-weight: 500;
+		font-family: 'HelloAmerica', sans-serif;
+		font-weight: 300;
+		line-height: 1.6;
 		background: linear-gradient(170deg, $flaux-yellow 33%, $flaux-salmon 66%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
@@ -31,7 +34,6 @@
 	p {
 		font-size: 1.25rem;
 		color: #ddd;
-		// max-width: 600px;
 		margin: 0;
 	}
 }
@@ -41,16 +43,20 @@
 	grid-template-columns: repeat(2, 1fr);
 	width: 100%;
 	gap: 0.5rem;
+	max-width: 1600px;
+	justify-self: center;
+
 }
 
 .capability-card {
-	background: white;
+	// background: white;
 	position: relative;
 	padding: 2rem;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.5s ease;
 	min-height: 29em;
-	max-height: -webkit-fill-available;
+	max-height: 33em;
+	max-width: 1600px;
 	// filter: contrast(100%);
 	overflow: hidden;
 
@@ -67,7 +73,6 @@
 		margin-top: 2em;
 
 		li {
-
 			&:before {
 				content: "✓";
 				color: $flaux-orange;
@@ -97,20 +102,23 @@
 		@include hover-lift(101%, 120%, -5%);
 	}
 
-	// Full width cards
+	// Full width card
 	&.voice-agents {
 		color: #ddd;
 		grid-column: 1 / -1; // Span all columns
-		@include pattern-background('white-diamond-dark',
-			radial-gradient(circle at 0% 0%, $flaux-blue, $flaux-violet 80%),
-			auto,
-			overlay);
+		background: linear-gradient(180deg,
+				transparent 0%,
+				rgba($flaux-salmon, 0.2) 33%,
+				rgba($flaux-salmon, 0.25) 66%,
+				rgba($flaux-violet, 0.33) 110%);
+		background-size: 100% 300%;
+		background-position: 0 0;
+		transition: background-position 0.6s ease;
 
 		&:hover {
+			background-position: 0 100%;
 			@include hover-lift(101%, 110%, -1%, 3%);
 		}
-
-		.text-wrapper {}
 
 		.features-expansion {
 			--mat-expansion-container-background-color: rgba(0, 0, 0, 0.33);
@@ -122,29 +130,64 @@
 			width: 40%;
 			opacity: .8;
 			shape-outside: url('../../../../../assets/img/automation/voice-agents@2x.png');
-			shape-margin: 2em;
+			shape-margin: 4em;
 			float: left;
 			top: 0%;
+			padding: 1.5em 1.5em 0 0;
 			display: inline;
 			position: relative;
 			filter: drop-shadow(0 0 1em rgba(0, 0, 0, 0.66));
 		}
 	}
 
+	&.chat-agents {
+		@include pattern-background('type', linear-gradient(135deg, $flaux-blue, $flaux-blue3), auto, color-burn);
+
+		// filter: contrast(1.2);
+		img {
+			width: 55%;
+			bottom: 0;
+			margin-bottom: -3em;
+			justify-self: anchor-center;
+			position: absolute;
+		}
+
+		&:hover {
+			@include hover-lift(101%, 110%, -3%);
+		}
+	}
+
+	&.smb-ai-consulting {
+		color: #111;
+		@include pattern-background('simple-dashed', linear-gradient(135deg, $flaux-yellow, $flaux-salmon), 2.5%, color-burn);
+		// filter: contrast(0.99) brightness(0.9);
+
+		img {
+			width: -webkit-fill-available;
+			bottom: 2em;
+			left: 0;
+			// inset: 0;
+			opacity: .85;
+			mix-blend-mode: normal;
+			shape-outside: url('../../../../../assets/img/automation/consulting-1@2x.png');
+			shape-margin: .8em;
+			padding: 0 2em;
+			// float: right;
+			display: inline;
+			position: absolute;
+		}
+	}
+
+	// Full width card
 	&.custom-ai-solutions {
 		grid-column: 1 / -1; // Span all columns
 		@include pattern-background('subtle-zebra-3d',
 			radial-gradient(ellipse at 99% 99%, #010101 30%, $flaux-purple),
 			auto,
 			overlay);
-		// filter: contrast(1.1);
-
-		.text-wrapper {
-			// margin-right: 50%;
-		}
 
 		img {
-			width: 55%;
+			width: 45%;
 			opacity: .8;
 			mix-blend-mode: lighten;
 			shape-outside: url('../../../../../assets/img/automation/ai-brain-7@3x.png');
@@ -156,34 +199,6 @@
 
 		&:hover {
 			@include hover-lift(101%, 110%, -2%);
-		}
-	}
-
-	&.chat-agents {
-		@include pattern-background('type', linear-gradient(135deg, $flaux-blue, $flaux-blue3), auto, color-burn);
-
-		// filter: contrast(1.2);
-		img {
-			width: 75%;
-			bottom: -6%;
-			justify-self: anchor-center;
-		}
-
-		&:hover {
-			@include hover-lift(101%, 110%, -3%);
-		}
-	}
-
-	&.smb-ai-education {
-		@include pattern-background('pixel-weave', linear-gradient(135deg, $flaux-orange, $flaux-salmon), auto, difference);
-		filter: saturate(1.25);
-
-		img {
-			width: 70%;
-			bottom: -5%;
-			opacity: .7;
-			mix-blend-mode: normal;
-			justify-self: anchor-center;
 		}
 	}
 
@@ -201,26 +216,19 @@
 		}
 	}
 
-	&.smb-ai-consulting {
-		color: #111;
-		@include pattern-background('simple-dashed', linear-gradient(135deg, $flaux-yellow, $flaux-salmon), 2.5%, color-burn);
-		// filter: contrast(0.99) brightness(0.9);
+	&.smb-ai-education {
+		@include pattern-background('carbon-fibre', linear-gradient(135deg, rgba($flaux-orange, 0.75), rgba($flaux-purple, 1)), auto, soft-light);
+		color: #eee;
+		// filter: saturate(1.25);
 
 		img {
-			width: 90%;
-			bottom: -4%;
-			right: -5%;
-			opacity: .85;
-			mix-blend-mode: multiply;
-			shape-outside: url('../../../../../assets/img/automation/consulting-1@2x.png');
-			shape-margin: .8em;
-			padding: 0;
-			float: right;
-			display: inline;
-			position: relative;
+			width: 65%;
+			bottom: -5%;
+			opacity: .9;
+			mix-blend-mode: normal;
+			justify-self: anchor-center;
 		}
 	}
-
 
 	.capability-icon {
 		width: 60px;
@@ -244,13 +252,30 @@
 /*                                MEDIA QUERIES                               */
 /* -------------------------------------------------------------------------- */
 
+@media screen and (max-width: 1150px) {
+	.capability-card {
+		max-height: -webkit-fill-available;
+	}
+
+	.chat-agents {
+		img {
+			position: absolute !important;
+			width: 50% !important;
+		}
+	}
+
+}
+
 @media screen and (max-width: 900px) {
 	.capabilities-container {
 		padding: 4rem 0 0;
 	}
 
-	.section-header h2 {
-		font-size: 2.5rem;
+	.section-header {
+
+		h2 {
+			font-size: 2.5rem;
+		}
 	}
 
 	.capabilities-grid {
@@ -273,13 +298,13 @@
 
 			.capability-img {
 				margin-top: 16%;
-
 			}
 		}
 	}
 
 	.capability-card {
 		max-height: max-content;
+
 	}
 
 	.custom-ai-solutions {
@@ -298,7 +323,6 @@
 
 	.chat-agents {
 		img {
-			bottom: -13% !important;
 			width: 50% !important;
 		}
 	}
@@ -312,6 +336,6 @@
 
 @media screen and (min-width: 1800px) {
 	.capabilities-container {
-		max-width: 2100px;
+		// max-width: 2100px;
 	}
 }

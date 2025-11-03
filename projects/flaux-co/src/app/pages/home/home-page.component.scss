@@ -3,7 +3,7 @@
 	scroll-snap-stop: always;
 
 	// Make each section snap to the top
-	>*:not(flaux-footer, trunks-section) {
+	>* {
 		scroll-snap-align: start;
 	}
 }
