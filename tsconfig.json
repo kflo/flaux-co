@@ -19,9 +19,6 @@
 			"@app/*": [
 				"projects/flaux-co/src/app/*"
 			],
-			"@components/*": [
-				"projects/flaux-co/src/components/*"
-			],
 			"@pages/*": [
 				"projects/flaux-co/src/app/pages/*"
 			],

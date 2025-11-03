@@ -4,10 +4,10 @@ import { BlobBackdropComponent } from "@app/shared/blob-backdrop";
 import { GradientBackgroundComponent } from "@app/shared/gradient-background/gradient-background.component";
 import { FlauxGlassSectionComponent } from "@app/shared/glass-section";
 import {QuoteItem} from '@app/pages/home/quotes-section/quotes.data';
-import {FlauxQuoteCarouselComponent} from '@components/quote-carousel/quote-carousel.component';
+import {FlauxQuoteCarouselComponent} from '@app/shared/quote-carousel/quote-carousel.component';
 import {FlauxQuoteHighlightComponent} from '@app/shared/quote-highlight/quote-highlight.component';
 import {MktAiSectionComponent} from '@app/pages/home/mkt-ai-section/mkt-ai-section.component';
-import {FooterComponent} from '@components/footer/footer.component';
+import {FooterComponent} from '@app/shared/footer/footer.component';
 import { SeoService } from '@app/shared/seo/seo.service';
 import {UxService} from '@app/services/ux.service';
 

@@ -7,7 +7,7 @@ import {FlauxFnComponent} from '@app/shared/fn/fn.component';
 @Component({
 	selector: 'cta-section',
 	standalone: true,
-	imports: [FlauxSectionComponent, FlauxLottieComponent, FlauxBtnComponent, FlauxFnComponent],
+	imports: [FlauxSectionComponent, FlauxBtnComponent, FlauxFnComponent],
 	templateUrl: './cta-section.component.html',
 	styleUrls: ['./cta-section.component.scss'],
 })

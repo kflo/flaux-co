@@ -3,7 +3,7 @@ import { FlauxSectionComponent } from "@app/shared/section/section.component";
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { FooterComponent } from "@components/footer/footer.component";
+import { FooterComponent } from "@app/shared/footer/footer.component";
 
 @Component({
 	selector: 'flaux-login',

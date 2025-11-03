@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroSectionComponent } from './hero-section/hero-section.component';
 import {TrunksSectionComponent} from './trunks-section/trunks-section.component';
-import {FooterComponent} from '@components/footer/footer.component';
+import {FooterComponent} from '@app/shared/footer/footer.component';
 import { SeoService } from '@app/shared/seo/seo.service';
 
 @Component({

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {FlauxSectionComponent} from "@app/shared/section/section.component";
 import {FlauxQuoteHighlightComponent} from '@app/shared/quote-highlight/quote-highlight.component';
-import {FlauxQuoteCarouselComponent} from '@components/quote-carousel/quote-carousel.component';
+import {FlauxQuoteCarouselComponent} from '@app/shared/quote-carousel/quote-carousel.component';
 import {QUOTES, QuoteItem} from './quotes.data';
 import {FlauxBgVideoComponent} from '@app/shared/flaux-bg-video/flaux-bg-video.component';
 

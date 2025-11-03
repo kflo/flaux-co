@@ -3,7 +3,7 @@ import {PrivacyConfirmedSectionComponent} from '../agency-solutions/privacy-conf
 import { AiSolutionsHeroSectionComponent } from "./ai-solutions-hero-section/ai-solutions-hero-section.component";
 import {AiSolutionsCapabilitiesSection} from './ai-solutions-capabilities-section/ai-solutions-capabilities-section.component';
 import { CtaSectionComponent } from "@app/pages/home/cta-section/cta-section.component";
-import { FooterComponent } from "@components/footer/footer.component";
+import { FooterComponent } from "@app/shared/footer/footer.component";
 import { SeoService } from '@app/shared/seo/seo.service';
 
 @Component({
