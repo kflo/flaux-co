@@ -1,0 +1,29 @@
+<span class="sr-only">{{ currentText }}</span>
+
+<div class="container"
+	  (mouseenter)="onHover()">
+	<span class="words-wrapper"
+			*ngIf="currentTextIndex() >= 0"
+			[class.lines]="isLines"
+			aria-hidden="true">
+
+		<span *ngFor="let wordObj of elements(); let wordIndex = index"
+				class="word">
+
+			<span *ngFor="let char of wordObj.characters; let charIndex = index"
+					class="element"
+					[style.animation-delay]="getStaggerDelay(wordIndex, charIndex)"
+					[style.animation-duration.ms]="animationDuration"
+					[style.animation-timing-function]="animationEasing"
+					[style.letter-spacing]="letterSpacing">
+				{{ char }}
+			</span>
+		</span>
+	</span>
+
+	<div *ngIf="auto"
+		  class="progress-bar">
+		<div class="progress-fill"
+			  [style.width.%]="progressPercent()"></div>
+	</div>
+</div>

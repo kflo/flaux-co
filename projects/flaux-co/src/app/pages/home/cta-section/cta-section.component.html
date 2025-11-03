@@ -17,10 +17,14 @@
         <div>Contact us today!</div> -->
 	</div>
 	<div class="cta-content-right">
-
 		<!-- <flaux-lottie [name]="'list-scroll-wide'"
 						  [maskFade]="true"
 						  mixBlendMode="plus-lighter">
 		</flaux-lottie> -->
+		<flaux-rotating-text [texts]="questions"
+									[staggerDuration]="15"
+									staggerFrom="first"
+									[rotationInterval]="9000">
+		</flaux-rotating-text>
 	</div>
 </flaux-section>
