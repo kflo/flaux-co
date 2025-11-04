@@ -112,16 +112,16 @@ onSubmit() {
 
 ## Validation Rules
 
-| Field | Required | Format |
-|-------|----------|--------|
-| Name | Yes | Any string |
-| Email | Yes | Valid email (basic regex) |
-| Phone | No | 10+ digits |
-| Company | No | Any string |
-| Project Type | No | Array of strings |
-| Budget | No | Slider label |
-| Timeline | No | Slider label |
-| Description | No | Any string |
+| Field        | Required | Format                    |
+| ------------ | -------- | ------------------------- |
+| Name         | Yes      | Any string                |
+| Email        | Yes      | Valid email (basic regex) |
+| Phone        | No       | 10+ digits                |
+| Company      | No       | Any string                |
+| Project Type | No       | Array of strings          |
+| Budget       | No       | Slider label              |
+| Timeline     | No       | Slider label              |
+| Description  | No       | Any string                |
 
 ## Error Messages
 

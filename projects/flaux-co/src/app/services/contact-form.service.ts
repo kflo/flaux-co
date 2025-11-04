@@ -38,9 +38,12 @@ export interface ContactSubmissionResponse {
 	providedIn: 'root'
 })
 export class ContactFormService {
-	// Cloud Function endpoint - adjust region/project as needed
+	// Webhook.site temporary endpoint for demo
+	// TODO: Switch back to Cloud Functions after demo
 	private readonly contactFunctionUrl = 'https://us-central1-flaux-site-dev.cloudfunctions.net/submitContact';
 	private readonly contactFunctionUrlProd = 'https://us-central1-flaux-site-prod.cloudfunctions.net/submitContact';
+	// private readonly contactFunctionUrl = 'https://webhook.site/56d7fe91-285f-4036-94dc-1fa068da9c76';
+	// private readonly contactFunctionUrlProd = 'https://webhook.site/56d7fe91-285f-4036-94dc-1fa068da9c76';
 
 	// Request timeout in milliseconds
 	private readonly timeout = 30000; // 30 seconds
@@ -69,10 +72,50 @@ export class ContactFormService {
 			...(formData.description && { description: formData.description }),
 		};
 
+		// For webhook.site (demo), use image beacon workaround to bypass CORS
+		// if (endpoint.includes('webhook.site')) {
+		// 	return this.submitViaBeacon(endpoint, payload);
+		// }
+
 		return this.http.post<ContactSubmissionResponse>(endpoint, payload).pipe(
 			timeout(this.timeout),
 			catchError(error => this.handleError(error))
 		);
+	}
+
+	/**
+	 * Submit via image beacon (bypasses CORS for webhook.site)
+	 */
+	private submitViaBeacon(endpoint: string, payload: any): Observable<ContactSubmissionResponse> {
+		return new Observable(observer => {
+			try {
+				// Convert payload to URL query parameters
+				const params = new URLSearchParams();
+				params.append('data', JSON.stringify(payload));
+				const beaconUrl = `${endpoint}?${params.toString()}`;
+
+				// Use image beacon to send data (bypasses CORS)
+				const img = new Image();
+				img.onload = () => {
+					observer.next({
+						ok: true,
+						id: 'beacon-submitted'
+					});
+					observer.complete();
+				};
+				img.onerror = () => {
+					// Beacon still sends even if image fails to load
+					observer.next({
+						ok: true,
+						id: 'beacon-submitted'
+					});
+					observer.complete();
+				};
+				img.src = beaconUrl;
+			} catch (error) {
+				observer.error(error);
+			}
+		});
 	}
 
 	/**

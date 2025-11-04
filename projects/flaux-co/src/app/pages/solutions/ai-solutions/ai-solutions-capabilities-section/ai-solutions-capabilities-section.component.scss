@@ -251,8 +251,11 @@
 }
 
 @media screen and (max-width: 900px) {
-	.capabilities-container {
+	flaux-section {
 		scroll-snap-align: start;
+	}
+
+	.capabilities-container {
 		padding: 4rem 0 0;
 		background: linear-gradient(180deg, black 0%, transparent 5%);
 	}

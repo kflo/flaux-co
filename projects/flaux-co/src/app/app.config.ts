@@ -7,6 +7,7 @@ import { getFirestore } from "firebase/firestore";
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 import { environment } from '../../environments/environment';
 
@@ -17,7 +18,8 @@ export const appConfig: ApplicationConfig = {
 		provideRouter(routes, withInMemoryScrolling({
 			scrollPositionRestoration: 'top'
 		})),
-		provideAnimations()
+		provideAnimations(),
+		provideHttpClient()
 	],
 };
 

@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 import { FlauxSectionComponent } from '@app/shared/section/section.component';
 import { CommonModule } from '@angular/common';
@@ -20,7 +19,6 @@ import { ContactFormService } from '@app/services/contact-form.service';
 		FlauxSectionComponent,
 		ReactiveFormsModule,
 		CommonModule,
-		HttpClientModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatSelectModule,
@@ -45,7 +43,11 @@ export class ContactPage {
 		};
 
 	constructor(private fb: FormBuilder) {
-		this.form = this.fb.group({
+		this.form = this.createForm();
+	}
+
+	private createForm(): FormGroup {
+		return this.fb.group({
 			name: ['', {validators: [Validators.required]}],
 			email: ['', {validators: [Validators.required, Validators.email]}],
 			phone: ['', {validators: [Validators.required, Validators.pattern(/^[0-9\s\-.+()]{12,20}$/)]}],
@@ -183,8 +185,8 @@ export class ContactPage {
 						type: 'success',
 						text: 'Thank you! Your message has been received. We\'ll be in touch shortly.'
 					};
-					// Optionally reset form
-					this.form.reset();
+					// Reset form completely by recreating it
+					this.form = this.createForm();
 					// Scroll to message
 					setTimeout(() => {
 						const messageEl = document.querySelector('[data-message]');
