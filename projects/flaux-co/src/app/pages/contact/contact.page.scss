@@ -27,6 +27,93 @@ flaux-section {
 	margin: 0 auto;
 }
 
+/* Submission Message */
+.submission-message {
+	animation: slideDown 0.4s ease-out;
+	margin-bottom: 2rem;
+	padding: 1.5rem 2rem;
+	border-radius: 0.75rem;
+	backdrop-filter: blur(10px);
+	border: 2px solid;
+	display: flex;
+
+	&.success {
+		background: rgba($flaux-salmon, 0.15);
+		border-color: $flaux-salmon;
+
+		.message-icon {
+			color: $flaux-salmon;
+		}
+
+		.icon-success {
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+	}
+
+	&.error {
+		background: rgba(#ff6b6b, 0.15);
+		border-color: #ff6b6b;
+
+		.message-icon {
+			color: #ff6b6b;
+		}
+
+		.icon-error {
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+	}
+
+	.message-content {
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+		width: 100%;
+	}
+
+	.message-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		flex-shrink: 0;
+		font-size: 1.25rem;
+		font-weight: bold;
+	}
+
+	.message-text {
+		flex: 1;
+
+		h4 {
+			margin: 0 0 0.25rem;
+			font-size: 1.1rem;
+			font-weight: 600;
+		}
+
+		p {
+			margin: 0;
+			font-size: 0.95rem;
+			line-height: 1.5;
+			color: #eee;
+		}
+	}
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 .section-header {
 	text-align: center;
 	margin-bottom: 4rem;
@@ -202,9 +289,32 @@ flaux-section {
 	margin-top: 1rem;
 
 	&:disabled {
-		opacity: 0.6;
+		opacity: 0.7;
 		filter: saturate(0.33) contrast(0.65);
 		cursor: not-allowed;
+	}
+
+	.button-loading {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+
+		.spinner {
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			border: 3px solid rgba(255, 255, 255, 0.3);
+			border-top-color: white;
+			border-radius: 50%;
+			animation: spin 0.8s linear infinite;
+		}
+	}
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
 	}
 }
 

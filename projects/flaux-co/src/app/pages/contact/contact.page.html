@@ -1,5 +1,27 @@
 <flaux-section height="'100dvh'">
 	<div class="contact-container">
+		<!-- Submission Message -->
+		@if (submissionMessage.type) {
+		<div class="submission-message"
+			  [class.success]="submissionMessage.type === 'success'"
+			  [class.error]="submissionMessage.type === 'error'"
+			  data-message>
+			<div class="message-content">
+				<div class="message-icon">
+					@if (submissionMessage.type === 'success') {
+					<span class="icon-success">✓</span>
+					} @else {
+					<span class="icon-error">!</span>
+					}
+				</div>
+				<div class="message-text">
+					<h4>{{ submissionMessage.type === 'success' ? 'Success!' : 'Error' }}</h4>
+					<p>{{ submissionMessage.text }}</p>
+				</div>
+			</div>
+		</div>
+		}
+
 		<div class="section-header">
 			<h3>Ready to Transform Your Business with <span class="ai">aI</span>?</h3>
 			<p>Let's discuss your AI project and create a solution that drives real results for your organization</p>
@@ -170,8 +192,15 @@
 							  type="submit"
 							  class="submit-button"
 							  (submit)="onSubmit()"
-							  [disabled]="form.invalid">
+							  [disabled]="form.invalid || isSubmitting">
+						@if (isSubmitting) {
+						<span class="button-loading">
+							<span class="spinner"></span>
+							Submitting...
+						</span>
+						} @else {
 						Start Your AI Project
+						}
 					</button>
 				</form>
 			</div>
