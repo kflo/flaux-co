@@ -35,4 +35,6 @@ export class FooterComponent {
 			backdropClass: 'legal-bottom-sheet-backdrop'
 		});
 	}
+
+	currentYear: number = new Date().getFullYear();
 }

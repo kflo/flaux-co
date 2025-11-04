@@ -1,23 +1,30 @@
 <flaux-section [height]="'100dvh'">
-	<!-- <div class="bg"></div> -->
-	<!-- <flaux-bg-video class="video-container"
-					[name]="'tunnel-vid'"
-					[opacity]="0.75"
-					[local]="true"></flaux-bg-video> -->
+	@if (isMobile()) {
+	<flaux-hls class="video-container"
+				  [style]="{ filter: 'brightness(0.85)' }"
+				  [posterUrl]="posterUrl"
+				  [hlsUrl]="hlsUrl"></flaux-hls>
+	} @else {
+	@defer (on viewport) {
 	<flaux-prismatic-burst [intensity]="4"
 								  [speed]="0.5"
 								  [distort]="2"
-								  [animationType]="'rotate'">
+								  [animationType]="'rotate3d'">
 	</flaux-prismatic-burst>
+	} @placeholder {
+	<div class="placeholder-bg"></div>
+	}
+	}
 	<div class="content-container">
 		<div class="content-txt">
-			<h3>Custom <span class="ai">aI</span> Solutions</h3>
-			<p class="subheading">Go with the flāux.</p>
-			<p>Genius-level voice, chat, and ops on <strong><em>autopilot</em></strong>.</p>
+			<h3>Custom @if(isMobile()){<br>}<span class="ai">aI</span> @if(isMobile()){<br>} Solutions</h3>
+			<div class="subheading">
+				<p>For All The Ways Your @if(isMobile()){<br>}Business <strong><em>Flows</em></strong></p>
+			</div>
 		</div>
 		<div class="marquee-wrapper">
 			<flaux-icon-marquee [animationSpeed]="80"
-									  [iconSize]="'2em'"
+									  [iconSize]="'1.7em'"
 									  [gapSize]="'0.66em'"
 									  [iconFiles]="aiMarqueeFiles">
 			</flaux-icon-marquee>

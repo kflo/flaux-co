@@ -29,7 +29,7 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 	@Input() loop = true;
 	@Input() auto = true;
 	@Input() splitBy: SplitBy = 'characters';
-	@Input() animationDuration = 100;
+	@Input() animationDuration = 500;
 	@Input() animationEasing = 'ease';
 	@Input() letterSpacing = '0.0em';
 

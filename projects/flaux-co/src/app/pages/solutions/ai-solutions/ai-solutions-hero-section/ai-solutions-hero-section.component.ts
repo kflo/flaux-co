@@ -1,12 +1,15 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {UxService} from '@app/services/ux.service';
+import {HlsComponent} from '@app/shared/hls/hls.component';
 // import {FlauxBgVideoComponent} from '@app/shared/flaux-bg-video/flaux-bg-video.component';
 import {IconMarqueeComponent} from '@app/shared/icon-marquee';
 import {PrismaticBurstComponent} from '@app/shared/prismatic-burst/prismatic-burst.component';
 import {FlauxSectionComponent} from '@app/shared/section/section.component';
+import {environment} from 'projects/flaux-co/environments/environment';
 
 @Component({
 	selector: 'ai-solutions-hero-section',
-	imports: [FlauxSectionComponent, IconMarqueeComponent, PrismaticBurstComponent],
+	imports: [FlauxSectionComponent, IconMarqueeComponent, PrismaticBurstComponent, HlsComponent],
 	templateUrl: './ai-solutions-hero-section.component.html',
 	styleUrl: './ai-solutions-hero-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -67,4 +70,9 @@ export class AiSolutionsHeroSectionComponent {
 		'X (Formerly Twitter) integration.svg',
 		'Zoho CRM integration.svg'
 	];
+
+	hlsUrl = `${environment.r2BucketUrl}vid/vertical-bg-2/hls/master.m3u8`;
+	posterUrl = '../../../../../assets/img/automation/vertical-bg-2.png';
+
+	isMobile = inject(UxService).isMobile;
 }

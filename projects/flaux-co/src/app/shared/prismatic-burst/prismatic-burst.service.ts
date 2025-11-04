@@ -179,7 +179,7 @@ export class PrismaticBurstService {
 					value: this.gradTexture
 				},
 				uNoiseAmount: {
-					value: 0.33
+					value: 0.13
 				},
 				uRayCount: {
 					value: Math.max(0, Math.floor(rayCount ?? 0))

@@ -1,34 +1,32 @@
 @use 'variables' as *;
 
 :host {
-	display: block;
+	position: absolute;
 }
 
 flaux-section {
-	// scroll-snap-align: start !important;
-	// scroll-snap-stop: always; // Forces a stop at each snap point
 	max-width: 1600px;
 	align-self: center;
 }
 
 mkt-ai-section {
-	// scroll-snap-align: start;
+	scroll-snap-align: start;
 }
 
-footer-section {
-	// scroll-snap-align: start;
-}
 
 /* ----------------------------------- // ----------------------------------- */
 
 .sections-wrapper {
+	// scroll-snap-align: start;
 	// gap: 4em;
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 2em;
+	overflow: hidden;
 }
 
 .agency-hero-section {
+	// scroll-snap-align: start;
 	display: flex;
 	align-items: center;
 	color: white;
@@ -36,7 +34,6 @@ footer-section {
 	font-family: "Montserrat", sans-serif;
 	text-align: center;
 	gap: 9em;
-	margin-bottom: 4em !important;
 
 	flaux-blob-backdrop {
 		flex: 5;
@@ -78,10 +75,10 @@ footer-section {
 }
 
 .feature-section {
+	scroll-snap-align: start;
 	position: relative;
 	z-index: 3;
 	color: white;
-	padding: 0 3em !important;
 	overflow: visible;
 	display: flex;
 	flex-direction: column;

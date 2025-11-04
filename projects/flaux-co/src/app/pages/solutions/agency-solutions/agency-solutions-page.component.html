@@ -1,8 +1,8 @@
 <flaux-gradient-background></flaux-gradient-background>
 <div class="sections-wrapper">
 	<flaux-section class="agency-hero-section"
-						[height]="'82vh'"
-						[blockPadding]="'2rem'"
+						[height]="'100dvh'"
+						[blockPadding]="'0 2rem'"
 						[inlinePadding]="'2rem'">
 		<div class="hero-heading">
 			<h2><img class="ast-icon"
@@ -27,7 +27,8 @@
 	@for (section of featureSections; track section.title) {
 	<flaux-section class="feature-section"
 						[id]="section.sectionId"
-						[height]="'90vh'">
+						[height]="'70vh'"
+						[blockPadding]="'0 4em'">
 		<flaux-glass-section [imageUrls]="section.imageUrls"
 									[imageAlt]="section.imageAlt"
 									[blobBackdrop]="section.blobBackdrop"

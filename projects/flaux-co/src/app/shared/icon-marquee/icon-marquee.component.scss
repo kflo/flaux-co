@@ -93,14 +93,14 @@
 // Responsive adjustments
 @media (max-width: 768px) {
 	.icon-square {
-		width: var(--icon-size-mobile, 32px);
-		height: var(--icon-size-mobile, 32px);
-		padding: 9px;
+		width: var(--icon-size, 32px);
+		height: var(--icon-size, 32px);
+		padding: 6px;
 		background: rgba(255, 255, 255, 0.3);
 	}
 
 	.marquee-track {
-		gap: var(--gap-size-mobile, 12px);
+		gap: var(--gap-size, 12px);
 	}
 }
 

@@ -105,7 +105,7 @@ html, body {
 
 /* Scroll snap for full page sections */
 html {
-	scroll-snap-type: y mandatory;
+	scroll-snap-type: y proximity !important;
 	scroll-behavior: smooth;
 }
 

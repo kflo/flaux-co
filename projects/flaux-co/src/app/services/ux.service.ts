@@ -20,16 +20,19 @@ export class UxService {
 		const breakpoints = [Breakpoints.XSmall, Breakpoints.WebLandscape, '(max-width: 900px)'];
 		const breakpoint$ = this.breakpointObserver.observe(breakpoints);
 
+		// (max-width: 599.98px)
 		this.isMobile = toSignal(
 			breakpoint$.pipe(map(result => result.breakpoints[Breakpoints.XSmall])),
 			{ initialValue: false }
 		);
 
+		// (min-width: 1280px) and (orientation: landscape)
 		this.webLandscape = toSignal(
 			breakpoint$.pipe(map(result => result.breakpoints[Breakpoints.WebLandscape])),
 			{ initialValue: false }
 		);
 
+		// < 900 px width
 		this.lessThan900 = toSignal(
 			breakpoint$.pipe(map(result => result.breakpoints['(max-width: 900px)'])),
 			{ initialValue: false }

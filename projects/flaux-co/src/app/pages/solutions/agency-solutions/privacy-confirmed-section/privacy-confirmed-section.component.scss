@@ -14,7 +14,7 @@ flaux-section {
 	&-content {
 		max-width: 800px;
 		margin: 0 auto;
-		padding: 4rem;
+		padding: 4rem 3rem;
 		text-align: center;
 
 		h3 {
@@ -29,6 +29,7 @@ flaux-section {
 
 	&-image {
 		align-self: self-end;
+		z-index: -2;
 
 		img {
 			max-width: 90%;
@@ -40,6 +41,8 @@ flaux-section {
 @media screen and (max-width: 768px) {
 	flaux-section {
 		flex-direction: column !important;
+		min-height: 100dvh !important;
+		scroll-snap-align: start;
 	}
 
 	.privacy-confirmed-image {

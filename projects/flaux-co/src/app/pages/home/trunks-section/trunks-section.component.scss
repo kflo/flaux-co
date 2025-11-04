@@ -57,7 +57,7 @@
 		flex-direction: column;
 		// justify-content: space-between;
 		height: -webkit-fill-available;
-		backdrop-filter: brightness(70) blur(15em) hue-rotate(-105deg) saturate(6) contrast(0.9) sepia(0.1);
+		backdrop-filter: brightness(70) blur(15em) hue-rotate(-120deg) saturate(6) contrast(0.9) sepia(0.1);
 		padding: 2em 3.5em 3.0em;
 
 		.lower {
@@ -87,7 +87,11 @@
 
 	&-content {
 		border-radius: 3rem 0 3rem 0;
-		backdrop-filter: brightness(50) blur(15em) hue-rotate(170deg) saturate(7.5) contrast(0.9) sepia(0.1);
+		backdrop-filter: brightness(50) blur(15em) hue-rotate(160deg) saturate(7.5) contrast(0.9) sepia(0.1);
+
+		flaux-btn {
+			filter: hue-rotate(-120deg);
+		}
 
 		flaux-bg-video {
 			position: absolute;
@@ -110,12 +114,15 @@
 		overflow: hidden;
 
 		flaux-hls {
-			position: absolute;
 			inset: 0;
 			z-index: -1;
 			border-radius: 0 3rem 0 3rem;
 			filter: contrast(0.9) saturate(1.5);
 			opacity: 0.55;
+		}
+
+		flaux-btn {
+			filter: hue-rotate(-60deg);
 		}
 
 		.agency-marquee-bg {
@@ -190,7 +197,7 @@
 		padding-inline: 0em 3em;
 
 		&-content {
-			backdrop-filter: brightness(90) blur(15em) hue-rotate(170deg) saturate(15) contrast(0.9) sepia(0.1);
+			backdrop-filter: brightness(90) blur(15em) hue-rotate(155deg) saturate(15) contrast(0.9) sepia(0.1);
 		}
 	}
 
@@ -198,7 +205,7 @@
 		padding-inline: 3em 0em;
 
 		&-content {
-			backdrop-filter: brightness(90) blur(15em) hue-rotate(-105deg) saturate(10) contrast(0.9) sepia(0.1);
+			backdrop-filter: brightness(90) blur(15em) hue-rotate(-120deg) saturate(10) contrast(0.9) sepia(0.1);
 		}
 	}
 
@@ -260,7 +267,7 @@
 
 		&-content {
 			border-radius: 0 0 2rem 2rem;
-			backdrop-filter: brightness(100) blur(8em) hue-rotate(170deg) saturate(20) contrast(0.85) sepia(0.0) !important;
+			backdrop-filter: brightness(100) blur(8em) hue-rotate(155deg) saturate(20) contrast(0.85) sepia(0.0) !important;
 
 			flaux-bg-video {
 				border-radius: 0 0 2rem 2rem;
@@ -272,7 +279,7 @@
 
 		&-content {
 			border-radius: 2rem 2rem 0 0;
-			backdrop-filter: brightness(100) blur(8em) hue-rotate(-105deg) saturate(20) contrast(0.85) sepia(0.0) !important;
+			backdrop-filter: brightness(100) blur(8em) hue-rotate(-120deg) saturate(20) contrast(0.85) sepia(0.0) !important;
 
 			flaux-hls {
 				border-radius: 2rem 2rem 0 0;

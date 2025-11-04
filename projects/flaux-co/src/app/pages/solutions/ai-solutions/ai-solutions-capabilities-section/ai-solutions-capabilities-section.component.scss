@@ -8,7 +8,7 @@
 }
 
 .capabilities-container {
-	padding: 4rem 2rem;
+	padding: 6rem 2rem;
 	width: 100%;
 	margin: 0 auto;
 	background: linear-gradient(180deg, black 0%, transparent 15%);
@@ -230,22 +230,6 @@
 		}
 	}
 
-	.capability-icon {
-		width: 60px;
-		height: 60px;
-		background: linear-gradient(135deg, $flaux-blue, $flaux-blue3);
-		border-radius: 50%;
-		display: none;
-		// display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-bottom: 1.5rem;
-
-		i {
-			font-size: 1.5rem;
-			color: white;
-		}
-	}
 }
 
 /* -------------------------------------------------------------------------- */
@@ -268,7 +252,9 @@
 
 @media screen and (max-width: 900px) {
 	.capabilities-container {
+		scroll-snap-align: start;
 		padding: 4rem 0 0;
+		background: linear-gradient(180deg, black 0%, transparent 5%);
 	}
 
 	.section-header {
@@ -284,6 +270,8 @@
 
 		.voice-agents {
 			max-height: max-content;
+			display: flex;
+			flex-direction: column;
 
 			.list-wrapper {
 				padding-inline: 1em;
@@ -294,37 +282,31 @@
 			}
 		}
 
+		.chat-agents {
+			img {
+				width: 50% !important;
+			}
+		}
+
 		.smb-ai-consulting {
 
 			.capability-img {
 				margin-top: 16%;
 			}
 		}
+
+		.custom-ai-solutions {
+			img {
+				position: absolute !important;
+				bottom: -15%;
+				left: 5%;
+				width: 75% !important;
+			}
+		}
 	}
 
 	.capability-card {
 		max-height: max-content;
-
-	}
-
-	.custom-ai-solutions {
-		img {
-			position: absolute !important;
-			bottom: -15%;
-			left: 5%;
-			width: 75% !important;
-		}
-	}
-
-	.voice-agents {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.chat-agents {
-		img {
-			width: 50% !important;
-		}
 	}
 
 	.features-expansion {

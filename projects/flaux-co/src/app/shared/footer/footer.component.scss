@@ -1,7 +1,11 @@
 :host {
 	position: relative;
 	display: block;
-	// scroll-snap-align: start;
+	border-top: 2px solid #ddd;
+	mask: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.33);
+	backdrop-filter: contrast(0.85);
 }
 
 footer {
@@ -46,7 +50,7 @@ footer {
 			font-family: 'Montserrat', sans-serif;
 			font-size: 1rem;
 			font-weight: 600;
-			color: #fff;
+			color: #ccc;
 			margin: 0 0 0.5rem 0;
 			text-transform: uppercase;
 			letter-spacing: 0.5px;
@@ -54,7 +58,7 @@ footer {
 
 		a {
 			text-decoration: none;
-			color: #ccc;
+			color: #aaa;
 			font-weight: 400;
 			font-size: 0.75rem;
 			line-height: 1.4;
@@ -75,8 +79,15 @@ footer {
 	}
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA QUERIES                               */
+/* -------------------------------------------------------------------------- */
+
 @media (max-width: 768px) {
+	:host {}
+
 	footer {
+
 		.footer-columns {
 			grid-template-columns: repeat(2, 1fr);
 			gap: 2rem;

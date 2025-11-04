@@ -10,7 +10,7 @@
 
 	// Make each section snap to the top
 	>*:not(flaux-footer) {
-		// scroll-snap-align: start;
+		scroll-snap-align: start;
 	}
 
 	>*:not(ai-solutions-hero-section) {
