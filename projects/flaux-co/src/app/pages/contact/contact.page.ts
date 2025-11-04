@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FlauxSectionComponent } from '@app/shared/section/section.component';
 import { CommonModule } from '@angular/common';
@@ -19,6 +20,7 @@ import { ContactFormService } from '@app/services/contact-form.service';
 		FlauxSectionComponent,
 		ReactiveFormsModule,
 		CommonModule,
+		HttpClientModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatSelectModule,
