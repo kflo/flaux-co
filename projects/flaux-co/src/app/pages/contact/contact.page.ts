@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { FlauxSectionComponent } from '@app/shared/section/section.component';
@@ -10,6 +10,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { FooterComponent } from "@app/shared/footer/footer.component";
+import { ContactFormService } from '@app/services/contact-form.service';
 
 @Component({
 	selector: 'flaux-contact',
@@ -31,6 +32,15 @@ import { FooterComponent } from "@app/shared/footer/footer.component";
 })
 export class ContactPage {
 	form: FormGroup;
+	private contactFormService = inject(ContactFormService);
+	isSubmitting = false;
+	submissionMessage: {
+		type: 'success' | 'error' | null;
+		text: string;
+	} = {
+			type: null,
+			text: ''
+		};
 
 	constructor(private fb: FormBuilder) {
 		this.form = this.fb.group({
@@ -125,14 +135,76 @@ export class ContactPage {
 	}
 
 	onSubmit() {
+		// Reset previous message
+		this.submissionMessage = {
+			type: null,
+			text: ''
+		};
+
+		// Validate form
+		const errors = this.contactFormService.validateForm(this.form.value);
+		if (errors.length > 0) {
+			this.submissionMessage = {
+				type: 'error',
+				text: errors.join('; ')
+			};
+			return;
+		}
+
+		// Prevent duplicate submissions
+		if (this.isSubmitting) {
+			return;
+		}
+
+		this.isSubmitting = true;
+
 		const value = this.form.value;
 		const result = {
-			...value,
-			phone: value.phone ? value.phone.replace(/\D/g, '') : '', // Strip to digits only
-			budget: this.budgetSliderLabels[value.budgetIndex],
-			timeline: this.timelineSliderLabels[value.timelineIndex]
+			name: value.name,
+			email: value.email,
+			phone: value.phone ? value.phone.replace(/\D/g, '') : undefined,
+			company: value.company || undefined,
+			projectType: value.projectType?.length ? value.projectType : undefined,
+			budget: value.budget,
+			timeline: value.timeline,
+			description: value.description || undefined,
+			prefersEmail: value.prefersEmail,
+			prefersPhone: value.prefersPhone,
+			prefersSms: value.prefersSms
 		};
-		console.log('Contact form submitted:', result);
-		// Handle form submission logic here
+
+		this.contactFormService.submit(result).subscribe({
+			next: (response) => {
+				this.isSubmitting = false;
+				if (response.ok) {
+					this.submissionMessage = {
+						type: 'success',
+						text: 'Thank you! Your message has been received. We\'ll be in touch shortly.'
+					};
+					// Optionally reset form
+					this.form.reset();
+					// Scroll to message
+					setTimeout(() => {
+						const messageEl = document.querySelector('[data-message]');
+						messageEl?.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+					}, 300);
+				} else {
+					this.submissionMessage = {
+						type: 'error',
+						text: response.error || 'Failed to submit form. Please try again.'
+					};
+				}
+			},
+			error: (error) => {
+				this.isSubmitting = false;
+				this.submissionMessage = {
+					type: 'error',
+					text: error.message || 'An error occurred. Please try again later.'
+				};
+			}
+		});
 	}
 }
