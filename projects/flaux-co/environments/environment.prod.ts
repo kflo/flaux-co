@@ -1,5 +1,8 @@
 export const environment = {
 	production: true,
+	analytics: {
+		measurementId: 'G-KXL8Y31FB4'
+	},
 	firebaseConfig: {
 		apiKey: "AIzaSyAWn-ISIUCWGbRj9zmr2tFeEXQ8BTi3b8E",
 		authDomain: "flaux-site-prod.firebaseapp.com",

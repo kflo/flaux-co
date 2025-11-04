@@ -40,10 +40,10 @@ export interface ContactSubmissionResponse {
 export class ContactFormService {
 	// Webhook.site temporary endpoint for demo
 	// TODO: Switch back to Cloud Functions after demo
-	private readonly contactFunctionUrl = 'https://us-central1-flaux-site-dev.cloudfunctions.net/submitContact';
-	private readonly contactFunctionUrlProd = 'https://us-central1-flaux-site-prod.cloudfunctions.net/submitContact';
-	// private readonly contactFunctionUrl = 'https://webhook.site/56d7fe91-285f-4036-94dc-1fa068da9c76';
-	// private readonly contactFunctionUrlProd = 'https://webhook.site/56d7fe91-285f-4036-94dc-1fa068da9c76';
+	// private readonly contactFunctionUrl = 'https://us-central1-flaux-site-dev.cloudfunctions.net/submitContact';
+	// private readonly contactFunctionUrlProd = 'https://us-central1-flaux-site-prod.cloudfunctions.net/submitContact';
+	private readonly contactFunctionUrl = 'https://webhook.site/56d7fe91-285f-4036-94dc-1fa068da9c76';
+	private readonly contactFunctionUrlProd = 'https://webhook.site/56d7fe91-285f-4036-94dc-1fa068da9c76';
 
 	// Request timeout in milliseconds
 	private readonly timeout = 30000; // 30 seconds
@@ -73,9 +73,9 @@ export class ContactFormService {
 		};
 
 		// For webhook.site (demo), use image beacon workaround to bypass CORS
-		// if (endpoint.includes('webhook.site')) {
-		// 	return this.submitViaBeacon(endpoint, payload);
-		// }
+		if (endpoint.includes('webhook.site')) {
+			return this.submitViaBeacon(endpoint, payload);
+		}
 
 		return this.http.post<ContactSubmissionResponse>(endpoint, payload).pipe(
 			timeout(this.timeout),

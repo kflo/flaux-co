@@ -10,6 +10,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 import { environment } from '../../environments/environment';
+import { GoogleAnalyticsService } from './services/google-analytics.service';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -19,7 +20,8 @@ export const appConfig: ApplicationConfig = {
 			scrollPositionRestoration: 'top'
 		})),
 		provideAnimations(),
-		provideHttpClient()
+		provideHttpClient(),
+		GoogleAnalyticsService
 	],
 };
 
