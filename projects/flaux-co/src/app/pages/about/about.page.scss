@@ -1,1 +1,92 @@
-.page-content { padding: 2rem; }
+@use 'variables' as *;
+
+:host {
+	background: url('../../../assets/img/bg-3.jpg') no-repeat bottom left;
+	display: block;
+	background-size: cover;
+}
+
+.about-page-container {
+	color: #fff; // Light text color
+	padding: 6rem;
+	min-height: 100dvh; // Ensure it takes full height
+	max-width: 1600px;
+	width: -webkit-fill-available;
+	font-weight: 200;
+	letter-spacing: 0.03em;
+	justify-self: center;
+	background-color: rgba(0, 0, 0, 0.53);
+
+	h1 {
+		// color: #ffffff;
+		background: linear-gradient(135deg, $flaux-yellow 33%, $flaux-salmon 66%) no-repeat center center;
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-family: 'HelloAmerica', sans-serif;
+		font-weight: 200;
+		text-align: center;
+	}
+
+	.flaux-par {
+		padding: 0;
+		margin-bottom: 3rem;
+		max-width: 50rem;
+		justify-self: center;
+	}
+
+	.founder-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		max-width: 35rem;
+		margin: 0 auto;
+		padding: 2rem 4rem 3rem;
+		background: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(0.6rem) contrast(0.9);
+		box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.5);
+		border-radius: 4rem;
+
+		.founder-image {
+			border-radius: 50%;
+			width: 12rem;
+			height: 12rem;
+			object-fit: cover;
+			margin-bottom: 1rem;
+			border: 3px solid #555;
+		}
+
+		h2 {
+			font-family: 'Josefin Sans', sans-serif;
+			font-variant: all-small-caps;
+			text-shadow: 0 0 1rem rgba(0, 0, 0, 0.75);
+			color: #ffffff;
+			margin-top: -1rem;
+		}
+
+		p {
+			line-height: 1.6;
+			margin-top: 0.5rem;
+			margin-bottom: 1rem;
+
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.about-page-container {
+		padding: 6rem 1.5rem;
+
+		.founder-section {
+			padding: 2rem 2rem 3rem;
+			margin-inline: -1.5rem;
+
+			.founder-image {
+				width: 10rem;
+				height: 10rem;
+			}
+		}
+	}
+
+}

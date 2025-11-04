@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -10,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
+import { FooterComponent } from "@app/shared/footer/footer.component";
 
 @Component({
 	selector: 'flaux-contact',
@@ -24,6 +24,7 @@ import { MatSliderModule } from '@angular/material/slider';
 		MatCheckboxModule,
 		MatButtonModule,
 		MatSliderModule,
+		FooterComponent
 	],
 	templateUrl: './contact.page.html',
 	styleUrls: ['./contact.page.scss']
