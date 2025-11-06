@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'animations' as *;
 
 :host {
 	display: block;
@@ -9,27 +10,14 @@
 
 /* ----------------------------------- // ----------------------------------- */
 
-@keyframes hueRotate {
-	0% {
-		filter: hue-rotate(0deg) contrast(.9);
-	}
-
-	50% {
-		filter: hue-rotate(235deg) contrast(.9);
-	}
-
-	100% {
-		filter: hue-rotate(360deg) contrast(.9);
-	}
-}
-
 ::ng-deep {
 	flaux-hls {
-		margin-top: -14rem;
+		margin-top: -14em;
 
 		.video {
 			mask: radial-gradient(circle, black 37%, transparent 66%);
 			animation: hueRotate 12s linear infinite !important;
+			animation-delay: 0s;
 		}
 	}
 }
@@ -52,12 +40,14 @@ flaux-prismatic-burst {
 .content-container {
 	position: relative;
 	z-index: 3;
+	user-select: none;
 	color: white;
-	padding: 9em 3em 3em !important;
+	padding: 15em 3em 3em !important;
 	gap: 5em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	height: -webkit-fill-available;
 
 	.content-txt {
 		flex: 1;
@@ -93,6 +83,13 @@ flaux-prismatic-burst {
 			}
 		}
 
+		flaux-btn {
+			top: 4rem;
+			position: relative;
+			animation: hueRotate 12s linear infinite !important;
+			animation-delay: 0s;
+		}
+
 		.subheading {
 			line-height: 1.66;
 			color: #ccc;
@@ -126,14 +123,30 @@ flaux-prismatic-burst {
 
 @media screen and (max-width: 900px) {
 	.content-container {
-		padding: 12em 2.5em 3em !important;
-		height: -webkit-fill-available;
 		gap: 2em;
 
 		.content-txt {
+			h3 {
+				font-size: 4.5rem;
+			}
+
 			p {
 				text-shadow: 0.05rem 0.05rem 0.33rem black
 			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+
+	.content-container {
+		padding: 12em 2.5em 3em !important;
+
+	}
+
+	.content-txt {
+		h3 {
+			font-size: 3.5rem;
 		}
 	}
 }

@@ -1,10 +1,10 @@
 <flaux-section [height]="'100dvh'">
-	@if (isMobile()) {
+	<!-- @if (isMobile()) { -->
 	<flaux-hls class="video-container"
 				  [style]="{ filter: 'brightness(0.85)' }"
 				  [posterUrl]="posterUrl"
 				  [hlsUrl]="hlsUrl"></flaux-hls>
-	} @else {
+	<!-- } @else {
 	@defer (on viewport) {
 	<flaux-prismatic-burst [intensity]="4"
 								  [speed]="0.5"
@@ -14,18 +14,29 @@
 	} @placeholder {
 	<div class="placeholder-bg"></div>
 	}
-	}
+	} -->
 	<div class="content-container">
 		<div class="content-txt">
 			<h3>Custom @if(isMobile()){<br>}<span class="ai">aI</span> @if(isMobile()){<br>} Solutions</h3>
-			<div class="subheading">
+			<flaux-rotating-text [texts]="questions"
+										[staggerDuration]="35"
+										staggerFrom="first"
+										[rotationInterval]="9000">
+			</flaux-rotating-text>
+			<!-- <div class="subheading">
 				<p>For All The Ways Your @if(isMobile()){<br>}Business <strong><em>Flows</em></strong></p>
-			</div>
+			</div> -->
+			<flaux-btn routerLink="/contact"
+						  [height]="'1.5'"
+						  [backgroundColor]="'blue'">
+				<flaux-fn italicText="ƒlaux"
+							 fnText="LET'S TALK"></flaux-fn>
+			</flaux-btn>
 		</div>
 		<div class="marquee-wrapper">
 			<flaux-icon-marquee [animationSpeed]="80"
-									  [iconSize]="'1.7em'"
-									  [gapSize]="'0.66em'"
+									  [iconSize]="'1.5em'"
+									  [gapSize]="'0.5em'"
 									  [iconFiles]="aiMarqueeFiles">
 			</flaux-icon-marquee>
 		</div>
