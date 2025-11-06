@@ -40,7 +40,7 @@
 	backdrop-filter: blur(3px);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	background: url('../../../assets/img/svgexport-5.svg') no-repeat center center;
-	filter: saturate(0.66);
+	filter: saturate(0.66) hue-rotate(var(--backgroundColor, 40deg));
 	height: var(--height, 3em);
 	align-content: center;
 	transition: all 1.3s ease-in-out;

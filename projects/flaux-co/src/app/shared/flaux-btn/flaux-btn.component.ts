@@ -3,17 +3,47 @@ import { RouterLink } from '@angular/router';
 
 export type FlauxColor = 'highlight' | 'violet' | 'blue3' | 'blue2' | 'blue' | 'purple' | 'pink' | 'yellow' | 'orange' | 'salmon';
 
-const FLAUX_COLORS: Record<FlauxColor, string> = {
-	highlight: '#97deff',
-	violet: '#29319b',
-	blue3: '#143456',
-	blue2: '#2a6eb6',
-	blue: '#2fb2e6',
-	purple: '#9556a2',
-	pink: '#dd569f',
-	yellow: '#fce25d',
-	orange: '#faaf53',
-	salmon: '#f06b86'
+const FLAUX_COLORS: Record<FlauxColor, { hex: string; hue: number }> = {
+	highlight: {
+		hex: '#97deff',
+		hue: 190
+	},
+	violet: {
+		hex: '#29319b',
+		hue: 233
+	},
+	blue3: {
+		hex: '#143456',
+		hue: 207
+	},
+	blue2: {
+		hex: '#2a6eb6',
+		hue: 208
+	},
+	blue: {
+		hex: '#2fb2e6',
+		hue: 195
+	},
+	purple: {
+		hex: '#9556a2',
+		hue: 284
+	},
+	pink: {
+		hex: '#dd569f',
+		hue: 330
+	},
+	yellow: {
+		hex: '#fce25d',
+		hue: 49
+	},
+	orange: {
+		hex: '#faaf53',
+		hue: 35
+	},
+	salmon: {
+		hex: '#f06b86',
+		hue: 344
+	}
 };
 
 @Component({
@@ -24,15 +54,16 @@ const FLAUX_COLORS: Record<FlauxColor, string> = {
 	styleUrl: './flaux-btn.component.scss',
 	host: {
 		'[style.--height]': 'height',
-		'[style.--bg-color]': 'bgColorValue'
+		'[style.--backgroundColor]': 'bgColorValue'
 	}
 })
 export class FlauxBtnComponent {
 	@Input() routerLink?: string;
 	@Input() height: string = '3em';
 	@Input() set backgroundColor(color: FlauxColor) {
-		this.bgColorValue = FLAUX_COLORS[color] || color;
+		const colorValue = FLAUX_COLORS[color];
+		this.bgColorValue = colorValue ? `${colorValue.hue}deg` : '0deg';
 	}
 
-	bgColorValue: string = 'white';
+	bgColorValue: string = '0deg';
 }
