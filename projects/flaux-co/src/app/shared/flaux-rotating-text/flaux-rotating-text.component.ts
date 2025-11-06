@@ -32,9 +32,11 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 	@Input() animationDuration = 500;
 	@Input() animationEasing = 'ease';
 	@Input() letterSpacing = '0.0em';
+	@Input() flashlightDuration = 2500;
 
 	currentTextIndex = signal(0);
 	progressPercent = signal(100);
+	highlightActive = signal(true);
 	private intervalId: any = null;
 	private animationFrameId: any = null;
 	private rotationStartTime = 0;
@@ -129,12 +131,28 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 		return `${delay}ms`;
 	}
 
+	getFlashlightDelay(wordIndex: number, charIndex: number): string {
+		const elements = this.elements();
+		const previousCharsCount = elements
+			.slice(0, wordIndex)
+			.reduce((sum, word) => sum + word.characters.length, 0);
+		const totalChars = elements.reduce((sum, word) => sum + word.characters.length, 0);
+		const index = previousCharsCount + charIndex;
+
+		// Stagger the flashlight effect across all characters
+		const delay = (index / totalChars) * (this.rotationInterval - this.flashlightDuration);
+
+		return `${delay}ms`;
+	}
+
 	private startRotation(): void {
 		this.rotationStartTime = performance.now();
+		this.highlightActive.set(true);
 		this.animateProgress();
 		this.intervalId = setInterval(() => {
 			this.next();
 			this.rotationStartTime = performance.now();
+			this.highlightActive.set(true);
 			this.animateProgress();
 		}, this.rotationInterval);
 	}

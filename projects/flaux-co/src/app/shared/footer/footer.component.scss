@@ -69,6 +69,22 @@ footer {
 				// font-style: italic;
 			}
 		}
+
+		.social-icons {
+			display: flex;
+			gap: 0.75rem;
+			margin-top: 0.25rem;
+
+			.social-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+
+				&:hover img {
+					filter: brightness(1.3);
+				}
+			}
+		}
 	}
 
 	p {

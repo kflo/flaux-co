@@ -12,10 +12,14 @@
 
 			<span *ngFor="let char of wordObj.characters; let charIndex = index"
 					class="element"
+					[class.highlight]="highlightActive()"
+					[attr.data-char]="char"
 					[style.animation-delay]="getStaggerDelay(wordIndex, charIndex)"
 					[style.animation-duration.ms]="animationDuration"
 					[style.animation-timing-function]="animationEasing"
-					[style.letter-spacing]="letterSpacing">
+					[style.letter-spacing]="letterSpacing"
+					[style.--flashlight-duration.ms]="flashlightDuration"
+					[style.--flashlight-delay]="getFlashlightDelay(wordIndex, charIndex)">
 				{{ char }}
 			</span>
 		</span>
