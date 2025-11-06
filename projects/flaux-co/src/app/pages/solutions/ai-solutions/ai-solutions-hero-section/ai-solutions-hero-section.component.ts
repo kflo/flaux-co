@@ -6,13 +6,13 @@ import {FlauxFnComponent} from '@app/shared/fn/fn.component';
 import {HlsComponent} from '@app/shared/hls/hls.component';
 // import {FlauxBgVideoComponent} from '@app/shared/flaux-bg-video/flaux-bg-video.component';
 import {IconMarqueeComponent} from '@app/shared/icon-marquee';
-import {PrismaticBurstComponent} from '@app/shared/prismatic-burst/prismatic-burst.component';
+// import {PrismaticBurstComponent} from '@app/shared/prismatic-burst/prismatic-burst.component';
 import {FlauxSectionComponent} from '@app/shared/section/section.component';
 import {environment} from 'projects/flaux-co/environments/environment';
 
 @Component({
 	selector: 'ai-solutions-hero-section',
-	imports: [FlauxSectionComponent, IconMarqueeComponent, PrismaticBurstComponent, HlsComponent, FlauxRotatingTextComponent, FlauxBtnComponent, FlauxFnComponent],
+	imports: [FlauxSectionComponent, IconMarqueeComponent, HlsComponent, FlauxRotatingTextComponent, FlauxBtnComponent, FlauxFnComponent],
 	templateUrl: './ai-solutions-hero-section.component.html',
 	styleUrl: './ai-solutions-hero-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
