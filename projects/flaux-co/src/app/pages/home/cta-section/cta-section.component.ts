@@ -40,5 +40,5 @@ export class CtaSectionComponent {
 		'Is your competition using AI to build a competitive moat you won\'t be able to cross?',
 		'Are you making strategic decisions based on last quarter\'s data or real-time intelligence?',
 		'In two years, will you have an AI strategy, or will you be struggling to compete with those who do?'
-	]
+	];
 }

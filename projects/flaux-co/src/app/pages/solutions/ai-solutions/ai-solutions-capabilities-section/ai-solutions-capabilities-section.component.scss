@@ -244,7 +244,7 @@
 	.chat-agents {
 		img {
 			position: absolute !important;
-			width: 50% !important;
+			width: 50%;
 		}
 	}
 
@@ -287,7 +287,7 @@
 
 		.chat-agents {
 			img {
-				width: 50% !important;
+				width: 47%;
 			}
 		}
 
@@ -317,6 +317,15 @@
 		margin-right: -2rem;
 		margin-bottom: -2rem;
 	}
+}
+
+@media screen and (max-width: 768px) {
+	.chat-agents {
+		img {
+			width: 51% !important;
+		}
+	}
+
 }
 
 @media screen and (min-width: 1800px) {
