@@ -42,7 +42,7 @@ flaux-prismatic-burst {
 	z-index: 3;
 	user-select: none;
 	color: white;
-	padding: 15em 3em 3em !important;
+	padding: 3em !important;
 	gap: 5em;
 	display: flex;
 	flex-direction: column;
@@ -56,6 +56,7 @@ flaux-prismatic-burst {
 		z-index: 1;
 		color: rgba(255, 255, 255, 0.6);
 		text-align: center;
+		align-content: space-around;
 		bottom: 0;
 
 		h3 {
