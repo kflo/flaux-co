@@ -1,4 +1,40 @@
 <div class="page-content">
-  <h1>Dashboard</h1>
-  <p>Dashboard page works!</p>
+	<div class="dashboard-header">
+		<h1>Welcome, {{ authService.user()?.displayName || 'User' }}!</h1>
+
+		<div class="profile-section">
+			<button mat-icon-button
+					  [matMenuTriggerFor]="profileMenu"
+					  class="avatar-button">
+				<img [src]="getAvatarUrl()"
+					  [alt]="authService.user()?.displayName || 'User avatar'"
+					  class="avatar">
+			</button>
+
+			<mat-menu #profileMenu="matMenu">
+				<button mat-menu-item>
+					<mat-icon>person</mat-icon>
+					<span>Profile</span>
+				</button>
+				<button mat-menu-item>
+					<mat-icon>settings</mat-icon>
+					<span>Settings</span>
+				</button>
+				<button mat-menu-item>
+					<mat-icon>receipt_long</mat-icon>
+					<span>Billing</span>
+				</button>
+				<mat-divider></mat-divider>
+				<button mat-menu-item
+						  (click)="logout()">
+					<mat-icon>logout</mat-icon>
+					<span>Logout</span>
+				</button>
+			</mat-menu>
+		</div>
+	</div>
+
+	<div class="dashboard-content">
+		<p>Your dashboard content goes here.</p>
+	</div>
 </div>

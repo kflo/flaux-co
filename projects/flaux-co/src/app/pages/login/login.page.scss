@@ -32,5 +32,10 @@
 	color: #eee;
 	font-family: 'Sen', sans-serif;
 	gap: 1em;
+}
 
+#googleLogin {
+	mat-icon {
+		margin-top: 0.3em;
+	}
 }

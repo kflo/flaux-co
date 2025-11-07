@@ -46,6 +46,10 @@
 							"base": "dist/flaux-co",
 							"browser": ""
 						},
+						"index": "projects/flaux-co/src/index.html",
+						"polyfills": [
+							"zone.js"
+						],
 						"assets": [
 							{
 								"glob": "**/*",

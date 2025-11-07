@@ -8,6 +8,7 @@
 						 type="text"
 						 id="username"
 						 name="username"
+						 autocomplete="username"
 						 required>
 			</mat-form-field>
 
@@ -17,6 +18,7 @@
 						 type="password"
 						 id="password"
 						 name="password"
+						 autocomplete="current-password"
 						 required>
 			</mat-form-field>
 
@@ -24,6 +26,13 @@
 			<button matButton="filled"
 					  color="accent"
 					  type="submit">Login</button>
+			<button id="googleLogin"
+					  matSuffix
+					  matButton="elevated"
+					  (click)="loginWithGoogle()">
+				<mat-icon svgIcon="google"></mat-icon>
+				Sign in with Google
+			</button>
 		</form>
 	</div>
 </flaux-section>
