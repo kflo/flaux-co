@@ -4,12 +4,11 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
-import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
 
 @Component({
 	selector: 'flaux-dashboard',
 	standalone: true,
-	imports: [MatMenuModule, MatButtonModule, MatIconModule, MatDividerModule, FlauxSectionComponent],
+	imports: [MatMenuModule, MatButtonModule, MatIconModule, MatDividerModule],
 	templateUrl: './dashboard.page.html',
 	styleUrls: ['./dashboard.page.scss']
 })
