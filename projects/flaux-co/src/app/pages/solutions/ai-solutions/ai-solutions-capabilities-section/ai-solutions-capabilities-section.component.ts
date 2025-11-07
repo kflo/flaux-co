@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FlauxSectionComponent } from "@app/shared/section/section.component";
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FlauxSectionComponent} from "@app/shared/flaux-section/flaux-section.component";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {UxService} from '@app/services/ux.service';
 

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FlauxBgVideoComponent} from '@app/shared/flaux-bg-video/flaux-bg-video.component';
-import { FlauxSectionComponent } from '@app/shared/section/section.component';
+import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
 
 @Component({
 	selector: 'all-in-one-section',

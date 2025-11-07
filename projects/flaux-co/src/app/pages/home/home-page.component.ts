@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { HeroSectionComponent } from './hero-section/hero-section.component';
+import {Component, OnInit} from '@angular/core';
+import {HeroSectionComponent} from './hero-section/hero-section.component';
 import {TrunksSectionComponent} from './trunks-section/trunks-section.component';
 import {FooterComponent} from '@app/shared/footer/footer.component';
-import { SeoService } from '@app/shared/seo/seo.service';
+import {SeoService} from '@app/services/seo.service';
 
 @Component({
 	selector: 'home-page',
@@ -16,7 +16,7 @@ import { SeoService } from '@app/shared/seo/seo.service';
 	],
 })
 export class FlauxHomePageComponent implements OnInit {
-	constructor(private readonly seo: SeoService) {}
+	constructor (private readonly seo: SeoService) { }
 
 	ngOnInit(): void {
 		this.seo.update({

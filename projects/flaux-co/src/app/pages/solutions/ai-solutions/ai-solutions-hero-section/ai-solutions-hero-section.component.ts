@@ -1,13 +1,13 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {UxService} from '@app/services/ux.service';
 import {FlauxBtnComponent} from '@app/shared/flaux-btn/flaux-btn.component';
 import {FlauxRotatingTextComponent} from '@app/shared/flaux-rotating-text/flaux-rotating-text.component';
-import {FlauxFnComponent} from '@app/shared/fn/fn.component';
-import {HlsComponent} from '@app/shared/hls/hls.component';
+import {FlauxFnComponent} from '@app/shared/flaux-fn/flaux-fn.component';
+import {HlsComponent} from '@app/shared/flaux-hls/flaux-hls.component';
 // import {FlauxBgVideoComponent} from '@app/shared/flaux-bg-video/flaux-bg-video.component';
 import {IconMarqueeComponent} from '@app/shared/icon-marquee';
 // import {PrismaticBurstComponent} from '@app/shared/prismatic-burst/prismatic-burst.component';
-import {FlauxSectionComponent} from '@app/shared/section/section.component';
+import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
 import {environment} from 'projects/flaux-co/environments/environment';
 
 @Component({

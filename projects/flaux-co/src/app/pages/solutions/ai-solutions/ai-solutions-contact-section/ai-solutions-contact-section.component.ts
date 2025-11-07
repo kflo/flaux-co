@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FlauxSectionComponent } from "@app/shared/section/section.component";
-import { FormsModule } from '@angular/forms';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {FlauxSectionComponent} from "@app/shared/flaux-section/flaux-section.component";
+import {FormsModule} from '@angular/forms';
 
 @Component({
 	selector: 'ai-solutions-contact-section',

@@ -1,9 +1,9 @@
-import { Component, inject } from '@angular/core';
-import { FlauxFnComponent } from '@app/shared/fn/fn.component';
-import { HlsComponent } from '@app/shared/hls/hls.component';
-import { environment } from '../../../../../environments/environment';
-import { FlauxSectionComponent } from '@app/shared/section/section.component';
-import { UxService } from '@app/services/ux.service';
+import {Component, inject} from '@angular/core';
+import {FlauxFnComponent} from '@app/shared/flaux-fn/flaux-fn.component';
+import {HlsComponent} from '@app/shared/flaux-hls/flaux-hls.component';
+import {environment} from '../../../../../environments/environment';
+import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
+import {UxService} from '@app/services/ux.service';
 
 @Component({
 	selector: 'hero-section',

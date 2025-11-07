@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { FlauxSectionComponent } from '@app/shared/section/section.component';
-import { FlauxLottieComponent } from '@app/shared/flaux-lottie/flaux-lottie.component';
-import { FlauxBtnComponent } from '@app/shared/flaux-btn/flaux-btn.component';
-import {FlauxFnComponent} from '@app/shared/fn/fn.component';
+import {Component} from '@angular/core';
+import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
+import {FlauxLottieComponent} from '@app/shared/flaux-lottie/flaux-lottie.component';
+import {FlauxBtnComponent} from '@app/shared/flaux-btn/flaux-btn.component';
+import {FlauxFnComponent} from '@app/shared/flaux-fn/flaux-fn.component';
 import {FlauxRotatingTextComponent} from '@app/shared/flaux-rotating-text/flaux-rotating-text.component';
 
 @Component({
@@ -15,7 +15,7 @@ import {FlauxRotatingTextComponent} from '@app/shared/flaux-rotating-text/flaux-
 export class CtaSectionComponent {
 
 	scrollFilterFn = (visible: number) => {
-		console.debug({ visible });
+		console.debug({visible});
 		return `hue-rotate(${visible * 180}deg) invert(${visible})`;
 	};
 

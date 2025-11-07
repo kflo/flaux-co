@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FlauxSectionComponent } from "@app/shared/section/section.component";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {FlauxSectionComponent} from "@app/shared/flaux-section/flaux-section.component";
 
 @Component({
 	selector: 'privacy-confirmed-section',

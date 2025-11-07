@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {FlauxSectionComponent} from "@app/shared/section/section.component";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {FlauxSectionComponent} from "@app/shared/flaux-section/flaux-section.component";
 import {FlauxQuoteHighlightComponent} from '@app/shared/quote-highlight/quote-highlight.component';
 import {FlauxQuoteCarouselComponent} from '@app/shared/quote-carousel/quote-carousel.component';
 import {QUOTES, QuoteItem} from './quotes.data';

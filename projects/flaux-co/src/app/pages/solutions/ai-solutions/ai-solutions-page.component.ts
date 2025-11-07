@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {PrivacyConfirmedSectionComponent} from '../agency-solutions/privacy-confirmed-section/privacy-confirmed-section.component';
-import { AiSolutionsHeroSectionComponent } from "./ai-solutions-hero-section/ai-solutions-hero-section.component";
+import {AiSolutionsHeroSectionComponent} from "./ai-solutions-hero-section/ai-solutions-hero-section.component";
 import {AiSolutionsCapabilitiesSection} from './ai-solutions-capabilities-section/ai-solutions-capabilities-section.component';
-import { CtaSectionComponent } from "@app/pages/home/cta-section/cta-section.component";
-import { FooterComponent } from "@app/shared/footer/footer.component";
-import { SeoService } from '@app/shared/seo/seo.service';
+import {CtaSectionComponent} from "@app/pages/home/cta-section/cta-section.component";
+import {FooterComponent} from "@app/shared/footer/footer.component";
+import {SeoService} from '@app/services/seo.service';
 
 @Component({
 	selector: 'ai-solutions-page',
@@ -15,7 +15,7 @@ import { SeoService } from '@app/shared/seo/seo.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AiSolutionsPageComponent implements OnInit {
-	constructor(private readonly seo: SeoService) {}
+	constructor (private readonly seo: SeoService) { }
 
 	ngOnInit(): void {
 		this.seo.update({

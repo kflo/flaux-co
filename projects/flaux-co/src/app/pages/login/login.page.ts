@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { FlauxSectionComponent } from "@app/shared/section/section.component";
+import {Component} from '@angular/core';
+import {FlauxSectionComponent} from "@app/shared/flaux-section/flaux-section.component";
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { FooterComponent } from "@app/shared/footer/footer.component";
+import {FooterComponent} from "@app/shared/footer/footer.component";
 
 @Component({
 	selector: 'flaux-login',
@@ -12,4 +12,4 @@ import { FooterComponent } from "@app/shared/footer/footer.component";
 	styleUrls: ['./login.page.scss'],
 	imports: [FlauxSectionComponent, MatButtonModule, ReactiveFormsModule, FormsModule, MatInputModule, FooterComponent]
 })
-export class LoginPage {}
+export class LoginPage { }

@@ -1,16 +1,16 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {Component, inject} from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
-import { FlauxSectionComponent } from '@app/shared/section/section.component';
-import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSliderModule } from '@angular/material/slider';
-import { FooterComponent } from "@app/shared/footer/footer.component";
-import { ContactFormService } from '@app/services/contact-form.service';
+import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
+import {CommonModule} from '@angular/common';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSliderModule} from '@angular/material/slider';
+import {FooterComponent} from "@app/shared/footer/footer.component";
+import {ContactFormService} from '@app/services/contact-form.service';
 
 @Component({
 	selector: 'flaux-contact',
@@ -42,7 +42,7 @@ export class ContactPage {
 			text: ''
 		};
 
-	constructor(private fb: FormBuilder) {
+	constructor (private fb: FormBuilder) {
 		this.form = this.createForm();
 	}
 
@@ -54,7 +54,7 @@ export class ContactPage {
 			prefersEmail: [false],
 			prefersPhone: [false],
 			prefersSms: [false],
-			company: ['', ],
+			company: ['',],
 			projectType: [[]],
 			budgetIndex: [0],
 			timelineIndex: [0],

@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {FlauxSectionComponent} from '@app/shared/section/section.component';
-import { CarouselItem, FlauxCarouselComponent } from "@app/shared/flaux-carousel/flaux-carousel.component";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
+import {CarouselItem, FlauxCarouselComponent} from "@app/shared/flaux-carousel/flaux-carousel.component";
 import {environment} from 'projects/flaux-co/environments/environment';
 
 @Component({
