@@ -2,7 +2,7 @@
 
 :host {
 	display: flex;
-	width: inherit;
+	width: -webkit-fill-available;
 	height: inherit;
 	background-color: rgba(0, 0, 0, 0.5);
 	max-width: 1600px;
