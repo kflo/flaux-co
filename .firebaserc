@@ -1,9 +1,10 @@
 {
-	"projects": {
-		"dev": "flaux-site-dev",
-		"stg": "flaux-site-stg",
-		"prod": "flaux-site-prod"
-	},
-	"targets": {},
-	"etags": {}
+  "projects": {
+    "dev": "flaux-site-dev",
+    "stg": "flaux-site-stg",
+    "prod": "flaux-site-prod",
+    "default": "flaux-site-dev"
+  },
+  "targets": {},
+  "etags": {}
 }

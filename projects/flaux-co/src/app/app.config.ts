@@ -1,5 +1,6 @@
 /* -------------------------------- FIREBASE -------------------------------- */
 import {initializeApp} from 'firebase/app';
+import {getAuth, connectAuthEmulator} from 'firebase/auth';
 
 /* ----------------------------------- // ----------------------------------- */
 import {ApplicationConfig, inject, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection, provideAppInitializer} from '@angular/core';
@@ -13,7 +14,14 @@ import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 
 // Initialize Firebase
-initializeApp(environment.firebaseConfig);
+const app = initializeApp(environment.firebaseConfig);
+
+// Connect to emulators in development
+if (environment.useEmulators) {
+	const auth = getAuth(app);
+	connectAuthEmulator(auth, 'http://localhost:9099', {disableWarnings: true});
+	console.log('🔥 Connected to Firebase Auth Emulator');
+}
 
 export const appConfig: ApplicationConfig = {
 	providers: [

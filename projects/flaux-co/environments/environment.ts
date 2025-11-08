@@ -1,11 +1,12 @@
 export const environment = {
 	production: false,
+	useEmulators: true, // Enable Firebase emulators for local dev
 	analytics: {
 		measurementId: 'G-SKKXK0E1EK'
 	},
 	firebaseConfig: {
 		apiKey: "AIzaSyAMnZuSnnvl6XVEadl5aRzrYJS3mn1KX8U",
-		authDomain: "flaux-site-dev.firebaseapp.com",
+		authDomain: "localhost",
 		projectId: "flaux-site-dev",
 		storageBucket: "flaux-site-dev.firebasestorage.app",
 		messagingSenderId: "710730588618",

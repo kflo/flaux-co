@@ -1,3 +1,8 @@
+@if (globalLoading()) {
+<div class="loading-wrapper">
+	<mat-spinner></mat-spinner>
+</div>
+}
 @if (!isDashboard()) {
 <flaux-navbar></flaux-navbar>
 <flaux-nav-menu></flaux-nav-menu>
@@ -5,5 +10,3 @@
 <div class="router-wrapper">
 	<router-outlet></router-outlet>
 </div>
-<!-- <flaux-bg></flaux-bg> -->
-<!-- <flaux-bg2></flaux-bg2> -->
