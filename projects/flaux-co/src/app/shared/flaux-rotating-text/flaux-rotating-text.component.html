@@ -1,7 +1,7 @@
 <span class="sr-only">{{ currentText }}</span>
 
 <div class="container"
-	  (mouseenter)="onHover()">
+	  (click)="onManualAdvance()">
 	<span class="words-wrapper"
 			*ngIf="currentTextIndex() >= 0"
 			[class.lines]="isLines"

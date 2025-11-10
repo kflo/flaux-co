@@ -97,7 +97,11 @@ export class AiSolutionsHeroSectionComponent {
 		'What if your most valuable employee wasn\'t a person, but an autonomous AI agent?',
 		'Is your competition using AI to build a competitive moat you won\'t be able to cross?',
 		'Are you making strategic decisions based on last quarter\'s data or real-time intelligence?',
-		'In two years, will you have an AI strategy, or will you be struggling to compete with those who do?'
+		'In two years, will you have an AI strategy, or will you be struggling to compete with those who do?',
+		'How much more could your business achieve if your tools actually talked to each other?',
+		'Could your customer support be available 24/7 without increasing headcount?',
+		'Are you leveraging AI to not just meet, but exceed customer expectations at every touchpoint?',
+		'How much more innovative could your product development be with AI-driven insights?',
 	];
 
 	isMobile = inject(UxService).isMobile;

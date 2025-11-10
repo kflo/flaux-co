@@ -20,4 +20,16 @@ export class HeroSectionComponent {
 
 	readonly isMobile = this.uxService.isMobile;
 	readonly webLandscape = this.uxService.webLandscape;
+
+	scrollDown(): void {
+		const nextSection = document.querySelector('hero-section')?.nextElementSibling;
+		if (nextSection) {
+			nextSection.scrollIntoView({behavior: 'smooth'});
+		} else {
+			window.scrollBy({
+				top: window.innerHeight,
+				behavior: 'smooth'
+			});
+		}
+	}
 }

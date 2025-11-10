@@ -8,16 +8,77 @@
 @use '_theme-colors' as colors;
 
 /* -------------------------------------------------------------------------- */
+/*                              CASCADE LAYERS                                */
+/* -------------------------------------------------------------------------- */
+
+/* Define layer order - unlayered styles (webchat) have LOWEST priority */
+/* Layered styles always win over unlayered, in the order declared below */
+@layer material, material-overrides;
+
+/* -------------------------------------------------------------------------- */
 /*                                   THEMING                                  */
 /* -------------------------------------------------------------------------- */
 
-html {
-	@include mat.theme((color: (primary: colors.$primary-palette,
-				// secondary: colors.$secondary-palette,
-				tertiary: colors.$tertiary-palette,
-			),
-			density: 0,
-		));
+@layer material {
+	html {
+		@include mat.theme((color: (primary: colors.$primary-palette,
+					// secondary: colors.$secondary-palette,
+					tertiary: colors.$tertiary-palette,
+				),
+				density: 0,
+			));
+	}
+}
+
+@layer material-overrides {
+
+
+	/* Force Material components to use proper borders and backgrounds */
+	/* This counters the webchat widget's aggressive !important overrides */
+	mat-form-field .mdc-text-field__input {
+		border: initial !important;
+		background-color: initial !important;
+		color: initial !important;
+	}
+
+	.mdc-label {
+		color: #ddd !important;
+	}
+
+	.mdc-checkbox {
+		* {
+			--mat-checkbox-unselected-focus-icon-color: initial !important;
+			--mat-checkbox-unselected-hover-icon-color: initial !important;
+			--mat-checkbox-unselected-icon-color: initial !important;
+			--mat-sys-on-surface: initial !important;
+			--mat-sys-on-surface-variant: light-dark(#111, #ccc) !important;
+		}
+
+		// border-color: #ccc !important;
+	}
+
+	// Force dark theme colors to override third-party widget styles
+	mat-form-field {
+		--mat-form-field-outlined-outline-color: initial !important;
+		--mat-form-field-outlined-hover-outline-color: initial !important;
+		--mat-form-field-outlined-focus-outline-color: initial !important;
+		--mat-form-field-outlined-label-text-color: initial !important;
+		--mat-form-field-outlined-input-text-color: initial !important;
+
+		--mat-select-enabled-trigger-text-color: initial !important;
+
+
+		--mat-sys-on-surface: initial !important;
+		--mat-sys-on-surface-variant: initial !important;
+		--mdc-filled-text-field-input-text-placeholder-color: initial !important;
+
+		--mat-form-field-outlined-focus-label-text-color: initial !important;
+		--mat-form-field-outlined-hover-label-text-color: initial !important;
+		--mat-form-field-outlined-input-text-placeholder-color: #888 !important;
+		--mat-form-field-outlined-error-label-text-color: initial !important;
+		--mat-form-field-outlined-error-label-text-color: initial !important;
+
+	}
 }
 
 /* -------------------------------------------------------------------------- */
@@ -28,7 +89,7 @@ body {
 	// Default the application to a light color theme. This can be changed to
 	// `dark` to enable the dark color theme, or to `light dark` to defer to the
 	// user's system settings.
-	color-scheme: light;
+	color-scheme: dark;
 
 	// Set a default background, font and text colors for the application using
 	// Angular Material's system-level CSS variables. Learn more about these
@@ -72,7 +133,6 @@ html, body {
 	font-family: 'Raleway', sans-serif;
 	line-height: 1.5;
 	background: var(--background-color);
-	color: #111;
 	scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 

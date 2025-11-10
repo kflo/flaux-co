@@ -8,7 +8,7 @@ import {
 	signal,
 	computed
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 
 export type StaggerFrom = 'first' | 'last' | 'center' | 'random' | number;
 export type SplitBy = 'characters' | 'words' | 'lines' | string;
@@ -40,6 +40,8 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 	private intervalId: any = null;
 	private animationFrameId: any = null;
 	private rotationStartTime = 0;
+	private shuffledIndices: number[] = [];
+	private currentShufflePosition = 0;
 
 	elements = computed(() => {
 		const currentText = this.texts[this.currentTextIndex()];
@@ -85,10 +87,11 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 		return this.splitBy === 'lines';
 	}
 
-	constructor(private cdr: ChangeDetectorRef) {}
+	constructor (private cdr: ChangeDetectorRef) { }
 
 	ngOnInit(): void {
 		if (this.auto && this.texts.length > 1) {
+			this.initializeShuffledIndices();
 			this.startRotation();
 		}
 	}
@@ -99,7 +102,7 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 
 	private splitIntoCharacters(text: string): string[] {
 		if (typeof Intl !== 'undefined' && Intl.Segmenter) {
-			const segmenter = new Intl.Segmenter('en', { granularity: 'grapheme' });
+			const segmenter = new Intl.Segmenter('en', {granularity: 'grapheme'});
 			return Array.from(segmenter.segment(text), segment => segment.segment);
 		}
 		return Array.from(text);
@@ -145,6 +148,20 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 		return `${delay}ms`;
 	}
 
+	private initializeShuffledIndices(): void {
+		this.shuffledIndices = Array.from({length: this.texts.length}, (_, i) => i);
+		this.shuffleArray(this.shuffledIndices);
+		this.currentShufflePosition = 0;
+	}
+
+	private shuffleArray(array: number[]): void {
+		// Fisher-Yates shuffle algorithm
+		for (let i = array.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[array[i], array[j]] = [array[j], array[i]];
+		}
+	}
+
 	private startRotation(): void {
 		this.rotationStartTime = performance.now();
 		this.highlightActive.set(true);
@@ -185,14 +202,22 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 	next(): void {
 		if (this.texts.length === 0) return;
 
-		// Pick a random index different from current one
-		let nextIndex = Math.floor(Math.random() * this.texts.length);
-
-		// Ensure we don't pick the same text twice in a row
-		while (nextIndex === this.currentTextIndex() && this.texts.length > 1) {
-			nextIndex = Math.floor(Math.random() * this.texts.length);
+		if (this.texts.length === 1) {
+			this.currentTextIndex.set(0);
+			this.cdr.markForCheck();
+			return;
 		}
 
+		// Move to next position in shuffled array
+		this.currentShufflePosition++;
+
+		// If we've shown all items, reshuffle and start over
+		if (this.currentShufflePosition >= this.shuffledIndices.length) {
+			this.shuffleArray(this.shuffledIndices);
+			this.currentShufflePosition = 0;
+		}
+
+		const nextIndex = this.shuffledIndices[this.currentShufflePosition];
 		this.currentTextIndex.set(nextIndex);
 		this.cdr.markForCheck();
 	}
@@ -223,7 +248,11 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	onHover(): void {
+	onManualAdvance(): void {
+		// Initialize shuffled indices if not already done
+		if (this.shuffledIndices.length === 0) {
+			this.initializeShuffledIndices();
+		}
 		// Stop auto-rotation temporarily
 		this.stopRotation();
 		// Advance to next text
