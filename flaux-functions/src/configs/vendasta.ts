@@ -1,4 +1,4 @@
-import {defineString, defineSecret} from "firebase-functions/params";
+import { defineString, defineSecret } from "firebase-functions/params";
 
 /**
  * Vendasta OAuth configuration
@@ -11,6 +11,9 @@ export const APP_BASE_URL = defineString("APP_BASE_URL", {
 	default: "https://flaux-site-dev.web.app",
 });
 export const VENDASTA_CLIENT_SECRET = defineSecret("VENDASTA_CLIENT_SECRET");
+export const VENDASTA_API_BASE_URL = defineString("VENDASTA_API_BASE_URL", {
+	default: "https://prod.apigateway.co/",
+});
 
 export function getVendastaConfig() {
 	return {

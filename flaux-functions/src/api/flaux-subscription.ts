@@ -3,7 +3,7 @@
  * Flaux subscription management API endpoints
  */
 
-import {onRequest} from "firebase-functions/v2/https";
+import { onRequest } from "firebase-functions/v2/https";
 import {
 	createSubscription, fetchSubscription, fetchUserActiveSubscriptions, updateSubscriptionStatus, cancelSubscriptionAtPeriodEnd,
 } from "../models/flaux/subscription";
@@ -17,7 +17,7 @@ export const createFlauxSubscriptionEndpoint = onRequest({
 }, async (req, res) => {
 	try {
 		if (req.method !== "POST") {
-			res.status(405).json({error: "Method not allowed"});
+			res.status(405).json({ error: "Method not allowed" });
 			return;
 		}
 
@@ -33,7 +33,7 @@ export const createFlauxSubscriptionEndpoint = onRequest({
 		} = req.body;
 
 		if (!userId || !productId || !interval || !amount || !paymentMethod) {
-			res.status(400).json({error: "Required fields: userId, productId, interval, amount, paymentMethod"});
+			res.status(400).json({ error: "Required fields: userId, productId, interval, amount, paymentMethod" });
 			return;
 		}
 
@@ -54,7 +54,7 @@ export const createFlauxSubscriptionEndpoint = onRequest({
 		res.status(201).json(subscription);
 	} catch (error) {
 		console.error("Error creating Flaux subscription:", error);
-		res.status(500).json({error: "Failed to create subscription"});
+		res.status(500).json({ error: "Failed to create subscription" });
 	}
 });
 
@@ -67,28 +67,28 @@ export const getFlauxSubscriptionEndpoint = onRequest({
 }, async (req, res) => {
 	try {
 		if (req.method !== "GET") {
-			res.status(405).json({error: "Method not allowed"});
+			res.status(405).json({ error: "Method not allowed" });
 			return;
 		}
 
 		const subscriptionId = req.query.subscriptionId as string;
 
 		if (!subscriptionId) {
-			res.status(400).json({error: "Subscription ID is required"});
+			res.status(400).json({ error: "Subscription ID is required" });
 			return;
 		}
 
 		const subscription = await fetchSubscription(subscriptionId);
 
 		if (!subscription) {
-			res.status(404).json({error: "Subscription not found"});
+			res.status(404).json({ error: "Subscription not found" });
 			return;
 		}
 
 		res.json(subscription);
 	} catch (error) {
 		console.error("Error getting Flaux subscription:", error);
-		res.status(500).json({error: "Failed to get subscription"});
+		res.status(500).json({ error: "Failed to get subscription" });
 	}
 });
 
@@ -101,14 +101,14 @@ export const getUserFlauxSubscriptionsEndpoint = onRequest({
 }, async (req, res) => {
 	try {
 		if (req.method !== "GET") {
-			res.status(405).json({error: "Method not allowed"});
+			res.status(405).json({ error: "Method not allowed" });
 			return;
 		}
 
 		const userId = req.query.userId as string;
 
 		if (!userId) {
-			res.status(400).json({error: "User ID is required"});
+			res.status(400).json({ error: "User ID is required" });
 			return;
 		}
 
@@ -116,7 +116,7 @@ export const getUserFlauxSubscriptionsEndpoint = onRequest({
 		res.json(subscriptions);
 	} catch (error) {
 		console.error("Error getting user Flaux subscriptions:", error);
-		res.status(500).json({error: "Failed to get user subscriptions"});
+		res.status(500).json({ error: "Failed to get user subscriptions" });
 	}
 });
 
@@ -129,22 +129,22 @@ export const cancelFlauxSubscriptionEndpoint = onRequest({
 }, async (req, res) => {
 	try {
 		if (req.method !== "PUT") {
-			res.status(405).json({error: "Method not allowed"});
+			res.status(405).json({ error: "Method not allowed" });
 			return;
 		}
 
-		const {subscriptionId} = req.body;
+		const { subscriptionId } = req.body;
 
 		if (!subscriptionId) {
-			res.status(400).json({error: "Subscription ID is required"});
+			res.status(400).json({ error: "Subscription ID is required" });
 			return;
 		}
 
 		await cancelSubscriptionAtPeriodEnd(subscriptionId);
-		res.json({success: true, message: "Subscription will be cancelled at period end"});
+		res.json({ success: true, message: "Subscription will be cancelled at period end" });
 	} catch (error) {
 		console.error("Error cancelling Flaux subscription:", error);
-		res.status(500).json({error: "Failed to cancel subscription"});
+		res.status(500).json({ error: "Failed to cancel subscription" });
 	}
 });
 
@@ -157,21 +157,21 @@ export const updateFlauxSubscriptionStatusEndpoint = onRequest({
 }, async (req, res) => {
 	try {
 		if (req.method !== "PUT") {
-			res.status(405).json({error: "Method not allowed"});
+			res.status(405).json({ error: "Method not allowed" });
 			return;
 		}
 
-		const {subscriptionId, status} = req.body;
+		const { subscriptionId, status } = req.body;
 
 		if (!subscriptionId || !status) {
-			res.status(400).json({error: "Subscription ID and status are required"});
+			res.status(400).json({ error: "Subscription ID and status are required" });
 			return;
 		}
 
 		await updateSubscriptionStatus(subscriptionId, status);
-		res.json({success: true, message: "Subscription status updated"});
+		res.json({ success: true, message: "Subscription status updated" });
 	} catch (error) {
 		console.error("Error updating Flaux subscription status:", error);
-		res.status(500).json({error: "Failed to update subscription status"});
+		res.status(500).json({ error: "Failed to update subscription status" });
 	}
 });

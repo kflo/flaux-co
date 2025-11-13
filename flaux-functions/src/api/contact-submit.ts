@@ -1,9 +1,7 @@
-import {
-	onRequest, HttpsError,
-} from "firebase-functions/v2/https";
-import {VENDASTA_SERVICE_ACCOUNT_JSON} from "../configs/vendasta-service-account";
-import {VendastaServiceAccountTokenManager} from "../auth/vendasta-service-account";
-import {db} from "../utils/firebase";
+import { onRequest, HttpsError } from "firebase-functions/v2/https";
+import { VENDASTA_SERVICE_ACCOUNT_JSON } from "../configs/vendasta-service-account";
+import { VendastaServiceAccountTokenManager } from "../auth/vendasta-service-account";
+import { db } from "../utils/firebase";
 
 // Configure CORS allowlist for your site(s)
 const ALLOWED_ORIGINS = new Set([
@@ -47,7 +45,7 @@ export const submitContact = onRequest({
 	}
 
 	if (req.method !== "POST") {
-		res.status(405).json({error: "Method not allowed"});
+		res.status(405).json({ error: "Method not allowed" });
 		return;
 	}
 
@@ -84,10 +82,10 @@ export const submitContact = onRequest({
 			source: "flaux.co/contact",
 		};
 
-		// Create simple idempotency key for the day
-		const today = new Date();
-		const dayKey = `${today.getUTCFullYear()}-${today.getUTCMonth()+1}-${today.getUTCDate()}`;
-		const idemKey = cryptoHash(`${email}|${phone}|${dayKey}`);
+		// Create simple idempotency key for the day (for future use with Vendasta idempotency headers)
+		// const today = new Date();
+		// const dayKey = `${today.getUTCFullYear()}-${today.getUTCMonth()+1}-${today.getUTCDate()}`;
+		// const idemKey = cryptoHash(`${email}|${phone}|${dayKey}`);
 
 		const resp = await fetch(VENDASTA_CONTACTS_URL, {
 			method: "POST",
@@ -136,23 +134,11 @@ export const submitContact = onRequest({
 			tags: projectType,
 		});
 
-		res.json({ok: true, id: vendastaResponse?.id ?? null});
+		res.json({ ok: true, id: vendastaResponse?.id ?? null });
 	} catch (e: any) {
 		// Do not leak internals to client; log separately in real deployments
 		const message = e instanceof HttpsError ? e.message : "Submission failed";
-		res.status(400).json({ok: false, error: message});
+		res.status(400).json({ ok: false, error: message });
 	}
 });
-
-function cryptoHash(input: string): string {
-	const hash = (awaitImportCrypto()).createHash("sha256");
-	hash.update(input);
-	return hash.digest("hex");
-}
-
-// Lazy import to keep top-level clean in Functions env
-function awaitImportCrypto() {
-	// eslint-disable-next-line @typescript-eslint/no-var-requires
-	return require("node:crypto") as typeof import("node:crypto");
-}
 

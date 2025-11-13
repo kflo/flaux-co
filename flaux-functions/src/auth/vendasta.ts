@@ -1,6 +1,8 @@
-import {onRequest} from "firebase-functions/v2/https";
-import {db} from "../utils/firebase";
-import {VENDASTA_CLIENT_ID, VENDASTA_CLIENT_SECRET, VENDASTA_REDIRECT_URI, APP_BASE_URL} from "../configs/vendasta";
+import { onRequest } from "firebase-functions/v2/https";
+import { db } from "../utils/firebase";
+import {
+	VENDASTA_CLIENT_ID, VENDASTA_CLIENT_SECRET, VENDASTA_REDIRECT_URI, APP_BASE_URL,
+} from "../configs/vendasta";
 
 /**
  * Initiates Vendasta OAuth flow
@@ -31,10 +33,10 @@ export const vendastaCallback = onRequest({
 	secrets: [VENDASTA_CLIENT_SECRET],
 }, async (req, res) => {
 	try {
-		const {code} = req.query;
+		const { code } = req.query;
 
 		if (!code) {
-			res.status(400).json({error: "Missing authorization code"});
+			res.status(400).json({ error: "Missing authorization code" });
 			return;
 		}
 
@@ -55,7 +57,7 @@ export const vendastaCallback = onRequest({
 		return;
 	} catch (error) {
 		console.error("Vendasta callback error:", error);
-		res.status(500).json({error: "Authentication failed"});
+		res.status(500).json({ error: "Authentication failed" });
 		return;
 	}
 });
@@ -67,7 +69,7 @@ export const vendastaCallback = onRequest({
 export const vendastaLogout = onRequest({
 	cors: true,
 }, async (req, res) => {
-	const {sessionToken} = req.body;
+	const { sessionToken } = req.body;
 
 	// Invalidate session
 	await invalidateSession(sessionToken);
@@ -84,7 +86,7 @@ export const vendastaLogout = onRequest({
 async function exchangeCodeForTokens(code: string) {
 	const response = await fetch("https://sso.vendasta.com/oauth/token", {
 		method: "POST",
-		headers: {"Content-Type": "application/json"},
+		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({
 			grant_type: "authorization_code",
 			client_id: VENDASTA_CLIENT_ID.value(),
@@ -108,7 +110,7 @@ async function exchangeCodeForTokens(code: string) {
  */
 async function getVendastaUser(accessToken: string) {
 	const response = await fetch("https://api.vendasta.com/user", {
-		headers: {"Authorization": `Bearer ${accessToken}`},
+		headers: { "Authorization": `Bearer ${accessToken}` },
 	});
 
 	if (!response.ok) {
@@ -136,7 +138,7 @@ async function createOrUpdateUser(vendastaUser: any, tokens: any) {
 		updatedAt: new Date(),
 	};
 
-	await db.collection("users").doc(vendastaUser.id).set(userDoc, {merge: true});
+	await db.collection("users").doc(vendastaUser.id).set(userDoc, { merge: true });
 
 	// Also create/update business document if needed
 	if (vendastaUser.business) {
@@ -149,7 +151,7 @@ async function createOrUpdateUser(vendastaUser: any, tokens: any) {
 
 		await db.collection("businesses")
 			.doc(vendastaUser.business_id)
-			.set(businessDoc, {merge: true});
+			.set(businessDoc, { merge: true });
 	}
 }
 

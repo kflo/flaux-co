@@ -3,7 +3,7 @@
  * For users of custom Flaux products
  */
 
-import {auth, db} from "../utils/firebase";
+import { auth, db } from "../utils/firebase";
 
 /**
  * Create a custom Firebase user for Flaux products

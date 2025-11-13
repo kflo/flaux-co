@@ -2,9 +2,9 @@
  * Authentication middleware and guards
  */
 
-import {Request, Response, NextFunction} from "express";
-import {db} from "../utils/firebase";
-import {verifyFirebaseToken} from "./firebase-auth";
+import { Request, Response, NextFunction } from "express";
+import { db } from "../utils/firebase";
+import { verifyFirebaseToken } from "./firebase-auth";
 
 /**
  * Middleware to require Vendasta SSO authentication
@@ -14,7 +14,7 @@ export const requireVendastaAuth = async (req: Request, res: Response, next: Nex
 		const sessionToken = req.headers.authorization?.replace("Bearer ", "");
 
 		if (!sessionToken) {
-			res.status(401).json({error: "Missing session token"});
+			res.status(401).json({ error: "Missing session token" });
 			return;
 		}
 
@@ -22,7 +22,7 @@ export const requireVendastaAuth = async (req: Request, res: Response, next: Nex
 		const userId = await verifyVendastaSession(sessionToken);
 
 		if (!userId) {
-			res.status(401).json({error: "Invalid session token"});
+			res.status(401).json({ error: "Invalid session token" });
 			return;
 		}
 
@@ -30,16 +30,16 @@ export const requireVendastaAuth = async (req: Request, res: Response, next: Nex
 		const userDoc = await db.collection("users").doc(userId).get();
 
 		if (!userDoc.exists || userDoc.data()?.authProvider !== "vendasta") {
-			res.status(401).json({error: "Invalid Vendasta user"});
+			res.status(401).json({ error: "Invalid Vendasta user" });
 			return;
 		}
 
 		// Add user to request object
-		(req as any).user = {id: userId, ...userDoc.data()};
+		(req as any).user = { id: userId, ...userDoc.data() };
 		next();
 	} catch (error) {
 		console.error("Vendasta auth error:", error);
-		res.status(401).json({error: "Authentication failed"});
+		res.status(401).json({ error: "Authentication failed" });
 		return;
 	}
 };
@@ -52,7 +52,7 @@ export const requireFirebaseAuth = async (req: Request, res: Response, next: Nex
 		const idToken = req.headers.authorization?.replace("Bearer ", "");
 
 		if (!idToken) {
-			res.status(401).json({error: "Missing ID token"});
+			res.status(401).json({ error: "Missing ID token" });
 			return;
 		}
 
@@ -64,7 +64,7 @@ export const requireFirebaseAuth = async (req: Request, res: Response, next: Nex
 		next();
 	} catch (error) {
 		console.error("Firebase auth error:", error);
-		res.status(401).json({error: "Authentication failed"});
+		res.status(401).json({ error: "Authentication failed" });
 		return;
 	}
 };
@@ -76,7 +76,7 @@ export const requireAnyAuth = async (req: Request, res: Response, next: NextFunc
 	const token = req.headers.authorization?.replace("Bearer ", "");
 
 	if (!token) {
-		return res.status(401).json({error: "Missing authentication token"});
+		return res.status(401).json({ error: "Missing authentication token" });
 	}
 
 	try {
@@ -91,7 +91,7 @@ export const requireAnyAuth = async (req: Request, res: Response, next: NextFunc
 			if (userId) {
 				const userDoc = await db.collection("users").doc(userId).get();
 				if (userDoc.exists) {
-					(req as any).user = {id: userId, ...userDoc.data()};
+					(req as any).user = { id: userId, ...userDoc.data() };
 					return next();
 				}
 			}
@@ -100,7 +100,7 @@ export const requireAnyAuth = async (req: Request, res: Response, next: NextFunc
 		}
 	}
 
-	return res.status(401).json({error: "Invalid authentication token"});
+	return res.status(401).json({ error: "Invalid authentication token" });
 };
 
 /**

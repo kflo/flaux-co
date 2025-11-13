@@ -1,4 +1,4 @@
-import {defineSecret} from "firebase-functions/params";
+import { defineSecret } from "firebase-functions/params";
 
 /**
  * Secret containing the raw Vendasta service account JSON as provided

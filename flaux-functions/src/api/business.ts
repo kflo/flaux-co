@@ -2,8 +2,8 @@
  * Business management API endpoints
  */
 
-import {onRequest} from "firebase-functions/v2/https";
-import {createBusiness, fetchBusiness} from "../models/business";
+import { onRequest } from "firebase-functions/v2/https";
+import { createBusiness, fetchBusiness } from "../models/business";
 
 /**
  * Create a new business
@@ -14,14 +14,14 @@ export const createBusinessEndpoint = onRequest({
 }, async (req, res) => {
 	try {
 		if (req.method !== "POST") {
-			res.status(405).json({error: "Method not allowed"});
+			res.status(405).json({ error: "Method not allowed" });
 			return;
 		}
 
-		const {name, domain, ownerId} = req.body;
+		const { name, domain, ownerId } = req.body;
 
 		if (!name || !ownerId) {
-			res.status(400).json({error: "Business name and owner ID are required"});
+			res.status(400).json({ error: "Business name and owner ID are required" });
 			return;
 		}
 
@@ -34,7 +34,7 @@ export const createBusinessEndpoint = onRequest({
 		res.status(201).json(business);
 	} catch (error) {
 		console.error("Error creating business:", error);
-		res.status(500).json({error: "Failed to create business"});
+		res.status(500).json({ error: "Failed to create business" });
 	}
 });
 
@@ -47,7 +47,7 @@ export const getBusinessEndpoint = onRequest({
 }, async (req, res) => {
 	try {
 		if (req.method !== "GET") {
-			res.status(405).json({error: "Method not allowed"});
+			res.status(405).json({ error: "Method not allowed" });
 			return;
 		}
 
@@ -55,20 +55,20 @@ export const getBusinessEndpoint = onRequest({
 		const businessId = req.query.id as string;
 
 		if (!businessId) {
-			res.status(400).json({error: "Business ID is required"});
+			res.status(400).json({ error: "Business ID is required" });
 			return;
 		}
 
 		const business = await fetchBusiness(businessId);
 
 		if (!business) {
-			res.status(404).json({error: "Business not found"});
+			res.status(404).json({ error: "Business not found" });
 			return;
 		}
 
 		res.json(business);
 	} catch (error) {
 		console.error("Error getting business:", error);
-		res.status(500).json({error: "Failed to get business"});
+		res.status(500).json({ error: "Failed to get business" });
 	}
 });

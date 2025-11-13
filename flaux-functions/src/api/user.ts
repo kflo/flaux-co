@@ -2,8 +2,8 @@
  * User management API endpoints
  */
 
-import {onRequest} from "firebase-functions/v2/https";
-import {fetchUser, updateUserPreferences, fetchUserBusinesses} from "../models/user";
+import { onRequest } from "firebase-functions/v2/https";
+import { fetchUser, updateUserPreferences, fetchUserBusinesses } from "../models/user";
 
 /**
  * Get user profile and preferences
@@ -14,31 +14,31 @@ export const getUserEndpoint = onRequest({
 }, async (req, res) => {
 	try {
 		if (req.method !== "GET") {
-			res.status(405).json({error: "Method not allowed"});
+			res.status(405).json({ error: "Method not allowed" });
 			return;
 		}
 
 		const userId = req.query.userId as string;
 
 		if (!userId) {
-			res.status(400).json({error: "User ID is required"});
+			res.status(400).json({ error: "User ID is required" });
 			return;
 		}
 
 		const user = await fetchUser(userId);
 
 		if (!user) {
-			res.status(404).json({error: "User not found"});
+			res.status(404).json({ error: "User not found" });
 			return;
 		}
 
 		// Don't return sensitive auth tokens
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const {accessToken, refreshToken, ...safeUser} = user as any;
+		const { accessToken, refreshToken, ...safeUser } = user as any;
 		res.json(safeUser);
 	} catch (error) {
 		console.error("Error getting user:", error);
-		res.status(500).json({error: "Failed to get user"});
+		res.status(500).json({ error: "Failed to get user" });
 	}
 });
 
@@ -51,22 +51,22 @@ export const updateUserPreferencesEndpoint = onRequest({
 }, async (req, res) => {
 	try {
 		if (req.method !== "PUT") {
-			res.status(405).json({error: "Method not allowed"});
+			res.status(405).json({ error: "Method not allowed" });
 			return;
 		}
 
-		const {userId, preferences} = req.body;
+		const { userId, preferences } = req.body;
 
 		if (!userId || !preferences) {
-			res.status(400).json({error: "User ID and preferences are required"});
+			res.status(400).json({ error: "User ID and preferences are required" });
 			return;
 		}
 
 		await updateUserPreferences(userId, preferences);
-		res.json({success: true, message: "Preferences updated"});
+		res.json({ success: true, message: "Preferences updated" });
 	} catch (error) {
 		console.error("Error updating user preferences:", error);
-		res.status(500).json({error: "Failed to update preferences"});
+		res.status(500).json({ error: "Failed to update preferences" });
 	}
 });
 
@@ -79,14 +79,14 @@ export const getUserBusinessesEndpoint = onRequest({
 }, async (req, res) => {
 	try {
 		if (req.method !== "GET") {
-			res.status(405).json({error: "Method not allowed"});
+			res.status(405).json({ error: "Method not allowed" });
 			return;
 		}
 
 		const userId = req.query.userId as string;
 
 		if (!userId) {
-			res.status(400).json({error: "User ID is required"});
+			res.status(400).json({ error: "User ID is required" });
 			return;
 		}
 
@@ -94,6 +94,6 @@ export const getUserBusinessesEndpoint = onRequest({
 		res.json(businesses);
 	} catch (error) {
 		console.error("Error getting user businesses:", error);
-		res.status(500).json({error: "Failed to get user businesses"});
+		res.status(500).json({ error: "Failed to get user businesses" });
 	}
 });

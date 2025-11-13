@@ -1,4 +1,4 @@
-import {defineSecret, defineString} from "firebase-functions/params";
+import { defineSecret, defineString } from "firebase-functions/params";
 
 /**
  * Cloudflare R2 storage configuration
@@ -6,12 +6,8 @@ import {defineSecret, defineString} from "firebase-functions/params";
 export const R2_ACCESS_KEY_ID = defineSecret("R2_ACCESS_KEY_ID");
 export const R2_SECRET_ACCESS_KEY = defineSecret("R2_SECRET_ACCESS_KEY");
 export const R2_ACCOUNT_ID = defineString("R2_ACCOUNT_ID");
-export const R2_BUCKET_ASSETS = defineString("R2_BUCKET_ASSETS", {
-	default: "flaux-dev-assets",
-});
-export const R2_PUBLIC_BASE_URL = defineString("R2_PUBLIC_BASE_URL", {
-	default: "",
-});
+export const R2_BUCKET_ASSETS = defineString("R2_BUCKET_ASSETS", { default: "flaux-dev-assets" });
+export const R2_PUBLIC_BASE_URL = defineString("R2_PUBLIC_BASE_URL", { default: "" });
 
 export function getR2Config() {
 	return {

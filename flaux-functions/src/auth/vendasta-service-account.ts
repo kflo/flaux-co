@@ -1,10 +1,6 @@
-import {
-	VENDASTA_SERVICE_ACCOUNT_JSON, VendastaServiceAccount,
-} from "../configs/vendasta-service-account";
-import {db} from "../utils/firebase";
-import {
-	onRequest, HttpsError,
-} from "firebase-functions/v2/https";
+import { VENDASTA_SERVICE_ACCOUNT_JSON, VendastaServiceAccount } from "../configs/vendasta-service-account";
+import { db } from "../utils/firebase";
+import { onRequest, HttpsError } from "firebase-functions/v2/https";
 import crypto from "node:crypto";
 
 /* ---------------------------------- TYPES --------------------------------- */
@@ -76,7 +72,7 @@ async function writeFirestoreToken(key: string, token: CachedToken): Promise<voi
 		accessToken: token.accessToken,
 		expiresAt: token.expiresAt,
 		updatedAt: new Date(),
-	}, {merge: true});
+	}, { merge: true });
 }
 
 /* -------------------------------------------------------------------------- */
@@ -101,7 +97,7 @@ export class VendastaServiceAccountTokenManager {
 
 		// Refresh via JWT assertion
 		const token = await this.issueNewToken(scopes);
-		inMemoryToken = {...token, scopeKey: key};
+		inMemoryToken = { ...token, scopeKey: key };
 		await writeFirestoreToken(key, inMemoryToken);
 		return inMemoryToken.accessToken;
 	}
@@ -143,7 +139,7 @@ export class VendastaServiceAccountTokenManager {
 
 		const resp = await fetch(sa.token_uri, {
 			method: "POST",
-			headers: {"Content-Type": "application/x-www-form-urlencoded"},
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
 			body: form,
 		});
 
@@ -154,7 +150,7 @@ export class VendastaServiceAccountTokenManager {
 		const json = await resp.json() as { access_token: string; expires_in?: number };
 		const expiresIn = (json.expires_in ?? 600) * 1000; // ms
 		const expiresAt = Date.now() + expiresIn;
-		return {accessToken: json.access_token, expiresAt};
+		return { accessToken: json.access_token, expiresAt };
 	}
 }
 
@@ -169,9 +165,9 @@ export const vendastaSaConfigHealth = onRequest({
 }, async (_req, res) => {
 	try {
 		const sa = await readServiceAccount();
-		res.json({ok: true, client_email: sa.client_email, token_uri: sa.token_uri});
+		res.json({ ok: true, client_email: sa.client_email, token_uri: sa.token_uri });
 	} catch (e: any) {
-		res.status(500).json({ok: false, error: String(e?.message || e)});
+		res.status(500).json({ ok: false, error: String(e?.message || e) });
 	}
 });
 
