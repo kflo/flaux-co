@@ -9,7 +9,8 @@
 		"shell": "npm run build && firebase functions:shell",
 		"start": "npm run shell",
 		"deploy": "firebase deploy --only functions",
-		"logs": "firebase functions:log"
+		"logs": "firebase functions:log",
+		"env:set": "node scripts/update-env-vars.js"
 	},
 	"engines": {
 		"node": "22"
@@ -21,8 +22,8 @@
 		"@aws-sdk/s3-request-presigner": "^3.650.0"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.12.0",
-		"@typescript-eslint/parser": "^5.12.0",
+		"@typescript-eslint/eslint-plugin": "^7.0.0",
+		"@typescript-eslint/parser": "^7.0.0",
 		"eslint": "^8.9.0",
 		"eslint-config-google": "^0.14.0",
 		"eslint-plugin-import": "^2.25.4",

@@ -21,6 +21,7 @@ module.exports = {
 	ignorePatterns: [
 		"/lib/**/*", // Ignore built files.
 		"/generated/**/*", // Ignore generated files.
+		"/scripts/**/*", // Ignore utility scripts.
 	],
 	plugins: [
 		"@typescript-eslint",
@@ -36,15 +37,14 @@ module.exports = {
 		"indent": ["error", "tab"],
 		"no-tabs": "off", // Allow tabs in this config file
 		"linebreak-style": "off", // Allow Windows CRLF line endings
-		"max-len": ["warn", {"code": 120}], // Increase line length to 120
+		"max-len": ["warn", { "code": 120 }], // Increase line length to 120
 		"object-curly-newline": ["error", {
 			"ImportDeclaration": {
 				"multiline": true,
-				"minProperties": 2
+				"minProperties": 4,
 			},
+			"ObjectExpression": { "consistent": true },
 		}],
-		"object-property-newline": ["error", {
-			"allowAllPropertiesOnSameLine": true,
-		}],
+		"object-curly-spacing": ["error", "always"],
 	},
 };

@@ -10,7 +10,7 @@ export default defineConfig([
 	...tseslint.configs.recommended,
 	{
 		files: ["**/*.{js,mjs,cjs}"],
-		languageOptions: { globals: globals.browser },
+		languageOptions: {globals: globals.browser},
 		rules: {
 			"no-unused-vars": "warn",
 			// Ensure indentation is enforced (so multiline object properties aren't flush-left)
@@ -33,20 +33,20 @@ export default defineConfig([
 	},
 	{
 		files: ["**/*.{ts,mts,cts}"],
-		languageOptions: { globals: globals.browser },
+		languageOptions: {globals: globals.browser},
 		rules: {
 			"@typescript-eslint/no-explicit-any": "off",
 			"@typescript-eslint/no-unused-vars": "warn",
 			// "no-unused-vars": "off", // Turn off base rule for TypeScript files only
 			// Style rules for project code (excluded from this file via the file-level disable comment above)
-			"object-property-newline": ["error", { allowAllPropertiesOnSameLine: false }],
+			"object-property-newline": ["error", {allowAllPropertiesOnSameLine: false}],
 			"object-curly-newline": [
 				"error",
 				{
-					ObjectExpression: { consistent: true },
-					ObjectPattern: { multiline: true, minProperties: 4 },
-					ImportDeclaration: { multiline: true, minProperties: 5 },
-					ExportDeclaration: { multiline: true, minProperties: 5 },
+					ObjectExpression: {multiline: true, minProperties: 1},
+					ObjectPattern: {multiline: true, minProperties: 4},
+					ImportDeclaration: {multiline: true, minProperties: 5},
+					ExportDeclaration: {multiline: true, minProperties: 5},
 				},
 			],
 			indent: [
