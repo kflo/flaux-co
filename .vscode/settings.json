@@ -1,8 +1,16 @@
 {
-    "angular-schematics.schematicsDefaultOptions": {
-        "angular-*": {
-            "externalTemplate": true,
-            "style": "scss"
-        }
-    }
+	"angular-schematics.schematicsDefaultOptions": {
+		"angular-*": {
+			"externalTemplate": true,
+			"style": "scss"
+		}
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+		"editor.formatOnSave": true
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+		"editor.formatOnSave": true
+	}
 }

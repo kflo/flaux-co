@@ -1,7 +1,7 @@
 /**
  * User model - authentication, profile, and preferences
  */
-import {db} from "../utils/firebase";
+import { db } from "../utils/firebase";
 
 export interface User {
 	id: string;
@@ -30,7 +30,7 @@ export async function createOrUpdateUser(userData: Partial<User> & {id: string})
 		updatedAt: new Date(),
 	};
 
-	await db.collection("users").doc(userData.id).set(userDoc, {merge: true});
+	await db.collection("users").doc(userData.id).set(userDoc, { merge: true });
 	return userDoc;
 }
 
@@ -44,7 +44,7 @@ export async function fetchUser(userId: string): Promise<User | null> {
 		return null;
 	}
 
-	return {id: doc.id, ...doc.data()} as User;
+	return { id: doc.id, ...doc.data() } as User;
 }
 
 /**
@@ -65,5 +65,5 @@ export async function fetchUserBusinesses(userId: string) {
 		.where("ownerId", "==", userId)
 		.get();
 
-	return snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}));
+	return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 }

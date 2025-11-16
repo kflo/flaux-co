@@ -1,7 +1,7 @@
 /**
  * Business model - minimal business information for MVP
  */
-import {db} from "../utils/firebase";
+import { db } from "../utils/firebase";
 
 export interface Business {
 	id: string;
@@ -24,7 +24,7 @@ export async function createBusiness(businessData: Omit<Business, "id" | "create
 	};
 
 	const docRef = await db.collection("businesses").add(businessDoc);
-	return {id: docRef.id, ...businessDoc};
+	return { id: docRef.id, ...businessDoc };
 }
 
 /**
@@ -37,7 +37,7 @@ export async function fetchBusiness(businessId: string): Promise<Business | null
 		return null;
 	}
 
-	return {id: doc.id, ...doc.data()} as Business;
+	return { id: doc.id, ...doc.data() } as Business;
 }
 
 /**
@@ -54,7 +54,7 @@ export async function fetchBusinessByVendastaId(vendastaBusinessId: string): Pro
 	}
 
 	const doc = snapshot.docs[0];
-	return {id: doc.id, ...doc.data()} as Business;
+	return { id: doc.id, ...doc.data() } as Business;
 }
 
 /**

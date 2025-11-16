@@ -1,7 +1,7 @@
 /**
  * Flaux product model - Flaux's purchasable products, flows, and tools
  */
-import {db} from "../../utils/firebase";
+import { db } from "../../utils/firebase";
 
 export interface FlauxProduct {
 	id: string;
@@ -29,7 +29,7 @@ export async function fetchActiveProducts(): Promise<FlauxProduct[]> {
 		.orderBy("name")
 		.get();
 
-	return snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()} as FlauxProduct));
+	return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as FlauxProduct));
 }
 
 /**
@@ -42,7 +42,7 @@ export async function fetchProduct(productId: string): Promise<FlauxProduct | nu
 		return null;
 	}
 
-	return {id: doc.id, ...doc.data()} as FlauxProduct;
+	return { id: doc.id, ...doc.data() } as FlauxProduct;
 }
 
 /**
@@ -56,7 +56,7 @@ export async function createProduct(productData: Omit<FlauxProduct, "id" | "crea
 	};
 
 	const docRef = await db.collection("flaux_products").add(productDoc);
-	return {id: docRef.id, ...productDoc};
+	return { id: docRef.id, ...productDoc };
 }
 
 /**

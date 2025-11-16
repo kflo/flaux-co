@@ -3,10 +3,10 @@
  * Flaux business platform API
  */
 
-import {setGlobalOptions} from "firebase-functions";
+import { setGlobalOptions } from "firebase-functions";
 
 // For cost control, set maximum concurrent containers
-setGlobalOptions({maxInstances: 10});
+setGlobalOptions({ maxInstances: 10 });
 
 // Export all Vendasta auth functions
 export {
@@ -52,8 +52,8 @@ export {
 } from "./api/flaux-subscription";
 
 // R2 example functions
-export {generateR2UploadUrl, generateR2DownloadUrl} from "./storage/r2-example";
+export { generateR2UploadUrl, generateR2DownloadUrl } from "./storage/r2-example";
 
 // Contact form -> Vendasta CRM
-export {submitContact} from "./api/contact-submit";
-export {vendastaSaConfigHealth} from "./auth/vendasta-service-account";
+export { submitContact } from "./api/contact-submit";
+export { vendastaSaConfigHealth } from "./auth/vendasta-service-account";

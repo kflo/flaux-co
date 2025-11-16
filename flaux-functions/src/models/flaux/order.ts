@@ -1,7 +1,7 @@
 /**
  * Flaux order model - purchase transactions and project work
  */
-import {db} from "../../utils/firebase";
+import { db } from "../../utils/firebase";
 
 export interface FlauxOrder {
 	id: string;
@@ -35,7 +35,7 @@ export async function createOrder(orderData: Omit<FlauxOrder, "id" | "createdAt"
 	};
 
 	const docRef = await db.collection("flaux_orders").add(orderDoc);
-	return {id: docRef.id, ...orderDoc};
+	return { id: docRef.id, ...orderDoc };
 }
 
 /**
@@ -48,7 +48,7 @@ export async function fetchOrder(orderId: string): Promise<FlauxOrder | null> {
 		return null;
 	}
 
-	return {id: doc.id, ...doc.data()} as FlauxOrder;
+	return { id: doc.id, ...doc.data() } as FlauxOrder;
 }
 
 /**
@@ -60,7 +60,7 @@ export async function fetchUserOrders(userId: string): Promise<FlauxOrder[]> {
 		.orderBy("createdAt", "desc")
 		.get();
 
-	return snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()} as FlauxOrder));
+	return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as FlauxOrder));
 }
 
 /**
@@ -93,5 +93,5 @@ export async function fetchOrderByPaymentIntent(paymentIntentId: string): Promis
 	}
 
 	const doc = snapshot.docs[0];
-	return {id: doc.id, ...doc.data()} as FlauxOrder;
+	return { id: doc.id, ...doc.data() } as FlauxOrder;
 }

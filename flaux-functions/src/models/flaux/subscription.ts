@@ -1,7 +1,7 @@
 /**
  * Flaux subscription model - recurring billing management
  */
-import {db} from "../../utils/firebase";
+import { db } from "../../utils/firebase";
 
 export interface FlauxSubscription {
 	id: string;
@@ -34,7 +34,7 @@ export async function createSubscription(subscriptionData: Omit<FlauxSubscriptio
 	};
 
 	const docRef = await db.collection("flaux_subscriptions").add(subscriptionDoc);
-	return {id: docRef.id, ...subscriptionDoc};
+	return { id: docRef.id, ...subscriptionDoc };
 }
 
 /**
@@ -47,7 +47,7 @@ export async function fetchSubscription(subscriptionId: string): Promise<FlauxSu
 		return null;
 	}
 
-	return {id: doc.id, ...doc.data()} as FlauxSubscription;
+	return { id: doc.id, ...doc.data() } as FlauxSubscription;
 }
 
 /**
@@ -59,7 +59,7 @@ export async function fetchUserActiveSubscriptions(userId: string): Promise<Flau
 		.where("status", "==", "active")
 		.get();
 
-	return snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()} as FlauxSubscription));
+	return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as FlauxSubscription));
 }
 
 /**
@@ -92,7 +92,7 @@ export async function fetchSubscriptionByStripeId(stripeSubscriptionId: string):
 	}
 
 	const doc = snapshot.docs[0];
-	return {id: doc.id, ...doc.data()} as FlauxSubscription;
+	return { id: doc.id, ...doc.data() } as FlauxSubscription;
 }
 
 /**
