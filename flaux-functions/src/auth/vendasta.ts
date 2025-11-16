@@ -1,8 +1,6 @@
 import { onRequest } from "firebase-functions/v2/https";
 import { db } from "../utils/firebase";
-import {
-	VENDASTA_CLIENT_ID, VENDASTA_CLIENT_SECRET, VENDASTA_REDIRECT_URI, APP_BASE_URL,
-} from "../configs/vendasta";
+import { VENDASTA_CLIENT_ID, VENDASTA_REDIRECT_URI, APP_BASE_URL } from "../configs/vendasta";
 
 /**
  * Initiates Vendasta OAuth flow
@@ -30,7 +28,7 @@ export const vendastaLogin = onRequest({
 export const vendastaCallback = onRequest({
 	cors: true,
 	region: "us-central1",
-	secrets: [VENDASTA_CLIENT_SECRET],
+	// secrets: [VENDASTA_CLIENT_SECRET],
 }, async (req, res) => {
 	try {
 		const { code } = req.query;
@@ -90,7 +88,7 @@ async function exchangeCodeForTokens(code: string) {
 		body: JSON.stringify({
 			grant_type: "authorization_code",
 			client_id: VENDASTA_CLIENT_ID.value(),
-			client_secret: VENDASTA_CLIENT_SECRET.value(),
+			// client_secret: VENDASTA_CLIENT_SECRET.value(),
 			code: code,
 			redirect_uri: VENDASTA_REDIRECT_URI.value(),
 		}),
