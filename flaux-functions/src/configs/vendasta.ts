@@ -2,7 +2,9 @@ import { defineString } from "firebase-functions/params";
 /**
  * Vendasta OAuth configuration
  */
-export const VENDASTA_CLIENT_ID = defineString("VENDASTA_CLIENT_ID");
+export const VENDASTA_CLIENT_ID = defineString("VENDASTA_CLIENT_ID", {
+	default: "dev-client-id",
+});
 export const VENDASTA_REDIRECT_URI = defineString("VENDASTA_REDIRECT_URI", {
 	default: "https://flaux-site-dev.web.app/vendastaCallback",
 });
