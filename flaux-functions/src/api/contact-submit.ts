@@ -2,6 +2,7 @@ import { onRequest, HttpsError } from "firebase-functions/v2/https";
 import { VENDASTA_SERVICE_ACCOUNT_JSON } from "../configs/vendasta-service-account";
 import { VendastaServiceAccountTokenManager } from "../auth/vendasta-service-account";
 import { db } from "../utils/firebase";
+import { VENDASTA_API_BASE_URL } from "../configs/vendasta";
 
 // Configure CORS allowlist for your site(s)
 const ALLOWED_ORIGINS = new Set([
@@ -30,7 +31,6 @@ function normalizePhone(input: string | undefined): string | undefined {
 }
 
 // Replace with the exact Vendasta CRM endpoint + scopes once confirmed
-const VENDASTA_CONTACTS_URL = "https://api.vendasta.com/crm/contacts"; // TODO: verify
 const VENDASTA_SCOPES = ["profile", "email"]; // TODO: add required CRM scopes (e.g., contacts:write)
 
 export const submitContact = onRequest({
@@ -87,6 +87,7 @@ export const submitContact = onRequest({
 		// const dayKey = `${today.getUTCFullYear()}-${today.getUTCMonth()+1}-${today.getUTCDate()}`;
 		// const idemKey = cryptoHash(`${email}|${phone}|${dayKey}`);
 
+		const VENDASTA_CONTACTS_URL = `${VENDASTA_API_BASE_URL.value()}/org/8VAK/contacts`; // 8VAK == FLAUX Org ID
 		const resp = await fetch(VENDASTA_CONTACTS_URL, {
 			method: "POST",
 			headers: {
