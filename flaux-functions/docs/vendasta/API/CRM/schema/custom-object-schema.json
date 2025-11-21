@@ -1,0 +1,36 @@
+{
+  "title": "CRM Custom Object",
+  "type": "object",
+  "description": "CRM Custom Object Field Schema",
+  "properties": {
+    "standard__customobject_name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "system__customobject_id": {
+      "title": "ID",
+      "type": "string",
+      "readOnly": true
+    },
+    "system__customobject_owner_id": {
+      "title": "ID",
+      "type": "string"
+    },
+    "system__customobject_external_id": {
+      "title": "External ID",
+      "type": "string"
+    },
+    "system__customobject_updated": {
+      "title": "ID",
+      "type": "string",
+      "format": "date",
+      "readOnly": true
+    },
+    "system__customobject_created": {
+      "title": "ID",
+      "type": "string",
+      "format": "date",
+      "readOnly": true
+    }
+  }
+}

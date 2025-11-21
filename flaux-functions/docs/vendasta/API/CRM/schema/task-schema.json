@@ -1,0 +1,134 @@
+{
+  "description": "CRM Task Field Schema for AG-L56V52BMMW",
+  "properties": {
+    "standard__activity_manually_logged": {
+      "description": "Whether the activity was manually logged",
+      "format": "boolean",
+      "readOnly": true,
+      "title": "Manually logged",
+      "type": "boolean"
+    },
+    "standard__activity_name": {
+      "description": "Display name used when showing a summary of the activity.",
+      "title": "Name",
+      "type": "string"
+    },
+    "standard__activity_source_drill_1": {
+      "description": "Activity record source drill down 1",
+      "title": "Record source drill down 1",
+      "type": "string"
+    },
+    "standard__activity_source_drill_2": {
+      "description": "Activity record source drill down 2",
+      "title": "Record source drill down 2",
+      "type": "string"
+    },
+    "standard__activity_source_drill_3": {
+      "description": "Activity record source drill down 3",
+      "title": "Record source drill down 3",
+      "type": "string"
+    },
+    "standard__activity_source_name": {
+      "description": "Name of the app or external system that created the activity. E.g. 'Salesforce', 'Hubspot', 'Gmail'",
+      "title": "Record source",
+      "type": "string"
+    },
+    "standard__activity_tags": {
+      "description": "List of tags useful for segmentation of activities.",
+      "title": "Tags",
+      "type": "string"
+    },
+    "standard__activity_task_body": {
+      "description": "Notes taken for a task.",
+      "title": "Task body",
+      "type": "string"
+    },
+    "standard__activity_task_due_date": {
+      "description": "Optional date indicating when the task is due for completion",
+      "format": "date-time",
+      "title": "Task due date",
+      "type": "string"
+    },
+    "standard__activity_task_is_overdue": {
+      "description": "Indicates if the task was not completed before the due date",
+      "format": "boolean",
+      "readOnly": true,
+      "title": "Task is overdue",
+      "type": "boolean"
+    },
+    "standard__activity_task_priority": {
+      "description": "Priority for a given task, e.g.: HIGH, MEDIUM, LOW, etc…",
+      "title": "Task priority",
+      "type": "string"
+    },
+    "standard__activity_task_status": {
+      "description": "Status for a given task, e.g.: COMPLETED, NOT_STARTED, IN_PROGRESS, etc…",
+      "title": "Task status",
+      "type": "string"
+    },
+    "standard__activity_task_type": {
+      "description": "Type of task to be executed, e.g.: EMAIL, CALL, TODO, etc…",
+      "title": "Task type",
+      "type": "string"
+    },
+    "standard__activity_url": {
+      "description": "Link to more information about the activity.",
+      "title": "URL",
+      "type": "string"
+    },
+    "standard__activity_url_name": {
+      "description": "Name of the link to more information about the activity.",
+      "title": "URL name",
+      "type": "string"
+    },
+    "system__activity_activity_type": {
+      "description": "Type of activity",
+      "title": "Activity type",
+      "type": "string"
+    },
+    "system__activity_created": {
+      "description": "When the record was created",
+      "format": "date",
+      "readOnly": true,
+      "title": "Created date",
+      "type": "string"
+    },
+    "system__activity_effective": {
+      "description": "Relevant date for the type",
+      "format": "date-time",
+      "title": "Effective date",
+      "type": "string"
+    },
+    "system__activity_external_id": {
+      "description": "External identifier for the record, optional",
+      "readOnly": true,
+      "title": "External ID",
+      "type": "string"
+    },
+    "system__activity_id": {
+      "description": "unique identifier for the record",
+      "readOnly": true,
+      "title": "ID",
+      "type": "string"
+    },
+    "system__activity_owner_id": {
+      "description": "Owner of the record.",
+      "title": "Owner",
+      "type": "string"
+    },
+    "system__activity_source_id": {
+      "description": "ID in the source system",
+      "title": "Source ID",
+      "type": "string"
+    },
+    "system__activity_updated": {
+      "description": "When the record was last updated",
+      "format": "date",
+      "readOnly": true,
+      "title": "Updated date",
+      "type": "string"
+    }
+  },
+  "title": "CRM Task",
+  "type": "object"
+}

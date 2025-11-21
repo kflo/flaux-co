@@ -56,12 +56,24 @@ export class ContactFormService {
 		const payload = {
 			name: formData.name,
 			email: formData.email,
-			...(formData.phone && { phone: formData.phone }),
-			...(formData.company && { company: formData.company }),
-			...(formData.projectType?.length && { projectType: formData.projectType }),
-			...(formData.budget && { budget: formData.budget }),
-			...(formData.timeline && { timeline: formData.timeline }),
-			...(formData.description && { description: formData.description }),
+			...(formData.phone && {
+				phone: formData.phone 
+			}),
+			...(formData.company && {
+				company: formData.company 
+			}),
+			...(formData.projectType?.length && {
+				projectType: formData.projectType 
+			}),
+			...(formData.budget && {
+				budget: formData.budget 
+			}),
+			...(formData.timeline && {
+				timeline: formData.timeline 
+			}),
+			...(formData.description && {
+				description: formData.description 
+			}),
 		};
 
 		return this.http.post<ContactSubmissionResponse>(this.submitContactUrl, payload).pipe(

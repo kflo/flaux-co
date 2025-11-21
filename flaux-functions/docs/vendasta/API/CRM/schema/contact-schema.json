@@ -1,0 +1,412 @@
+{
+  "title": "CRM Contact",
+  "type": "object",
+  "description": "CRM Contact Field Schema for AG-L56V52BMMW",
+  "properties": {
+    "standard__email": {
+      "format": "email",
+      "title": "Email",
+      "type": "string"
+    },
+    "standard__first_name": {
+      "title": "First name",
+      "type": "string"
+    },
+    "standard__last_name": {
+      "title": "Last name",
+      "type": "string"
+    },
+    "standard__contact_additional_team_members": {
+      "description": "Additional team members for contact",
+      "items": {
+        "type": "string"
+      },
+      "title": "Contact additional team members",
+      "type": "array"
+    },
+    "standard__contact_birth_year": {
+      "description": "Contact's birth year. E.g. '1980'",
+      "title": "Birth Year",
+      "type": "string"
+    },
+    "standard__contact_fbclid": {
+      "description": "Facebook click ID used to create the contact",
+      "readOnly": true,
+      "title": "FBCLID",
+      "type": "string"
+    },
+    "standard__contact_gclid": {
+      "description": "Google click ID used to create the contact",
+      "readOnly": true,
+      "title": "GCLID",
+      "type": "string"
+    },
+    "standard__contact_gender": {
+      "description": "Gender of the contact. E.g. 'male', 'female', 'other'",
+      "title": "Gender",
+      "type": "string"
+    },
+    "standard__contact_interests": {
+      "description": "Contact's interests. E.g. 'Hiking', 'Skiing', 'Cooking', 'Paintball'",
+      "items": {
+        "type": "string"
+      },
+      "title": "Interests",
+      "type": "array"
+    },
+    "standard__contact_job_title": {
+      "description": "Job title of the contact.",
+      "title": "Job title",
+      "type": "string"
+    },
+    "standard__contact_last_campaign_email_bounced_date": {
+      "description": "Last campaign email bounced for the contact",
+      "format": "date",
+      "readOnly": true,
+      "title": "Last campaign email bounced date",
+      "type": "string"
+    },
+    "standard__contact_last_campaign_email_clicked_date": {
+      "description": "Last campaign email clicked date for the contact",
+      "format": "date",
+      "readOnly": true,
+      "title": "Last campaign email clicked date",
+      "type": "string"
+    },
+    "standard__contact_last_campaign_email_open_date": {
+      "description": "Last campaign email open date for the contact",
+      "format": "date",
+      "readOnly": true,
+      "title": "Last campaign email open date",
+      "type": "string"
+    },
+    "standard__contact_last_campaign_email_sent_date": {
+      "description": "Last campaign email sent for the contact",
+      "format": "date",
+      "readOnly": true,
+      "title": "Last campaign email sent date",
+      "type": "string"
+    },
+    "standard__contact_last_campaign_email_sent_name": {
+      "description": "Name of last campaign email sent for the contact",
+      "readOnly": true,
+      "title": "Last campaign email sent name",
+      "type": "string"
+    },
+    "standard__contact_last_campaign_sms_delivered_date": {
+      "description": "Last campaign SMS delivered date for the contact",
+      "format": "date-time",
+      "readOnly": true,
+      "title": "Last campaign SMS delivered date",
+      "type": "string"
+    },
+    "standard__contact_last_campaign_sms_failed_date": {
+      "description": "Last campaign SMS failed date for the contact",
+      "format": "date-time",
+      "readOnly": true,
+      "title": "Last campaign SMS failed date",
+      "type": "string"
+    },
+    "standard__contact_last_campaign_sms_sent_date": {
+      "description": "Last campaign SMS sent date for the contact",
+      "format": "date-time",
+      "readOnly": true,
+      "title": "Last campaign SMS sent date",
+      "type": "string"
+    },
+    "standard__contact_last_campaign_sms_sent_name": {
+      "description": "Name of last campaign SMS sent to the contact",
+      "readOnly": true,
+      "title": "Last campaign SMS sent name",
+      "type": "string"
+    },
+    "standard__contact_last_campaign_sms_undelivered_date": {
+      "description": "Last campaign SMS undelivered date for the contact",
+      "format": "date-time",
+      "readOnly": true,
+      "title": "Last campaign SMS undelivered date",
+      "type": "string"
+    },
+    "standard__contact_last_contact_date": {
+      "description": "Date of last contact with the contact",
+      "format": "date",
+      "readOnly": true,
+      "title": "Last contact date",
+      "type": "string"
+    },
+    "standard__contact_last_engagement_date": {
+      "description": "Date of last engagement with the contact",
+      "format": "date",
+      "readOnly": true,
+      "title": "Last engagement date",
+      "type": "string"
+    },
+    "standard__contact_last_sales_email_received_date": {
+      "description": "Date of last sales email received for the contact",
+      "format": "date",
+      "readOnly": true,
+      "title": "Last sales email received date",
+      "type": "string"
+    },
+    "standard__contact_last_sales_email_sent_date": {
+      "description": "Date of last sales email sent for the contact",
+      "format": "date",
+      "readOnly": true,
+      "title": "Last sales email sent date",
+      "type": "string"
+    },
+    "standard__contact_lead_quality": {
+      "description": "The calculated lead quality of the contact.",
+      "readOnly": true,
+      "title": "Lead quality",
+      "type": "string"
+    },
+    "standard__contact_lead_score": {
+      "description": "The calculated lead score of the contact.",
+      "readOnly": true,
+      "title": "Lead score"
+    },
+    "standard__contact_lifecycle_stage": {
+      "description": "Lifecycle stage of the contact. E.g. 'Lead'",
+      "title": "Lifecycle stage",
+      "type": "string"
+    },
+    "standard__contact_linkedin_url": {
+      "description": "URL of the contact's LinkedIn profile.",
+      "title": "LinkedIn URL",
+      "type": "string"
+    },
+    "standard__contact_marketing_email_consent_source": {
+      "description": "The source that updated the marketing email consent field.",
+      "title": "Marketing email consent source",
+      "type": "string"
+    },
+    "standard__contact_marketing_email_consent_status": {
+      "description": "The current status for the contact marketing email consent, i.e: \"Subscribed\", \"Unsubscribed\", or unset.",
+      "title": "Marketing email consent",
+      "type": "string"
+    },
+    "standard__contact_marketing_email_consent_timestamp": {
+      "description": "The timestamp in which the marketing email consent was updated.",
+      "format": "date-time",
+      "title": "Marketing email consent timestamp",
+      "type": "string"
+    },
+    "standard__contact_message": {
+      "description": "Message sent from Contact. Commonly input by the contact themselves on an intake form.",
+      "title": "Message",
+      "type": "string"
+    },
+    "standard__contact_mobile_phone_number": {
+      "description": "Additional phone number of the contact.",
+      "title": "Additional phone number",
+      "type": "string"
+    },
+    "standard__contact_msclkid": {
+      "description": "Microsoft click ID used to create the contact",
+      "readOnly": true,
+      "title": "MSCLKID",
+      "type": "string"
+    },
+    "standard__contact_next_task_due_date": {
+      "description": "Date indicating when the next task of the contact is due for completion",
+      "format": "date-time",
+      "readOnly": true,
+      "title": "Next task due date",
+      "type": "string"
+    },
+    "standard__contact_next_task_id": {
+      "description": "ID of the next task of the contact",
+      "readOnly": true,
+      "title": "Next task ID",
+      "type": "string"
+    },
+    "standard__contact_original_source": {
+      "description": "Lead attribution original source",
+      "title": "Original source",
+      "type": "string"
+    },
+    "standard__contact_original_source_drill_1": {
+      "description": "Lead attribution original source drill down level 1",
+      "title": "Original source drill down 1",
+      "type": "string"
+    },
+    "standard__contact_original_source_drill_2": {
+      "description": "Lead attribution original source drill down level 2",
+      "title": "Original source drill down 2",
+      "type": "string"
+    },
+    "standard__contact_pipeline_id": {
+      "description": "The pipeline ID that is associated with the contact.",
+      "readOnly": true,
+      "title": "Pipeline ID",
+      "type": "string"
+    },
+    "standard__contact_primary_company_id": {
+      "description": "The primary company associated with the contact.",
+      "readOnly": true,
+      "title": "Primary Company",
+      "type": "string"
+    },
+    "standard__contact_primary_location_city_locality": {
+      "description": "City or locality of the contact's primary location.",
+      "title": "City/locality",
+      "type": "string"
+    },
+    "standard__contact_primary_location_country": {
+      "description": "Country of the contact's primary location.",
+      "title": "Country",
+      "type": "string"
+    },
+    "standard__contact_primary_location_state_province_region": {
+      "description": "State, province, or region of the contact's primary location.",
+      "title": "State/province/region",
+      "type": "string"
+    },
+    "standard__contact_primary_location_street_address_1": {
+      "description": "Street address line 1 of the contact's primary location.",
+      "title": "Street address line 1",
+      "type": "string"
+    },
+    "standard__contact_primary_location_street_address_2": {
+      "description": "Street address line 2 of the contact's primary location.",
+      "title": "Street address line 2",
+      "type": "string"
+    },
+    "standard__contact_primary_location_zip_postal_code": {
+      "description": "Zip or postal code of the contact's primary location.",
+      "title": "Zip/postal code",
+      "type": "string"
+    },
+    "standard__contact_role": {
+      "description": "Role of the contact.",
+      "title": "Role",
+      "type": "string"
+    },
+    "standard__contact_seniority": {
+      "description": "Seniority of the contact.",
+      "title": "Seniority",
+      "type": "string"
+    },
+    "standard__contact_skills": {
+      "description": "Contact's skills. E.g. 'Java', 'Python', 'Javascript'",
+      "items": {
+        "type": "string"
+      },
+      "title": "Skills",
+      "type": "array"
+    },
+    "standard__contact_sms_consent_source": {
+      "description": "The source that updated the SMS consent field.",
+      "title": "SMS consent source",
+      "type": "string"
+    },
+    "standard__contact_sms_consent_status": {
+      "description": "The current status for the contact SMS consent, i.e: \"Subscribed\", \"Unsubscribed\", or unset.",
+      "title": "SMS consent",
+      "type": "string"
+    },
+    "standard__contact_source_drill_1": {
+      "description": "Lead attribution record source drill down level 1",
+      "title": "Record source drill down 1",
+      "type": "string"
+    },
+    "standard__contact_source_drill_2": {
+      "description": "Lead attribution record source drill down level 2",
+      "title": "Record source drill down 2",
+      "type": "string"
+    },
+    "standard__contact_source_name": {
+      "description": "Name of the app or external system that created the contact. E.g. 'Salesforce', 'Hubspot', 'Gmail'",
+      "title": "Record source",
+      "type": "string"
+    },
+    "standard__contact_timezone": {
+      "description": "Timezone of the contact. This is a string representing the timezone like 'America/New_York'. ",
+      "title": "Timezone",
+      "type": "string"
+    },
+    "standard__contact_utm_campaign": {
+      "description": "The campaign of the UTM parameters for the contact. E.g. 'summer_sale', 'winter_sale', 'spring_sale', 'fall_sale', 'black_friday', 'cyber_monday', 'christmas', 'new_year', 'valentines', 'easter', 'mothers_day', 'fathers_day', 'back_to_school', 'halloween', 'thanksgiving', 'other'",
+      "title": "UTM Campaign",
+      "type": "string"
+    },
+    "standard__contact_utm_content": {
+      "description": "The content of the UTM parameters for the contact. E.g. 'banner', 'sidebar', 'footer', 'header', 'popup', 'overlay', 'slider', 'carousel', 'video', 'audio', 'image', 'text', 'cta', 'form', 'other'",
+      "title": "UTM Content",
+      "type": "string"
+    },
+    "standard__contact_utm_medium": {
+      "description": "The medium of the UTM parameters for the contact. E.g. 'cpc', 'email', 'social', 'organic', 'referral', 'affiliate', 'display', 'video', 'audio', 'sms', 'direct', 'other'",
+      "title": "UTM Medium",
+      "type": "string"
+    },
+    "standard__contact_utm_source": {
+      "description": "The source of the UTM parameters for the contact. E.g. 'google', 'facebook', 'twitter', 'linkedin', 'instagram', 'pinterest', 'youtube', 'tiktok', 'snapchat', 'whatsapp', 'messenger', 'email', 'sms', 'direct', 'other'",
+      "title": "UTM Source",
+      "type": "string"
+    },
+    "standard__contact_utm_term": {
+      "description": "The term of the UTM parameters for the contact. E.g. 'running+shoes', 'black+friday+sale', 'cyber+monday+sale', 'christmas+gifts', 'new+year+resolutions', 'valentines+gifts', 'easter+sale', 'mothers+day+gifts', 'fathers+day+gifts', 'back+to+school+sale', 'halloween+sale', 'thanksgiving+sale', 'other'",
+      "title": "UTM Term",
+      "type": "string"
+    },
+    "standard__phone_number": {
+      "title": "Phone number",
+      "type": "string"
+    },
+    "standard__sms_consent_timestamp": {
+      "description": "The timestamp in which the SMS consent was updated.",
+      "format": "date-time",
+      "title": "SMS consent timestamp",
+      "type": "string"
+    },
+    "standard__tags": {
+      "description": "Descriptive keywords that help you find and segment contacts.",
+      "title": "Tags",
+      "type": "string"
+    },
+    "system__contact_created": {
+      "description": "When the record was created",
+      "format": "date",
+      "readOnly": true,
+      "title": "Created date",
+      "type": "string"
+    },
+    "system__contact_external_id": {
+      "description": "External identifier for the record, optional",
+      "title": "External ID",
+      "type": "string"
+    },
+    "system__contact_group_id": {
+      "description": "Market ID for the record, optional. Used for grouping records together, and authorization where users are restricted to selected markets.",
+      "title": "Market ID",
+      "type": "string"
+    },
+    "system__contact_id": {
+      "description": "unique identifier for the record",
+      "readOnly": true,
+      "title": "ID",
+      "type": "string"
+    },
+    "system__contact_last_activity_date": {
+      "description": "Date and time of last activity",
+      "format": "date-time",
+      "readOnly": true,
+      "title": "Last activity date",
+      "type": "string"
+    },
+    "system__contact_owner_id": {
+      "description": "Owner of the record.",
+      "title": "Owner",
+      "type": "string"
+    },
+    "system__contact_updated": {
+      "description": "When the record was last updated",
+      "format": "date",
+      "readOnly": true,
+      "title": "Updated date",
+      "type": "string"
+    }
+  }
+}

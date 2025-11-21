@@ -1,0 +1,203 @@
+{
+  "description": "CRM Meeting Field Schema for AG-L56V52BMMW",
+  "properties": {
+    "standard__activity_manually_logged": {
+      "description": "Whether the activity was manually logged",
+      "format": "boolean",
+      "readOnly": true,
+      "title": "Manually logged",
+      "type": "boolean"
+    },
+    "standard__activity_meeting_action_items": {
+      "description": "Action items of the meeting",
+      "items": {
+        "type": "string"
+      },
+      "title": "Meeting action items",
+      "type": "array"
+    },
+    "standard__activity_meeting_analysis_processed_transcript_id": {
+      "description": "Processed transcript ID of the meeting analysis",
+      "title": "Meeting transcript ID",
+      "type": "string"
+    },
+    "standard__activity_meeting_body": {
+      "description": "Meeting description.",
+      "title": "Meeting body",
+      "type": "string"
+    },
+    "standard__activity_meeting_duration": {
+      "description": "Duration of the meeting in milliseconds.",
+      "title": "Meeting duration",
+      "type": "number"
+    },
+    "standard__activity_meeting_end_time": {
+      "format": "date-time",
+      "title": "Meeting end time",
+      "type": "string"
+    },
+    "standard__activity_meeting_internal_notes": {
+      "description": "Internal notes you take for your team not included in the meeting description.",
+      "title": "Meeting internal notes",
+      "type": "string"
+    },
+    "standard__activity_meeting_key_takeaways": {
+      "description": "Key takeaways of the meeting",
+      "items": {
+        "type": "string"
+      },
+      "title": "Meeting key takeaways",
+      "type": "array"
+    },
+    "standard__activity_meeting_last_analyzed_date": {
+      "description": "Last analyzed by AI date of the meeting",
+      "format": "date",
+      "title": "Meeting last analyzed date",
+      "type": "string"
+    },
+    "standard__activity_meeting_location": {
+      "description": "Where the meeting takes place. The value could be a physical address, a conference room, a videoconference link, or a phone number.",
+      "title": "Meeting location",
+      "type": "string"
+    },
+    "standard__activity_meeting_outcome": {
+      "description": "Outcome of the meeting, e.g.: SCHEDULED, COMPLETED, RESCHEDULED, NO_SHOW, CANCELLED",
+      "title": "Meeting outcome",
+      "type": "string"
+    },
+    "standard__activity_meeting_recording_url": {
+      "description": "Recording URL of the meeting",
+      "title": "Meeting recording URL",
+      "type": "string"
+    },
+    "standard__activity_meeting_sentiment": {
+      "description": "Sentiment of the meeting",
+      "title": "Meeting sentiment",
+      "type": "number"
+    },
+    "standard__activity_meeting_start_time": {
+      "format": "date-time",
+      "title": "Meeting start time",
+      "type": "string"
+    },
+    "standard__activity_meeting_status": {
+      "description": "Meeting status ex. SCHEDULED, COMPLETED, RESCHEDULED, etc.",
+      "title": "Meeting status",
+      "type": "string"
+    },
+    "standard__activity_meeting_summary_body": {
+      "description": "Body of the summary of the meeting",
+      "title": "Meeting summary body",
+      "type": "string"
+    },
+    "standard__activity_meeting_summary_title": {
+      "description": "Title of the summary of the meeting",
+      "title": "Meeting summary title",
+      "type": "string"
+    },
+    "standard__activity_meeting_transcript": {
+      "description": "Transcript of the meeting",
+      "title": "Meeting transcript",
+      "type": "string"
+    },
+    "standard__activity_meeting_transcript_url": {
+      "description": "Transcript URL of the meeting",
+      "title": "Meeting transcript URL",
+      "type": "string"
+    },
+    "standard__activity_meeting_url": {
+      "description": "Link to a calendar, for example Google Calendar, Calendar Hero, etc.",
+      "title": "Meeting URL",
+      "type": "string"
+    },
+    "standard__activity_name": {
+      "description": "Display name used when showing a summary of the activity.",
+      "title": "Name",
+      "type": "string"
+    },
+    "standard__activity_source_drill_1": {
+      "description": "Activity record source drill down 1",
+      "title": "Record source drill down 1",
+      "type": "string"
+    },
+    "standard__activity_source_drill_2": {
+      "description": "Activity record source drill down 2",
+      "title": "Record source drill down 2",
+      "type": "string"
+    },
+    "standard__activity_source_drill_3": {
+      "description": "Activity record source drill down 3",
+      "title": "Record source drill down 3",
+      "type": "string"
+    },
+    "standard__activity_source_name": {
+      "description": "Name of the app or external system that created the activity. E.g. 'Salesforce', 'Hubspot', 'Gmail'",
+      "title": "Record source",
+      "type": "string"
+    },
+    "standard__activity_tags": {
+      "description": "List of tags useful for segmentation of activities.",
+      "title": "Tags",
+      "type": "string"
+    },
+    "standard__activity_url": {
+      "description": "Link to more information about the activity.",
+      "title": "URL",
+      "type": "string"
+    },
+    "standard__activity_url_name": {
+      "description": "Name of the link to more information about the activity.",
+      "title": "URL name",
+      "type": "string"
+    },
+    "system__activity_activity_type": {
+      "description": "Type of activity",
+      "title": "Activity type",
+      "type": "string"
+    },
+    "system__activity_created": {
+      "description": "When the record was created",
+      "format": "date",
+      "readOnly": true,
+      "title": "Created date",
+      "type": "string"
+    },
+    "system__activity_effective": {
+      "description": "Relevant date for the type",
+      "format": "date-time",
+      "title": "Effective date",
+      "type": "string"
+    },
+    "system__activity_external_id": {
+      "description": "External identifier for the record, optional",
+      "readOnly": true,
+      "title": "External ID",
+      "type": "string"
+    },
+    "system__activity_id": {
+      "description": "unique identifier for the record",
+      "readOnly": true,
+      "title": "ID",
+      "type": "string"
+    },
+    "system__activity_owner_id": {
+      "description": "Owner of the record.",
+      "title": "Owner",
+      "type": "string"
+    },
+    "system__activity_source_id": {
+      "description": "ID in the source system",
+      "title": "Source ID",
+      "type": "string"
+    },
+    "system__activity_updated": {
+      "description": "When the record was last updated",
+      "format": "date",
+      "readOnly": true,
+      "title": "Updated date",
+      "type": "string"
+    }
+  },
+  "title": "CRM Meeting",
+  "type": "object"
+}

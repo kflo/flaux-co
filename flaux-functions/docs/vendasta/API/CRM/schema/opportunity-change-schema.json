@@ -1,0 +1,137 @@
+{
+  "description": "CRM OpportunityChange Field Schema for AG-L56V52BMMW",
+  "properties": {
+    "standard__activity_manually_logged": {
+      "description": "Whether the activity was manually logged",
+      "format": "boolean",
+      "readOnly": true,
+      "title": "Manually logged",
+      "type": "boolean"
+    },
+    "standard__activity_name": {
+      "description": "Display name used when showing a summary of the activity.",
+      "title": "Name",
+      "type": "string"
+    },
+    "standard__activity_opportunity_change_id": {
+      "description": "The unique identifier for an Opportunity",
+      "title": "Opportunity ID",
+      "type": "string"
+    },
+    "standard__activity_opportunity_change_last_edit_salesperson_id": {
+      "description": "The ID of the salesperson who last edited the Opportunity",
+      "title": "Last edit salesperson ID",
+      "type": "string"
+    },
+    "standard__activity_opportunity_change_lost_reason": {
+      "description": "Explanation of why the Opportunity was lost",
+      "title": "Lost reason",
+      "type": "string"
+    },
+    "standard__activity_opportunity_change_name": {
+      "description": "The name/title of the Opportunity",
+      "title": "Opportunity name",
+      "type": "string"
+    },
+    "standard__activity_opportunity_change_notes": {
+      "description": "Notes about the Opportunity",
+      "title": "Notes",
+      "type": "string"
+    },
+    "standard__activity_opportunity_change_pipeline_stage": {
+      "description": "The pipeline status of the Opportunity in the pipeline, (closed-won, closed-lost, open, etc)",
+      "title": "Pipeline stage",
+      "type": "string"
+    },
+    "standard__activity_opportunity_change_updated_date": {
+      "description": "The date the Opportunity was last updated",
+      "format": "date",
+      "title": "Updated date",
+      "type": "string"
+    },
+    "standard__activity_source_drill_1": {
+      "description": "Activity record source drill down 1",
+      "title": "Record source drill down 1",
+      "type": "string"
+    },
+    "standard__activity_source_drill_2": {
+      "description": "Activity record source drill down 2",
+      "title": "Record source drill down 2",
+      "type": "string"
+    },
+    "standard__activity_source_drill_3": {
+      "description": "Activity record source drill down 3",
+      "title": "Record source drill down 3",
+      "type": "string"
+    },
+    "standard__activity_source_name": {
+      "description": "Name of the app or external system that created the activity. E.g. 'Salesforce', 'Hubspot', 'Gmail'",
+      "title": "Record source",
+      "type": "string"
+    },
+    "standard__activity_tags": {
+      "description": "List of tags useful for segmentation of activities.",
+      "title": "Tags",
+      "type": "string"
+    },
+    "standard__activity_url": {
+      "description": "Link to more information about the activity.",
+      "title": "URL",
+      "type": "string"
+    },
+    "standard__activity_url_name": {
+      "description": "Name of the link to more information about the activity.",
+      "title": "URL name",
+      "type": "string"
+    },
+    "system__activity_activity_type": {
+      "description": "Type of activity",
+      "title": "Activity type",
+      "type": "string"
+    },
+    "system__activity_created": {
+      "description": "When the record was created",
+      "format": "date",
+      "readOnly": true,
+      "title": "Created date",
+      "type": "string"
+    },
+    "system__activity_effective": {
+      "description": "Relevant date for the type",
+      "format": "date-time",
+      "title": "Effective date",
+      "type": "string"
+    },
+    "system__activity_external_id": {
+      "description": "External identifier for the record, optional",
+      "readOnly": true,
+      "title": "External ID",
+      "type": "string"
+    },
+    "system__activity_id": {
+      "description": "unique identifier for the record",
+      "readOnly": true,
+      "title": "ID",
+      "type": "string"
+    },
+    "system__activity_owner_id": {
+      "description": "Owner of the record.",
+      "title": "Owner",
+      "type": "string"
+    },
+    "system__activity_source_id": {
+      "description": "ID in the source system",
+      "title": "Source ID",
+      "type": "string"
+    },
+    "system__activity_updated": {
+      "description": "When the record was last updated",
+      "format": "date",
+      "readOnly": true,
+      "title": "Updated date",
+      "type": "string"
+    }
+  },
+  "title": "CRM OpportunityChange",
+  "type": "object"
+}

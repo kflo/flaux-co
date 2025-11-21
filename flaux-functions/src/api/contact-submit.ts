@@ -30,8 +30,8 @@ function normalizePhone(input: string | undefined): string | undefined {
 	return undefined;
 }
 
-// Replace with the exact Vendasta CRM endpoint + scopes once confirmed
-const VENDASTA_SCOPES = ["profile", "email"]; // TODO: add required CRM scopes (e.g., contacts:write)
+// Vendasta CRM endpoint requires 'customers' scope
+const VENDASTA_SCOPES = ["customers"];
 
 export const submitContact = onRequest({
 	cors: true,
@@ -57,8 +57,9 @@ export const submitContact = onRequest({
 		const company: string | undefined = body.company?.toString().trim();
 		const description: string | undefined = body.description?.toString().trim();
 		const projectType: string[] = Array.isArray(body.projectType) ? body.projectType : [];
-		const budget: string | undefined = body.budget?.toString();
-		const timeline: string | undefined = body.timeline?.toString();
+		// Budget and timeline would need custom fields configured in Vendasta CRM
+		// const budget: string | undefined = body.budget?.toString();
+		// const timeline: string | undefined = body.timeline?.toString();
 
 		if (!name || !email) {
 			throw new HttpsError("invalid-argument", "Missing required fields: name, email");
@@ -67,27 +68,37 @@ export const submitContact = onRequest({
 		// Acquire Vendasta access token
 		const accessToken = await VendastaServiceAccountTokenManager.getToken(VENDASTA_SCOPES);
 
-		// Build CRM payload (placeholder structure; adjust to Vendasta schema)
+		// Build CRM payload using Vendasta Contact schema field names
+		// Reference: contact-schema.json
+		// Try using email as natural lookup field without explicit external_id
 		const payload: any = {
-			name,
-			email,
-			phone,
-			company,
-			notes: description,
-			tags: projectType,
-			custom_fields: {
-				budget,
-				timeline,
-			},
-			source: "flaux.co/contact",
+			"standard__email": email,
+			"standard__first_name": name.split(" ")[0] || name,
+			"standard__last_name": name.split(" ").slice(1).join(" ") || "",
 		};
+
+		// Add optional fields only if they have values
+		if (phone) payload["standard__phone_number"] = phone;
+		if (description) payload["standard__contact_message"] = description;
+		if (projectType?.length) payload["standard__tags"] = projectType.join(", ");
+		if (company) payload["standard__contact_source_name"] = company;
+
+		// Set lead attribution
+		payload["standard__contact_source_drill_1"] = "Website Contact Form";
+		payload["standard__contact_source_drill_2"] = "flaux.co/contact";
+
+		// Custom fields for budget and timeline would need to be configured in Vendasta first
+		// Omitting for now until custom fields are set up in the CRM
 
 		// Create simple idempotency key for the day (for future use with Vendasta idempotency headers)
 		// const today = new Date();
 		// const dayKey = `${today.getUTCFullYear()}-${today.getUTCMonth()+1}-${today.getUTCDate()}`;
 		// const idemKey = cryptoHash(`${email}|${phone}|${dayKey}`);
 
-		const VENDASTA_CONTACTS_URL = `${VENDASTA_API_BASE_URL.value()}/org/8VAK/contacts`; // 8VAK == FLAUX Org ID
+		const VENDASTA_CONTACTS_URL = `${VENDASTA_API_BASE_URL.value()}/org/8VAK/contacts`;
+		console.log(`[submitContact] Calling Vendasta API: ${VENDASTA_CONTACTS_URL}`);
+		console.log("[submitContact] Payload:", JSON.stringify(payload, null, 2));
+
 		const resp = await fetch(VENDASTA_CONTACTS_URL, {
 			method: "POST",
 			headers: {
@@ -98,6 +109,8 @@ export const submitContact = onRequest({
 			},
 			body: JSON.stringify(payload),
 		});
+
+		console.log(`[submitContact] Vendasta response status: ${resp.status} ${resp.statusText}`);
 
 		let vendastaResponse: any = null;
 		if (resp.status === 401) {
@@ -118,6 +131,8 @@ export const submitContact = onRequest({
 			vendastaResponse = await retry.json();
 		} else if (!resp.ok) {
 			const text = await resp.text().catch(() => "");
+			console.error(`[submitContact] Vendasta API error: ${resp.status} ${resp.statusText}`);
+			console.error("[submitContact] Response body:", text);
 			throw new HttpsError("unknown", `Vendasta create failed: ${resp.status} ${resp.statusText} ${text}`);
 		} else {
 			vendastaResponse = await resp.json();
@@ -132,11 +147,16 @@ export const submitContact = onRequest({
 				status: "created",
 				responseId: vendastaResponse?.id ?? null,
 			},
-			tags: projectType,
+			// tags: projectType,
 		});
 
+		console.log(`[submitContact] Successfully created contact, ID: ${vendastaResponse?.id}`);
 		res.json({ ok: true, id: vendastaResponse?.id ?? null });
 	} catch (e: any) {
+		// Log the full error for debugging
+		console.error("[submitContact] Error:", e);
+		console.error("[submitContact] Error stack:", e.stack);
+
 		// Do not leak internals to client; log separately in real deployments
 		const message = e instanceof HttpsError ? e.message : "Submission failed";
 		res.status(400).json({ ok: false, error: message });
