@@ -1,6 +1,8 @@
 export const environment = {
 	production: false,
 	useEmulators: true, // Enable Firebase emulators for local dev
+	cloudFunctionsUrl: 'http://localhost:5001/flaux-site-prod/us-central1',
+	// cloudFunctionsUrl: 'https://us-central1-flaux-site-dev.cloudfunctions.net',
 	analytics: {
 		measurementId: 'G-SKKXK0E1EK'
 	},

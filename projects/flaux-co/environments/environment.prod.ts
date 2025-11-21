@@ -1,5 +1,6 @@
 export const environment = {
 	production: true,
+	cloudFunctionsUrl: 'https://us-central1-flaux-site-prod.cloudfunctions.net',
 	analytics: {
 		measurementId: 'G-KXL8Y31FB4'
 	},
