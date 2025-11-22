@@ -1,3 +1,8 @@
+<img width="1191" height="348" alt="image" src="https://github.com/user-attachments/assets/bda7d65c-a16d-46cc-9e5a-5a203271facd" />
+
+
+Deployed here: https://flaux.co // https://flaux.agency
+
 # FlauxCo
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
