@@ -1,3 +1,6 @@
+// NOTE: Firebase apiKey is safe to commit publicly - it's a client identifier, not a secret.
+// Security is enforced by Firestore Security Rules, Authentication, and API restrictions.
+// See: https://firebase.google.com/docs/projects/api-keys
 export const environment = {
 	production: true,
 	cloudFunctionsUrl: 'https://us-central1-flaux-site-prod.cloudfunctions.net',
