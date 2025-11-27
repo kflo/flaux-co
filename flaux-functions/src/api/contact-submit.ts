@@ -1,25 +1,29 @@
 import { onRequest, HttpsError } from "firebase-functions/v2/https";
+import cors from "cors";
 import { VENDASTA_SERVICE_ACCOUNT_JSON } from "../configs/vendasta-service-account";
-import { VendastaServiceAccountTokenManager } from "../auth/vendasta-service-account";
 import { db } from "../utils/firebase";
-import { VENDASTA_API_BASE_URL } from "../configs/vendasta";
 
-// Configure CORS allowlist for your site(s)
-const ALLOWED_ORIGINS = new Set([
-	"https://flaux.co",
-	"https://www.flaux.co",
-	"https://flaux-site-dev.web.app",
-//   "http://localhost:4200",
-]);
+// Configure CORS with allowed origins
+const corsHandler = cors({
+	origin: (origin, callback) => {
+		const allowedOrigins = [
+			"https://flaux.co",
+			"https://www.flaux.co",
+			"https://flaux-site-dev.web.app",
+		];
 
-function allowCors(origin: string | undefined, res: any) {
-	if (origin && ALLOWED_ORIGINS.has(origin)) {
-		res.set("Access-Control-Allow-Origin", origin);
-	}
-	res.set("Vary", "Origin");
-	res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
-	res.set("Access-Control-Allow-Headers", "Content-Type");
-}
+		// Allow localhost for development
+		if (origin?.startsWith("http://localhost")) {
+			callback(null, true);
+		} else if (allowedOrigins.includes(origin || "")) {
+			callback(null, true);
+		} else {
+			callback(new Error("CORS not allowed"), false);
+		}
+	},
+	methods: ["POST", "OPTIONS"],
+	allowedHeaders: ["Content-Type"],
+});
 
 function normalizePhone(input: string | undefined): string | undefined {
 	if (!input) return undefined;
@@ -30,136 +34,96 @@ function normalizePhone(input: string | undefined): string | undefined {
 	return undefined;
 }
 
-// Vendasta CRM endpoint requires 'customers' scope
-const VENDASTA_SCOPES = ["customers"];
-
 export const submitContact = onRequest({
-	cors: true,
 	region: "us-central1",
 	secrets: [VENDASTA_SERVICE_ACCOUNT_JSON],
-}, async (req, res) => {
-	allowCors(req.headers.origin as string | undefined, res);
-	if (req.method === "OPTIONS") {
-		res.status(204).end();
-		return;
-	}
-
-	if (req.method !== "POST") {
-		res.status(405).json({ error: "Method not allowed" });
-		return;
-	}
-
-	try {
-		const body = req.body || {};
-		const name: string | undefined = body.name?.toString().trim();
-		const email: string | undefined = body.email?.toString().trim().toLowerCase();
-		const phone: string | undefined = normalizePhone(body.phone?.toString());
-		const company: string | undefined = body.company?.toString().trim();
-		const description: string | undefined = body.description?.toString().trim();
-		const projectType: string[] = Array.isArray(body.projectType) ? body.projectType : [];
-		// Budget and timeline would need custom fields configured in Vendasta CRM
-		// const budget: string | undefined = body.budget?.toString();
-		// const timeline: string | undefined = body.timeline?.toString();
-
-		if (!name || !email) {
-			throw new HttpsError("invalid-argument", "Missing required fields: name, email");
+}, (req, res) => {
+	// Apply CORS middleware
+	corsHandler(req, res, async () => {
+		if (req.method === "OPTIONS") {
+			res.status(204).end();
+			return;
 		}
 
-		// Acquire Vendasta access token
-		const accessToken = await VendastaServiceAccountTokenManager.getToken(VENDASTA_SCOPES);
+		if (req.method !== "POST") {
+			res.status(405).json({ error: "Method not allowed" });
+			return;
+		}
 
-		// Build CRM payload using Vendasta Contact schema field names
-		// Reference: contact-schema.json
-		// Try using email as natural lookup field without explicit external_id
-		const payload: any = {
-			"standard__email": email,
-			"standard__first_name": name.split(" ")[0] || name,
-			"standard__last_name": name.split(" ").slice(1).join(" ") || "",
-		};
+		try {
+			const body = req.body || {};
+			const contactId = crypto.randomUUID();
+			const firstName: string | undefined = body.firstName?.toString().trim();
+			const lastName: string | undefined = body.lastName?.toString().trim();
+			const email: string | undefined = body.email?.toString().trim().toLowerCase();
+			const phone: string | undefined = normalizePhone(body.phone?.toString());
+			const company: string | undefined = body.company?.toString().trim();
+			const budget: string | undefined = body.budget?.toString().trim();
+			const timeline: string | undefined = body.timeline?.toString().trim();
+			const preferredContact: string | undefined = body.preferredContact?.toString().trim();
+			const description: string | undefined = body.description?.toString().trim();
+			const projectType: string[] = Array.isArray(body.projectType) ? body.projectType : [];
 
-		// Add optional fields only if they have values
-		if (phone) payload["standard__phone_number"] = phone;
-		if (description) payload["standard__contact_message"] = description;
-		if (projectType?.length) payload["standard__tags"] = projectType.join(", ");
-		if (company) payload["standard__contact_source_name"] = company;
+			if (!firstName || !lastName || !email) {
+				throw new HttpsError("invalid-argument", "Missing required fields: firstName, lastName, email");
+			}
 
-		// Set lead attribution
-		payload["standard__contact_source_drill_1"] = "Website Contact Form";
-		payload["standard__contact_source_drill_2"] = "flaux.co/contact";
+			// Construct payload for Webhook
+			const payload: any = {
+				contactId,
+				firstName,
+				lastName,
+				email,
+				phone,
+				company,
+				budget,
+				timeline,
+				preferredContact,
+				description,
+				projectType: projectType.join(", "),
+				source: "flaux.co/contact",
+			};
 
-		// Custom fields for budget and timeline would need to be configured in Vendasta first
-		// Omitting for now until custom fields are set up in the CRM
+			const WEBHOOK_URL = "https://automations.businessapp.io/start/8VAK/d2f040b7-0e63-4884-b765-b3e8bbcf558b";
+			console.log(`[submitContact] Calling Webhook: ${WEBHOOK_URL}`);
+			console.log("[submitContact] Payload:", JSON.stringify(payload, null, 2));
 
-		// Create simple idempotency key for the day (for future use with Vendasta idempotency headers)
-		// const today = new Date();
-		// const dayKey = `${today.getUTCFullYear()}-${today.getUTCMonth()+1}-${today.getUTCDate()}`;
-		// const idemKey = cryptoHash(`${email}|${phone}|${dayKey}`);
-
-		const VENDASTA_CONTACTS_URL = `${VENDASTA_API_BASE_URL.value()}/org/8VAK/contacts`;
-		console.log(`[submitContact] Calling Vendasta API: ${VENDASTA_CONTACTS_URL}`);
-		console.log("[submitContact] Payload:", JSON.stringify(payload, null, 2));
-
-		const resp = await fetch(VENDASTA_CONTACTS_URL, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				"Authorization": `Bearer ${accessToken}`,
-				// If Vendasta supports idempotency headers, wire here:
-				// "Idempotency-Key": idemKey,
-			},
-			body: JSON.stringify(payload),
-		});
-
-		console.log(`[submitContact] Vendasta response status: ${resp.status} ${resp.statusText}`);
-
-		let vendastaResponse: any = null;
-		if (resp.status === 401) {
-			// Force refresh and retry once
-			const refreshed = await VendastaServiceAccountTokenManager.getToken(VENDASTA_SCOPES);
-			const retry = await fetch(VENDASTA_CONTACTS_URL, {
+			const resp = await fetch(WEBHOOK_URL, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
-					"Authorization": `Bearer ${refreshed}`,
 				},
 				body: JSON.stringify(payload),
 			});
-			if (!retry.ok) {
-				const text = await retry.text().catch(() => "");
-				throw new HttpsError("unknown", `Vendasta create failed: ${retry.status} ${retry.statusText} ${text}`);
+
+			console.log(`[submitContact] Webhook response status: ${resp.status} ${resp.statusText}`);
+
+			if (!resp.ok) {
+				const text = await resp.text().catch(() => "");
+				console.error(`[submitContact] Webhook error: ${resp.status} ${resp.statusText}`);
+				console.error("[submitContact] Response body:", text);
+				throw new HttpsError("unknown", `Webhook failed: ${resp.status} ${resp.statusText}`);
 			}
-			vendastaResponse = await retry.json();
-		} else if (!resp.ok) {
-			const text = await resp.text().catch(() => "");
-			console.error(`[submitContact] Vendasta API error: ${resp.status} ${resp.statusText}`);
-			console.error("[submitContact] Response body:", text);
-			throw new HttpsError("unknown", `Vendasta create failed: ${resp.status} ${resp.statusText} ${text}`);
-		} else {
-			vendastaResponse = await resp.json();
-		}
 
-		// Audit record (minimal, PII-light)
-		await db.collection("contactSubmissions").add({
-			email,
-			company: company || null,
-			submittedAt: new Date(),
-			vendasta: {
-				status: "created",
-				responseId: vendastaResponse?.id ?? null,
-			},
-			// tags: projectType,
-		});
+			// Audit record (minimal, PII-light)
+			await db.collection("contactSubmissions").add({
+				email,
+				company: company || null,
+				submittedAt: new Date(),
+				status: "forwarded_to_webhook",
+			});
 
-		console.log(`[submitContact] Successfully created contact, ID: ${vendastaResponse?.id}`);
-		res.json({ ok: true, id: vendastaResponse?.id ?? null });
-	} catch (e: any) {
+			console.log("[submitContact] Successfully forwarded contact to webhook");
+			res.json({ ok: true });
+		} catch (e: any) {
 		// Log the full error for debugging
-		console.error("[submitContact] Error:", e);
-		console.error("[submitContact] Error stack:", e.stack);
+			console.error("[submitContact] Error:", e);
+			console.error("[submitContact] Error stack:", e.stack);
 
-		// Do not leak internals to client; log separately in real deployments
-		const message = e instanceof HttpsError ? e.message : "Submission failed";
-		res.status(400).json({ ok: false, error: message });
-	}
+			// Do not leak internals to client; log separately in real deployments
+			const message = e instanceof HttpsError ? e.message : "Submission failed";
+			res.status(400).json({ ok: false, error: message });
+		}
+	});
 });
 
