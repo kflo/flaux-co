@@ -8,17 +8,16 @@ import { environment } from 'projects/flaux-co/environments/environment';
  * Contact form submission data interface
  */
 export interface ContactFormData {
-	name: string;
+	firstName: string;
+	lastName: string;
 	email: string;
 	phone?: string;
 	company?: string;
 	projectType?: string[];
 	budget?: string;
 	timeline?: string;
+	preferredContact?: string;
 	description?: string;
-	prefersEmail?: boolean;
-	prefersPhone?: boolean;
-	prefersSms?: boolean;
 }
 
 /**
@@ -40,6 +39,8 @@ export interface ContactSubmissionResponse {
 export class ContactFormService {
 	// Cloud Functions endpoint (base URL from environment config)
 	private readonly submitContactUrl = `${environment.cloudFunctionsUrl}/submitContact`;
+	// private readonly submitContactUrl = 'https://webhook.site/097d278b-00bf-42aa-8565-6358ce445675';
+	// private readonly submitContactUrl = 'https://automations.businessapp.io/start/8VAK/2285e0a0-a87f-44eb-bdc9-73e6221838c5';
 
 	// Request timeout in milliseconds
 	private readonly timeout = 30000; // 30 seconds
@@ -54,31 +55,35 @@ export class ContactFormService {
 	submit(formData: ContactFormData): Observable<ContactSubmissionResponse> {
 		// Prepare payload - only send fields that are defined
 		const payload = {
-			name: formData.name,
+			firstName: formData.firstName,
+			lastName: formData.lastName,
 			email: formData.email,
 			...(formData.phone && {
-				phone: formData.phone 
+				phone: formData.phone
 			}),
 			...(formData.company && {
-				company: formData.company 
+				company: formData.company
 			}),
 			...(formData.projectType?.length && {
-				projectType: formData.projectType 
+				projectType: formData.projectType
 			}),
 			...(formData.budget && {
-				budget: formData.budget 
+				budget: formData.budget
 			}),
 			...(formData.timeline && {
-				timeline: formData.timeline 
+				timeline: formData.timeline
+			}),
+			...(formData.preferredContact && {
+				preferredContact: formData.preferredContact
 			}),
 			...(formData.description && {
-				description: formData.description 
+				description: formData.description
 			}),
 		};
 
 		return this.http.post<ContactSubmissionResponse>(this.submitContactUrl, payload).pipe(
 			timeout(this.timeout),
-			catchError(error => this.handleError(error))
+			catchError(error => this.handleError(error)),
 		);
 	}
 
@@ -90,8 +95,12 @@ export class ContactFormService {
 	validateForm(formData: ContactFormData): string[] {
 		const errors: string[] = [];
 
-		if (!formData.name?.trim()) {
-			errors.push('Name is required');
+		if (!formData.firstName?.trim()) {
+			errors.push('First Name is required');
+		}
+
+		if (!formData.lastName?.trim()) {
+			errors.push('Last Name is required');
 		}
 
 		if (!formData.email?.trim()) {

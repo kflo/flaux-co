@@ -1,16 +1,19 @@
-import {Component, inject} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import {
+	Component, inject, ViewChild, ElementRef, ChangeDetectorRef
+} from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
-import {CommonModule} from '@angular/common';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSliderModule} from '@angular/material/slider';
-import {FooterComponent} from "@app/shared/footer/footer.component";
-import {ContactFormService} from '@app/services/contact-form.service';
+import { FlauxSectionComponent } from '@app/shared/flaux-section/flaux-section.component';
+import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSliderModule } from '@angular/material/slider';
+import { FooterComponent } from "@app/shared/footer/footer.component";
+import { ContactFormService } from '@app/services/contact-form.service';
 
 @Component({
 	selector: 'flaux-contact',
@@ -25,14 +28,20 @@ import {ContactFormService} from '@app/services/contact-form.service';
 		MatCheckboxModule,
 		MatButtonModule,
 		MatSliderModule,
-		FooterComponent
+		FooterComponent,
+		MatSnackBarModule
 	],
 	templateUrl: './contact.page.html',
 	styleUrls: ['./contact.page.scss']
 })
 export class ContactPage {
-	form: FormGroup;
+	form: FormGroup | null;
 	private contactFormService = inject(ContactFormService);
+	private snackBar = inject(MatSnackBar);
+	private cdr = inject(ChangeDetectorRef);
+
+	@ViewChild('snapshotWidgetContainer') widgetContainer!: ElementRef;
+
 	isSubmitting = false;
 	submissionMessage: {
 		type: 'success' | 'error' | null;
@@ -42,23 +51,49 @@ export class ContactPage {
 			text: ''
 		};
 
+	private readonly initialFormValues = {
+		firstName: '',
+		lastName: '',
+		email: '',
+		phone: '',
+		prefersEmail: false,
+		prefersPhone: false,
+		prefersSms: false,
+		company: '',
+		projectType: [] as string[],
+		budgetIndex: 0,
+		timelineIndex: 0,
+		description: ''
+	};
+
 	constructor (private fb: FormBuilder) {
 		this.form = this.createForm();
+		console.log({ form: this.form?.value });
+
+	}
+
+	openSnackBar(message: string, action: string, ) {
+		this.snackBar.open(message, action, {
+			horizontalPosition: 'right',
+			verticalPosition: 'top',
+			duration: 7000,
+		});
 	}
 
 	private createForm(): FormGroup {
 		return this.fb.group({
-			name: ['', {validators: [Validators.required]}],
-			email: ['', {validators: [Validators.required, Validators.email]}],
-			phone: ['', {validators: [Validators.required, Validators.pattern(/^[0-9\s\-.+()]{12,20}$/)]}],
-			prefersEmail: [false],
-			prefersPhone: [false],
-			prefersSms: [false],
-			company: ['',],
-			projectType: [[]],
-			budgetIndex: [0],
-			timelineIndex: [0],
-			description: ['']
+			firstName: [this.initialFormValues.firstName, { validators: [Validators.required] }],
+			lastName: [this.initialFormValues.lastName, { validators: [Validators.required] }],
+			email: [this.initialFormValues.email, { validators: [Validators.required, Validators.email] }],
+			phone: [this.initialFormValues.phone, { validators: [Validators.required, Validators.pattern(/^[0-9\s\-.+()]{12,20}$/)] }],
+			prefersEmail: [this.initialFormValues.prefersEmail],
+			prefersPhone: [this.initialFormValues.prefersPhone],
+			prefersSms: [this.initialFormValues.prefersSms],
+			company: [this.initialFormValues.company],
+			projectType: [this.initialFormValues.projectType],
+			budgetIndex: [this.initialFormValues.budgetIndex],
+			timelineIndex: [this.initialFormValues.timelineIndex],
+			description: [this.initialFormValues.description, { validators: [Validators.required] }]
 		});
 	}
 
@@ -135,7 +170,7 @@ export class ContactPage {
 	onPhoneInput(event: any) {
 		const input = event.target.value;
 		const formatted = this.formatPhoneNumber(input);
-		this.form.patchValue({phone: formatted}, {emitEvent: false});
+		this.form?.patchValue({ phone: formatted }, { emitEvent: false });
 	}
 
 	onSubmit() {
@@ -146,7 +181,7 @@ export class ContactPage {
 		};
 
 		// Validate form
-		const errors = this.contactFormService.validateForm(this.form.value);
+		const errors = this.contactFormService.validateForm(this.form?.value);
 		if (errors.length > 0) {
 			this.submissionMessage = {
 				type: 'error',
@@ -162,53 +197,51 @@ export class ContactPage {
 
 		this.isSubmitting = true;
 
-		const value = this.form.value;
+		const value = this.form?.value;
+
+		// Build comma-delimited preferred contact methods
+		const preferredMethods: string[] = [];
+		if (value.prefersEmail) preferredMethods.push('Email');
+		if (value.prefersPhone) preferredMethods.push('Phone');
+		if (value.prefersSms) preferredMethods.push('SMS');
+
 		const result = {
-			name: value.name,
+			firstName: value.firstName,
+			lastName: value.lastName,
 			email: value.email,
 			phone: value.phone ? value.phone.replace(/\D/g, '') : undefined,
 			company: value.company || undefined,
 			projectType: value.projectType?.length ? value.projectType : undefined,
-			budget: value.budget,
-			timeline: value.timeline,
-			description: value.description || undefined,
-			prefersEmail: value.prefersEmail,
-			prefersPhone: value.prefersPhone,
-			prefersSms: value.prefersSms
+			budget: this.budgetSliderLabels[value.budgetIndex],
+			timeline: this.timelineSliderLabels[value.timelineIndex],
+			preferredContact: preferredMethods.length > 0 ? preferredMethods.join(', ') : undefined,
+			description: value.description || undefined
 		};
 
 		this.contactFormService.submit(result).subscribe({
 			next: (response) => {
-				this.isSubmitting = false;
-				if (response.ok) {
-					this.submissionMessage = {
-						type: 'success',
-						text: 'Thank you! Your message has been received. We\'ll be in touch shortly.'
-					};
-					// Reset form completely by recreating it
-					this.form = this.createForm();
-					// Scroll to message
-					setTimeout(() => {
-						const messageEl = document.querySelector('[data-message]');
-						messageEl?.scrollIntoView({
-							behavior: 'smooth',
-							block: 'start'
-						});
-					}, 300);
+				console.log('Response received:', response);
+				if (response?.ok) {
+					this.isSubmitting = false;
+					// Reset form and clear validation state
+					this.form?.reset(this.initialFormValues);
+					// Mark all controls as untouched to clear Material error styling
+					Object.keys(this.form?.controls || {}).forEach(key => {
+						this.form?.get(key)?.setErrors(null);
+						this.form?.get(key)?.markAsUntouched();
+						this.form?.get(key)?.markAsPristine();
+					});
+					console.log({ form: this.form?.value });
+
+					this.openSnackBar('Thank you! Your message has been received. We\'ll be in touch shortly.', 'Okay');
 				} else {
-					this.submissionMessage = {
-						type: 'error',
-						text: response.error || 'Failed to submit form. Please try again.'
-					};
+					this.openSnackBar('Error — ' + (response?.error || 'Failed to submit form. Please try again.'), '✖');
 				}
 			},
 			error: (error) => {
-				this.isSubmitting = false;
-				this.submissionMessage = {
-					type: 'error',
-					text: error.message || 'An error occurred. Please try again later.'
-				};
-			}
+				console.error('Submission error:', error);
+				this.openSnackBar('Error — An error occurred while submitting the form. Please try again later.', '✖');
+			},
 		});
 	}
 }
