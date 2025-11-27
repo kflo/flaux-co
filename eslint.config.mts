@@ -39,11 +39,12 @@ export default defineConfig([
 			"@typescript-eslint/no-unused-vars": "warn",
 			// "no-unused-vars": "off", // Turn off base rule for TypeScript files only
 			// Style rules for project code (excluded from this file via the file-level disable comment above)
-			"object-property-newline": ["error", {allowAllPropertiesOnSameLine: false}],
+			"object-property-newline": ["error", {allowAllPropertiesOnSameLine: true}],
+			"object-curly-spacing": ["error", "always"],
 			"object-curly-newline": [
 				"error",
 				{
-					ObjectExpression: {multiline: true, minProperties: 1},
+					ObjectExpression: {multiline: true, minProperties: 2},
 					ObjectPattern: {multiline: true, minProperties: 4},
 					ImportDeclaration: {multiline: true, minProperties: 5},
 					ExportDeclaration: {multiline: true, minProperties: 5},
