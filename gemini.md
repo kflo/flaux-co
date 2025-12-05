@@ -20,8 +20,9 @@ This is a web application built with Angular.
 ### Coding Conventions
 
 *   Follow the existing Angular component structure (`.page.ts`, `.page.html`, `.page.scss`).
-*   Adhere to the styles defined in `.editorconfig`.
-*   All new shareable UI components should be created in the `projects/flaux-co/src/components/` directory.
+*   Adhere to the styles defined in `.editorconfig` and `eslint.config.mts`.
+*   Adhere to `eslintrc.js` for files in the `flaux-functions` project.
+*   All new shareable UI components should be created in the `projects/flaux-co/src/app/shared` directory.
 
 ### Interaction Style
 

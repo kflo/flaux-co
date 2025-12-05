@@ -71,4 +71,8 @@ export const routes: Routes = [
 		// canActivate: [authGuard],
 		loadComponent: () => import('@pages/dashboard/dashboard.page').then(m => m.DashboardPage)
 	},
+	{
+		path: 'hvac-audit',
+		loadComponent: () => import('@pages/funnels/hvac-audit/hvac-audit.page').then(m => m.HvacAuditPage)
+	},
 ];
