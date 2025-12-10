@@ -6,14 +6,14 @@
 @use '@angular/material' as mat;
 @use 'variables' as *;
 @use '_theme-colors' as colors;
+@use '_mixins' as mixins;
 
 /* -------------------------------------------------------------------------- */
 /*                              CASCADE LAYERS                                */
 /* -------------------------------------------------------------------------- */
 
-/* Define layer order - unlayered styles (webchat) have LOWEST priority */
-/* Layered styles always win over unlayered, in the order declared below */
-@layer material, material-overrides;
+/* Define layer order */
+@layer material;
 
 /* -------------------------------------------------------------------------- */
 /*                                   THEMING                                  */
@@ -41,56 +41,6 @@
 				// ),
 				density: 0,
 			));
-	}
-}
-
-@layer material-overrides {
-
-	/* Force Material components to use proper borders and backgrounds */
-	/* This counters the webchat widget's aggressive !important overrides */
-	mat-form-field .mdc-text-field__input {
-		border: initial !important;
-		background-color: initial !important;
-		color: initial !important;
-	}
-
-	.mdc-label {
-		color: #ddd !important;
-	}
-
-	.mdc-checkbox {
-		* {
-			--mat-checkbox-unselected-focus-icon-color: initial !important;
-			--mat-checkbox-unselected-hover-icon-color: initial !important;
-			--mat-checkbox-unselected-icon-color: initial !important;
-			--mat-sys-on-surface: initial !important;
-			--mat-sys-on-surface-variant: light-dark(#111, #ccc) !important;
-		}
-
-		// border-color: #ccc !important;
-	}
-
-	// Force dark theme colors to override third-party widget styles
-	mat-form-field {
-		--mat-form-field-outlined-outline-color: initial !important;
-		--mat-form-field-outlined-hover-outline-color: initial !important;
-		--mat-form-field-outlined-focus-outline-color: initial !important;
-		--mat-form-field-outlined-label-text-color: initial !important;
-		--mat-form-field-outlined-input-text-color: initial !important;
-
-		--mat-select-enabled-trigger-text-color: initial !important;
-
-
-		--mat-sys-on-surface: initial !important;
-		--mat-sys-on-surface-variant: initial !important;
-		--mdc-filled-text-field-input-text-placeholder-color: initial !important;
-
-		--mat-form-field-outlined-focus-label-text-color: initial !important;
-		--mat-form-field-outlined-hover-label-text-color: initial !important;
-		--mat-form-field-outlined-input-text-placeholder-color: #888 !important;
-		--mat-form-field-outlined-error-label-text-color: initial !important;
-		--mat-form-field-outlined-error-label-text-color: initial !important;
-
 	}
 }
 
@@ -278,6 +228,53 @@ h6 {
 .mat-mdc-optgroup-label {
 	background-color: rgba($flaux-blue, 0.2);
 }
+
+/* Force Material components to use proper borders and backgrounds */
+mat-form-field .mdc-text-field__input {
+	border: initial !important;
+	background-color: initial !important;
+	color: initial !important;
+}
+
+.mdc-label {
+	color: #ddd !important;
+}
+
+.mdc-checkbox {
+	* {
+		--mat-checkbox-unselected-focus-icon-color: initial !important;
+		--mat-checkbox-unselected-hover-icon-color: initial !important;
+		--mat-checkbox-unselected-icon-color: initial !important;
+		--mat-sys-on-surface: initial !important;
+		--mat-sys-on-surface-variant: light-dark(#111, #ccc) !important;
+	}
+}
+
+// Force dark theme colors
+mat-form-field {
+	--mat-form-field-outlined-outline-color: initial !important;
+	--mat-form-field-outlined-hover-outline-color: initial !important;
+	--mat-form-field-outlined-focus-outline-color: initial !important;
+	--mat-form-field-outlined-label-text-color: initial !important;
+	--mat-form-field-outlined-input-text-color: initial !important;
+
+	--mat-select-enabled-trigger-text-color: initial !important;
+
+	--mat-sys-on-surface: initial !important;
+	--mat-sys-on-surface-variant: initial !important;
+	--mdc-filled-text-field-input-text-placeholder-color: initial !important;
+
+	--mat-form-field-outlined-focus-label-text-color: initial !important;
+	--mat-form-field-outlined-hover-label-text-color: initial !important;
+	--mat-form-field-outlined-input-text-placeholder-color: #999 !important;
+	--mat-form-field-outlined-error-label-text-color: initial !important;
+	--mat-form-field-outlined-error-label-text-color: initial !important;
+}
+
+html {
+	@include mixins.reset-mat-button-typography();
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                          LEGAL BOTTOM SHEET STYLES                         */

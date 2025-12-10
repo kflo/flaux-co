@@ -27,3 +27,12 @@
 		}
 	}
 }
+
+// Reset Angular Material button typography variables to initial
+@mixin reset-mat-button-typography() {
+	$types: 'text', 'filled', 'outlined', 'protected', 'elevated', 'tonal';
+
+	@each $type in $types {
+		--mat-button-#{$type}-label-text-font: initial !important;
+	}
+}
