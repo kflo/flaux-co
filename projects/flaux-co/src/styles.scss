@@ -21,17 +21,30 @@
 
 @layer material {
 	html {
+		// Override Material's system-level font variables
+		// --mat-sys-body-large-font: 'Raleway', sans-serif;
+		// --mat-sys-body-medium-font: 'Raleway', sans-serif;
+		// --mat-sys-body-small-font: 'Raleway', sans-serif;
+		// --mat-sys-label-large-font: 'Raleway', sans-serif;
+		// --mat-sys-label-medium-font: 'Raleway', sans-serif;
+		// --mat-sys-label-small-font: 'Raleway', sans-serif;
+		// --mat-sys-title-large-font: 'Raleway', sans-serif;
+		// --mat-sys-title-medium-font: 'Raleway', sans-serif;
+		// --mat-sys-title-small-font: 'Raleway', sans-serif;
+
 		@include mat.theme((color: (primary: colors.$primary-palette,
 					// secondary: colors.$secondary-palette,
 					tertiary: colors.$tertiary-palette,
 				),
+				// typography: (plain-family: 'Raleway, sans-serif',
+				// 	brand-family: 'Raleway, sans-serif',
+				// ),
 				density: 0,
 			));
 	}
 }
 
 @layer material-overrides {
-
 
 	/* Force Material components to use proper borders and backgrounds */
 	/* This counters the webchat widget's aggressive !important overrides */

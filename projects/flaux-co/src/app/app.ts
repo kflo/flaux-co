@@ -1,11 +1,11 @@
-import {Component, inject} from '@angular/core';
-import {NavbarComponent} from '@app/shared/navbar/navbar.component';
-import {Router, RouterModule, NavigationEnd} from '@angular/router';
-import {NavMenuComponent} from '@app/shared/nav-menu/nav-menu.component';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {filter, map} from 'rxjs/operators';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {UxService} from './services/ux.service';
+import { Component, inject } from '@angular/core';
+import { NavbarComponent } from '@app/shared/navbar/navbar.component';
+import { Router, RouterModule, NavigationEnd } from '@angular/router';
+import { NavMenuComponent } from '@app/shared/nav-menu/nav-menu.component';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, map } from 'rxjs/operators';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { UxService } from './services/ux.service';
 
 @Component({
 	selector: 'app-root',
@@ -25,6 +25,6 @@ export class App {
 			filter((event): event is NavigationEnd => event instanceof NavigationEnd),
 			map(event => event.urlAfterRedirects.startsWith('/dashboard'))
 		),
-		{initialValue: this.router.url.startsWith('/dashboard')}
+		{ initialValue: this.router.url.startsWith('/dashboard') }
 	);
 }

@@ -1,11 +1,9 @@
-import {Injectable, signal} from '@angular/core';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {map} from 'rxjs';
+import { Injectable, signal } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
 
-@Injectable({
-	providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class UxService {
 	private dropdownOpenSignal = signal(false);
 
@@ -20,9 +18,9 @@ export class UxService {
 
 	constructor (private breakpointObserver: BreakpointObserver) {
 		// Check if we're returning from OAuth redirect
-		const hasPendingAuth = typeof sessionStorage !== 'undefined' && 
+		const hasPendingAuth = typeof sessionStorage !== 'undefined' &&
 			Object.keys(sessionStorage).some(key => key.includes('firebase:pendingRedirect'));
-		
+
 		if (hasPendingAuth) {
 			this.globalLoading.set(true);
 		}
@@ -33,19 +31,19 @@ export class UxService {
 		// (max-width: 768px)
 		this.isMobile = toSignal(
 			breakpoint$.pipe(map(result => result.breakpoints['(max-width: 768px)'])),
-			{initialValue: false}
+			{ initialValue: false }
 		);
 
 		// (min-width: 1280px) and (orientation: landscape)
 		this.webLandscape = toSignal(
 			breakpoint$.pipe(map(result => result.breakpoints[Breakpoints.WebLandscape])),
-			{initialValue: false}
+			{ initialValue: false }
 		);
 
 		// < 900 px width
 		this.lessThan900 = toSignal(
 			breakpoint$.pipe(map(result => result.breakpoints['(max-width: 900px)'])),
-			{initialValue: false}
+			{ initialValue: false }
 		);
 	}
 
