@@ -18,6 +18,8 @@ export interface ContactFormData {
 	timeline?: string;
 	preferredContact?: string;
 	description?: string;
+	serviceArea?: string;
+	biggestPain?: string;
 }
 
 /**
@@ -78,6 +80,12 @@ export class ContactFormService {
 			}),
 			...(formData.description && {
 				description: formData.description
+			}),
+			...(formData.serviceArea && {
+				serviceArea: formData.serviceArea
+			}),
+			...(formData.biggestPain && {
+				biggestPain: formData.biggestPain
 			}),
 		};
 
