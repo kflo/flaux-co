@@ -3,7 +3,7 @@
 		<!-- HERO SECTION -->
 		<section id="hero"
 					class="section hero-section">
-			<h1>Never Miss Another $10,000 HVAC Call</h1>
+			<h1>Never Miss Another<mobile><br></mobile>$10,000 HVAC Call</h1>
 			<div class="hero-content">
 				<img src="assets/img/funnel/devices-snapshot.png"
 					  alt="Devices Snapshot"
@@ -21,10 +21,14 @@
 					</ul>
 
 					<div class="hero-ctas">
-						<button mat-flat-button
-								  class="primary-cta">Get My Free HVAC Audit</button>
-						<button mat-stroked-button
-								  class="secondary-cta">See How the AI Dispatcher Works</button>
+						<flaux-btn [height]="'1.5em'"
+									  [hueRotate]="'-20deg'"
+									  class="primary-cta">Get My Free HVAC Audit</flaux-btn>
+						<flaux-btn [height]="'1.5em'"
+									  [href]="'https://cal.com/flaux'"
+									  [hueRotate]="'200deg'"
+									  target="_blank"
+									  class="secondary-cta">Book a Demo</flaux-btn>
 					</div>
 				</div>
 			</div>
@@ -49,8 +53,8 @@
 				</div>
 				<div class="trust-image">
 					<iframe #hvacVideo
-							  src="https://www.youtube.com/embed/L-yDvqICYmY?si=QXj10NoP8ly2ma15&amp;controls=0&amp;mute=1&amp;enablejsapi=1&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3"
-							  data-autoplay-src="https://www.youtube.com/embed/L-yDvqICYmY?si=QXj10NoP8ly2ma15&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;enablejsapi=1&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3"
+							  src="https://www.youtube.com/embed/L-yDvqICYmY?si=QXj10NoP8ly2ma15&amp;controls=0&amp;mute=1&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3"
+							  data-autoplay-src="https://www.youtube.com/embed/L-yDvqICYmY?si=QXj10NoP8ly2ma15&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3"
 							  title="YouTube video player"
 							  frameborder="0"
 							  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -142,7 +146,33 @@
 					</p>
 				</article>
 			</div>
-		</section> <!-- HOW IT WORKS -->
+		</section>
+
+		<!-- VALUE PROPOSITION FOR AI / AUTOMATION -->
+		<section id="ai-value"
+					class="section ai-value-section">
+			<div class="ai-value-content">
+				<h2>Why AI Dispatch & Automation Matter for HVAC Right Now</h2>
+				<p>
+					<em><b>Homeowners don't wait around.</b></em> When the AC dies or the heat goes out, they call the first company that responds.
+				</p>
+				<ul class="ai-benefits">
+					<li><strong>AI phone agent:</strong> Answers every call 24/7, gathers details, and books jobs into your schedule.</li>
+					<li><strong>AI SMS & chat:</strong> Instantly responds to web leads, Facebook messages, and after-hours inquiries.</li>
+					<li><strong>Automated quote follow-up:</strong> Nurtures big-ticket install estimates until the customer is ready to say yes.</li>
+					<li><strong>Automated review engine:</strong> Requests Google reviews after each job and funnels unhappy customers to you privately.</li>
+					<li><strong>CRM integration:</strong> Keeps everything organized so you know who called, what they needed, and what's next.</li>
+				</ul>
+				<p>
+					The audit shows exactly where these tools would make the <strong>biggest and fastest impact</strong> in your business.
+				</p>
+			</div>
+			<img [src]="uxService.lessThan1100() ? 'assets/img/funnel/tablet-snapshot-hvac-wide.png' : 'assets/img/funnel/device-tablet-snapshot.jpg'"
+				  alt="AI Automation"
+				  class="ai-value-image">
+		</section>
+
+		<!-- HOW IT WORKS -->
 		<section id="how-it-works"
 					class="section how-it-works-section">
 			<h2>How the HVAC Lead Leakage Audit Works</h2>
@@ -165,30 +195,6 @@
 			</p>
 		</section>
 
-		<!-- VALUE PROPOSITION FOR AI / AUTOMATION -->
-		<section id="ai-value"
-					class="section ai-value-section">
-			<div class="ai-value-content">
-				<h2>Why AI Dispatch & Automation Matter for HVAC Right Now</h2>
-				<p>
-					Homeowners don't wait around. When the AC dies or the heat goes out, they call the first company that responds.
-				</p>
-				<ul class="ai-benefits">
-					<li><strong>AI phone agent:</strong> Answers every call 24/7, gathers details, and books jobs into your schedule.</li>
-					<li><strong>AI SMS & chat:</strong> Instantly responds to web leads, Facebook messages, and after-hours inquiries.</li>
-					<li><strong>Automated quote follow-up:</strong> Nurtures big-ticket install estimates until the customer is ready to say yes.</li>
-					<li><strong>Automated review engine:</strong> Requests Google reviews after each job and funnels unhappy customers to you privately.</li>
-					<li><strong>CRM integration:</strong> Keeps everything organized so you know who called, what they needed, and what's next.</li>
-				</ul>
-				<p>
-					The audit shows exactly where these tools would make the <strong>biggest and fastest impact</strong> in your business.
-				</p>
-			</div>
-			<img src="assets/img/funnel/device-tablet-snapshot.jpg"
-				  alt="AI Automation"
-				  class="ai-value-image">
-		</section>
-
 		<!-- PRIMARY CTA / FORM SECTION -->
 		<section id="cta"
 					class="section cta-section">
@@ -197,67 +203,7 @@
 				Fill out the form below and we'll review your current lead handling, call flow, and online presence — then send you a clear breakdown of where revenue is leaking out and how to fix it.
 			</p>
 
-			<!-- FORM COMMENTED OUT -->
-			<!--
-			<form id="audit-form" [formGroup]="form!" (ngSubmit)="onSubmit()">
-				<div class="form-row">
-					<mat-form-field appearance="outline" class="form-field">
-						<mat-label>Full Name</mat-label>
-						<input matInput type="text" id="fullName" formControlName="fullName" placeholder="John Smith">
-					</mat-form-field>
-				</div>
-
-				<div class="form-row">
-					<mat-form-field appearance="outline" class="form-field">
-						<mat-label>Company Name</mat-label>
-						<input matInput type="text" id="companyName" formControlName="companyName" placeholder="Smith Heating & Cooling">
-					</mat-form-field>
-				</div>
-
-				<div class="form-row">
-					<mat-form-field appearance="outline" class="form-field">
-						<mat-label>Best Phone Number</mat-label>
-						<input matInput type="tel" id="phone" formControlName="phone" placeholder="(555) 555-5555">
-					</mat-form-field>
-				</div>
-
-				<div class="form-row">
-					<mat-form-field appearance="outline" class="form-field">
-						<mat-label>Best Email</mat-label>
-						<input matInput type="email" id="email" formControlName="email" placeholder="you@example.com">
-					</mat-form-field>
-				</div>
-
-				<div class="form-row">
-					<mat-form-field appearance="outline" class="form-field">
-						<mat-label>Primary Service Area</mat-label>
-						<input matInput type="text" id="serviceArea" formControlName="serviceArea" placeholder="e.g., Greater Louisville, KY">
-					</mat-form-field>
-				</div>
-
-				<div class="form-row">
-					<mat-form-field appearance="outline" class="form-field">
-						<mat-label>What's your biggest frustration right now?</mat-label>
-						<textarea matInput id="biggestPain" formControlName="biggestPain" rows="3" placeholder="Missed calls, slow seasons, not enough installs, etc."></textarea>
-					</mat-form-field>
-				</div>
-
-				<button mat-raised-button color="primary" type="submit" class="submit-button" [disabled]="form?.invalid || isSubmitting">
-					@if (isSubmitting) {
-					<span class="button-loading">
-						<span class="spinner"></span>
-						Submitting...
-					</span>
-					} @else {
-					Get My Free HVAC Audit
-					}
-				</button>
-
-				<p class="form-disclaimer">
-					We'll only use your info to perform the audit and follow up with your results. No spam. No selling your data. Ever.
-				</p>
-			</form>
-			-->
+			<flaux-hvac-audit-form></flaux-hvac-audit-form>
 		</section>
 
 		<!-- FAQ SECTION -->

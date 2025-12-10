@@ -3,18 +3,23 @@ import {
 	Component,
 	ElementRef,
 	OnDestroy,
-	ViewChild
+	ViewChild,
+	inject
 } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FlauxSectionComponent } from '@app/shared/flaux-section/flaux-section.component';
 import { FooterComponent } from '@app/shared/footer/footer.component';
+import { FlauxBtnComponent } from "@app/shared/flaux-btn/flaux-btn.component";
+import { HvacAuditFormComponent } from './components/hvac-audit-form/hvac-audit-form.component';
+import { MobileComponent } from '@app/shared/mobile/mobile.component';
+import { UxService } from '@app/services/ux.service';
 
 @Component({
 	selector: 'flaux-hvac-audit',
 	standalone: true,
-	imports: [MatButtonModule, MatExpansionModule, FlauxSectionComponent, FooterComponent],
+	imports: [MatButtonModule, MatExpansionModule, FlauxSectionComponent, FooterComponent, FlauxBtnComponent, HvacAuditFormComponent, MobileComponent],
 	templateUrl: './hvac-audit.page.html',
 	styleUrls: ['./hvac-audit.page.scss']
 })
@@ -25,6 +30,8 @@ export class HvacAuditPage implements AfterViewInit, OnDestroy {
 	private observer?: IntersectionObserver;
 	private hasAutoplayed = false;
 	private unmuteTimeout?: number;
+
+	uxService = inject(UxService);
 
 	ngAfterViewInit(): void {
 		const iframe = this.hvacVideoRef?.nativeElement;

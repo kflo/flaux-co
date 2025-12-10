@@ -110,7 +110,7 @@ flaux-section {
 		font-size: clamp(2rem, 3.5vw, 2.75rem);
 		margin-block: 1.25rem 2rem;
 		padding-inline: 3px;
-		line-height: 1.5;
+		line-height: 2;
 		filter: drop-shadow(1px 1px 0.1em rgba(0, 0, 0, 0.5))
 	}
 
@@ -132,7 +132,7 @@ flaux-section {
 	.hero-benefits {
 		list-style: none;
 		padding: 0;
-		margin: 0.25rem 0;
+		margin: 1rem 0;
 
 		li {
 			padding: 0.75rem 0;
@@ -151,29 +151,6 @@ flaux-section {
 		justify-content: center;
 		flex-wrap: wrap;
 		margin: 2.5rem 0;
-
-		button {
-			border-radius: 0.7rem;
-			padding: 1rem 1.5rem;
-			cursor: pointer;
-			font-weight: 500;
-		}
-
-		.primary-cta {
-			--mat-filled-button-container-color: var(--mat-sys-primary);
-			--mat-filled-button-label-text-color: var(--mat-sys-on-primary);
-		}
-
-		.secondary-cta {
-			--mat-outlined-button-label-text-color: #{$flaux-salmon};
-			--mat-outlined-button-outline-color: #{$flaux-salmon};
-			transition: all 0.3s ease;
-
-			&:hover {
-				--mat-outlined-button-hover-state-layer-color: #{$flaux-salmon};
-				--mat-outlined-button-hover-label-text-color: #{$flaux-salmon};
-			}
-		}
 	}
 
 	.hero-trust {
@@ -188,7 +165,7 @@ flaux-section {
 .trust-section {
 	background: rgba(255, 255, 255, 0.09);
 	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(9px);
 	padding: 0;
 	border-radius: 0.75rem;
 	border: 1px solid rgba(255, 255, 255, 0.1);
@@ -207,6 +184,7 @@ flaux-section {
 
 		h2 {
 			margin-top: 0;
+			margin-bottom: 2rem;
 		}
 	}
 
@@ -269,7 +247,7 @@ flaux-section {
 			padding: 1rem;
 			margin-bottom: 1rem;
 			background: rgba(255, 255, 255, 0.09);
-			backdrop-filter: blur(4px);
+			backdrop-filter: blur(5px);
 			border-left: 4px solid $flaux-salmon;
 			border-radius: 0.5rem;
 			color: #ddd;
@@ -298,7 +276,7 @@ flaux-section {
 	.audit-item {
 		background: rgba(255, 255, 255, 0.09);
 		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
-		backdrop-filter: blur(4px);
+		backdrop-filter: blur(5px);
 		padding: 1.75rem;
 		border-radius: 0.75rem;
 		border: 1px solid rgba(255, 255, 255, 0.1);
@@ -375,7 +353,7 @@ flaux-section {
 	background: linear-gradient(135deg, rgba($flaux-violet, 0.15), rgba($flaux-blue, 0.1));
 	border-radius: 3rem 1rem 3rem 1rem;
 	border: 1px solid rgba($flaux-yellow, 0.2);
-	backdrop-filter: blur(6px) brightness(1.4);
+	backdrop-filter: blur(5px) brightness(1.4);
 	box-shadow: 0 0 2rem rgba($flaux-yellow, 0.1), inset 0 0 1rem rgba(255, 255, 255, 0.05);
 	transform: skewY(-2deg);
 	margin: 6rem 0;
@@ -442,6 +420,7 @@ flaux-section {
 /* CTA Section */
 .cta-section {
 	background: linear-gradient(150deg, rgba($flaux-blue, 0.2), rgba($flaux-violet, 0.2));
+	backdrop-filter: blur(9px) brightness(1.2) contrast(1.2) sepia(0.7);
 	padding: 3rem;
 	border-radius: 0.75rem;
 	border: 1px solid rgba($flaux-salmon, 0.3);
@@ -465,12 +444,12 @@ flaux-section {
 	}
 
 	.faq-panel {
-		--mat-expansion-header-text-font: Raleway;
-		--mat-expansion-container-text-size: 1em !important;
-		--mat-expansion-header-text-size: 1em !important;
-		--mat-expansion-container-text-color: white !important;
-		--mat-expansion-header-text-color: white;
+		--mat-expansion-header-text-font: initial !important;
+		--mat-expansion-container-text-color: initial !important;
+		--mat-expansion-header-text-color: initial !important;
+		--mat-expansion-header-indicator-color: initial !important;
 		background: rgba(255, 255, 255, 0.03) !important;
+		backdrop-filter: blur(9px) contrast(1.1) grayscale(0.4);
 		border: 1px solid rgba(255, 255, 255, 0.1) !important;
 		margin-bottom: 1rem;
 		border-radius: 0.5rem !important;
@@ -482,7 +461,7 @@ flaux-section {
 		::ng-deep {
 			.mat-mdc-expansion-panel-header {
 				background: rgba(255, 255, 255, 0.09);
-				backdrop-filter: blur(4px);
+				backdrop-filter: blur(9px);
 				color: #fff;
 
 				&:hover {
@@ -530,7 +509,6 @@ flaux-section {
 
 		.hero-ctas {
 			margin-block: 1rem 0;
-			gap: 0.6rem;
 			justify-content: center;
 		}
 	}
@@ -544,8 +522,12 @@ flaux-section {
 		}
 
 		.ai-value-image {
-			max-height: 400px;
-			margin-right: 0;
+			// max-height: 400px;
+			margin-inline: -3em;
+			margin-bottom: -4em;
+			object-position: center;
+			width: 130%;
+			margin-top: 1rem;
 		}
 	}
 }
@@ -553,6 +535,10 @@ flaux-section {
 @media screen and (max-width: 900px) {
 	.trust-content {
 		grid-template-columns: 2fr 1fr;
+
+		.trust-text {
+			padding: 1.5rem;
+		}
 
 		.trust-image {
 			iframe {
@@ -562,7 +548,7 @@ flaux-section {
 	}
 }
 
-@media (max-width: 750px) {
+@media (max-width: 720px) {
 	.hvac-audit-container {
 		padding: 5rem 1rem;
 	}
@@ -571,6 +557,7 @@ flaux-section {
 		h1 {
 			font-size: 2rem;
 			margin-block: 0 0.75rem;
+			line-height: 1.5 !important;
 		}
 
 		.hero-content {
@@ -600,6 +587,12 @@ flaux-section {
 
 		.hero-ctas {
 			justify-content: center;
+			display: flex;
+			gap: 0.75em;
+
+			button {
+				width: 100%;
+			}
 		}
 	}
 
@@ -617,6 +610,7 @@ flaux-section {
 		.trust-image {
 			order: -1;
 			max-height: 600px;
+
 		}
 	}
 
@@ -624,16 +618,11 @@ flaux-section {
 		grid-template-columns: 1fr;
 	}
 
-	.hero-ctas {
-		flex-direction: column;
-		justify-content: center;
-
-		button {
-			width: 100%;
-		}
-	}
-
 	.contact-content {
 		grid-template-columns: 1fr;
+	}
+
+	.cta-section {
+		padding: 2rem;
 	}
 }
