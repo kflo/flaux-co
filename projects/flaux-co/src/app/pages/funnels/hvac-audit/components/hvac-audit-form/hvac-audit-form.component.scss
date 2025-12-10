@@ -1,0 +1,60 @@
+:host {
+	display: block;
+	width: 100%;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	--mat-sys-error: light-dark(#ba1a1a, #ff9488);
+	--mat-form-field-error-text-color: light-dark(#ba1a1a, #ff9488) !important;
+}
+
+.form-row {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	@media (min-width: 600px) {
+		flex-direction: row;
+
+		.form-field {
+			flex: 1;
+		}
+	}
+}
+
+.form-field {
+	width: 100%;
+}
+
+.submit-button {
+	--mat-button-protected-disabled-container-color: #aaa !important;
+	width: 100%;
+	padding: 1.5rem;
+	border-radius: 1em;
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-top: 1rem;
+}
+
+.mdc-button:disabled {
+	opacity: 0.6 !important;
+	pointer-events: none;
+}
+
+.form-disclaimer {
+	font-size: 0.8rem;
+	color: #666;
+	text-align: center;
+	margin-top: 1rem;
+	margin-bottom: 0;
+}
+
+.button-loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}

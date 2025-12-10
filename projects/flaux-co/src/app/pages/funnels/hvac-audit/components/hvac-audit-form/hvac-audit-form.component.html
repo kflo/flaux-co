@@ -1,0 +1,119 @@
+<form [formGroup]="form"
+		(ngSubmit)="onSubmit()">
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>First Name</mat-label>
+			<input matInput
+					 type="text"
+					 id="firstName"
+					 formControlName="firstName"
+					 placeholder="John">
+			@if (form.get('firstName')?.hasError('required') && form.get('firstName')?.touched) {
+			<mat-error>First Name is required</mat-error>
+			}
+		</mat-form-field>
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Last Name</mat-label>
+			<input matInput
+					 type="text"
+					 id="lastName"
+					 formControlName="lastName"
+					 placeholder="Smith">
+			@if (form.get('lastName')?.hasError('required') && form.get('lastName')?.touched) {
+			<mat-error>Last Name is required</mat-error>
+			}
+		</mat-form-field>
+	</div>
+
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Company Name</mat-label>
+			<input matInput
+					 type="text"
+					 id="companyName"
+					 formControlName="companyName"
+					 placeholder="Smith Heating & Cooling">
+		</mat-form-field>
+	</div>
+
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Best Phone Number</mat-label>
+			<input matInput
+					 type="tel"
+					 id="phone"
+					 formControlName="phone"
+					 placeholder="(555) 555-5555">
+			@if (form.get('phone')?.hasError('required') && form.get('phone')?.touched) {
+			<mat-error>Phone number is required</mat-error>
+			}
+			@if (form.get('phone')?.hasError('pattern') && form.get('phone')?.touched) {
+			<mat-error>Please enter a valid phone number</mat-error>
+			}
+		</mat-form-field>
+	</div>
+
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Best Email</mat-label>
+			<input matInput
+					 type="email"
+					 id="email"
+					 formControlName="email"
+					 placeholder="you@example.com">
+			@if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+			<mat-error>Email is required</mat-error>
+			}
+			@if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+			<mat-error>Please enter a valid email address</mat-error>
+			}
+		</mat-form-field>
+	</div>
+
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Primary Service Area</mat-label>
+			<input matInput
+					 type="text"
+					 id="serviceArea"
+					 formControlName="serviceArea"
+					 placeholder="e.g., Greater Louisville, KY">
+		</mat-form-field>
+	</div>
+
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>What's your biggest frustration right now?</mat-label>
+			<textarea matInput
+						 id="biggestPain"
+						 formControlName="biggestPain"
+						 rows="3"
+						 placeholder="Missed calls, slow seasons, not enough installs, etc."></textarea>
+		</mat-form-field>
+	</div>
+
+	<button mat-raised-button
+			  color="primary"
+			  type="submit"
+			  class="submit-button"
+			  [disabled]="form.invalid || isSubmitting()">
+		@if (isSubmitting()) {
+		<span class="button-loading">
+			Submitting...
+		</span>
+		} @else {
+		Get My Free HVAC Audit
+		}
+	</button>
+
+	<p class="form-disclaimer">
+		We'll only use your info to perform the audit and follow up with your results. No spam. No selling your data. Ever.
+	</p>
+</form>
