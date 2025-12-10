@@ -1,5 +1,5 @@
 <flaux-section [height]="'100dvh'">
-	<!-- @if (isMobile()) { -->
+	<!-- <@if (isMobile()) {> -->
 	<flaux-hls class="video-container"
 				  [style]="{ filter: 'brightness(0.85)' }"
 				  [posterUrl]="posterUrl"
@@ -17,7 +17,9 @@
 	} -->
 	<div class="content-container">
 		<div class="content-txt">
-			<h3>Custom @if(isMobile()){<br>}<span class="ai">aI</span> @if(isMobile()){<br>} Solutions</h3>
+			<h3>Custom <mobile><br></mobile><span class="ai">aI</span>
+				<mobile><br></mobile> Solutions
+			</h3>
 			<flaux-rotating-text [texts]="questions"
 										[staggerDuration]="35"
 										staggerFrom="first"
