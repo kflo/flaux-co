@@ -5,7 +5,7 @@ import {
 	OnDestroy,
 	ViewChild
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FlauxSectionComponent } from '@app/shared/flaux-section/flaux-section.component';
@@ -14,7 +14,7 @@ import { FooterComponent } from '@app/shared/footer/footer.component';
 @Component({
 	selector: 'flaux-hvac-audit',
 	standalone: true,
-	imports: [CommonModule, MatButtonModule, MatExpansionModule, FlauxSectionComponent, FooterComponent],
+	imports: [MatButtonModule, MatExpansionModule, FlauxSectionComponent, FooterComponent],
 	templateUrl: './hvac-audit.page.html',
 	styleUrls: ['./hvac-audit.page.scss']
 })

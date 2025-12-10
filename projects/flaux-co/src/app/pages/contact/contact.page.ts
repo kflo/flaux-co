@@ -5,7 +5,7 @@ import {
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { FlauxSectionComponent } from '@app/shared/flaux-section/flaux-section.component';
-import { CommonModule } from '@angular/common';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -21,7 +21,6 @@ import { ContactFormService } from '@app/services/contact-form.service';
 	imports: [
 		FlauxSectionComponent,
 		ReactiveFormsModule,
-		CommonModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatSelectModule,

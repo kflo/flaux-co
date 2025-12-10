@@ -4,42 +4,47 @@
 		<div class="marquee-track"
 			  [ngClass]="{ 'overflow': overflow }"
 			  [style.animation-duration.s]="animationSpeed">
-			<div class="icon-square"
-				  *ngFor="let icon of row1Icons; trackBy: trackByIcon">
+			@for (icon of row1Icons; track trackByIcon($index, icon)) {
+			<div class="icon-square">
 				<img [src]="getIconPath(icon)"
 					  [ngClass]="{ 'overflow': overflow }"
 					  [alt]="icon"
 					  loading="lazy" />
 			</div>
+			}
 			<!-- Duplicate for seamless loop -->
-			<div class="icon-square"
-				  *ngFor="let icon of row1Icons; trackBy: trackByIcon">
+			@for (icon of row1Icons; track trackByIcon($index, icon)) {
+			<div class="icon-square">
 				<img [src]="getIconPath(icon)"
 					  [ngClass]="{ 'overflow': overflow }"
 					  [alt]="icon"
 					  loading="lazy" />
 			</div>
+			}
 		</div>
 	</div>
 
 	<!-- Second Row -->
-	<div class="marquee-row row-2"
-		  *ngIf="!singleRow && row2Icons.length > 0">
+	@if (!singleRow && row2Icons.length > 0) {
+	<div class="marquee-row row-2">
 		<div class="marquee-track reverse"
 			  [style.animation-duration.s]="animationSpeed">
-			<div class="icon-square"
-				  *ngFor="let icon of row2Icons; trackBy: trackByIcon">
+			@for (icon of row2Icons; track trackByIcon($index, icon)) {
+			<div class="icon-square">
 				<img [src]="getIconPath(icon)"
 					  [alt]="icon"
 					  loading="lazy" />
 			</div>
+			}
 			<!-- Duplicate for seamless loop -->
-			<div class="icon-square"
-				  *ngFor="let icon of row2Icons; trackBy: trackByIcon">
+			@for (icon of row2Icons; track trackByIcon($index, icon)) {
+			<div class="icon-square">
 				<img [src]="getIconPath(icon)"
 					  [alt]="icon"
 					  loading="lazy" />
 			</div>
+			}
 		</div>
 	</div>
+	}
 </div>

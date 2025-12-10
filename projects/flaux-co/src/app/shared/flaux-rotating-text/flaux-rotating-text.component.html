@@ -2,16 +2,14 @@
 
 <div class="container"
 	  (click)="onManualAdvance()">
+	@if (currentTextIndex() >= 0) {
 	<span class="words-wrapper"
-			*ngIf="currentTextIndex() >= 0"
 			[class.lines]="isLines"
 			aria-hidden="true">
-
-		<span *ngFor="let wordObj of elements(); let wordIndex = index"
-				class="word">
-
-			<span *ngFor="let char of wordObj.characters; let charIndex = index"
-					class="element"
+		@for (wordObj of elements(); track wordObj; let wordIndex = $index) {
+		<span class="word">
+			@for (char of wordObj.characters; track char; let charIndex = $index) {
+			<span class="element"
 					[class.highlight]="highlightActive()"
 					[attr.data-char]="char"
 					[style.animation-delay]="getStaggerDelay(wordIndex, charIndex)"
@@ -22,12 +20,16 @@
 					[style.--flashlight-delay]="getFlashlightDelay(wordIndex, charIndex)">
 				{{ char }}
 			</span>
+			}
 		</span>
+		}
 	</span>
+	}
 
-	<div *ngIf="auto"
-		  class="progress-bar">
+	@if (auto) {
+	<div class="progress-bar">
 		<div class="progress-fill"
 			  [style.width.%]="progressPercent()"></div>
 	</div>
+	}
 </div>

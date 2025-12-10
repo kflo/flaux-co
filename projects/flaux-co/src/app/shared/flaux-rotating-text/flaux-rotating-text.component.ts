@@ -8,7 +8,7 @@ import {
 	signal,
 	computed
 } from '@angular/core';
-import {CommonModule} from '@angular/common';
+
 
 export type StaggerFrom = 'first' | 'last' | 'center' | 'random' | number;
 export type SplitBy = 'characters' | 'words' | 'lines' | string;
@@ -16,7 +16,7 @@ export type SplitBy = 'characters' | 'words' | 'lines' | string;
 @Component({
 	selector: 'flaux-rotating-text',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [],
 	templateUrl: './flaux-rotating-text.component.html',
 	styleUrls: ['./flaux-rotating-text.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
@@ -102,7 +102,7 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 
 	private splitIntoCharacters(text: string): string[] {
 		if (typeof Intl !== 'undefined' && Intl.Segmenter) {
-			const segmenter = new Intl.Segmenter('en', {granularity: 'grapheme'});
+			const segmenter = new Intl.Segmenter('en', { granularity: 'grapheme' });
 			return Array.from(segmenter.segment(text), segment => segment.segment);
 		}
 		return Array.from(text);
@@ -149,7 +149,7 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 	}
 
 	private initializeShuffledIndices(): void {
-		this.shuffledIndices = Array.from({length: this.texts.length}, (_, i) => i);
+		this.shuffledIndices = Array.from({ length: this.texts.length }, (_, i) => i);
 		this.shuffleArray(this.shuffledIndices);
 		this.currentShufflePosition = 0;
 	}

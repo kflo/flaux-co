@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
 	selector: 'flaux-terms-of-service',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [],
 	templateUrl: './terms-of-service.component.html',
 	styleUrls: ['./terms-of-service.component.scss']
 })
