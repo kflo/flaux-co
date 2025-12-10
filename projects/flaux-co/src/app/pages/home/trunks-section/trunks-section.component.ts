@@ -1,12 +1,12 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
-import {FlauxBtnComponent} from "@app/shared/flaux-btn/flaux-btn.component";
-import {LaserFlowComponent} from '@app/shared/laser-flow';
-import {FlauxBgVideoComponent} from '@app/shared/flaux-bg-video/flaux-bg-video.component';
-import {UxService} from '@app/services/ux.service';
-import {NgClass} from '@angular/common';
-import {HlsComponent} from "@app/shared/flaux-hls/flaux-hls.component";
-import {environment} from 'projects/flaux-co/environments/environment';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FlauxSectionComponent } from '@app/shared/flaux-section/flaux-section.component';
+import { FlauxBtnComponent } from "@app/shared/flaux-btn/flaux-btn.component";
+import { LaserFlowComponent } from '@app/shared/laser-flow';
+import { FlauxBgVideoComponent } from '@app/shared/flaux-bg-video/flaux-bg-video.component';
+import { UxService } from '@app/services/ux.service';
+import { NgClass } from '@angular/common';
+import { HlsComponent } from "@app/shared/flaux-hls/flaux-hls.component";
+import { environment } from 'projects/flaux-co/environments/environment';
 
 @Component({
 	selector: 'trunks-section',
@@ -43,7 +43,6 @@ export class TrunksSectionComponent {
 	private readonly uxService = inject(UxService);
 
 
-	readonly isMobile = this.uxService.isMobile;
 	readonly webLandscape = this.uxService.webLandscape;
 	readonly lessThan900 = this.uxService.lessThan900;
 

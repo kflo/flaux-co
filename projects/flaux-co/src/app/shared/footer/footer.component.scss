@@ -79,6 +79,7 @@ footer {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
+				filter: grayscale(.2);
 
 				&:hover img {
 					filter: brightness(1.3);

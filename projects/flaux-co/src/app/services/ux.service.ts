@@ -13,6 +13,7 @@ export class UxService {
 	readonly isMobile;
 	readonly webLandscape;
 	readonly lessThan900;
+	readonly lessThan1100;
 
 	readonly globalLoading = signal(false);
 
@@ -25,18 +26,24 @@ export class UxService {
 			this.globalLoading.set(true);
 		}
 
-		const breakpoints = ['(max-width: 768px)', Breakpoints.WebLandscape, '(max-width: 900px)'];
+		const breakpoints = ['(max-width: 720px)', Breakpoints.WebLandscape, '(max-width: 900px)', '(max-width: 1100px)'];
 		const breakpoint$ = this.breakpointObserver.observe(breakpoints);
 
-		// (max-width: 768px)
+		// (max-width: 720px)
 		this.isMobile = toSignal(
-			breakpoint$.pipe(map(result => result.breakpoints['(max-width: 768px)'])),
+			breakpoint$.pipe(map(result => result.breakpoints['(max-width: 720px)'])),
 			{ initialValue: false }
 		);
 
 		// (min-width: 1280px) and (orientation: landscape)
 		this.webLandscape = toSignal(
 			breakpoint$.pipe(map(result => result.breakpoints[Breakpoints.WebLandscape])),
+			{ initialValue: false }
+		);
+
+		// < 1100 px width
+		this.lessThan1100 = toSignal(
+			breakpoint$.pipe(map(result => result.breakpoints['(max-width: 1100px)'])),
 			{ initialValue: false }
 		);
 

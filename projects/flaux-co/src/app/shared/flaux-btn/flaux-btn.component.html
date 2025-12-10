@@ -1,5 +1,7 @@
 <div class="btn-wrapper">
-	<a [routerLink]="routerLink"
+	<a [attr.href]="href || null"
+		[routerLink]="href ? null : routerLink"
+		[target]="target"
 		class="flaux-btn">
 		<ng-content></ng-content>
 	</a>

@@ -3,17 +3,17 @@
 @keyframes pulse {
 	0% {
 		transform: scale(1) perspective(1px);
-		opacity: 0.8;
+		// opacity: 0.9;
 	}
 
 	50% {
 		transform: scale(1.03) perspective(10px);
-		opacity: 1;
+		// opacity: 1;
 	}
 
 	100% {
 		transform: scale(1) perspective(1px);
-		opacity: 0.8;
+		// opacity: 0.9;
 	}
 }
 
@@ -37,10 +37,10 @@
 	// white-space: nowrap;
 	text-align: center;
 	animation: pulse 3s ease-in-out infinite;
-	backdrop-filter: blur(3px);
+	backdrop-filter: blur(4px);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	background: url('../../../assets/img/svgexport-5.svg') no-repeat center center;
-	filter: saturate(0.66) hue-rotate(var(--backgroundColor, 40deg));
+	filter: saturate(0.76) hue-rotate(var(--backgroundColor, 40deg));
 	height: var(--height, 3em);
 	align-content: center;
 	transition: all 1.3s ease-in-out;

@@ -1,8 +1,8 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FlauxSectionComponent} from "@app/shared/flaux-section/flaux-section.component";
-import {MatExpansionModule} from '@angular/material/expansion';
-import {UxService} from '@app/services/ux.service';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FlauxSectionComponent } from "@app/shared/flaux-section/flaux-section.component";
+import { MatExpansionModule } from '@angular/material/expansion';
+import { UxService } from '@app/services/ux.service';
 
 
 @Component({
@@ -14,7 +14,6 @@ import {UxService} from '@app/services/ux.service';
 })
 export class AiSolutionsCapabilitiesSection {
 	uxService = inject(UxService);
-	isMobile = this.uxService.isMobile;
 	lessThan900 = this.uxService.lessThan900;
 
 	capabilities = {

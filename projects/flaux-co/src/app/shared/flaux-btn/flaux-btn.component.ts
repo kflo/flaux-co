@@ -54,12 +54,16 @@ const FLAUX_COLORS: Record<FlauxColor, { hex: string; hue: number }> = {
 	styleUrl: './flaux-btn.component.scss',
 	host: {
 		'[style.--height]': 'height',
-		'[style.--backgroundColor]': 'bgColorValue'
+		'[style.--backgroundColor]': 'bgColorValue',
+		'[style.filter]': 'hueRotate ? "hue-rotate(" + hueRotate + ")" : null'
 	}
 })
 export class FlauxBtnComponent {
 	@Input() routerLink?: string;
+	@Input() href?: string;
+	@Input() target?: string;
 	@Input() height: string = '3em';
+	@Input() hueRotate?: string;
 	@Input() set backgroundColor(color: FlauxColor) {
 		const colorValue = FLAUX_COLORS[color];
 		this.bgColorValue = colorValue ? `${colorValue.hue}deg` : '0deg';

@@ -89,10 +89,6 @@
 		border-radius: 3rem 0 3rem 0;
 		backdrop-filter: brightness(50) blur(15em) hue-rotate(160deg) saturate(7.5) contrast(0.9) sepia(0.1);
 
-		flaux-btn {
-			filter: hue-rotate(-120deg);
-		}
-
 		flaux-bg-video {
 			position: absolute;
 			inset: 0;
@@ -119,10 +115,6 @@
 			border-radius: 0 3rem 0 3rem;
 			filter: contrast(0.9) saturate(1.5);
 			opacity: 0.55;
-		}
-
-		flaux-btn {
-			filter: hue-rotate(-60deg);
 		}
 
 		.agency-marquee-bg {

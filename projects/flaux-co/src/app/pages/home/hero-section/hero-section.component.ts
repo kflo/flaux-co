@@ -1,9 +1,9 @@
-import {Component, inject} from '@angular/core';
-import {FlauxFnComponent} from '@app/shared/flaux-fn/flaux-fn.component';
-import {HlsComponent} from '@app/shared/flaux-hls/flaux-hls.component';
-import {environment} from '../../../../../environments/environment';
-import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
-import {UxService} from '@app/services/ux.service';
+import { Component, inject } from '@angular/core';
+import { FlauxFnComponent } from '@app/shared/flaux-fn/flaux-fn.component';
+import { HlsComponent } from '@app/shared/flaux-hls/flaux-hls.component';
+import { environment } from '../../../../../environments/environment';
+import { FlauxSectionComponent } from '@app/shared/flaux-section/flaux-section.component';
+import { UxService } from '@app/services/ux.service';
 
 @Component({
 	selector: 'hero-section',
@@ -18,13 +18,12 @@ export class HeroSectionComponent {
 
 	private readonly uxService = inject(UxService);
 
-	readonly isMobile = this.uxService.isMobile;
 	readonly webLandscape = this.uxService.webLandscape;
 
 	scrollDown(): void {
 		const nextSection = document.querySelector('hero-section')?.nextElementSibling;
 		if (nextSection) {
-			nextSection.scrollIntoView({behavior: 'smooth'});
+			nextSection.scrollIntoView({ behavior: 'smooth' });
 		} else {
 			window.scrollBy({
 				top: window.innerHeight,
