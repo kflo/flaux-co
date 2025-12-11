@@ -20,6 +20,10 @@ export interface ContactFormData {
 	description?: string;
 	serviceArea?: string;
 	biggestPain?: string;
+	hasCrm?: boolean;
+	crmName?: string;
+	hasWebsite?: boolean;
+	websiteUrl?: string;
 }
 
 /**
@@ -35,9 +39,7 @@ export interface ContactSubmissionResponse {
  * Contact Form Service
  * Handles submission of contact form data to the Vendasta CRM via Cloud Functions
  */
-@Injectable({
-	providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class ContactFormService {
 	// Cloud Functions endpoint (base URL from environment config)
 	private readonly submitContactUrl = `${environment.cloudFunctionsUrl}/submitContact`;
@@ -60,33 +62,19 @@ export class ContactFormService {
 			firstName: formData.firstName,
 			lastName: formData.lastName,
 			email: formData.email,
-			...(formData.phone && {
-				phone: formData.phone
-			}),
-			...(formData.company && {
-				company: formData.company
-			}),
-			...(formData.projectType?.length && {
-				projectType: formData.projectType
-			}),
-			...(formData.budget && {
-				budget: formData.budget
-			}),
-			...(formData.timeline && {
-				timeline: formData.timeline
-			}),
-			...(formData.preferredContact && {
-				preferredContact: formData.preferredContact
-			}),
-			...(formData.description && {
-				description: formData.description
-			}),
-			...(formData.serviceArea && {
-				serviceArea: formData.serviceArea
-			}),
-			...(formData.biggestPain && {
-				biggestPain: formData.biggestPain
-			}),
+			...(formData.phone && { phone: formData.phone }),
+			...(formData.company && { company: formData.company }),
+			...(formData.projectType?.length && { projectType: formData.projectType }),
+			...(formData.budget && { budget: formData.budget }),
+			...(formData.timeline && { timeline: formData.timeline }),
+			...(formData.preferredContact && { preferredContact: formData.preferredContact }),
+			...(formData.description && { description: formData.description }),
+			...(formData.serviceArea && { serviceArea: formData.serviceArea }),
+			...(formData.biggestPain && { biggestPain: formData.biggestPain }),
+			...(formData.hasCrm !== undefined && { hasCrm: formData.hasCrm }),
+			...(formData.crmName && { crmName: formData.crmName }),
+			...(formData.hasWebsite !== undefined && { hasWebsite: formData.hasWebsite }),
+			...(formData.websiteUrl && { websiteUrl: formData.websiteUrl }),
 		};
 
 		return this.http.post<ContactSubmissionResponse>(this.submitContactUrl, payload).pipe(

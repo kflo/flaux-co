@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { NgTemplateOutlet } from '@angular/common';
 
 export type FlauxColor = 'highlight' | 'violet' | 'blue3' | 'blue2' | 'blue' | 'purple' | 'pink' | 'yellow' | 'orange' | 'salmon';
 
@@ -49,7 +50,7 @@ const FLAUX_COLORS: Record<FlauxColor, { hex: string; hue: number }> = {
 @Component({
 	selector: 'flaux-btn',
 	standalone: true,
-	imports: [RouterLink],
+	imports: [RouterLink, NgTemplateOutlet],
 	templateUrl: './flaux-btn.component.html',
 	styleUrl: './flaux-btn.component.scss',
 	host: {
@@ -60,6 +61,7 @@ const FLAUX_COLORS: Record<FlauxColor, { hex: string; hue: number }> = {
 })
 export class FlauxBtnComponent {
 	@Input() routerLink?: string;
+	@Input() fragment?: string;
 	@Input() href?: string;
 	@Input() target?: string;
 	@Input() height: string = '3em';

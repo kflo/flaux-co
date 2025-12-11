@@ -1,6 +1,7 @@
 @use '@angular/material' as mat;
 @use 'variables' as *;
 @use 'mixins' as mixins;
+@use 'form-buttons' as *;
 
 :host {
 	display: block;
@@ -116,7 +117,7 @@ flaux-section {
 
 .section-header {
 	text-align: center;
-	margin-bottom: 4rem;
+	margin-bottom: 3rem;
 
 	h3 {
 		font-family: 'HelloAmerica';
@@ -142,6 +143,29 @@ flaux-section {
 		color: #ddd;
 		max-width: 92%;
 		margin: 0 auto;
+	}
+}
+
+.quick-call-option {
+	text-align: center;
+	margin-bottom: 3rem;
+	color: $flaux-blue3;
+
+	p {
+		font-size: 1rem;
+		margin: 0;
+		display: inline-flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		font-weight: 500;
+
+	}
+
+	flaux-btn {
+		white-space: nowrap;
+		font-size: 0.7em;
 	}
 }
 
@@ -274,47 +298,7 @@ flaux-section {
 }
 
 .submit-button {
-	background: linear-gradient(135deg, $flaux-blue, $flaux-blue3);
-	color: white;
-	// border: none;
-	padding: 1.5rem 2rem;
-	font-size: 1.3rem;
-	font-family: 'Montserrat', sans-serif;
-	font-variant: all-small-caps;
-	letter-spacing: 0.1em;
-	font-weight: 500;
-	opacity: 1;
-	transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease, filter 1s ease;
-	margin-top: 1rem;
-
-	&:disabled {
-		opacity: 0.7;
-		filter: saturate(0.33) contrast(0.65);
-		cursor: not-allowed;
-	}
-
-	.button-loading {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.75rem;
-
-		.spinner {
-			display: inline-block;
-			width: 18px;
-			height: 18px;
-			border: 3px solid rgba(255, 255, 255, 0.3);
-			border-top-color: white;
-			border-radius: 50%;
-			animation: spin 0.8s linear infinite;
-		}
-	}
-}
-
-@keyframes spin {
-	to {
-		transform: rotate(360deg);
-	}
+	@include form-submit-button;
 }
 
 /* -------------------------------------------------------------------------- */

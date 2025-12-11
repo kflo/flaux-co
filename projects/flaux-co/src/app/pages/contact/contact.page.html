@@ -27,6 +27,18 @@
 			<p>Let's discuss your AI project and create a solution that drives real results for your organization</p>
 		</div>
 
+		<div class="quick-call-option">
+			<p>Prefer to talk first? <strong>Book a quick call with our team.</strong>
+				<flaux-btn [height]="'1.5em'"
+							  [href]="'https://cal.com/flaux'"
+							  [hueRotate]="'200deg'"
+							  target="_blank"
+							  class="book-call-btn">
+					Book a Demo Call
+				</flaux-btn>
+			</p>
+		</div>
+
 		<div class="contact-content">
 			<div class="contact-info">
 				<h5>Why Choose Flaux for Your AI Journey?</h5>
@@ -199,8 +211,8 @@
 							  type="submit"
 							  class="submit-button"
 							  (submit)="onSubmit()"
-							  [disabled]="form?.invalid || isSubmitting">
-						@if (isSubmitting) {
+							  [disabled]="form?.invalid || isSubmitting()">
+						@if (isSubmitting()) {
 						<span class="button-loading">
 							<span class="spinner"></span>
 							Submitting...

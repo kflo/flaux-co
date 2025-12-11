@@ -27,15 +27,22 @@
 		</mat-form-field>
 	</div>
 
+	@if (uxService.lessThan1100()) {
 	<div class="form-row">
 		<mat-form-field appearance="outline"
 							 class="form-field">
-			<mat-label>Company Name</mat-label>
+			<mat-label>Best Email</mat-label>
 			<input matInput
-					 type="text"
-					 id="companyName"
-					 formControlName="companyName"
-					 placeholder="Smith Heating & Cooling">
+					 type="email"
+					 id="email"
+					 formControlName="email"
+					 placeholder="you@example.com">
+			@if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+			<mat-error>Email is required</mat-error>
+			}
+			@if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+			<mat-error>Please enter a valid email address</mat-error>
+			}
 		</mat-form-field>
 	</div>
 
@@ -60,18 +67,12 @@
 	<div class="form-row">
 		<mat-form-field appearance="outline"
 							 class="form-field">
-			<mat-label>Best Email</mat-label>
+			<mat-label>Company Name</mat-label>
 			<input matInput
-					 type="email"
-					 id="email"
-					 formControlName="email"
-					 placeholder="you@example.com">
-			@if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
-			<mat-error>Email is required</mat-error>
-			}
-			@if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
-			<mat-error>Please enter a valid email address</mat-error>
-			}
+					 type="text"
+					 id="companyName"
+					 formControlName="companyName"
+					 placeholder="Smith Heating & Cooling">
 		</mat-form-field>
 	</div>
 
@@ -85,6 +86,91 @@
 					 formControlName="serviceArea"
 					 placeholder="e.g., Greater Louisville, KY">
 		</mat-form-field>
+	</div>
+	} @else {
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Best Email</mat-label>
+			<input matInput
+					 type="email"
+					 id="email"
+					 formControlName="email"
+					 placeholder="you@example.com">
+			@if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+			<mat-error>Email is required</mat-error>
+			}
+			@if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+			<mat-error>Please enter a valid email address</mat-error>
+			}
+		</mat-form-field>
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Best Phone Number</mat-label>
+			<input matInput
+					 type="tel"
+					 id="phone"
+					 formControlName="phone"
+					 placeholder="(555) 555-5555">
+			@if (form.get('phone')?.hasError('required') && form.get('phone')?.touched) {
+			<mat-error>Phone number is required</mat-error>
+			}
+			@if (form.get('phone')?.hasError('pattern') && form.get('phone')?.touched) {
+			<mat-error>Please enter a valid phone number</mat-error>
+			}
+		</mat-form-field>
+	</div>
+
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Company Name</mat-label>
+			<input matInput
+					 type="text"
+					 id="companyName"
+					 formControlName="companyName"
+					 placeholder="Smith Heating & Cooling">
+		</mat-form-field>
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Primary Service Area(s)</mat-label>
+			<input matInput
+					 type="text"
+					 id="serviceArea"
+					 formControlName="serviceArea"
+					 placeholder="e.g., Greater Louisville, KY">
+		</mat-form-field>
+	</div>
+	}
+
+	<div class="form-row checkbox-row">
+		<div class="checkbox-item">
+			<mat-checkbox formControlName="hasCrm">I use CRM or booking software</mat-checkbox>
+			@if (form.get('hasCrm')?.value) {
+			<mat-form-field appearance="outline"
+								 class="checkbox-input">
+				<mat-label>Which one?</mat-label>
+				<input matInput
+						 type="text"
+						 formControlName="crmName"
+						 placeholder="e.g., ServiceTitan, Housecall Pro, Jobber">
+			</mat-form-field>
+			}
+		</div>
+
+		<div class="checkbox-item">
+			<mat-checkbox formControlName="hasWebsite">I have a website</mat-checkbox>
+			@if (form.get('hasWebsite')?.value) {
+			<mat-form-field appearance="outline"
+								 class="checkbox-input">
+				<mat-label>Website URL</mat-label>
+				<input matInput
+						 type="url"
+						 formControlName="websiteUrl"
+						 placeholder="https://yourcompany.com">
+			</mat-form-field>
+			}
+		</div>
 	</div>
 
 	<div class="form-row">
@@ -106,6 +192,7 @@
 			  [disabled]="form.invalid || isSubmitting()">
 		@if (isSubmitting()) {
 		<span class="button-loading">
+			<span class="spinner"></span>
 			Submitting...
 		</span>
 		} @else {

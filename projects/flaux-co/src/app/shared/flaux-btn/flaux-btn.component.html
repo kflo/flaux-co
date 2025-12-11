@@ -1,8 +1,20 @@
+<ng-template #content>
+	<ng-content></ng-content>
+</ng-template>
+
 <div class="btn-wrapper">
-	<a [attr.href]="href || null"
-		[routerLink]="href ? null : routerLink"
+	@if (href) {
+	<a [href]="href"
 		[target]="target"
 		class="flaux-btn">
-		<ng-content></ng-content>
+		<ng-container *ngTemplateOutlet="content"></ng-container>
 	</a>
+	} @else {
+	<a [routerLink]="routerLink"
+		[fragment]="fragment"
+		[target]="target"
+		class="flaux-btn">
+		<ng-container *ngTemplateOutlet="content"></ng-container>
+	</a>
+	}
 </div>

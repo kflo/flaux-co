@@ -1,7 +1,9 @@
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import {
-	Component, inject, ViewChild, ElementRef, ChangeDetectorRef
+	Component, inject, ViewChild, ElementRef, ChangeDetectorRef,
+	signal
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { FlauxSectionComponent } from '@app/shared/flaux-section/flaux-section.component';
@@ -14,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { FooterComponent } from "@app/shared/footer/footer.component";
 import { ContactFormService } from '@app/services/contact-form.service';
+import { FlauxBtnComponent } from '@app/shared/flaux-btn/flaux-btn.component';
 
 @Component({
 	selector: 'flaux-contact',
@@ -28,7 +31,8 @@ import { ContactFormService } from '@app/services/contact-form.service';
 		MatButtonModule,
 		MatSliderModule,
 		FooterComponent,
-		MatSnackBarModule
+		MatSnackBarModule,
+		FlauxBtnComponent
 	],
 	templateUrl: './contact.page.html',
 	styleUrls: ['./contact.page.scss']
@@ -38,10 +42,11 @@ export class ContactPage {
 	private contactFormService = inject(ContactFormService);
 	private snackBar = inject(MatSnackBar);
 	private cdr = inject(ChangeDetectorRef);
+	private router = inject(Router);
 
 	@ViewChild('snapshotWidgetContainer') widgetContainer!: ElementRef;
 
-	isSubmitting = false;
+	isSubmitting = signal(false);
 	submissionMessage: {
 		type: 'success' | 'error' | null;
 		text: string;
@@ -190,12 +195,11 @@ export class ContactPage {
 		}
 
 		// Prevent duplicate submissions
-		if (this.isSubmitting) {
+		if (this.isSubmitting()) {
 			return;
 		}
 
-		this.isSubmitting = true;
-
+		this.isSubmitting.set(true);
 		const value = this.form?.value;
 
 		// Build comma-delimited preferred contact methods
@@ -221,7 +225,7 @@ export class ContactPage {
 			next: (response) => {
 				console.log('Response received:', response);
 				if (response?.ok) {
-					this.isSubmitting = false;
+					this.isSubmitting.set(false);
 					// Reset form and clear validation state
 					this.form?.reset(this.initialFormValues);
 					// Mark all controls as untouched to clear Material error styling
@@ -232,7 +236,8 @@ export class ContactPage {
 					});
 					console.log({ form: this.form?.value });
 
-					this.openSnackBar('Thank you! Your message has been received. We\'ll be in touch shortly.', 'Okay');
+					// Navigate to thank you page
+					this.router.navigate(['/thank-you']);
 				} else {
 					this.openSnackBar('Error — ' + (response?.error || 'Failed to submit form. Please try again.'), '✖');
 				}

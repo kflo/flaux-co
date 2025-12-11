@@ -13,10 +13,11 @@ flaux-section {
 
 	&-content {
 		max-width: 800px;
-		margin: 0 auto;
+		margin: auto;
 		padding: 4rem 3rem;
 		text-align: center;
 		flex: 6;
+		line-height: 2;
 
 		h3 {
 			font-size: 2rem;

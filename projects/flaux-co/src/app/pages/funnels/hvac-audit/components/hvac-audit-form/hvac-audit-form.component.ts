@@ -1,10 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ContactFormService } from '@app/services/contact-form.service';
+import { UxService } from '@app/services/ux.service';
 
 @Component({
 	selector: 'flaux-hvac-audit-form',
@@ -14,7 +17,8 @@ import { ContactFormService } from '@app/services/contact-form.service';
 		MatFormFieldModule,
 		MatInputModule,
 		MatButtonModule,
-		MatSnackBarModule
+		MatSnackBarModule,
+		MatCheckboxModule
 	],
 	templateUrl: './hvac-audit-form.component.html',
 	styleUrls: ['./hvac-audit-form.component.scss']
@@ -23,6 +27,8 @@ export class HvacAuditFormComponent {
 	private fb = inject(FormBuilder);
 	private contactFormService = inject(ContactFormService);
 	private snackBar = inject(MatSnackBar);
+	private router = inject(Router);
+	uxService = inject(UxService);
 
 	form: FormGroup;
 	isSubmitting = signal(false);
@@ -35,11 +41,13 @@ export class HvacAuditFormComponent {
 			phone: ['', [Validators.required, Validators.pattern(/^[0-9\s\-.+()]{10,20}$/)]],
 			email: ['', [Validators.required, Validators.email]],
 			serviceArea: [''],
-			biggestPain: ['']
+			biggestPain: [''],
+			hasCrm: [false],
+			crmName: [''],
+			hasWebsite: [false],
+			websiteUrl: ['']
 		});
-	}
-
-	onSubmit() {
+	}	onSubmit() {
 		if (this.form.invalid || this.isSubmitting()) {
 			return;
 		}
@@ -55,12 +63,16 @@ export class HvacAuditFormComponent {
 			company: formValue.companyName,
 			serviceArea: formValue.serviceArea,
 			biggestPain: formValue.biggestPain,
+			hasCrm: formValue.hasCrm,
+			crmName: formValue.crmName,
+			hasWebsite: formValue.hasWebsite,
+			websiteUrl: formValue.websiteUrl,
 			description: `Service Area: ${formValue.serviceArea}\nBiggest Pain: ${formValue.biggestPain}` // Fallback/Additional info
 		}).subscribe({
 			next: () => {
 				this.isSubmitting.set(false);
 				this.form.reset();
-				this.openSnackBar('Audit request submitted successfully! We will be in touch shortly.', 'Close');
+				this.router.navigate(['/thank-you']);
 			},
 			error: (err) => {
 				this.isSubmitting.set(false);

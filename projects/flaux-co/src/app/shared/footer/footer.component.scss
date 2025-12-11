@@ -81,10 +81,17 @@ footer {
 				justify-content: center;
 				filter: grayscale(.2);
 
-				&:hover img {
+				&:hover img, a {
 					filter: brightness(1.3);
 				}
 			}
+		}
+
+		.whatsapp-link {
+			width: 90px;
+			margin-top: 5px;
+			display: inline-flex;
+
 		}
 	}
 
@@ -114,6 +121,10 @@ footer {
 
 		.footer-content {
 			padding: 1.5rem 1rem;
+		}
+
+		.social-icons {
+			align-self: center;
 		}
 	}
 }

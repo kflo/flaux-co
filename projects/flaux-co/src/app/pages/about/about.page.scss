@@ -44,7 +44,7 @@
 		margin: 0 auto;
 		padding: 2rem 4rem 3rem;
 		background: rgba(255, 255, 255, 0.2);
-		backdrop-filter: blur(0.6rem) contrast(0.9);
+		backdrop-filter: blur(1.75rem) contrast(0.9);
 		box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.5);
 		border-radius: 4rem;
 
@@ -76,11 +76,11 @@
 
 @media screen and (max-width: 768px) {
 	.about-page-container {
-		padding: 6rem 1.5rem;
+		padding: 6rem 1rem;
 
 		.founder-section {
 			padding: 2rem 2rem 3rem;
-			margin-inline: -1.5rem;
+			// margin-inline: .5rem;
 
 			.founder-image {
 				width: 10rem;

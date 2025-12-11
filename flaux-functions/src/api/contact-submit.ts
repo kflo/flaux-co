@@ -7,6 +7,7 @@ import { db } from "../utils/firebase";
 const corsHandler = cors({
 	origin: (origin, callback) => {
 		const allowedOrigins = [
+			"http://localhost",
 			"https://flaux.co",
 			"https://www.flaux.co",
 			"https://flaux-site-dev.web.app",

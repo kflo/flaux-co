@@ -1,3 +1,6 @@
+@use 'form-buttons' as *;
+@use 'variables' as *;
+
 :host {
 	display: block;
 	width: 100%;
@@ -5,6 +8,7 @@
 
 form {
 	display: flex;
+	margin-top: 2rem;
 	flex-direction: column;
 	gap: 1rem;
 	--mat-sys-error: light-dark(#ba1a1a, #ff9488);
@@ -30,31 +34,51 @@ form {
 }
 
 .submit-button {
-	--mat-button-protected-disabled-container-color: #aaa !important;
+	@include form-submit-button;
+
 	width: 100%;
-	padding: 1.5rem;
-	border-radius: 1em;
-	font-size: 1.2rem;
-	font-weight: bold;
-	margin-top: 1rem;
+	line-height: 1;
+
+	.mdc-button__label {
+		padding-bottom: 3px;
+	}
 }
 
 .mdc-button:disabled {
-	opacity: 0.6 !important;
+	opacity: 0.7 !important;
 	pointer-events: none;
 }
 
 .form-disclaimer {
 	font-size: 0.8rem;
-	color: #666;
+	color: #bbb;
 	text-align: center;
 	margin-top: 1rem;
 	margin-bottom: 0;
 }
 
-.button-loading {
+.checkbox-row {
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.5rem;
+	flex-direction: row;
+	gap: 1rem;
+	margin: 1rem 0;
+
+	@media (max-width: 600px) {
+		flex-direction: column;
+	}
+
+	.checkbox-item {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+
+		mat-checkbox {
+			font-size: 0.95rem;
+		}
+
+		.checkbox-input {
+			width: 100%;
+		}
+	}
 }
