@@ -79,4 +79,8 @@ export const routes: Routes = [
 		path: 'hvac-audit',
 		loadComponent: () => import('@pages/funnels/hvac-audit/hvac-audit.page').then(m => m.HvacAuditPage)
 	},
+	{
+		path: 'sms-consent-policy',
+		loadComponent: () => import('@pages/sms-consent-policy/sms-consent-policy.component').then(m => m.SmsConsentPolicyComponent)
+	},
 ];
