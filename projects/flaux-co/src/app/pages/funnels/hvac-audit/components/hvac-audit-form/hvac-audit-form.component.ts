@@ -55,6 +55,14 @@ export class HvacAuditFormComponent {
 		this.isSubmitting.set(true);
 		const formValue = this.form.value;
 
+		// ! Consolidate description with additional details, due to Vendasta limitations
+		const descriptionParts = [
+			formValue.serviceArea ? `🟄 Service Area: ${formValue.serviceArea}` : '',
+			formValue.biggestPain ? `🟄 Biggest Pain: ${formValue.biggestPain}` : '',
+			formValue.hasWebsite && formValue.websiteUrl ? `🟄 Website: ${formValue.websiteUrl}` : '',
+			formValue.hasCrm && formValue.crmName ? `🟄 CRM: ${formValue.crmName}` : ''
+		].filter(Boolean);
+
 		this.contactFormService.submit({
 			firstName: formValue.firstName,
 			lastName: formValue.lastName,
@@ -67,7 +75,7 @@ export class HvacAuditFormComponent {
 			crmName: formValue.crmName,
 			hasWebsite: formValue.hasWebsite,
 			websiteUrl: formValue.websiteUrl,
-			description: `Service Area: ${formValue.serviceArea}\nBiggest Pain: ${formValue.biggestPain}` // Fallback/Additional info
+			description: descriptionParts.join(' ')
 		}).subscribe({
 			next: () => {
 				this.isSubmitting.set(false);

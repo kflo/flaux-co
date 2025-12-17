@@ -3,10 +3,9 @@
 // See: https://firebase.google.com/docs/projects/api-keys
 export const environment = {
 	production: true,
+	useEmulators: false, // Enable Firebase emulators for local dev
 	cloudFunctionsUrl: 'https://us-central1-flaux-site-prod.cloudfunctions.net',
-	analytics: {
-		measurementId: 'G-KXL8Y31FB4'
-	},
+	analytics: { measurementId: 'G-KXL8Y31FB4' },
 	firebaseConfig: {
 		apiKey: "AIzaSyAWn-ISIUCWGbRj9zmr2tFeEXQ8BTi3b8E",
 		authDomain: "flaux-site-prod.firebaseapp.com",

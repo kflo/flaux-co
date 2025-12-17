@@ -6,9 +6,7 @@ export const environment = {
 	useEmulators: true, // Enable Firebase emulators for local dev
 	cloudFunctionsUrl: 'http://localhost:5001/flaux-site-prod/us-central1',
 	// cloudFunctionsUrl: 'https://us-central1-flaux-site-dev.cloudfunctions.net',
-	analytics: {
-		measurementId: 'G-SKKXK0E1EK'
-	},
+	analytics: { measurementId: 'G-SKKXK0E1EK' },
 	firebaseConfig: {
 		apiKey: "AIzaSyAMnZuSnnvl6XVEadl5aRzrYJS3mn1KX8U",
 		authDomain: "localhost",

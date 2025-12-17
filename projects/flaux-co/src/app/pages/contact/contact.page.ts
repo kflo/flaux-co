@@ -207,6 +207,15 @@ export class ContactPage {
 		if (value.prefersPhone) preferredMethods.push('Phone');
 		if (value.prefersSms) preferredMethods.push('SMS');
 
+		// ! Consolidate description with additional details, due to Vendasta limitations
+		const descriptionParts = [
+			value.description || '',
+			value.projectType?.length ? `🟄 Project Type: ${value.projectType.join(', ')}` : '',
+			`🟄 Budget: ${this.budgetSliderLabels[value.budgetIndex]}`,
+			`🟄 Timeline: ${this.timelineSliderLabels[value.timelineIndex]}`,
+			preferredMethods.length > 0 ? `🟄 Preferred Contact: ${preferredMethods.join(', ')}` : ''
+		].filter(Boolean);
+
 		const result = {
 			firstName: value.firstName,
 			lastName: value.lastName,
@@ -217,7 +226,7 @@ export class ContactPage {
 			budget: this.budgetSliderLabels[value.budgetIndex],
 			timeline: this.timelineSliderLabels[value.timelineIndex],
 			preferredContact: preferredMethods.length > 0 ? preferredMethods.join(', ') : undefined,
-			description: value.description || undefined
+			description: descriptionParts.join(' ')
 		};
 
 		this.contactFormService.submit(result).subscribe({

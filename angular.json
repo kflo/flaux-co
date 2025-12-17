@@ -71,6 +71,12 @@
 					},
 					"configurations": {
 						"production": {
+							"fileReplacements": [
+								{
+									"replace": "projects/flaux-co/environments/environment.ts",
+									"with": "projects/flaux-co/environments/environment.prod.ts"
+								}
+							],
 							"budgets": [
 								{
 									"type": "initial",
