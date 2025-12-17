@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {HeroSectionComponent} from './hero-section/hero-section.component';
-import {TrunksSectionComponent} from './trunks-section/trunks-section.component';
-import {FooterComponent} from '@app/shared/footer/footer.component';
-import {SeoService} from '@app/services/seo.service';
+import { Component, inject, OnInit } from '@angular/core';
+import { HeroSectionComponent } from './hero-section/hero-section.component';
+import { TrunksSectionComponent } from './trunks-section/trunks-section.component';
+import { FooterComponent } from '@app/shared/footer/footer.component';
+import { SeoService } from '@app/services/seo.service';
 
 @Component({
 	selector: 'home-page',
@@ -16,10 +16,10 @@ import {SeoService} from '@app/services/seo.service';
 	],
 })
 export class FlauxHomePageComponent implements OnInit {
-	constructor (private readonly seo: SeoService) { }
+	private seoService = inject(SeoService);
 
 	ngOnInit(): void {
-		this.seo.update({
+		this.seoService.update({
 			title: 'Flaux | AI Partner for Growth',
 			description: 'Voice & chat agents, automations, and AI marketing built for SMBs.',
 			image: '/assets/img/hero-poster.jpg'

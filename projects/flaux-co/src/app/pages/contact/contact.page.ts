@@ -73,7 +73,6 @@ export class ContactPage {
 	constructor (private fb: FormBuilder) {
 		this.form = this.createForm();
 		console.log({ form: this.form?.value });
-
 	}
 
 	openSnackBar(message: string, action: string, ) {

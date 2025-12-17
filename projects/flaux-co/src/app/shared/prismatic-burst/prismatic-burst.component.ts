@@ -6,7 +6,8 @@ import {
 	ViewChild,
 	ElementRef,
 	ChangeDetectionStrategy,
-	computed
+	computed,
+	inject
 } from '@angular/core';
 import {
 	PrismaticBurstService,
@@ -24,9 +25,7 @@ import { UxService } from '../../services/ux.service';
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PrismaticBurstComponent implements OnInit, OnDestroy {
-	@ViewChild('container', {
-		static: true
-	})
+	@ViewChild('container', { static: true })
 		container!: ElementRef<HTMLDivElement>;
 
 	@Input()
@@ -65,6 +64,9 @@ export class PrismaticBurstComponent implements OnInit, OnDestroy {
 	@Input()
 		quality: 'low' | 'medium' | 'high' = 'medium'; // Performance vs quality tradeoff
 
+	private burstService: PrismaticBurstService = inject(PrismaticBurstService);
+	private uxService: UxService = inject(UxService);
+
 	// Computed quality based on mobile detection
 	private computedQuality = computed(() => {
 		const isMobile = this.uxService.isMobile();
@@ -88,11 +90,6 @@ export class PrismaticBurstComponent implements OnInit, OnDestroy {
 		}
 		return this.rayCount;
 	});
-
-	constructor(
-		private burstService: PrismaticBurstService,
-		private uxService: UxService
-	) {}
 
 	ngOnInit(): void {
 		this.burstService.initialize(

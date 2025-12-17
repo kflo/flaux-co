@@ -1,15 +1,15 @@
-import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
-import {FlauxSectionComponent} from "@app/shared/flaux-section/flaux-section.component";
-import {BlobBackdropComponent} from "@app/shared/blob-backdrop";
-import {GradientBackgroundComponent} from "@app/shared/gradient-background/gradient-background.component";
-import {FlauxGlassSectionComponent} from "@app/shared/glass-section";
-import {QuoteItem} from '@app/pages/home/quotes-section/quotes.data';
-import {FlauxQuoteCarouselComponent} from '@app/shared/quote-carousel/quote-carousel.component';
-import {FlauxQuoteHighlightComponent} from '@app/shared/quote-highlight/quote-highlight.component';
-import {MktAiSectionComponent} from '@app/pages/home/mkt-ai-section/mkt-ai-section.component';
-import {FooterComponent} from '@app/shared/footer/footer.component';
-import {SeoService} from '@app/services/seo.service';
-import {UxService} from '@app/services/ux.service';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { FlauxSectionComponent } from "@app/shared/flaux-section/flaux-section.component";
+import { BlobBackdropComponent } from "@app/shared/blob-backdrop";
+import { GradientBackgroundComponent } from "@app/shared/gradient-background/gradient-background.component";
+import { FlauxGlassSectionComponent } from "@app/shared/glass-section";
+import { QuoteItem } from '@app/pages/home/quotes-section/quotes.data';
+import { FlauxQuoteCarouselComponent } from '@app/shared/quote-carousel/quote-carousel.component';
+import { FlauxQuoteHighlightComponent } from '@app/shared/quote-highlight/quote-highlight.component';
+import { MktAiSectionComponent } from '@app/pages/home/mkt-ai-section/mkt-ai-section.component';
+import { FooterComponent } from '@app/shared/footer/footer.component';
+import { SeoService } from '@app/services/seo.service';
+import { UxService } from '@app/services/ux.service';
 
 @Component({
 	selector: 'agency-solutions-page',
@@ -22,13 +22,12 @@ import {UxService} from '@app/services/ux.service';
 export class AgencySolutionsPageComponent implements OnInit {
 
 	private uxService = inject(UxService);
+	private seoService = inject(SeoService);
 
 	readonly isLessThan900 = this.uxService.lessThan900;
 
-	constructor (private readonly seo: SeoService) { }
-
 	ngOnInit(): void {
-		this.seo.update({
+		this.seoService.update({
 			title: 'Agency Solutions | Flaux',
 			description: 'All-in-one platform and services to attract, convert, and retain clients with AI-assisted operations.',
 			image: '/assets/img/agency/agency-phone.svg'

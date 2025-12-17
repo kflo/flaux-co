@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, timeout } from 'rxjs/operators';
 import { environment } from 'projects/flaux-co/environments/environment';
+import { UtmService } from './utm/utm.service';
 
 /**
  * Contact form submission data interface
@@ -48,8 +49,8 @@ export class ContactFormService {
 
 	// Request timeout in milliseconds
 	private readonly timeout = 30000; // 30 seconds
-
-	constructor(private http: HttpClient) {}
+	private http = inject(HttpClient);
+	private utm = inject(UtmService);
 
 	/**
 	 * Submit contact form to CRM
@@ -58,7 +59,7 @@ export class ContactFormService {
 	 */
 	submit(formData: ContactFormData): Observable<ContactSubmissionResponse> {
 		// Prepare payload - only send fields that are defined
-		const payload = {
+		let payload = {
 			firstName: formData.firstName,
 			lastName: formData.lastName,
 			email: formData.email,
@@ -76,6 +77,8 @@ export class ContactFormService {
 			...(formData.hasWebsite !== undefined && { hasWebsite: formData.hasWebsite }),
 			...(formData.websiteUrl && { websiteUrl: formData.websiteUrl }),
 		};
+
+		payload = this.utm.withUtm(payload);
 
 		return this.http.post<ContactSubmissionResponse>(this.submitContactUrl, payload).pipe(
 			timeout(this.timeout),

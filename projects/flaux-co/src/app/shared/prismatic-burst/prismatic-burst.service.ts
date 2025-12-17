@@ -148,42 +148,18 @@ export class PrismaticBurstService {
 			vertex: VERTEX_SHADER,
 			fragment: FRAGMENT_SHADER,
 			uniforms: {
-				uResolution: {
-					value: [1, 1] as [number, number]
-				},
-				uTime: {
-					value: 0
-				},
-				uIntensity: {
-					value: intensity
-				},
-				uSpeed: {
-					value: speed
-				},
-				uAnimType: {
-					value: this.getAnimTypeValue(animationType)
-				},
-				uMouse: {
-					value: [0.5, 0.5] as [number, number]
-				},
-				uColorCount: {
-					value: 0
-				},
-				uDistort: {
-					value: distort
-				},
-				uOffset: {
-					value: [toPx(offset?.x), toPx(offset?.y)] as [number, number]
-				},
-				uGradient: {
-					value: this.gradTexture
-				},
-				uNoiseAmount: {
-					value: 0.13
-				},
-				uRayCount: {
-					value: Math.max(0, Math.floor(rayCount ?? 0))
-				}
+				uResolution: { value: [1, 1] as [number, number] },
+				uTime: { value: 0 },
+				uIntensity: { value: intensity },
+				uSpeed: { value: speed },
+				uAnimType: { value: this.getAnimTypeValue(animationType) },
+				uMouse: { value: [0.5, 0.5] as [number, number] },
+				uColorCount: { value: 0 },
+				uDistort: { value: distort },
+				uOffset: { value: [toPx(offset?.x), toPx(offset?.y)] as [number, number] },
+				uGradient: { value: this.gradTexture },
+				uNoiseAmount: { value: 0.13 },
+				uRayCount: { value: Math.max(0, Math.floor(rayCount ?? 0)) }
 			}
 		});
 
@@ -363,9 +339,7 @@ export class PrismaticBurstService {
 			this.mouseTarget = [Math.min(Math.max(x, 0), 1), Math.min(Math.max(y, 0), 1)];
 		};
 
-		container.addEventListener('pointermove', onPointer, {
-			passive: true
-		});
+		container.addEventListener('pointermove', onPointer, { passive: true });
 	}
 
 	private startAnimationLoop(): void {
@@ -408,9 +382,7 @@ export class PrismaticBurstService {
 				uMouse.value[1] = this.mouseSmooth[1];
 				uTime.value = this.accumulatedTime;
 
-				this.renderer!.render({
-					scene: this.mesh!
-				});
+				this.renderer!.render({ scene: this.mesh! });
 
 				this.animationFrameId = requestAnimationFrame(update);
 			};

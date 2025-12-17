@@ -1,9 +1,11 @@
-import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
+import {
+	Component, Input, OnInit, ChangeDetectorRef, inject 
+} from '@angular/core';
 import { NgStyle } from '@angular/common';
 // import { MatRippleModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatRippleModule} from '@angular/material/core';
+import { MatRippleModule } from '@angular/material/core';
 import { FlauxBtnComponent } from "../flaux-btn/flaux-btn.component";
 
 export interface CarouselItem {
@@ -55,7 +57,7 @@ export class FlauxCarouselComponent implements OnInit {
 	private minSwipeDistance: number = 50; // Minimum distance for a valid swipe
 	private isTouching: boolean = false;
 
-	constructor(private cdr: ChangeDetectorRef) {}
+	private cdr = inject(ChangeDetectorRef);
 
 	ngOnInit(): void {
 		// Create stable element objects with unique IDs and initial positions

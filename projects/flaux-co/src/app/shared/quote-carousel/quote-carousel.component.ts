@@ -7,7 +7,8 @@ import {
 	HostListener,
 	Input,
 	TemplateRef,
-	ContentChild
+	ContentChild,
+	inject
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -26,15 +27,13 @@ export class FlauxQuoteCarouselComponent<T = any> implements OnInit, OnDestroy {
 	@Input() slideAriaDescription = 'slide';
 	@Input() showNavigation = true;
 
-	@ContentChild('slideTemplate', {
-		static: false
-	}) slideTemplate?: TemplateRef<any>;
+	@ContentChild('slideTemplate', { static: false }) slideTemplate?: TemplateRef<any>;
 
 	current = 0;
 	private intervalId: any;
 	private isPaused = false;
 
-	constructor(private cdr: ChangeDetectorRef) {}
+	private cdr = inject(ChangeDetectorRef);
 
 	ngOnInit(): void {
 		this.startAutoPlay();

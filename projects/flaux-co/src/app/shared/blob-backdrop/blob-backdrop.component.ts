@@ -4,7 +4,8 @@ import {
 	Component,
 	Input,
 	OnInit,
-	OnDestroy
+	OnDestroy,
+	inject
 } from '@angular/core';
 
 type ObjectFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
@@ -32,50 +33,35 @@ type ObjectFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 	}
 })
 export class BlobBackdropComponent implements OnInit, OnDestroy {
-
 	@Input() animate = true;
 	@Input() interval = 7000;
   /** 1..3 (default 2) */
   @Input() blobCount: 1 | 2 | 3 = 2;
-
   @Input() changeOrigin = 'center center';
-
   /** middle blob color (CSS color)… e.g. '#4f7cff' or 'rgb(80,120,255)' */
   @Input() primaryColor: string = '#2b3a84';
-
   /** array of image URLs for carousel */
   @Input() imageUrls: string[] = [];
-
   /** array of image labels for carousel */
   @Input() imageLabels: string[] = [];
-
   /** shown on top of blobs (legacy support) */
   @Input() imageUrl = '';
-
   /** CSS object-fit for the image */
   @Input() imageResize: ObjectFit = 'cover';
-
   /** current image index */
   currentImageIndex = 0;
-
   /** optional alt text */
   @Input() alt = 'Digital Solutions Image Carousel';
-
   /** Blob 1 rotation in degrees */
   @Input() blob1Rotate = -90;
-
   /** Blob 1 scale */
   @Input() blob1Scale = 2.1;
-
   /** Blob 2 rotation in degrees */
   @Input() blob2Rotate = -90;
-
   /** Blob 2 scale */
   @Input() blob2Scale = 2.1;
-
   /** Blob 3 rotation in degrees */
   @Input() blob3Rotate = -90;
-
   /** Blob 3 scale */
   @Input() blob3Scale = 2.0;
 
@@ -86,8 +72,7 @@ export class BlobBackdropComponent implements OnInit, OnDestroy {
   showControls = true;
 
   private intervalId?: number;
-
-  constructor(private cdr: ChangeDetectorRef) {}
+  private cdr = inject(ChangeDetectorRef);
 
   ngOnInit() {
   	if (this.imageUrls.length > 1 && this.animate) {

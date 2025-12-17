@@ -28,30 +28,50 @@ export class SeoService {
 
 		// Standard
 		this.title.setTitle(title);
-		this.meta.updateTag({ name: 'description',
-			content: description });
+		this.meta.updateTag({
+			name: 'description',
+			content: description
+		});
 
 		// Open Graph
-		this.meta.updateTag({ property: 'og:type',
-			content: 'website' });
-		this.meta.updateTag({ property: 'og:title',
-			content: title });
-		this.meta.updateTag({ property: 'og:description',
-			content: description });
-		this.meta.updateTag({ property: 'og:image',
-			content: image });
-		this.meta.updateTag({ property: 'og:url',
-			content: url });
+		this.meta.updateTag({
+			property: 'og:type',
+			content: 'website'
+		});
+		this.meta.updateTag({
+			property: 'og:title',
+			content: title
+		});
+		this.meta.updateTag({
+			property: 'og:description',
+			content: description
+		});
+		this.meta.updateTag({
+			property: 'og:image',
+			content: image
+		});
+		this.meta.updateTag({
+			property: 'og:url',
+			content: url
+		});
 
 		// Twitter
-		this.meta.updateTag({ name: 'twitter:card',
-			content: twitterCard });
-		this.meta.updateTag({ name: 'twitter:title',
-			content: title });
-		this.meta.updateTag({ name: 'twitter:description',
-			content: description });
-		this.meta.updateTag({ name: 'twitter:image',
-			content: image });
+		this.meta.updateTag({
+			name: 'twitter:card',
+			content: twitterCard
+		});
+		this.meta.updateTag({
+			name: 'twitter:title',
+			content: title
+		});
+		this.meta.updateTag({
+			name: 'twitter:description',
+			content: description
+		});
+		this.meta.updateTag({
+			name: 'twitter:image',
+			content: image
+		});
 
 		// Canonical link
 		this.setCanonical(url);

@@ -5,9 +5,10 @@ import {
 	Input,
 	OnInit,
 	OnDestroy,
+	inject,
 } from '@angular/core';
 import { BlobBackdropComponent } from "../blob-backdrop";
-import {NgClass} from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
 	selector: 'flaux-glass-section',
@@ -36,8 +37,7 @@ export class FlauxGlassSectionComponent implements OnInit, OnDestroy {
 	isHovered = false;
 
 	private intervalId?: number;
-
-	constructor(private cdr: ChangeDetectorRef) {}
+	private cdr = inject(ChangeDetectorRef);
 
 	ngOnInit() {
 		if (this.imageUrls && this.imageUrls.length > 1) {

@@ -6,7 +6,8 @@ import {
 	ChangeDetectionStrategy,
 	ChangeDetectorRef,
 	signal,
-	computed
+	computed,
+	inject
 } from '@angular/core';
 
 
@@ -42,6 +43,8 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 	private rotationStartTime = 0;
 	private shuffledIndices: number[] = [];
 	private currentShufflePosition = 0;
+
+	private cdr = inject(ChangeDetectorRef);
 
 	elements = computed(() => {
 		const currentText = this.texts[this.currentTextIndex()];
@@ -86,8 +89,6 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 	get isLines(): boolean {
 		return this.splitBy === 'lines';
 	}
-
-	constructor (private cdr: ChangeDetectorRef) { }
 
 	ngOnInit(): void {
 		if (this.auto && this.texts.length > 1) {

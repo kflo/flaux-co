@@ -15,6 +15,7 @@ import { FlauxBtnComponent } from "@app/shared/flaux-btn/flaux-btn.component";
 import { HvacAuditFormComponent } from './components/hvac-audit-form/hvac-audit-form.component';
 import { MobileComponent } from '@app/shared/mobile/mobile.component';
 import { UxService } from '@app/services/ux.service';
+import { SeoService } from '@app/services/seo.service';
 
 @Component({
 	selector: 'flaux-hvac-audit',
@@ -32,6 +33,15 @@ export class HvacAuditPage implements AfterViewInit, OnDestroy {
 	private unmuteTimeout?: number;
 
 	uxService = inject(UxService);
+	private seoService = inject(SeoService);
+
+	ngOnInit() {
+		this.seoService.update({
+			title: 'AI Solutions for SMBs | Flaux',
+			description: 'Chat and voice agents, custom AI workflows, and practical marketing to grow your business.',
+			image: '/assets/img/agency/ai-web-chat-collage.png'
+		});
+	}
 
 	ngAfterViewInit(): void {
 		const iframe = this.hvacVideoRef?.nativeElement;
