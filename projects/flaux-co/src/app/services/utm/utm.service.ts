@@ -38,9 +38,9 @@ export class UtmService {
 	}
 
 	/** Attach UTMs to any payload (recommended: nest under `utm`). */
-	withUtm<T extends Record<string, any>>(payload: T): T & { utm: UtmParams } {
+	withUtm<T extends Record<string, any>>(payload: T): T & UtmParams {
 		return {
-			...payload, utm: this.getUtm()
+			...payload, ...this.getUtm()
 		};
 	}
 

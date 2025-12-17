@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { onRequest, HttpsError } from "firebase-functions/v2/https";
 import cors from "cors";
 import { VENDASTA_SERVICE_ACCOUNT_JSON } from "../configs/vendasta-service-account";
@@ -65,6 +66,12 @@ export const submitContact = onRequest({
 			const description: string | undefined = body.description?.toString().trim();
 			const projectType: string[] = Array.isArray(body.projectType) ? body.projectType : [];
 
+			// Extract UTM parameters
+			const utm_source: string | undefined = body.utm_source?.toString().trim();
+			const utm_medium: string | undefined = body.utm_medium?.toString().trim();
+			const utm_campaign: string | undefined = body.utm_campaign?.toString().trim();
+			const utm_content: string | undefined = body.utm_content?.toString().trim();
+
 			if (!firstName || !lastName || !email) {
 				throw new HttpsError("invalid-argument", "Missing required fields: firstName, lastName, email");
 			}
@@ -83,6 +90,10 @@ export const submitContact = onRequest({
 				description,
 				projectType: projectType.join(", "),
 				source: "flaux.co/contact",
+				utm_source,
+				utm_medium,
+				utm_campaign,
+				utm_content,
 			};
 
 			const WEBHOOK_URL = "https://automations.businessapp.io/start/8VAK/d2f040b7-0e63-4884-b765-b3e8bbcf558b";
@@ -110,6 +121,10 @@ export const submitContact = onRequest({
 			await db.collection("contactSubmissions").add({
 				email,
 				company: company || null,
+				utm_source: utm_source || null,
+				utm_medium: utm_medium || null,
+				utm_campaign: utm_campaign || null,
+				utm_content: utm_content || null,
 				submittedAt: new Date(),
 				status: "forwarded_to_webhook",
 			});

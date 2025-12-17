@@ -9,6 +9,7 @@
 		"shell": "npm run build && firebase functions:shell",
 		"start": "npm run shell",
 		"deploy": "firebase deploy --only functions",
+		"shipit": "npm run build && npm run deploy",
 		"logs": "firebase functions:log",
 		"env:set": "node scripts/update-env-vars.js"
 	},
