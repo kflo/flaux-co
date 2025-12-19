@@ -12,6 +12,7 @@ npm-debug.log
 yarn-error.log
 firebase-debug.log
 firestore-debug.log
+.firebase/*
 
 # IDEs and editors
 .idea/

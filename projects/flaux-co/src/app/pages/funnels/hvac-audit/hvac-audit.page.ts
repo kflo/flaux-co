@@ -37,9 +37,9 @@ export class HvacAuditPage implements AfterViewInit, OnDestroy {
 
 	ngOnInit() {
 		this.seoService.update({
-			title: 'AI Solutions for SMBs | Flaux',
-			description: 'Chat and voice agents, custom AI workflows, and practical marketing to grow your business.',
-			image: '/assets/img/agency/ai-web-chat-collage.png'
+			title: 'Free HVAC Audit | Flaux',
+			description: 'Get a comprehensive HVAC audit for your business. Identify inefficiencies and optimize performance with our expert analysis.',
+			image: '/assets/img/funnel/devices-snapshot.png',
 		});
 	}
 
