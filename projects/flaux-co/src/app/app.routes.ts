@@ -80,6 +80,14 @@ export const routes: Routes = [
 		loadComponent: () => import('@pages/funnels/hvac-audit/hvac-audit.page').then(m => m.HvacAuditPage)
 	},
 	{
+		path: 'plumbing-audit',
+		loadComponent: () => import('@pages/funnels/plumbing-audit/plumbing-audit.page').then(m => m.PlumbingAuditPage)
+	},
+	{
+		path: 'workflow-automation',
+		loadComponent: () => import('@pages/funnels/workflow-automation/workflow-automation.page').then(m => m.WorkflowAutomationPage)
+	},
+	{
 		path: 'sms-consent-policy',
 		loadComponent: () => import('@pages/sms-consent-policy/sms-consent-policy.component').then(m => m.SmsConsentPolicyComponent)
 	},
