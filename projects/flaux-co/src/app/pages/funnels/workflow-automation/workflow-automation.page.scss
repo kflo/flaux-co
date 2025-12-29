@@ -14,15 +14,14 @@
 }
 
 .automation-container {
-	max-width: 1400px;
 	margin: 0 auto;
 	padding: 2rem clamp(1.5rem, 3vw, 3rem) 4rem;
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, transparent 15%);
 }
 
 .section {
-	margin: 0 auto 4rem;
-	max-width: 1260px;
+	margin: 0 auto;
+	max-width: 1300px;
 	text-align: center;
 
 	h2 {
@@ -35,13 +34,29 @@
 
 /* Hero Section */
 .hero-section {
-	padding: 4rem 0 3rem;
+	min-height: 100dvh;
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 5rem;
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+	// 	url('../../../../assets/img/funnel/ai-21-9.png') no-repeat center center;
 	text-align: center;
+
+	.hero-inner {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+	}
 
 	h1 {
 		font-size: clamp(2.8rem, 6vw, 4.5rem);
 		line-height: 1.1;
-		margin-bottom: 1rem;
+		margin-bottom: 0;
 		font-weight: 800;
 		letter-spacing: -0.02em;
 		background: linear-gradient(135deg, #fff 40%, $flaux-blue 100%);
@@ -50,50 +65,40 @@
 		background-clip: text;
 	}
 
-	.hero-content {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-		gap: 2.5rem;
-		align-items: center;
-		text-align: left;
-		margin-bottom: 2.5rem;
-	}
-
-	.hero-image {
-		width: 100%;
-		border-radius: 18px;
-		border: 1px solid rgba(255, 255, 255, 0.08);
-		box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 40px rgba($flaux-blue, 0.1);
-		background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
-	}
-
 	.hero-text {
+		text-align: center;
+
 		p.subtitle {
-			font-size: 1.2rem;
+			font-size: 1.4rem;
 			line-height: 1.6;
-			color: rgba(255, 255, 255, 0.88);
-			margin-bottom: 1.5rem;
+			color: rgba(255, 255, 255, 0.95);
+			margin-bottom: 2rem;
+			margin-inline: auto;
 		}
 
 		.hero-benefits {
 			list-style: none;
 			padding: 0;
-			margin: 0;
-			display: grid;
-			gap: 0.75rem;
-			font-size: 1rem;
-			color: rgba(255, 255, 255, 0.85);
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			font-size: 1.1rem;
+			color: rgba(255, 255, 255, 0.9);
 
 			li {
-				padding-left: 1.4rem;
+				padding-left: 1.8rem;
 				position: relative;
 				line-height: 1.5;
+				text-align: left;
 
 				&::before {
 					content: "→";
 					position: absolute;
 					left: 0;
-					color: var(--primary-color);
+					color: $flaux-blue;
+					font-weight: bold;
 				}
 			}
 		}
@@ -101,9 +106,9 @@
 
 	.hero-ctas {
 		display: flex;
-		flex-wrap: wrap;
+		gap: 1.5rem;
 		justify-content: center;
-		gap: 1rem;
+		flex-wrap: wrap;
 	}
 }
 
