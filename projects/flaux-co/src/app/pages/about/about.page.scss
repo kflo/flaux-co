@@ -50,17 +50,18 @@
 
 		.founder-image {
 			border-radius: 50%;
-			width: 12rem;
-			height: 12rem;
+			width: 15rem;
+			height: 15rem;
 			object-fit: cover;
+			object-view-box: inset(10%); // Zooms in 15% without changing element size
 			margin-bottom: 1rem;
-			border: 3px solid #555;
+			border: 3px solid #333;
 		}
 
 		h2 {
 			font-family: 'Josefin Sans', sans-serif;
 			font-variant: all-small-caps;
-			text-shadow: 0 0 1rem rgba(0, 0, 0, 0.75);
+			text-shadow: 0 0 1rem rgba(32, 12, 12, 0.75);
 			color: #ffffff;
 			margin-top: -1rem;
 		}
