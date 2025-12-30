@@ -2,43 +2,61 @@
 	<!-- HERO SECTION -->
 	<section id="hero"
 				class="section hero-section">
+		<span class="hero-bg-overlay"></span>
+		<div class="hero-bg">
+			<img src="../../../../assets/img/funnel/hero-bg.webp"
+				  alt="Workflow Automation Background"
+				  class="hero-bg-image">
+			<video autoplay
+					 muted
+					 loop
+					 #bgVideo
+					 (canplay)="bgVideo.playbackRate = 0.75"
+					 class="hero-bg-video">
+				<source src="../../../../assets/img/funnel/home-intro.mp4"
+						  type="video/mp4">
+			</video>
+		</div>
+		<div class="hero-h1-wrapper">
+			<h1>Stop Managing Tasks.<br> Start Orchestrating Growth.</h1>
+		</div>
 		<div class="hero-inner">
-			<h1>Stop Trading Time for Tasks.<br> Automate Your Growth.</h1>
-			<div class="hero-text">
-				<flaux-quote-highlight quoteStart="The average employee wastes"
-											  highlight="22% of their day"
-											  quoteEnd="on repetitive, manual tasks."
-											  [isFlaux]="true">
-				</flaux-quote-highlight>
-
-				<p class="subtitle">
-					Get a free <strong>Workflow Automation Audit</strong> and see how to reclaim your time with <span class="logo-font">aI</span>-powered
-					orchestration.
+			<flaux-rotating-text class="hero-inner-questions-1"
+										[texts]="questions"
+										[staggerDuration]="35"
+										staggerFrom="first"
+										[topBar]="true"
+										[rotationInterval]="8500">
+			</flaux-rotating-text>
+			<div class="hero-inner-text">
+				<p class="hero-inner-subtitle">
+					We build the <strong>autonomous nervous system</strong> for high-velocity teams. Reclaim your focus while our <span class="logo-font">aI</span>-driven engines handle the complexity.
 				</p>
 
-				<ul class="hero-benefits">
+				<ul class="hero-inner-benefits">
+					<li>Eliminate the <strong><em>"Manual Tax"</em></strong> on your team's creativity and momentum</li>
 					<li>Identify <strong><em>bottlenecks</em></strong> in your current lead-to-cash process</li>
-					<li>See how <strong><em>enterprise-grade orchestration</em></strong> can connect your entire tech stack</li>
 					<li>Get a custom <strong><em>Automation Roadmap</em></strong> with prioritized high-ROI wins</li>
+					<li>The <strong><em>Blueprint for Infinite Scale</em></strong>: Turn your operations into a high-yield competitive weapon</li>
 				</ul>
 			</div>
-			<div class="hero-ctas">
+			<div class="hero-inner-ctas">
 				<flaux-btn [height]="'1.5em'"
 							  routerLink="/workflow-automation"
 							  fragment="cta"
 							  [hueRotate]="'-20deg'"
-							  class="primary-cta">Get My Free Automation Audit</flaux-btn>
+							  class="primary-cta">Workflow Audit | Get Started</flaux-btn>
 				<flaux-btn [height]="'1.5em'"
 							  [href]="'https://cal.com/flaux'"
 							  [hueRotate]="'200deg'"
 							  target="_blank"
 							  class="secondary-cta">Book a Demo</flaux-btn>
 			</div>
-			<flaux-quote-highlight quoteStart="Companies that automate see a"
+			<!-- <flaux-quote-highlight quoteStart="Companies that automate see a"
 										  highlight="30% increase in productivity"
 										  quoteEnd="within 6 months."
 										  [isFlaux]="false">
-			</flaux-quote-highlight>
+			</flaux-quote-highlight> -->
 		</div>
 	</section>
 </flaux-section>
@@ -49,17 +67,16 @@
 				class="section trust-section">
 		<div class="trust-content">
 			<div class="trust-text">
-				<h2>Orchestrate Your Business Like a Symphony</h2>
+				<h2>The Autonomous Advantage</h2>
 				<p>
-					<span class="logo-font">FLaUX</span> specializes in building <strong>autonomous workflows</strong> that bridge the gap between your apps, your data, and your team. We don't just "connect" tools; we build intelligent systems that
-					think.
+					<span class="logo-font">FLaUX</span> builds the "brains" between your apps. We don't just "connect" tools; we architect intelligent systems that think, react, and evolve. No more manual glue—just pure, automated flow.
 				</p>
 				<ul class="trust-bullets">
-					<li><strong>Lead-to-Cash Automation:</strong> From first click to final invoice, zero manual entry.</li>
+					<li><strong>Lead-to-Cash on Autopilot:</strong> From first click to final invoice, zero manual entry.</li>
 					<li><strong>AI-Powered Data Enrichment:</strong> Automatically research and qualify leads before they hit your CRM.</li>
-					<li><strong>Production-Grade Orchestration:</strong> Security-first, auditable workflows with graceful fallbacks.</li>
+					<li><strong>Production-Grade Flows:</strong> Security-first, self-healing workflows with graceful fallbacks.</li>
 					<li><strong>Custom n8n Orchestration:</strong> Complex logic that simple "zaps" can't handle.</li>
-					<li><strong>Error-Proof Operations:</strong> 24/7 monitoring and self-healing workflows.</li>
+					<li><strong>24/7 Operations:</strong> Your business keeps moving while you sleep.</li>
 				</ul>
 			</div>
 			<div class="trust-image">
@@ -72,7 +89,7 @@
 	<!-- PROBLEM SECTION -->
 	<section id="problems"
 				class="section problems-section">
-		<h2>The Hidden Cost of "Manual"</h2>
+		<h2>Manual Work is Technical Debt</h2>
 		<p>
 			Most businesses are held back by <strong><em>digital friction</em></strong> — the small, repetitive tasks that drain energy and kill momentum.
 		</p>
@@ -96,56 +113,56 @@
 									  [isFlaux]="true">
 		</flaux-quote-highlight>
 		<p class="problem-sting">
-			The audit shows you exactly where to start.
+			The deep dive shows you exactly where to start.
 		</p>
 	</section>
 
 	<!-- WHAT THE AUDIT INCLUDES -->
 	<section id="what-you-get"
 				class="section what-you-get-section">
-		<h2>What You Get in Your Free Automation Audit</h2>
+		<h2>The Workflow Deep Dive: Your Blueprint for Infinite Scale</h2>
 		<p>
-			We dive deep into your current tech stack and operations to find the "low-hanging fruit" that will save you the most time and money.
+			We perform a high-velocity analysis of your tech stack to find the high-leverage wins that will drive significant growth.
 		</p>
 
 		<div class="audit-grid">
 			<article class="audit-item">
-				<h3>1. Tech Stack Inventory</h3>
+				<h3>1. Stack Inventory</h3>
 				<span class="audit-phase-chip discovery">Discovery</span>
 				<p>
-					We map out every tool you use and identify where data is getting stuck or siloed.
+					We map out every tool you use and find where data is getting stuck or siloed.
 				</p>
 			</article>
 			<article class="audit-item">
-				<h3>2. Process Bottleneck Analysis</h3>
+				<h3>2. Friction Analysis</h3>
 				<span class="audit-phase-chip discovery">Discovery</span>
 				<p>
-					We find the manual tasks that are currently slowing down your team and limiting your scale.
+					We hunt down the manual tasks that are currently slowing down your team and killing your scale.
 				</p>
 			</article>
 			<article class="audit-item">
 				<h3>3. ROI Opportunity Map</h3>
 				<span class="audit-phase-chip snapshot">Snapshot</span>
 				<p>
-					A prioritized list of automation wins, ranked by how much time they'll save vs. complexity to build.
+					A prioritized list of automation wins, ranked by time saved vs. complexity to build.
 				</p>
 			</article>
 			<article class="audit-item">
-				<h3>4. AI Integration Strategy</h3>
+				<h3>4. AI Injection Strategy</h3>
 				<span class="audit-phase-chip snapshot">Snapshot</span>
 				<p>
 					Where to inject AI (LLMs, Vision, Voice) into your workflows to handle complex decision-making.
 				</p>
 			</article>
 			<article class="audit-item">
-				<h3>5. Scalability Stress Test</h3>
+				<h3>5. Scale Stress Test</h3>
 				<span class="audit-phase-chip discovery">Discovery</span>
 				<p>
 					We evaluate if your current processes can handle 10x your current volume without breaking.
 				</p>
 			</article>
 			<article class="audit-item">
-				<h3>6. Custom Orchestration Blueprint</h3>
+				<h3>6. Custom Blueprint</h3>
 				<span class="audit-phase-chip snapshot">Snapshot</span>
 				<span class="audit-phase-chip discovery">Discovery</span>
 				<p>
@@ -159,11 +176,16 @@
 	<section id="solution"
 				class="section solution-section">
 		<div class="solution-content">
-			<h2>The Solution: Core Automation + A-la-Carte</h2>
+			<h2>The Solution: Core Engine + A-la-Carte</h2>
 			<p>
-				We build the foundation, then you add the specialized automations you need.
+				We build the foundation, then you add the specialized flows you need.
 			</p>
-			<div class="solution-grid">
+			<flaux-rotating-text [texts]="questions"
+										[staggerDuration]="35"
+										staggerFrom="first"
+										[rotationInterval]="8500">
+			</flaux-rotating-text>
+			<!-- <div class="solution-grid">
 				<div class="solution-card core">
 					<h3>The Core Foundation</h3>
 					<p>The essential infrastructure for any automated business.</p>
@@ -184,7 +206,7 @@
 						<li><strong>Custom Dashboards:</strong> Real-time business metrics.</li>
 					</ul>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</section>
 
@@ -192,9 +214,9 @@
 	<section id="cta"
 				class="section cta-section">
 		<div class="cta-content">
-			<h2>Request Your Free Automation Audit</h2>
+			<h2>Request Your Workflow Deep Dive</h2>
 			<p>
-				Fill out the form below and we'll schedule a 15-minute deep dive into your operations. You'll walk away with a clear plan to automate your most painful processes.
+				Schedule a high-velocity consultation to architect your operations. You'll walk away with a comprehensive blueprint to automate your most complex processes.
 			</p>
 
 			<div class="form-placeholder">

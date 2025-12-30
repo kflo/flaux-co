@@ -32,6 +32,8 @@ export class FlauxRotatingTextComponent implements OnInit, OnDestroy {
 	@Input() splitBy: SplitBy = 'characters';
 	@Input() animationDuration = 500;
 	@Input() animationEasing = 'ease';
+	@Input() topBar = false;
+	@Input() bottomBar = true;
 	@Input() letterSpacing = '0.0em';
 	@Input() flashlightDuration = 2500;
 

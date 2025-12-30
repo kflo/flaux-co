@@ -5,7 +5,7 @@
 	flex-wrap: wrap;
 	position: relative;
 	line-height: 1.33;
-	font-size: 1.33em;
+	font-size: 1.33rem;
 
 }
 
@@ -14,13 +14,19 @@
 	cursor: pointer;
 	flex-direction: column;
 	align-items: center;
-	gap: 0.5em;
+	place-content: center;
+	gap: 0.5rem;
 	width: 100%;
 	max-width: 35rem;
-	margin-top: 2.5rem;
-	place-content: center;
+	min-height: 5rem;
 	background-size: contain;
+	margin: auto;
 }
+
+.words-wrapper {
+	padding-bottom: 0;
+}
+
 
 .sr-only {
 	position: absolute;
@@ -36,7 +42,7 @@
 
 .word {
 	display: inline-flex;
-	padding-inline: 0.08em;
+	padding-inline: 0.08rem;
 }
 
 .lines {
@@ -79,10 +85,6 @@
 	animation-delay: var(--flashlight-delay);
 }
 
-.words-wrapper {
-	padding-bottom: 0.66em;
-}
-
 .progress-bar {
 	width: 100%;
 	height: 4px;
@@ -99,6 +101,16 @@
 			black 50%,
 			rgba(0, 0, 0, 0.5) 95%,
 			transparent 100%);
+}
+
+.progress-bar.top {
+	position: absolute;
+	top: 0;
+}
+
+.progress-bar.bottom {
+	position: absolute;
+	bottom: 0;
 }
 
 .progress-fill {
@@ -177,6 +189,6 @@
 
 @media screen and (max-width: 900px) {
 	:host {
-		font-size: 1.2em;
+		font-size: 1.2rem;
 	}
 }

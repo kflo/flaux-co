@@ -1,6 +1,7 @@
 <span class="sr-only">{{ currentText }}</span>
 
 <div class="container"
+	  [style.margin-block]="'1.5rem'"
 	  (click)="onManualAdvance()">
 	@if (currentTextIndex() >= 0) {
 	<span class="words-wrapper"
@@ -26,8 +27,15 @@
 	</span>
 	}
 
-	@if (auto) {
-	<div class="progress-bar">
+	@if (auto && topBar) {
+	<div class="progress-bar top">
+		<div class="progress-fill"
+			  [style.width.%]="progressPercent()"></div>
+	</div>
+	}
+
+	@if (auto && bottomBar) {
+	<div class="progress-bar bottom">
 		<div class="progress-fill"
 			  [style.width.%]="progressPercent()"></div>
 	</div>

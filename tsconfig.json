@@ -22,6 +22,9 @@
 			"@pages/*": [
 				"projects/flaux-co/src/app/pages/*"
 			],
+			"@shared/*": [
+				"projects/flaux-co/src/app/shared/*"
+			],
 			"@services/*": [
 				"projects/flaux-co/src/app/services/*"
 			]

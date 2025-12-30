@@ -30,12 +30,12 @@
 .text-logo-wrapper {
 	display: flex;
 	align-items: center;
-	font-size: 2.3em;
+	font-size: 2.3rem;
 	font-family: 'Lequire', sans-serif;
 	color: #fff;
-	text-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
-	letter-spacing: 0.05em;
-	margin-top: 0.25em;
+	text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+	letter-spacing: 0.05rem;
+	margin-top: 0.5rem;
 }
 
 .fl-text {}
@@ -72,7 +72,7 @@
 .navbar-center a {
 	color: #fff;
 	text-decoration: none;
-	font-size: 0.9em;
+	font-size: 0.9rem;
 	font-family: "Plus Jakarta Sans", sans-serif;
 	letter-spacing: 0.05em;
 	font-weight: 500;
@@ -135,7 +135,7 @@
 
 .dropdown-trigger span {
 	display: block;
-	height: 0.2em;
+	height: 0.2rem;
 	width: 100%;
 	background: #fff;
 	border-radius: 1px;
@@ -144,7 +144,7 @@
 
 @media screen and (max-width: 1150px) {
 	.navbar-center a {
-		font-size: 0.75em;
+		font-size: 0.75rem;
 		padding-inline: 1.5rem;
 	}
 
