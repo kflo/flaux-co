@@ -1,8 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { SeoService } from '@app/services/seo.service';
+import { FooterComponent } from '@app/shared/footer/footer.component';
 
 @Component({
 	selector: 'flaux-about',
+	imports: [FooterComponent],
 	standalone: true,
 	templateUrl: './about.page.html',
 	styleUrls: ['./about.page.scss']

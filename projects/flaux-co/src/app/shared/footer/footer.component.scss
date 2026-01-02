@@ -6,6 +6,11 @@
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.33);
 	backdrop-filter: contrast(0.85);
+
+	&.dark-background {
+		background-color: #111;
+		mask: none;
+	}
 }
 
 footer {

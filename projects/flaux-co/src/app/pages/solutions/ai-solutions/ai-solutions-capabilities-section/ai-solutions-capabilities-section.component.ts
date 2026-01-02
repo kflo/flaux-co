@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FlauxSectionComponent } from "@app/shared/flaux-section/flaux-section.component";
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UxService } from '@app/services/ux.service';
+import { FlauxBtnComponent } from '@app/shared/flaux-btn/flaux-btn.component';
 
 
 @Component({
 	selector: 'ai-solutions-capabilities-section',
-	imports: [FlauxSectionComponent, MatExpansionModule, CommonModule],
+	imports: [FlauxSectionComponent, MatExpansionModule, CommonModule, FlauxBtnComponent],
 	templateUrl: './ai-solutions-capabilities-section.component.html',
 	styleUrl: './ai-solutions-capabilities-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

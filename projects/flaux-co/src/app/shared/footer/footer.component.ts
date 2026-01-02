@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { RouterModule } from '@angular/router';
 import { TermsOfServiceComponent } from '../legal-policies/terms-of-service.component';
@@ -9,10 +9,12 @@ import { CookiePolicyComponent } from '../legal-policies/cookie-policy.component
 	selector: 'flaux-footer',
 	templateUrl: './footer.component.html',
 	styleUrls: ['./footer.component.scss'],
+	host: { '[class.dark-background]': 'darkBackground' },
 	standalone: true,
 	imports: [RouterModule, MatBottomSheetModule]
 })
 export class FooterComponent {
+	@Input() darkBackground: boolean = false;
 	private bottomSheet = inject(MatBottomSheet);
 
 	openPrivacyPolicy(): void {
