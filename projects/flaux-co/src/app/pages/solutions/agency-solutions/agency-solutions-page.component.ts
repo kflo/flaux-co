@@ -10,10 +10,12 @@ import { MktAiSectionComponent } from '@app/pages/home/mkt-ai-section/mkt-ai-sec
 import { FooterComponent } from '@app/shared/footer/footer.component';
 import { SeoService } from '@app/services/seo.service';
 import { UxService } from '@app/services/ux.service';
+import { FlauxBtnComponent } from '@app/shared/flaux-btn/flaux-btn.component';
+import { FlauxFnComponent } from '@app/shared/flaux-fn/flaux-fn.component';
 
 @Component({
 	selector: 'agency-solutions-page',
-	imports: [FlauxSectionComponent, BlobBackdropComponent, GradientBackgroundComponent, FlauxGlassSectionComponent, FlauxQuoteCarouselComponent, FlauxQuoteHighlightComponent, MktAiSectionComponent, FooterComponent],
+	imports: [FlauxSectionComponent, BlobBackdropComponent, GradientBackgroundComponent, FlauxGlassSectionComponent, FlauxQuoteCarouselComponent, FlauxQuoteHighlightComponent, MktAiSectionComponent, FooterComponent, FlauxBtnComponent, FlauxFnComponent],
 	hostDirectives: [],
 	templateUrl: './agency-solutions-page.component.html',
 	styleUrl: './agency-solutions-page.component.scss',

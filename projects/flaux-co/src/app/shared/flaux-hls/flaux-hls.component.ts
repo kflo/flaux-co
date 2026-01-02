@@ -1,4 +1,4 @@
-import {isPlatformBrowser} from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import {
 	AfterViewInit,
 	ChangeDetectionStrategy,
@@ -23,10 +23,10 @@ export class HlsComponent implements AfterViewInit {
 	private hls: import('hls.js').default | null = null;
 	private destroyed = false;
 
-	@ViewChild('videoEl', {static: true}) videoRef!: ElementRef<HTMLVideoElement>;
+	@ViewChild('videoEl', { static: true }) videoRef!: ElementRef<HTMLVideoElement>;
 
 	/** Required: HLS master playlist URL (.m3u8) */
-	@Input({required: true}) hlsUrl!: string;
+	@Input({ required: true }) hlsUrl!: string;
 
 	/** Optional: poster image for instant paint */
 	@Input() posterUrl?: string;

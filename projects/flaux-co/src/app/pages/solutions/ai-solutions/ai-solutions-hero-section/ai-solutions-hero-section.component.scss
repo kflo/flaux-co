@@ -10,9 +10,11 @@
 
 /* ----------------------------------- // ----------------------------------- */
 
+
 ::ng-deep {
 	flaux-hls {
 		// margin-top: -12em;
+		max-width: 1600px;
 
 		.video {
 			mask: radial-gradient(circle, black 37%, transparent 66%);
@@ -22,12 +24,8 @@
 	}
 }
 
-flaux-prismatic-burst {
-	width: 100%;
-	height: -webkit-fill-available;
-	position: absolute;
-	max-width: 1800px;
-	mask: radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, black 20%);
+.marquee-wrapper {
+	max-width: 1600px;
 }
 
 .placeholder-bg {

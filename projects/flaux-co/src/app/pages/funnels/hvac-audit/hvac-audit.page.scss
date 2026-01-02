@@ -4,25 +4,25 @@
 
 @keyframes fadeInUp {
 	from {
-		opacity: 0;
 		transform: translateY(20px);
+		opacity: 0;
 	}
 
 	to {
-		opacity: 1;
 		transform: translateY(0);
+		opacity: 1;
 	}
 }
 
 @keyframes floatUp {
 	from {
-		opacity: 0;
 		transform: translateY(50px);
+		opacity: 0;
 	}
 
 	to {
-		opacity: 1;
 		transform: translateY(0);
+		opacity: 1;
 	}
 }
 
@@ -46,9 +46,9 @@ flaux-section {
 }
 
 .hvac-audit-container {
-	padding: 5rem 3rem 1rem;
 	max-width: 1400px;
 	margin: 0 auto;
+	padding: 5rem 3rem 1rem;
 }
 
 /* Sections */
@@ -57,28 +57,28 @@ flaux-section {
 	animation: fadeInUp 0.6s ease-out;
 
 	h2 {
-		font-family: 'Sen';
-		font-variant: all-small-caps;
 		// font-weight: 600;
 		background: linear-gradient(150deg, $flaux-yellow 15%, $flaux-salmon 60%);
 		background-clip: text;
+		font-variant: all-small-caps;
+		font-family: 'Sen';
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		margin-bottom: 1rem;
-		line-height: 1;
 		font-size: 2rem;
+		line-height: 1;
 	}
 
 	h3 {
-		color: #fff;
 		margin-bottom: 0.75rem;
+		color: #fff;
 		font-size: 1.3rem;
 	}
 
 	p {
+		margin-bottom: 1rem;
 		color: #ddd;
 		line-height: 1.8;
-		margin-bottom: 1rem;
 	}
 
 	strong {
@@ -92,26 +92,26 @@ flaux-section {
 	text-align: center;
 
 	.hero-image {
-		float: left;
 		width: 50%;
 		max-width: 600px;
 		margin-right: 2rem;
-		shape-outside: url('../../../../assets/img/funnel/devices-snapshot.png');
-		shape-margin: 2rem;
-		filter: drop-shadow(-0.5em 1em 0.66em rgba(0, 0, 0, 0.4));
+		float: left;
 		animation: floatUp 2.5s ease-out;
+		filter: drop-shadow(-0.5em 1em 0.66em rgba(0, 0, 0, 0.4));
+		shape-margin: 2rem;
+		shape-outside: url('../../../../assets/img/funnel/devices-snapshot.png');
 	}
 
 	h1 {
-		font-family: 'HelloAmerica';
-		font-weight: 100;
 		background: linear-gradient(150deg, $flaux-yellow, $flaux-salmon 85%);
 		background-clip: text;
+		font-weight: 100;
+		font-family: 'HelloAmerica';
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		font-size: clamp(2rem, 3.5vw, 2.75rem);
 		margin-block: 1.25rem 2rem;
 		padding-inline: 3px;
+		font-size: clamp(2rem, 3.5vw, 2.75rem);
 		line-height: 2;
 		filter: drop-shadow(1px 1px 0.1em rgba(0, 0, 0, 0.5))
 	}
@@ -125,20 +125,20 @@ flaux-section {
 	}
 
 	.subtitle {
-		font-size: 1.2rem;
-		color: #fff;
 		margin: 0;
+		color: #fff;
+		font-size: 1.2rem;
 		line-height: 1.6;
 	}
 
 	.hero-benefits {
-		list-style: none;
-		padding: 0;
 		margin: 1rem 0;
+		padding: 0;
+		list-style: none;
 
 		li {
-			color: #ddd;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			color: #ddd;
 
 			&:last-child {
 				border-bottom: none;
@@ -148,37 +148,37 @@ flaux-section {
 
 	.hero-ctas {
 		display: flex;
-		gap: 1.5rem;
-		justify-content: center;
 		flex-wrap: wrap;
+		justify-content: center;
 		margin: 2.5rem 0;
+		gap: 1.5rem;
 	}
 
 	.hero-trust {
-		font-size: 0.75rem;
-		color: #aaa;
 		margin-top: 1rem;
+		color: #aaa;
 		font-style: italic;
+		font-size: 0.75rem;
 	}
 }
 
 /* Trust Section */
 .trust-section {
-	padding: 0;
 	margin-top: 6rem;
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 0.75rem;
+	backdrop-filter: blur(10px);
 	background: rgba(255, 255, 255, 0.09);
 	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
-	backdrop-filter: blur(10px);
-	border-radius: 0.75rem;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	overflow: hidden;
 	// height: 800px;
 
 	.trust-content {
 		display: grid;
-		gap: 0;
 		grid-template-columns: 1.5fr auto;
 		height: 100%;
+		gap: 0;
 	}
 
 	.trust-text {
@@ -208,29 +208,29 @@ flaux-section {
 		}
 
 		iframe {
-			aspect-ratio: 9 / 16;
-			// width: auto;
-			margin: 0 auto;
 			display: block;
+			aspect-ratio: 9 / 16;
 			width: 100%;
 			height: 100%;
+			// width: auto;
+			margin: 0 auto;
 		}
 	}
 
 	.trust-bullets {
-		list-style: none;
-		padding: 0;
 		margin: 1.5rem 0 0;
+		padding: 0;
+		list-style: none;
 
 		li {
-			padding: 0.75rem 0 0.75rem 2rem;
 			position: relative;
+			padding: 0.75rem 0 0.75rem 2rem;
 			color: #ddd;
 
 			&::before {
-				content: '✓';
 				position: absolute;
 				left: 0;
+				content: '✓';
 				color: $flaux-salmon;
 				font-weight: bold;
 			}
@@ -241,26 +241,26 @@ flaux-section {
 /* Problems Section */
 .problems-section {
 	.problem-list {
-		list-style: none;
-		padding: 0;
 		margin: 2rem 0;
+		padding: 0;
+		list-style: none;
 
 		li {
-			padding: 1rem;
 			margin-bottom: 1rem;
-			background: rgba(255, 255, 255, 0.09);
-			backdrop-filter: blur(5px);
+			padding: 1rem;
 			border-left: 4px solid $flaux-salmon;
 			border-radius: 0.5rem;
+			backdrop-filter: blur(5px);
+			background: rgba(255, 255, 255, 0.09);
 			color: #ddd;
 		}
 	}
 
 	.problem-sting {
-		background: rgba($flaux-salmon, 0.1);
 		padding: 1.5rem;
-		border-radius: 0.5rem;
 		border: 1px solid rgba($flaux-salmon, 0.3);
+		border-radius: 0.5rem;
+		background: rgba($flaux-salmon, 0.1);
 		color: #fff;
 		font-weight: 500;
 	}
@@ -271,87 +271,87 @@ flaux-section {
 	.audit-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
 		margin-top: 2rem;
+		gap: 2rem;
 	}
 
 	.audit-item {
+		padding: 1.75rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 0.75rem;
+		backdrop-filter: blur(5px);
 		background: rgba(255, 255, 255, 0.09);
 		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
-		backdrop-filter: blur(5px);
-		padding: 1.75rem;
-		border-radius: 0.75rem;
-		border: 1px solid rgba(255, 255, 255, 0.1);
 		transition: all 0.3s ease;
 
 		&:hover {
-			background: rgba(255, 255, 255, 0.08);
-			border-color: rgba($flaux-salmon, 0.5);
 			transform: translateY(-4px);
+			border-color: rgba($flaux-salmon, 0.5);
+			background: rgba(255, 255, 255, 0.08);
 		}
 
 		h3 {
+			margin-top: 0;
+			margin-bottom: 0.5rem;
 			color: $flaux-salmon;
 			font-size: 1.1rem;
 			line-height: 1.2;
-			margin-top: 0;
-			margin-bottom: 0.5rem;
 		}
 
 		.audit-phase-chip {
 			display: inline-block;
-			font-size: 0.7rem;
+			margin-right: 0.5rem;
+			margin-bottom: 0.75rem;
 			padding: 0.1rem 0.35rem;
 			border-radius: 0.5rem;
 			font-weight: 300;
-			margin-right: 0.5rem;
-			margin-bottom: 0.75rem;
+			font-size: 0.7rem;
 
 			&.snapshot {
+				border: 1px solid rgba($flaux-yellow, 0.3);
 				background: rgba($flaux-blue, 0.25);
 				color: white;
-				border: 1px solid rgba($flaux-yellow, 0.3);
 			}
 
 			&.discovery {
+				border: 1px solid rgba($flaux-yellow, 0.3);
 				background: rgba($flaux-salmon, 0.25);
 				color: white;
-				border: 1px solid rgba($flaux-yellow, 0.3);
 			}
 		}
 
 		p {
-			font-size: 0.95rem;
 			margin: 0;
+			font-size: 0.95rem;
 		}
 	}
 }
 
 /* AI Value Section */
 .ai-value-section {
+	display: grid;
 	position: relative;
+	grid-template-columns: 1fr 40%;
+	align-items: stretch;
 	margin-top: 7rem;
 	padding: 3rem 0 3rem 3rem;
-	background: linear-gradient(135deg, rgba($flaux-violet, 0.15), rgba($flaux-blue, 0.1));
-	border-radius: 3rem 1rem 3rem 1rem;
-	border: 1px solid rgba($flaux-yellow, 0.2);
-	backdrop-filter: blur(5px) brightness(1.4);
-	box-shadow: 0 0 2rem rgba($flaux-yellow, 0.1), inset 0 0 1rem rgba(255, 255, 255, 0.05);
-	transform: skewY(-2deg);
 	overflow: hidden;
-	display: grid;
-	grid-template-columns: 1fr 40%;
 	gap: 0;
-	align-items: stretch;
+	transform: skewY(-2deg);
+	border: 1px solid rgba($flaux-yellow, 0.2);
+	border-radius: 3rem 1rem 3rem 1rem;
+	backdrop-filter: blur(5px) brightness(1.4);
+	background: linear-gradient(135deg, rgba($flaux-violet, 0.15), rgba($flaux-blue, 0.1));
+	box-shadow: 0 0 2rem rgba($flaux-yellow, 0.1), inset 0 0 1rem rgba(255, 255, 255, 0.05);
 
 	&::before {
-		content: '';
 		position: absolute;
 		top: -2px;
-		left: 20%;
 		right: 20%;
+		left: 20%;
 		height: 2px;
 		background: linear-gradient(90deg, transparent, $flaux-yellow, transparent);
+		content: '';
 		opacity: 0.6;
 	}
 
@@ -370,27 +370,27 @@ flaux-section {
 	.ai-value-image {
 		width: 100%;
 		height: 120%;
-		margin-top: -3.5rem;
 		min-height: 400px;
+		margin-top: -3.5rem;
+		margin-right: -1px;
 		object-fit: cover;
 		object-position: right;
-		margin-right: -1px;
 	}
 
 	.ai-benefits {
-		list-style: none;
-		padding: 0;
 		margin: 0.25rem 0;
+		padding: 0;
+		list-style: none;
 
 		li {
-			padding: 1rem 0 1rem 2rem;
 			position: relative;
+			padding: 1rem 0 1rem 2rem;
 			color: #ddd;
 
 			&::before {
-				content: '→';
 				position: absolute;
 				left: 0;
+				content: '→';
 				color: $flaux-yellow;
 				font-weight: bold;
 			}
@@ -401,18 +401,18 @@ flaux-section {
 /* How It Works Section */
 .how-it-works-section {
 	.steps-list {
-		list-style: none;
-		padding: 0;
 		margin: 2rem 0;
+		padding: 0;
+		list-style: none;
 
 		li {
-			padding: 1.5rem;
 			margin-bottom: 1rem;
-			background: rgba(255, 255, 255, 0.03);
-			backdrop-filter: blur(5px);
-			box-shadow: 0 0 0.95rem rgba(0, 0, 0, 0.3);
+			padding: 1.5rem;
 			border-left: 4px solid $flaux-yellow;
 			border-radius: 0.5rem;
+			backdrop-filter: blur(5px);
+			background: rgba(255, 255, 255, 0.03);
+			box-shadow: 0 0 0.95rem rgba(0, 0, 0, 0.3);
 			color: #ddd;
 			line-height: 1.7;
 		}
@@ -425,19 +425,19 @@ flaux-section {
 
 	.cta-content {
 		padding: 3rem;
-		background: linear-gradient(150deg, rgba($flaux-blue, 0.2), rgba($flaux-violet, 0.2));
-		backdrop-filter: blur(10px) brightness(1.2) contrast(1.2) sepia(0.7);
-		border-radius: 0.75rem;
 		border: 1px solid rgba($flaux-salmon, 0.3);
+		border-radius: 0.75rem;
+		backdrop-filter: blur(10px) brightness(1.2) contrast(1.2) sepia(0.7);
+		background: linear-gradient(150deg, rgba($flaux-blue, 0.2), rgba($flaux-violet, 0.2));
 
 		form {
 			margin-top: 2rem;
 		}
 
 		.form-disclaimer {
-			font-size: 0.85rem;
-			color: #999;
 			margin-top: 1.5rem;
+			color: #999;
+			font-size: 0.85rem;
 			text-align: center;
 		}
 	}
@@ -455,11 +455,11 @@ flaux-section {
 		--mat-expansion-container-text-color: initial !important;
 		--mat-expansion-header-text-color: initial !important;
 		--mat-expansion-header-indicator-color: initial !important;
-		background: rgba(255, 255, 255, 0.03) !important;
-		backdrop-filter: blur(10px) contrast(1.1) grayscale(0.4);
-		border: 1px solid rgba(255, 255, 255, 0.1) !important;
 		margin-bottom: 1rem;
+		border: 1px solid rgba(255, 255, 255, 0.1) !important;
 		border-radius: 0.5rem !important;
+		backdrop-filter: blur(10px) contrast(1.1) grayscale(0.4);
+		background: rgba(255, 255, 255, 0.03) !important;
 
 		&::before {
 			display: none !important;
@@ -467,8 +467,8 @@ flaux-section {
 
 		::ng-deep {
 			.mat-mdc-expansion-panel-header {
-				background: rgba(255, 255, 255, 0.09);
 				backdrop-filter: blur(10px);
+				background: rgba(255, 255, 255, 0.09);
 				color: #fff;
 
 				&:hover {
@@ -518,8 +518,8 @@ flaux-section {
 		}
 
 		.hero-ctas {
-			margin-block: 0;
 			justify-content: center;
+			margin-block: 0;
 		}
 	}
 
@@ -532,12 +532,12 @@ flaux-section {
 		}
 
 		.ai-value-image {
-			// max-height: 400px;
-			margin-inline: -3em;
-			margin-bottom: -4em;
-			object-position: center;
 			width: 130%;
 			margin-top: 1rem;
+			margin-bottom: -4em;
+			// max-height: 400px;
+			margin-inline: -3em;
+			object-position: center;
 		}
 	}
 }
@@ -546,13 +546,13 @@ flaux-section {
 
 	.hero-section {
 		.hero-image {
-			width: 60%;
-			max-width: 60%;
-			margin-left: -1rem;
 			// margin-bottom: 2rem;
 			// shape-outside: none;
 			// shape-margin: 0;
 			align-self: center;
+			width: 60%;
+			max-width: 60%;
+			margin-left: -1rem;
 		}
 	}
 
@@ -584,20 +584,20 @@ flaux-section {
 
 	.hero-section {
 		h1 {
-			font-size: 2rem;
 			margin-block: 0 0.75rem;
+			font-size: 2rem;
 			line-height: 1.5 !important;
 		}
 
 		.hero-content {
 			display: flex;
-			flex-direction: column;
 			grid-template-columns: 1fr;
+			flex-direction: column;
 		}
 
 		.hero-text {
-			text-align: center;
 			padding-block: 1.25rem 1rem;
+			text-align: center;
 
 			li {
 				padding-block: 0.4rem;
@@ -605,14 +605,14 @@ flaux-section {
 		}
 
 		.hero-image {
-			float: none;
+			align-self: center;
 			width: 70%;
 			max-width: 70%;
 			margin-right: 0;
+			float: none;
+			shape-margin: 0;
 			// margin-bottom: 2rem;
 			shape-outside: none;
-			shape-margin: 0;
-			align-self: center;
 		}
 
 		.hero-left {
@@ -620,8 +620,8 @@ flaux-section {
 		}
 
 		.hero-ctas {
-			justify-content: center;
 			display: flex;
+			justify-content: center;
 			gap: 0.75em;
 		}
 	}

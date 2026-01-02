@@ -11,7 +11,7 @@
 					 muted
 					 loop
 					 #bgVideo
-					 (canplay)="bgVideo.playbackRate = 0.75"
+					 (canplay)="bgVideo.playbackRate = 0.6"
 					 class="hero-bg-video">
 				<source src="../../../../assets/img/funnel/home-intro.mp4"
 						  type="video/mp4">
@@ -30,14 +30,15 @@
 			</flaux-rotating-text>
 			<div class="hero-inner-text">
 				<p class="hero-inner-subtitle">
-					We build the <strong>autonomous nervous system</strong> for high-velocity teams. Reclaim your focus while our <span class="logo-font">aI</span>-driven engines handle the complexity.
+					Stop wasting <strong>human brilliance</strong> on robotic tasks. We build the <span class="logo-font">aI</span>-powered workflows that handle the grunt work, freeing your team to focus on the breakthroughs that drive your business
+					forward.
 				</p>
 
 				<ul class="hero-inner-benefits">
 					<li>Eliminate the <strong><em>"Manual Tax"</em></strong> on your team's creativity and momentum</li>
 					<li>Identify <strong><em>bottlenecks</em></strong> in your current lead-to-cash process</li>
 					<li>Get a custom <strong><em>Automation Roadmap</em></strong> with prioritized high-ROI wins</li>
-					<li>The <strong><em>Blueprint for Infinite Scale</em></strong>: Turn your operations into a high-yield competitive weapon</li>
+					<li>The <strong><em>Zero-Friction Framework</em></strong>: Eliminate the chaos and build a business that flows like water</li>
 				</ul>
 			</div>
 			<div class="hero-inner-ctas">
@@ -47,10 +48,11 @@
 							  [hueRotate]="'-20deg'"
 							  class="primary-cta">Workflow Audit | Get Started</flaux-btn>
 				<flaux-btn [height]="'1.5em'"
-							  [href]="'https://cal.com/flaux'"
 							  [hueRotate]="'200deg'"
-							  target="_blank"
-							  class="secondary-cta">Book a Demo</flaux-btn>
+							  class="secondary-cta"
+							  data-cal-link="flaux/ai-strategy-call"
+							  data-cal-namespace="ai-strategy-call"
+							  data-cal-config='{"layout":"month_view"}'>Book a Demo</flaux-btn>
 			</div>
 			<!-- <flaux-quote-highlight quoteStart="Companies that automate see a"
 										  highlight="30% increase in productivity"
@@ -72,16 +74,21 @@
 					<span class="logo-font">FLaUX</span> builds the "brains" between your apps. We don't just "connect" tools; we architect intelligent systems that think, react, and evolve. No more manual glue—just pure, automated flow.
 				</p>
 				<ul class="trust-bullets">
-					<li><strong>Lead-to-Cash on Autopilot:</strong> From first click to final invoice, zero manual entry.</li>
-					<li><strong>AI-Powered Data Enrichment:</strong> Automatically research and qualify leads before they hit your CRM.</li>
-					<li><strong>Production-Grade Flows:</strong> Security-first, self-healing workflows with graceful fallbacks.</li>
-					<li><strong>Custom n8n Orchestration:</strong> Complex logic that simple "zaps" can't handle.</li>
-					<li><strong>24/7 Operations:</strong> Your business keeps moving while you sleep.</li>
+					<!-- <li><strong>Lead-to-Cash on Autopilot:</strong> From first click to final invoice, zero manual entry.</li> -->
+					<li><strong>The "Manual Tax" Rebate:</strong> Whether it's 5, 40, or 99+ human hours per week, reclaim your high-value talent time by automating the robotic grunt work.</li>
+					<li><strong>Production-Grade Flows:</strong> Security-first, self-healing workflows with graceful fallbacks and alerting.</li>
+					<li><strong>Zero-Leakage Pipelines:</strong> Hard-coded reliability that ensures no lead, invoice, or customer request ever falls through the cracks.</li>
+					<li><strong>24/7 Operations:</strong> AI-powered business that never sleeps, processing data and serving customers around the clock without fatigue.</li>
 				</ul>
 			</div>
 			<div class="trust-image">
-				<img src="https://placehold.co/600x400/0a0a0a/ff00ff?text=Autonomous+Workflows"
-					  alt="Autonomous Workflows">
+				<video #clockVideo
+						 autoplay
+						 muted
+						 loop
+						 playsinline
+						 [src]="clockUrl"
+						 (timeupdate)="onTimeUpdate(clockVideo)"></video>
 			</div>
 		</div>
 	</section>
@@ -107,11 +114,6 @@
 				<strong>Delayed Decision Making:</strong> Waiting for manual reports instead of having real-time dashboards.
 			</li>
 		</ul>
-		<flaux-quote-highlight quoteStart=""
-									  highlight="80% of business leaders"
-									  quoteEnd="believe AI-driven automation can be applied to any business process."
-									  [isFlaux]="true">
-		</flaux-quote-highlight>
 		<p class="problem-sting">
 			The deep dive shows you exactly where to start.
 		</p>
@@ -128,43 +130,36 @@
 		<div class="audit-grid">
 			<article class="audit-item">
 				<h3>1. Stack Inventory</h3>
-				<span class="audit-phase-chip discovery">Discovery</span>
 				<p>
 					We map out every tool you use and find where data is getting stuck or siloed.
 				</p>
 			</article>
 			<article class="audit-item">
 				<h3>2. Friction Analysis</h3>
-				<span class="audit-phase-chip discovery">Discovery</span>
 				<p>
 					We hunt down the manual tasks that are currently slowing down your team and killing your scale.
 				</p>
 			</article>
 			<article class="audit-item">
 				<h3>3. ROI Opportunity Map</h3>
-				<span class="audit-phase-chip snapshot">Snapshot</span>
 				<p>
 					A prioritized list of automation wins, ranked by time saved vs. complexity to build.
 				</p>
 			</article>
 			<article class="audit-item">
 				<h3>4. AI Injection Strategy</h3>
-				<span class="audit-phase-chip snapshot">Snapshot</span>
 				<p>
 					Where to inject AI (LLMs, Vision, Voice) into your workflows to handle complex decision-making.
 				</p>
 			</article>
 			<article class="audit-item">
 				<h3>5. Scale Stress Test</h3>
-				<span class="audit-phase-chip discovery">Discovery</span>
 				<p>
 					We evaluate if your current processes can handle 10x your current volume without breaking.
 				</p>
 			</article>
 			<article class="audit-item">
 				<h3>6. Custom Blueprint</h3>
-				<span class="audit-phase-chip snapshot">Snapshot</span>
-				<span class="audit-phase-chip discovery">Discovery</span>
 				<p>
 					A high-level design for an <b>n8n-powered orchestration layer</b> that ties your business together.
 				</p>
@@ -175,56 +170,24 @@
 	<!-- THE SOLUTION SECTION -->
 	<section id="solution"
 				class="section solution-section">
-		<div class="solution-content">
-			<h2>The Solution: Core Engine + A-la-Carte</h2>
-			<p>
-				We build the foundation, then you add the specialized flows you need.
-			</p>
-			<flaux-rotating-text [texts]="questions"
-										[staggerDuration]="35"
-										staggerFrom="first"
-										[rotationInterval]="8500">
-			</flaux-rotating-text>
-			<!-- <div class="solution-grid">
-				<div class="solution-card core">
-					<h3>The Core Foundation</h3>
-					<p>The essential infrastructure for any automated business.</p>
-					<ul>
-						<li>Centralized Automation Hub (n8n/Make)</li>
-						<li>Error Monitoring & Alerting</li>
-						<li>Secure API Credential Management</li>
-						<li>Standardized Data Schemas</li>
-					</ul>
-				</div>
-				<div class="solution-card alacarte">
-					<h3>A-la-Carte Options</h3>
-					<p>Pick the workflows that matter most to you.</p>
-					<ul>
-						<li><strong>Lead Routing:</strong> Instant CRM sync & notifications.</li>
-						<li><strong>Auto-Invoicing:</strong> From contract sign to payment link.</li>
-						<li><strong>Content Engine:</strong> AI-driven social & blog drafting.</li>
-						<li><strong>Custom Dashboards:</strong> Real-time business metrics.</li>
-					</ul>
-				</div>
-			</div> -->
-		</div>
+		<flaux-rotating-text [texts]="questions"
+									[staggerDuration]="35"
+									[topBar]="true"
+									staggerFrom="first"
+									[rotationInterval]="8500">
+		</flaux-rotating-text>
 	</section>
 
 	<!-- PRIMARY CTA / FORM SECTION -->
 	<section id="cta"
 				class="section cta-section">
 		<div class="cta-content">
-			<h2>Request Your Workflow Deep Dive</h2>
+			<h2>Request Your Workflow AI Audit</h2>
 			<p>
-				Schedule a high-velocity consultation to architect your operations. You'll walk away with a comprehensive blueprint to automate your most complex processes.
+				Ready to eliminate the manual tax and unlock your business's full potential? <br>Fill out the form below to schedule your Workflow Deep Dive and get your custom automation roadmap.
 			</p>
 
-			<div class="form-placeholder">
-				<!-- [FORM PLACEHOLDER] -->
-				<p style="text-align: center; padding: 3rem; border: 2px dashed #00f2ff; border-radius: 12px; background: rgba(0, 242, 255, 0.05);">
-					Workflow Automation Form Coming Soon...
-				</p>
-			</div>
+			<flaux-workflow-audit-form></flaux-workflow-audit-form>
 		</div>
 	</section>
 
@@ -238,33 +201,69 @@
 			<mat-expansion-panel class="faq-panel">
 				<mat-expansion-panel-header>
 					<mat-panel-title>
-						Do I need to be technical?
+						Do I need to be an engineer to work with you?
 					</mat-panel-title>
 				</mat-expansion-panel-header>
 				<p>
-					Not at all. We handle the "plumbing" (the code, the APIs, the logic). You just need to know how your business works and what you want to achieve.
+					Not at all. You're the visionary; we're your technical co-pilot. You bring the business goals, and we handle all the complex "plumbing" (code, APIs, logic) to make it happen. You'll never need to look at a line of code.
 				</p>
 			</mat-expansion-panel>
 
 			<mat-expansion-panel class="faq-panel">
 				<mat-expansion-panel-header>
 					<mat-panel-title>
-						How is this different from Zapier?
+						Will this work with our current software?
 					</mat-panel-title>
 				</mat-expansion-panel-header>
 				<p>
-					Zapier is great for simple "if this, then that" tasks. We use <strong>n8n</strong> for complex, multi-step orchestration that involves AI, custom logic, and deep data manipulation that Zapier simply can't handle.
+					If your software has an API, the answer is almost certainly yes. We specialize in making your entire tech stack—from giants like Salesforce to custom internal tools—talk to each other seamlessly. We don't just link apps; we unify your
+					whole business process.
 				</p>
 			</mat-expansion-panel>
 
 			<mat-expansion-panel class="faq-panel">
 				<mat-expansion-panel-header>
 					<mat-panel-title>
-						What tools can you automate?
+						What's the real ROI of doing this?
 					</mat-panel-title>
 				</mat-expansion-panel-header>
 				<p>
-					Almost anything with an API. CRMs (Salesforce, HubSpot, GoHighLevel), Project Management (Asana, ClickUp), Finance (QuickBooks, Stripe), and even custom internal databases.
+					It's not just about saving time. The true ROI comes from eliminating costly human errors, shortening your sales cycle, and reclaiming thousands of hours of creative, high-value work from your team. You're not just buying automation;
+					you're buying scale.
+				</p>
+			</mat-expansion-panel>
+
+			<mat-expansion-panel class="faq-panel">
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						How long does it take to get started?
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<p>
+					Faster than you think. We start with a high-velocity "Workflow Deep Dive" to identify your biggest automation wins. Most clients start seeing tangible results and reclaimed time within the first few weeks.
+				</p>
+			</mat-expansion-panel>
+
+			<mat-expansion-panel class="faq-panel">
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						What happens if we want to take this in-house? Are we locked in?
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<p>
+					Not at all—and that's a key part of our philosophy. We build on your infrastructure using powerful, often open-source, industry-standard tools. You own 100% of the work. We're here to build your asset, not to create a dependency.
+				</p>
+			</mat-expansion-panel>
+
+			<mat-expansion-panel class="faq-panel">
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						How do you handle the security of our sensitive data and API keys?
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<p>
+					Security is paramount. We adhere to industry best practices, including using cloud-native secret managers (like AWS KMS or Google Secret Manager) and the principle of least privilege. You retain full control over your credentials; we
+					are simply trusted operators within your secure environment.
 				</p>
 			</mat-expansion-panel>
 		</mat-accordion>

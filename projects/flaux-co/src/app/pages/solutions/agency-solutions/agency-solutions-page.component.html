@@ -7,13 +7,23 @@
 		<div class="hero-heading">
 			<h2><img class="ast-icon"
 					  src="../../../../assets/img/icons/asterisk.svg"
-					  alt="AI Icon" /> Your unfair @if (!isLessThan900()) {<br>}<strong><em>advantage</em></strong> is here.</h2>
+					  alt="AI Icon" /> Your unfair @if (!isLessThan900()) {<br>}<strong><em>advantage</em></strong> is here.
+			</h2>
 			<img src="../../../../assets/img/agency/5-stars.png"
 				  alt="5 star rating"
 				  class="rating-banner">
 			<p>Don't just compete, conquer the digital landscape.</p>
 			<p> We provide every tool and strategy you need—from CRM to targeted ads to AI-powered conversations—helping you build an <strong><em>unbeatable online presence</em></strong> and flow past your growth goals.</p>
+			<div class="contact-btn">
+				<flaux-btn routerLink="/contact"
+							  [height]="'1.5'"
+							  [hueRotate]="'180deg'">
+					<flaux-fn italicText="ƒlaux"
+								 fnText="LET'S TALK"></flaux-fn>
+				</flaux-btn>
+			</div>
 		</div>
+
 		<flaux-blob-backdrop [blobCount]="3"
 									[imageUrls]="heroImageUrls"
 									[imageLabels]="heroImageLabels"

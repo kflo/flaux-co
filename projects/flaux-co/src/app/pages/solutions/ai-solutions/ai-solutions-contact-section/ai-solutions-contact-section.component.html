@@ -42,42 +42,42 @@
 
 			<div class="contact-form">
 				<form (ngSubmit)="onSubmit()"
-					  #contactFormRef="ngForm">
+						#contactFormRef="ngForm">
 					<div class="form-group">
 						<label for="name">Full Name *</label>
 						<input type="text"
-							   id="name"
-							   [(ngModel)]="contactForm.name"
-							   name="name"
-							   required
-							   placeholder="Your full name">
+								 id="name"
+								 [(ngModel)]="contactForm.name"
+								 name="name"
+								 required
+								 placeholder="Your full name">
 					</div>
 
 					<div class="form-group">
 						<label for="email">Email Address *</label>
 						<input type="email"
-							   id="email"
-							   [(ngModel)]="contactForm.email"
-							   name="email"
-							   required
-							   placeholder="your.email@company.com">
+								 id="email"
+								 [(ngModel)]="contactForm.email"
+								 name="email"
+								 required
+								 placeholder="your.email@company.com">
 					</div>
 
 					<div class="form-group">
 						<label for="company">Company</label>
 						<input type="text"
-							   id="company"
-							   [(ngModel)]="contactForm.company"
-							   name="company"
-							   placeholder="Your company name">
+								 id="company"
+								 [(ngModel)]="contactForm.company"
+								 name="company"
+								 placeholder="Your company name">
 					</div>
 
 					<div class="form-row">
 						<div class="form-group">
 							<label for="projectType">Project Type</label>
 							<select id="projectType"
-									[(ngModel)]="contactForm.projectType"
-									name="projectType">
+									  [(ngModel)]="contactForm.projectType"
+									  name="projectType">
 								<option value="">Select project type</option>
 								@for (type of projectTypes; track type) {
 								<option [value]="type">{{ type }}</option>
@@ -88,8 +88,8 @@
 						<div class="form-group">
 							<label for="budget">Budget Range</label>
 							<select id="budget"
-									[(ngModel)]="contactForm.budget"
-									name="budget">
+									  [(ngModel)]="contactForm.budget"
+									  name="budget">
 								<option value="">Select budget range</option>
 								@for (budget of budgetRanges; track budget) {
 								<option [value]="budget">{{ budget }}</option>
@@ -101,8 +101,8 @@
 					<div class="form-group">
 						<label for="timeline">Timeline</label>
 						<select id="timeline"
-								[(ngModel)]="contactForm.timeline"
-								name="timeline">
+								  [(ngModel)]="contactForm.timeline"
+								  name="timeline">
 							<option value="">Select timeline</option>
 							@for (timeline of timelineOptions; track timeline) {
 							<option [value]="timeline">{{ timeline }}</option>
@@ -113,16 +113,16 @@
 					<div class="form-group">
 						<label for="description">Project Description *</label>
 						<textarea id="description"
-								  [(ngModel)]="contactForm.description"
-								  name="description"
-								  required
-								  rows="5"
-								  placeholder="Describe your AI project, business challenges, and goals in detail..."></textarea>
+									 [(ngModel)]="contactForm.description"
+									 name="description"
+									 required
+									 rows="5"
+									 placeholder="Describe your AI project, business challenges, and goals in detail..."></textarea>
 					</div>
 
 					<button type="submit"
-							class="submit-button"
-							[disabled]="!contactFormRef.valid">
+							  class="submit-button"
+							  [disabled]="!contactFormRef.valid">
 						Start Your AI Project
 					</button>
 				</form>

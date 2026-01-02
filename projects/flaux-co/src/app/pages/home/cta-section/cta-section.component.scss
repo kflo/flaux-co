@@ -22,7 +22,7 @@
 .cta-section {
 	// background: radial-gradient(circle 50vw at 15%, $flaux-blue 20%, $flaux-blue2 60%, $flaux-violet 120%, black 180%);
 	// font-size: clamp(1.67rem, 3vw, 3rem);
-	// padding-inline: 6vw;
+
 	text-align: center;
 	display: flex;
 	transition: all 3s ease-in-out;
@@ -85,14 +85,14 @@
 		display: grid;
 		grid-template-rows: 1fr 1fr;
 		grid-auto-flow: dense;
-		padding: 2em 0;
+		padding: 0em 1.5rem !important;
 	}
 
 	.cta-content-left {
 		grid-row: 2;
-		margin-block: 0 3em;
+		margin-block: 0 5em;
 		align-self: flex-end;
-		// 	font-size: 1.25rem;
+		font-size: 1.25rem;
 
 		// 	flaux-btn {
 		// 		margin: 1.5em 0 !important;
@@ -101,7 +101,7 @@
 
 	.cta-content-right {
 		grid-row: 1;
-		margin-top: 4em;
+		margin-top: 5em;
 
 		flaux-rotating-text {
 			padding-inline: 0;
