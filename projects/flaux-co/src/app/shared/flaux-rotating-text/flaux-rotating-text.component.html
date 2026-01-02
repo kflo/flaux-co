@@ -9,7 +9,7 @@
 			aria-hidden="true">
 		@for (wordObj of elements(); track wordObj; let wordIndex = $index) {
 		<span class="word">
-			@for (char of wordObj.characters; track char; let charIndex = $index) {
+			@for (char of wordObj.characters; track charIndex; let charIndex = $index) {
 			<span class="element"
 					[class.highlight]="highlightActive()"
 					[attr.data-char]="char"
