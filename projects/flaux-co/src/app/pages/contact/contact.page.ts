@@ -1,10 +1,11 @@
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import {
 	Component, inject, ViewChild, ElementRef, ChangeDetectorRef,
-	signal
+	signal, OnInit
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { FlauxSectionComponent } from '@app/shared/flaux-section/flaux-section.component';
 
@@ -37,16 +38,18 @@ import { FlauxBtnComponent } from '@app/shared/flaux-btn/flaux-btn.component';
 	templateUrl: './contact.page.html',
 	styleUrls: ['./contact.page.scss']
 })
-export class ContactPage {
+export class ContactPage implements OnInit {
 	form: FormGroup | null;
 	private contactFormService = inject(ContactFormService);
 	private snackBar = inject(MatSnackBar);
 	private cdr = inject(ChangeDetectorRef);
 	private router = inject(Router);
+	private breakpointObserver = inject(BreakpointObserver);
 
 	@ViewChild('snapshotWidgetContainer') widgetContainer!: ElementRef;
 
 	isSubmitting = signal(false);
+	isMobile = signal(false);
 	submissionMessage: {
 		type: 'success' | 'error' | null;
 		text: string;
@@ -75,6 +78,13 @@ export class ContactPage {
 		console.log({ form: this.form?.value });
 	}
 
+	ngOnInit() {
+		this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.TabletPortrait])
+			.subscribe(result => {
+				this.isMobile.set(result.matches);
+			});
+	}
+
 	openSnackBar(message: string, action: string, ) {
 		this.snackBar.open(message, action, {
 			horizontalPosition: 'right',
@@ -96,7 +106,7 @@ export class ContactPage {
 			projectType: [this.initialFormValues.projectType],
 			budgetIndex: [this.initialFormValues.budgetIndex],
 			timelineIndex: [this.initialFormValues.timelineIndex],
-			description: [this.initialFormValues.description, { validators: [Validators.required] }]
+			description: [this.initialFormValues.description, { validators: [] }]
 		});
 	}
 
@@ -120,7 +130,9 @@ export class ContactPage {
 				'Content Creation',
 				'Digital Marketing, Ads, SEO',
 				'Social Media Management',
-				'CRM',
+				'Reputation Management',
+				'CRM (Customer Relationship Management)',
+				'Communication (SMS, Email, etc)',
 				'AI Workforce (Receptionist, etc)',
 				'Website Design & Development',
 				'Other'
@@ -152,6 +164,12 @@ export class ContactPage {
 
 	budgetDisplayFn = (index: number) => this.budgetSliderLabels[index] ?? '';
 	timelineDisplayFn = (index: number) => this.timelineSliderLabels[index] ?? '';
+
+	hasFlauxAIProjectType(): boolean {
+		const selectedTypes = this.form?.get('projectType')?.value || [];
+		const flauxAIOptions = this.projectTypeGroups[0].options;
+		return selectedTypes.some((type: string) => flauxAIOptions.includes(type));
+	}
 
 	formatPhoneNumber(value: string): string {
 		if (!value) return '';

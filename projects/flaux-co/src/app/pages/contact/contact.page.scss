@@ -6,9 +6,9 @@
 :host {
 	display: block;
 	@include mixins.pattern-background('white-diamond-dark',
-		radial-gradient(circle at 5% 0%, $flaux-blue, $flaux-violet 80%),
+		radial-gradient(circle at 15% 10%, $flaux-blue3 30%, rgba(0, 0, 0, 0.5) 105%),
 		auto,
-		overlay);
+		screen);
 }
 
 ::selection {
@@ -23,66 +23,66 @@ flaux-section {
 }
 
 .contact-container {
-	padding: 5rem 2rem;
 	max-width: 1800px;
 	margin: 0 auto;
+	padding: 5rem 2rem;
 }
 
 /* Submission Message */
 .submission-message {
-	animation: slideDown 0.4s ease-out;
+	display: flex;
 	margin-bottom: 2rem;
 	padding: 1.5rem 2rem;
+	border: 2px solid;
 	border-radius: 0.75rem;
 	backdrop-filter: blur(10px);
-	border: 2px solid;
-	display: flex;
+	animation: slideDown 0.4s ease-out;
 
 	&.success {
-		background: rgba($flaux-salmon, 0.15);
 		border-color: $flaux-salmon;
+		background: rgba($flaux-salmon, 0.15);
 
 		.message-icon {
 			color: $flaux-salmon;
 		}
 
 		.icon-success {
-			font-size: 1.5rem;
 			font-weight: bold;
+			font-size: 1.5rem;
 		}
 	}
 
 	&.error {
-		background: rgba(#ff6b6b, 0.15);
 		border-color: #ff6b6b;
+		background: rgba(#ff6b6b, 0.15);
 
 		.message-icon {
 			color: #ff6b6b;
 		}
 
 		.icon-error {
-			font-size: 1.5rem;
 			font-weight: bold;
+			font-size: 1.5rem;
 		}
 	}
 
 	.message-content {
 		display: flex;
-		gap: 1rem;
 		align-items: flex-start;
 		width: 100%;
+		gap: 1rem;
 	}
 
 	.message-icon {
 		display: flex;
+		flex-shrink: 0;
 		align-items: center;
 		justify-content: center;
 		width: 32px;
 		height: 32px;
 		border-radius: 50%;
-		flex-shrink: 0;
-		font-size: 1.25rem;
 		font-weight: bold;
+		font-size: 1.25rem;
 	}
 
 	.message-text {
@@ -90,128 +90,130 @@ flaux-section {
 
 		h4 {
 			margin: 0 0 0.25rem;
-			font-size: 1.1rem;
 			font-weight: 600;
+			font-size: 1.1rem;
 		}
 
 		p {
 			margin: 0;
+			color: #eee;
 			font-size: 0.95rem;
 			line-height: 1.5;
-			color: #eee;
 		}
 	}
 }
 
 @keyframes slideDown {
 	from {
-		opacity: 0;
 		transform: translateY(-20px);
+		opacity: 0;
 	}
 
 	to {
-		opacity: 1;
 		transform: translateY(0);
+		opacity: 1;
 	}
 }
 
 .section-header {
+	margin-bottom: 2rem;
 	text-align: center;
-	margin-bottom: 3rem;
 
 	h3 {
-		font-family: 'HelloAmerica';
-		font-weight: 100;
 		background: linear-gradient(135deg, $flaux-yellow, $flaux-salmon);
 		background-clip: text;
+		font-weight: 100;
+		font-family: 'HelloAmerica';
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		margin-bottom: 1rem;
-		line-height: normal;
+		line-height: 1.2;
 
 		.ai {
-			font-family: 'Lequire';
-			-webkit-text-fill-color: white;
-			font-size: 1.5em;
 			position: relative;
 			bottom: -.05em;
+			-webkit-text-fill-color: white;
+			font-size: 1.5em;
+			font-family: 'Lequire';
 		}
 	}
 
 	p {
-		font-size: 1.2em;
-		color: #ddd;
 		max-width: 92%;
 		margin: 0 auto;
+		color: #ddd;
+		font-size: 1.2em;
 	}
 }
 
 .quick-call-option {
-	text-align: center;
 	margin-bottom: 3rem;
-	color: $flaux-blue3;
+	color: rgba($flaux-blue, 0.8);
+	text-align: center;
 
 	p {
-		font-size: 1rem;
-		margin: 0;
 		display: inline-flex;
-		align-items: center;
-		gap: 1rem;
 		flex-wrap: wrap;
+		align-items: center;
 		justify-content: center;
+		margin: 0;
+		gap: 1rem;
 		font-weight: 500;
+		font-size: 1rem;
 
 	}
 
 	flaux-btn {
+		font-size: 0.8em;
 		white-space: nowrap;
-		font-size: 0.7em;
 	}
 }
 
 .contact-content {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 3rem;
 	align-items: start;
+	gap: 3rem;
+	----mat-expansion-header-text-color: #eee !important;
 }
 
 .contact-info {
 	h5 {
-		// font-size: 1.5rem;
-		// white-space: nowrap;
-		font-weight: 300;
 		margin-bottom: 2rem;
+		font-weight: 300;
 	}
 }
 
 .benefits-list {
 	display: grid;
+	margin-top: 2rem;
 	gap: 3em;
+
+
 }
 
 .benefit {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	gap: 1rem;
 
 	.benefit-icon {
-		font-size: 1.5rem;
-		width: 50px;
-		height: 50px;
 		display: flex;
+		flex-shrink: 0;
 		align-items: center;
 		justify-content: center;
-		background: linear-gradient(160deg, $flaux-blue2, $flaux-violet);
+		width: 50px;
+		height: 50px;
 		border-radius: 50%;
-		flex-shrink: 0;
+		background: linear-gradient(160deg, $flaux-blue2, $flaux-violet);
+		font-size: 1.5rem;
 	}
 
 	h4 {
+		margin: 0.2em 0 0.5em 0;
+		font-variant: all-small-caps;
 		font-size: 1.25rem;
 		font-family: 'Montserrat', sans-serif;
-		font-variant: all-small-caps;
-		margin: 0.2em 0 0.5em 0;
 	}
 
 	p {
@@ -226,13 +228,13 @@ flaux-section {
 /* -------------------------------------------------------------------------- */
 
 .contact-form {
-	font-size: 95%;
 	color: #eee;
+	font-size: 95%;
 	--mat-sys-label-medium-size: 0.66rem;
-	background: rgba(black, 0.45);
-	backdrop-filter: blur(1em) brightness(1.2) contrast(1.3);
-	border-radius: 1rem;
 	padding: 2rem;
+	border-radius: 1rem;
+	backdrop-filter: blur(1em) brightness(1.3) contrast(1.2) grayscale(0.3);
+	background: rgba(black, 0.4);
 	box-shadow: .25em .5em 1.5em rgba(0, 0, 0, 0.7);
 
 	form {
@@ -263,37 +265,38 @@ flaux-section {
 			with-tick-marks-inactive-container-color: #999));
 
 	&.slider {
+		align-self: center;
 		width: 100%;
 		max-width: 35em;
-		align-self: center;
-		font-size: 1em;
 		margin-bottom: 1em;
+		font-size: 1em;
 
 		.slider-labels {
 			display: flex;
 			justify-content: space-between;
 
 			span {
-				font-family: 'Sen', sans-serif;
 				color: $flaux-blue;
+				font-family: 'Sen', sans-serif;
 			}
 		}
 	}
 
 	&.contact-method {
+
+		margin-bottom: 0.5em;
+
 		label {
-			font-size: 0.9em;
-			margin-bottom: 0.25rem;
 			display: block;
+			margin-bottom: 0.25rem;
+			font-size: 0.9em;
 		}
 
 		.checkbox-group {
 			display: flex;
-			gap: 2rem;
 			flex-wrap: wrap;
+			gap: 2rem;
 		}
-
-		margin-bottom: 0.5em;
 	}
 }
 
@@ -307,22 +310,41 @@ flaux-section {
 
 @media screen and (max-width: 900px) {
 	.contact-container {
-		padding: 7em 2em 2em;
+		padding: 7em 1em 2em;
 	}
 
-	.section-header h2 {
-		font-size: 2.5rem;
+	.section-header h3 {
+		margin-top: 0;
+		padding-top: 12px;
+		font-size: 1.75rem;
+
 	}
 
 	.contact-content {
 		grid-template-columns: 1fr;
-		gap: 4rem;
+		gap: 1.5rem;
 	}
 
 	.contact-info {
 		.benefits-list {
 			grid-template-columns: repeat(2, 1fr);
-			gap: 1em;
+			gap: 2rem;
+			padding: 1rem;
+
+			.benefit {
+				flex-direction: column;
+				align-items: center;
+				gap: 0.5rem;
+				text-align: center;
+
+				.benefit-icon {
+					margin-bottom: 0.5rem;
+				}
+
+				h4 {
+					margin: 0 0 0.5em 0;
+				}
+			}
 		}
 
 		h3 {
@@ -335,29 +357,64 @@ flaux-section {
 		}
 	}
 
-	.benefit {
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		gap: 0.5rem;
-
-		.benefit-icon {
-			margin-bottom: 0.5rem;
-		}
-
-		h4 {
-			margin: 0 0 0.5em 0;
-		}
+	.contact-form {
+		margin-bottom: -2em;
+		margin-inline: -2em;
+		padding: 3rem 3rem 5em;
+		border-radius: 0;
 	}
+}
+
+// Mobile carousel styles
+@media (max-width: 768px) {
 
 	.form-row {
 		grid-template-columns: 1fr;
+		gap: 0.6rem;
 	}
 
-	.contact-form {
-		padding: 3rem 2rem 5em;
-		border-radius: 0;
-		margin-inline: -2em;
-		margin-bottom: -2em;
+	.contact-info {
+		width: 100dvw;
+		margin-inline: -1rem;
+		overflow: hidden;
+
+		h5 {
+			margin-bottom: 1rem;
+		}
+
+		.benefits-list {
+			display: flex;
+			margin-top: 1rem;
+			margin-inline: -2rem;
+			padding-inline: 16rem;
+			padding-block: 0.75rem;
+			overflow-x: auto;
+			overflow-y: hidden;
+			gap: 1.3rem;
+			scroll-behavior: smooth;
+			scroll-snap-type: x mandatory;
+			-webkit-overflow-scrolling: touch;
+			mask: linear-gradient(90deg, transparent 5%, black 25%, black 75%, transparent 95%);
+			scrollbar-width: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			.benefit {
+				flex-direction: column;
+				min-width: 230px;
+				max-width: 230px;
+				padding: 1rem;
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 2rem;
+				background: rgba(255, 255, 255, 0.15);
+				color: white;
+				font-size: 0.95rem;
+				text-align: center;
+				scroll-snap-align: center;
+				box-shadow: 2px 2px 0.75rem rgba(0, 0, 0, 0.5);
+			}
+		}
 	}
 }

@@ -30,9 +30,10 @@
 		<div class="quick-call-option">
 			<p>Prefer to talk first? <strong>Book a quick call with our team.</strong>
 				<flaux-btn [height]="'1.5em'"
-							  [href]="'https://cal.com/flaux'"
 							  [hueRotate]="'200deg'"
-							  target="_blank"
+							  data-cal-link="flaux/ai-agency-demo"
+							  data-cal-namespace="ai-agency-demo"
+							  data-cal-config='{"layout":"month_view"}'
 							  class="book-call-btn">
 					Book a Demo Call
 				</flaux-btn>
@@ -47,7 +48,7 @@
 						<div class="benefit-icon">⚡</div>
 						<div>
 							<h4>Rapid Prototyping</h4>
-							<p>From concept to live pilot in weeks</p>
+							<p>From concept to live pilot in 2 weeks or less</p>
 						</div>
 					</div>
 					<div class="benefit">
@@ -163,6 +164,7 @@
 						</mat-select>
 					</mat-form-field>
 					<!-- ------------------------------- BUDGET -------------------------------- -->
+					@if (hasFlauxAIProjectType()) {
 					<div class="form-field slider">
 						<div class="slider-labels">
 							<label for="budget-slider">Estimated Budget: </label><span>{{ budgetDisplayFn(form?.value.budgetIndex) }}</span>
@@ -176,6 +178,7 @@
 									 formControlName="budgetIndex">
 						</mat-slider>
 					</div>
+					}
 					<!-- ------------------------------ TIMELINE ------------------------------- -->
 					<div class="form-field slider">
 						<div class="slider-labels">
@@ -193,7 +196,7 @@
 					<!-- ----------------------------- DESCRIPTION ----------------------------- -->
 					<mat-form-field appearance="outline"
 										 class="form-field">
-						<mat-label>Project Description</mat-label>
+						<mat-label>Questions/Project Description</mat-label>
 						<textarea matInput
 									 id="description"
 									 formControlName="description"
