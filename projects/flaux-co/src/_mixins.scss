@@ -29,10 +29,39 @@
 }
 
 // Reset Angular Material button typography variables to initial
-@mixin reset-mat-button-typography() {
+@mixin reset-mat-styles-due-to-vendasta-chat() {
 	$types: 'text', 'filled', 'outlined', 'protected', 'elevated', 'tonal';
 
+	// Button resets
 	@each $type in $types {
 		--mat-button-#{$type}-label-text-font: initial !important;
 	}
+
+	// Expansion panel resets
+	--mat-expansion-header-text-color: initial !important;
+	--mat-expansion-header-text-font: initial !important;
+	--mat-expansion-header-disabled-state-text-color: #ccc !important;
+	--mat-expansion-header-disabled-state-text-font: initial !important;
+
+	// Form field resets
+	--mat-form-field-outlined-outline-color: initial !important;
+	--mat-form-field-outlined-hover-outline-color: initial !important;
+	--mat-form-field-outlined-focus-outline-color: initial !important;
+	--mat-form-field-outlined-label-text-color: initial !important;
+	--mat-form-field-outlined-input-text-color: initial !important;
+	--mat-form-field-outlined-focus-label-text-color: initial !important;
+	--mat-form-field-outlined-hover-label-text-color: initial !important;
+	--mat-form-field-outlined-input-text-placeholder-color: #999 !important;
+	--mat-form-field-outlined-error-label-text-color: initial !important;
+
+	--mat-select-enabled-trigger-text-color: initial !important;
+
+	--mat-sys-on-surface: initial !important;
+	--mat-sys-on-surface-variant: light-dark(#111, #ccc) !important;
+	--mdc-filled-text-field-input-text-placeholder-color: initial !important;
+
+	// Checkbox resets
+	--mat-checkbox-unselected-focus-icon-color: initial !important;
+	--mat-checkbox-unselected-hover-icon-color: initial !important;
+	--mat-checkbox-unselected-icon-color: initial !important;
 }

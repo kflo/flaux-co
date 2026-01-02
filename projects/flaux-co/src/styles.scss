@@ -241,39 +241,16 @@ mat-form-field .mdc-text-field__input {
 	color: #ddd !important;
 }
 
-.mdc-checkbox {
-	* {
-		--mat-checkbox-unselected-focus-icon-color: initial !important;
-		--mat-checkbox-unselected-hover-icon-color: initial !important;
-		--mat-checkbox-unselected-icon-color: initial !important;
-		--mat-sys-on-surface: initial !important;
-		--mat-sys-on-surface-variant: light-dark(#111, #ccc) !important;
-	}
-}
-
-// Force dark theme colors
-mat-form-field {
-	--mat-form-field-outlined-outline-color: initial !important;
-	--mat-form-field-outlined-hover-outline-color: initial !important;
-	--mat-form-field-outlined-focus-outline-color: initial !important;
-	--mat-form-field-outlined-label-text-color: initial !important;
-	--mat-form-field-outlined-input-text-color: initial !important;
-
-	--mat-select-enabled-trigger-text-color: initial !important;
-
-	--mat-sys-on-surface: initial !important;
-	--mat-sys-on-surface-variant: initial !important;
-	--mdc-filled-text-field-input-text-placeholder-color: initial !important;
-
-	--mat-form-field-outlined-focus-label-text-color: initial !important;
-	--mat-form-field-outlined-hover-label-text-color: initial !important;
-	--mat-form-field-outlined-input-text-placeholder-color: #999 !important;
-	--mat-form-field-outlined-error-label-text-color: initial !important;
-	--mat-form-field-outlined-error-label-text-color: initial !important;
-}
-
 html {
-	@include mixins.reset-mat-button-typography();
+	@include mixins.reset-mat-styles-due-to-vendasta-chat();
+
+	div.mat-mdc-select-panel {
+		max-height: 350px;
+	}
+
+	.mat-mdc-option {
+		min-height: 40px;
+	}
 }
 
 .hero-ctas {
