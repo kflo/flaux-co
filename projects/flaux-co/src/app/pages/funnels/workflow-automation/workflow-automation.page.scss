@@ -15,6 +15,12 @@
 	--lightning-height: 30%;
 }
 
+hr {
+	margin-block: 1rem;
+	border: 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 .automation-container {
 	margin: 0 auto;
 	padding: 2rem clamp(1.5rem, 3vw, 3rem) 4rem;
@@ -196,7 +202,7 @@
 .trust-section {
 	position: relative;
 	padding: 0 3rem;
-	margin-top: 2rem;
+	margin-top: 3rem;
 	overflow: hidden;
 	transform: skewY(-2deg);
 	border: 1px solid rgba($flaux-orange, 0.5);
@@ -255,12 +261,13 @@
 
 		ul.trust-bullets {
 			display: grid;
-			margin: 2rem 0 0;
+			margin: 2rem 0;
 			padding: 0;
 			gap: 0.8rem;
 			color: rgba(255, 255, 255, 0.82);
 			font-size: 1rem;
 			list-style: none;
+			text-align: left;
 
 			li {
 				position: relative;
@@ -315,9 +322,37 @@
 	border: 1px solid rgba($flaux-orange, 0.5);
 	border-radius: 28px;
 	backdrop-filter: blur(1px);
-	background: rgba(255, 255, 255, 0.05);
+	background: rgba(0, 0, 0, 0.4);
 	box-shadow: 0 0 2rem rgba(black, 0.6), inset 0 0 3rem rgba(255, 255, 255, 0.1);
 	text-align: left;
+
+	.section-bg {
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform: skewY(2deg) scale(1.2); // Un-skew and scale to cover edges
+
+		&-image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: brightness(0.9) saturate(0.1) contrast(0.5) opacity(0.4);
+		}
+
+		&::before {
+			content: '';
+			z-index: 5;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.8) 80%);
+		}
+	}
 
 	>* {
 		transform: skewY(2deg);
@@ -341,15 +376,36 @@
 	}
 
 	.problem-list {
-		display: grid;
+		display: flex;
+		flex-direction: column;
+		max-height: 32rem; // Fits roughly 4 items
+		overflow-y: auto;
+		scroll-snap-type: y mandatory;
 		margin: 2.5rem 0 1.5rem;
-		padding: 0;
+		padding: 0 1rem 0 0;
 		gap: 1rem;
 		list-style: none;
+		scrollbar-width: thin;
+		scrollbar-color: rgba($flaux-salmon, 0.3) transparent;
+
+		&::-webkit-scrollbar {
+			width: 6px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 0;
+			background: rgba($flaux-salmon, 0.3);
+		}
 
 		li {
+			flex: 0 0 auto;
 			padding: 1.25rem;
-			border-left: 4px solid $flaux-salmon; // Changed to salmon
+			scroll-snap-align: start;
+			border-left: 4px solid $flaux-salmon;
 			border-radius: 14px;
 			background: rgba(255, 255, 255, 0.03);
 			font-size: 1rem;
@@ -361,18 +417,17 @@
 				background: rgba(255, 255, 255, 0.05);
 			}
 
-			strong {
+			strong:first-of-type {
 				display: block;
 				margin-bottom: 0.35rem;
-				color: $flaux-salmon; // Changed to salmon
+				color: $flaux-salmon;
 			}
 		}
 	}
 
 	.problem-sting {
-		margin-top: 1.5rem;
-		padding-top: 1.5rem;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding-top: 0.5rem;
+		// border-top: 1px solid rgba(255, 255, 255, 0.1);
 		color: rgba(255, 255, 255, 0.8);
 		font-size: 1.1rem;
 		text-align: center;
@@ -473,81 +528,86 @@
 /* Solution Grid */
 .solution-section {
 	width: 100%;
-	margin: 8rem auto;
+	margin: 8rem auto 3rem;
 	background: linear-gradient(90deg, transparent 0%, rgba(10, 10, 10, 0.6) 50%, transparent 100%);
 }
 
 /* CTA / Form Section */
 .cta-section {
-	position: relative;
-	margin-top: 4rem;
-	padding: 4rem;
-	overflow: hidden;
-	border: 1px solid rgba($flaux-blue, 0.3);
-	border-radius: 30px;
-	background: linear-gradient(135deg, rgba($flaux-blue3, 0.4), rgba(10, 10, 10, 0.8));
-	text-align: center;
 
-	// Glow effect
-	&::before {
-		position: absolute;
-		top: -50%;
-		left: -50%;
-		width: 200%;
-		height: 200%;
-		background: radial-gradient(circle, rgba($flaux-blue, 0.1) 0%, transparent 70%);
-		content: '';
-		pointer-events: none;
-	}
+	// margin-top: 4rem;
+	padding: 5rem 0;
 
-	// Skewed accent
-	&::after {
-		z-index: 111;
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 150px;
-		height: 100%;
-		transform: skewX(-20deg);
-		background: linear-gradient(90deg, transparent, rgba(white, 0.05));
-		content: '';
-		pointer-events: none;
-	}
+	.cta-content {
+		position: relative;
+		padding: 4rem;
+		overflow: hidden;
+		border: 1px solid rgba($flaux-blue, 0.3);
+		border-radius: 30px;
+		background: linear-gradient(135deg, rgba($flaux-blue3, 0.4), rgba(10, 10, 10, 0.8));
+		text-align: center;
 
-	h2 {
-		margin-top: 0;
-		margin-bottom: 1rem;
-	}
+		// Glow effect
+		&::before {
+			position: absolute;
+			top: -50%;
+			left: -50%;
+			width: 200%;
+			height: 200%;
+			background: radial-gradient(circle, rgba($flaux-blue, 0.1) 0%, transparent 70%);
+			content: '';
+			pointer-events: none;
+		}
 
-	p {
-		margin-right: auto;
-		margin-bottom: 2.5rem;
-		margin-left: auto;
-		color: rgba(255, 255, 255, 0.85);
-		font-size: 1.1rem;
-	}
+		// Skewed accent
+		&::after {
+			z-index: 111;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 150px;
+			height: 100%;
+			transform: skewX(-20deg);
+			background: linear-gradient(90deg, transparent, rgba(white, 0.05));
+			content: '';
+			pointer-events: none;
+		}
 
-	.form-placeholder {
-		padding: 3rem;
-		border: 1px dashed rgba($flaux-blue, 0.5);
-		border-radius: 18px;
-		backdrop-filter: blur(5px);
-		background: rgba(0, 0, 0, 0.2);
+		h2 {
+			margin-top: 0;
+			margin-bottom: 1rem;
+		}
 
 		p {
-			margin: 0;
-			color: $flaux-blue;
-			font-weight: 600;
-			letter-spacing: 1px;
-			text-transform: uppercase;
+			margin-right: auto;
+			margin-bottom: 2.5rem;
+			margin-left: auto;
+			color: rgba(255, 255, 255, 0.85);
+			font-size: 1.1rem;
+		}
+
+		.form-placeholder {
+			padding: 3rem;
+			border: 1px dashed rgba($flaux-blue, 0.5);
+			border-radius: 18px;
+			backdrop-filter: blur(5px);
+			background: rgba(0, 0, 0, 0.2);
+
+			p {
+				margin: 0;
+				color: $flaux-blue;
+				font-weight: 600;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+			}
 		}
 	}
 }
 
 /* FAQ Section */
 .faq-section {
-	margin-top: 4rem;
-	padding: 4rem 0 5rem;
+	margin-top: 0rem;
+	padding: 5rem 0;
 	text-align: center;
 
 	h2 {
@@ -567,8 +627,8 @@
 		margin-bottom: 0 !important;
 		border: 1px solid rgba(255, 255, 255, 0.08) !important;
 		border-radius: 12px !important;
-		backdrop-filter: blur(0.2rem) brightness(0.66);
-		background: rgba(255, 255, 255, 0.03) !important;
+		backdrop-filter: blur(0.1rem) brightness(0.96) contrast(1.1);
+		background: rgba($flaux-highlight, 0.13) !important;
 		color: #fff !important;
 		transition: background 0.3s ease, border-color 0.3s ease;
 
@@ -702,19 +762,17 @@
 	}
 
 	.problems-section {
-		padding: 1.5rem;
-
-		.problem-list {
-			grid-template-columns: 1fr;
-		}
+		padding: 2rem 1.5rem 3rem;
 	}
 
 	.audit-grid {
 		grid-template-columns: 1fr;
+		gap: 0.75rem !important;
 
 		.audit-item {
 			position: relative;
 			min-height: 100px !important;
+			padding: 1rem;
 		}
 	}
 
@@ -725,8 +783,8 @@
 		margin-left: -1rem;
 	}
 
-	.cta-section {
-		padding: 2rem;
+	.cta-content {
+		padding: 2rem !important;
 
 		p {
 			font-size: 0.9rem;

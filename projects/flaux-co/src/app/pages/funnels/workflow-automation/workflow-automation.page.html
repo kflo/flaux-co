@@ -71,15 +71,21 @@
 			<div class="trust-text">
 				<h2>The Autonomous Advantage</h2>
 				<p>
-					<span class="logo-font">FLaUX</span> builds the "brains" between your apps. We don't just "connect" tools; we architect intelligent systems that think, react, and evolve. No more manual glue—just pure, automated flow.
+					Most businesses are held together by "manual glue"—people doing the work that software should be doing. <span class="logo-font">FLaUX</span> replaces that friction with intelligence. We don't just "connect" apps; we architect
+					autonomous systems that think, react, and evolve. We build the digital nervous system that allows your business to run itself.
 				</p>
 				<ul class="trust-bullets">
 					<!-- <li><strong>Lead-to-Cash on Autopilot:</strong> From first click to final invoice, zero manual entry.</li> -->
-					<li><strong>The "Manual Tax" Rebate:</strong> Whether it's 5, 40, or 99+ human hours per week, reclaim your high-value talent time by automating the robotic grunt work.</li>
-					<li><strong>Production-Grade Flows:</strong> Security-first, self-healing workflows with graceful fallbacks and alerting.</li>
-					<li><strong>Zero-Leakage Pipelines:</strong> Hard-coded reliability that ensures no lead, invoice, or customer request ever falls through the cracks.</li>
-					<li><strong>24/7 Operations:</strong> AI-powered business that never sleeps, processing data and serving customers around the clock without fatigue.</li>
+					<li><strong>Reclaim Your Talent:</strong> Stop paying high-value experts to do low-value data entry. We automate the "robotic" tasks so your team can focus on the breakthroughs that actually move the needle.</li>
+					<li><strong>Production-Grade Reliability:</strong> We don't build "fragile" automations. Our systems are security-first, self-healing, and equipped with enterprise-grade alerting.</li>
+					<li><strong>Zero-Leakage Pipelines:</strong> Eliminate the "human error" variable. We build hard-coded reliability that ensures every lead is followed, every invoice is sent, and no customer request ever falls through the cracks.</li>
+					<li><strong>Infinite Scale:</strong> An AI-powered business doesn't sleep, doesn't get tired, and doesn't need a bigger office. Scale your operations 10x without scaling your overhead.</li>
 				</ul>
+				<flaux-btn [height]="'1.5em'"
+							  routerLink="/workflow-automation"
+							  fragment="cta"
+							  [hueRotate]="'-20deg'"
+							  class="primary-cta">Get Started</flaux-btn>
 			</div>
 			<div class="trust-image">
 				<video #clockVideo
@@ -96,27 +102,52 @@
 	<!-- PROBLEM SECTION -->
 	<section id="problems"
 				class="section problems-section">
+		<div class="section-bg">
+			<img src="../../../../assets/img/funnel/stressed.png"
+				  alt="Stressed business owner"
+				  class="section-bg-image">
+			<span class="section-bg-overlay"></span>
+		</div>
 		<h2>Manual Work is Technical Debt</h2>
 		<p>
 			Most businesses are held back by <strong><em>digital friction</em></strong> — the small, repetitive tasks that drain energy and kill momentum.
 		</p>
 		<ul class="problem-list">
 			<li>
-				<strong>The "Copy-Paste" Tax:</strong> Moving data between spreadsheets and apps manually is a recipe for errors.
+				<strong>The "Copy-Paste" Tax:</strong> Moving data between spreadsheets and apps manually is a <strong><em>recipe for errors</em></strong>.
 			</li>
 			<li>
-				<strong>Fragmented Communication:</strong> Leads falling through the cracks because your tools don't talk to each other.
+				<strong>Fragmented Communication:</strong> Leads <strong><em>falling through the cracks</em></strong> because your tools don't talk to each other.
 			</li>
 			<li>
-				<strong>Scaling Friction:</strong> Your team is too busy managing the *process* to focus on the *product*.
+				<strong>Scaling Friction:</strong> Your team is too busy <strong><em>managing the process</em></strong> to focus on the *product*.
 			</li>
 			<li>
-				<strong>Delayed Decision Making:</strong> Waiting for manual reports instead of having real-time dashboards.
+				<strong>Delayed Decision Making:</strong> Waiting for <strong><em>manual reports</em></strong> instead of having real-time dashboards.
+			</li>
+			<li>
+				<strong>The "Context Switching" Penalty:</strong> Losing countless hours of productivity just <strong><em>jumping between apps</em></strong> to complete a single task.
+			</li>
+			<li>
+				<strong>Institutional Knowledge Silos:</strong> Critical business logic that only lives in <strong><em>one person's head</em></strong>, creating a massive single point of failure.
+			</li>
+			<li>
+				<strong>Onboarding Bottlenecks:</strong> New hires taking weeks to ramp up because your "system" is a <strong><em>maze of unwritten rules</em></strong> and manual workarounds.
+			</li>
+			<li>
+				<strong>The "Shadow Work" Burden:</strong> The invisible, unbillable hours spent manually <strong><em>fixing errors</em></strong> that shouldn't have happened in the first place.
 			</li>
 		</ul>
-		<p class="problem-sting">
-			The deep dive shows you exactly where to start.
-		</p>
+		<hr />
+		<div class="problem-sting">
+			<p>Stop the operational bleed! Our <strong><em>Workflow Deep Dive</em></strong> maps your escape route from manual debt to infinite scale.</p>
+			<flaux-btn [height]="'1.5em'"
+						  routerLink="/workflow-automation"
+						  fragment="cta"
+						  [hueRotate]="'-20deg'"
+						  class="primary-cta">Get Started</flaux-btn>
+		</div>
+
 	</section>
 
 	<!-- WHAT THE AUDIT INCLUDES -->
@@ -205,7 +236,8 @@
 					</mat-panel-title>
 				</mat-expansion-panel-header>
 				<p>
-					Not at all. You're the visionary; we're your technical co-pilot. You bring the business goals, and we handle all the complex "plumbing" (code, APIs, logic) to make it happen. You'll never need to look at a line of code.
+					Absolutely not. You bring the vision and the business logic; we provide the engineering horsepower. Think of us as your <strong>fractional CTO and automation squad</strong> rolled into one. We handle the complex "plumbing"—APIs,
+					webhooks, and logic—so you can stay focused on high-level strategy. You get the results of a world-class engineering team without the overhead.
 				</p>
 			</mat-expansion-panel>
 
@@ -228,8 +260,8 @@
 					</mat-panel-title>
 				</mat-expansion-panel-header>
 				<p>
-					It's not just about saving time. The true ROI comes from eliminating costly human errors, shortening your sales cycle, and reclaiming thousands of hours of creative, high-value work from your team. You're not just buying automation;
-					you're buying scale.
+					Time is just the baseline. The real ROI is <strong>compounded growth</strong>. By eliminating the "Manual Tax," you're not just saving hours; you're removing the ceiling on your revenue. We turn your operations from a cost center into
+					a high-velocity engine that scales without adding headcount. You aren't just buying automation—you're buying the ability to outpace your competition while they're still stuck in spreadsheets.
 				</p>
 			</mat-expansion-panel>
 
@@ -240,7 +272,8 @@
 					</mat-panel-title>
 				</mat-expansion-panel-header>
 				<p>
-					Faster than you think. We start with a high-velocity "Workflow Deep Dive" to identify your biggest automation wins. Most clients start seeing tangible results and reclaimed time within the first few weeks.
+					We don't believe in "months-long" discovery phases. Our high-velocity <strong>Workflow Deep Dive</strong> identifies your highest-leverage wins in days, not weeks. Most clients see their first automated "win"—and the reclaimed hours
+					that come with it—live in production within the first 14 days. We build for immediate impact, then scale for long-term dominance.
 				</p>
 			</mat-expansion-panel>
 
