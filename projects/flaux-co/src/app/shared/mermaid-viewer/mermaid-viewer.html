@@ -1,0 +1,26 @@
+<div class="diagram-wrapper"
+	  [class.is-fullscreen]="fullscreen()">
+
+	<div class="toolbar">
+		<button (click)="toggleFullscreen()"
+				  class="btn-icon">
+			{{ fullscreen() ? 'Exit Fullscreen' : 'Expand' }} ⤢
+		</button>
+		@if (fullscreen()) {
+		<span class="mobile-hint">
+			Tip: Rotate phone for best view
+		</span>
+		}
+	</div>
+
+	<div class="diagram-viewport">
+		@if (svgHtml) {
+		<div [innerHTML]="svgHtml"
+			  class="mermaid-content"></div>
+		}
+		@if (error) {
+		<div class="error-msg">Failed to render diagram</div>
+		}
+	</div>
+
+</div>

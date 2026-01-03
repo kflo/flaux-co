@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
 @use 'variables' as *;
-@use 'mixins' as mixins;
+@use 'mixins' as *;
 
 @keyframes fadeInUp {
 	from {
@@ -28,7 +28,7 @@
 
 :host {
 	display: block;
-	@include mixins.pattern-background('white-diamond-dark',
+	@include pattern-background('white-diamond-dark',
 		radial-gradient(circle at 5% 0%, $flaux-blue2 15%, $flaux-violet 40%, $flaux-blue3 85%),
 		auto,
 		overlay);
@@ -138,6 +138,7 @@ flaux-section {
 
 		li {
 			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			padding-block: 0.5rem;
 			color: #ddd;
 
 			&:last-child {
@@ -167,17 +168,16 @@ flaux-section {
 	margin-top: 6rem;
 	padding: 0;
 	overflow: hidden;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 0.75rem;
+	border: 1px solid rgba($flaux-highlight, 0.7);
+	border-radius: 1rem;
 	backdrop-filter: blur(10px);
 	background: rgba(255, 255, 255, 0.09);
 	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
-	// height: 800px;
+	@include shine-overlay();
 
 	.trust-content {
 		display: grid;
-		grid-template-columns: 1.5fr auto;
-		height: 100%;
+		grid-template-columns: 2fr 1fr;
 		gap: 0;
 	}
 
@@ -188,44 +188,48 @@ flaux-section {
 			margin-top: 0;
 			margin-bottom: 2rem;
 		}
+
+		.trust-conclusion {
+			padding-bottom: 0.5rem;
+		}
 	}
 
 	.trust-image {
-		height: auto;
+		height: 100%;
+		width: 100%;
 		min-height: 600px;
-
-		// overflow: hidden;
-		// display: flex;
-		// align-items: center;
-		// justify-content: center;
-
-		img,
-		video {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: left;
-		}
+		// aspect-ratio: 9 / 16;
 
 		iframe {
 			display: block;
-			aspect-ratio: 9 / 16;
 			width: 100%;
-			height: 100%;
-			// width: auto;
+			height: -webkit-fill-available;
 			margin: 0 auto;
+
+			video {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: left;
+			}
 		}
 	}
 
 	.trust-bullets {
-		margin: 1.5rem 0 0;
+		margin: 1rem 0 0;
 		padding: 0;
 		list-style: none;
 
 		li {
 			position: relative;
-			padding: 0.75rem 0 0.75rem 2rem;
+			padding: 0.33rem 0 0.33rem 2rem;
 			color: #ddd;
+
+			strong:first-of-type {
+				display: block;
+				margin-bottom: 0.2rem;
+				color: $flaux-salmon;
+			}
 
 			&::before {
 				position: absolute;
@@ -338,11 +342,12 @@ flaux-section {
 	overflow: hidden;
 	gap: 0;
 	transform: skewY(-2deg);
-	border: 1px solid rgba($flaux-yellow, 0.2);
+	border: 1px solid rgba($flaux-highlight, 0.7);
 	border-radius: 3rem 1rem 3rem 1rem;
 	backdrop-filter: blur(5px) brightness(1.4);
 	background: linear-gradient(135deg, rgba($flaux-violet, 0.15), rgba($flaux-blue, 0.1));
 	box-shadow: 0 0 2rem rgba($flaux-yellow, 0.1), inset 0 0 1rem rgba(255, 255, 255, 0.05);
+	@include shine-overlay();
 
 	&::before {
 		position: absolute;
@@ -378,13 +383,13 @@ flaux-section {
 	}
 
 	.ai-benefits {
-		margin: 0.25rem 0;
+		margin: 2rem 0 4rem;
 		padding: 0;
 		list-style: none;
 
 		li {
 			position: relative;
-			padding: 1rem 0 1rem 2rem;
+			padding: 0.75rem 0 0.75rem 2rem;
 			color: #ddd;
 
 			&::before {
@@ -429,6 +434,8 @@ flaux-section {
 		border-radius: 0.75rem;
 		backdrop-filter: blur(10px) brightness(1.2) contrast(1.2) sepia(0.7);
 		background: linear-gradient(150deg, rgba($flaux-blue, 0.2), rgba($flaux-violet, 0.2));
+		overflow: hidden;
+		@include shine-overlay();
 
 		form {
 			margin-top: 2rem;
@@ -496,10 +503,6 @@ flaux-section {
 				border-color: $flaux-salmon;
 			}
 		}
-
-		p {
-			margin: 0;
-		}
 	}
 }
 
@@ -523,9 +526,19 @@ flaux-section {
 		}
 	}
 
+	.trust-content {
+		font-size: 0.9rem;
+		grid-template-columns: 1.25fr 1fr !important;
+	}
+
 	.ai-value-section {
 		grid-template-columns: 1fr;
 		padding: 3rem;
+		gap: 1rem;
+
+		.ai-benefits {
+			margin: 1.5rem 0;
+		}
 
 		.ai-value-content {
 			padding-right: 0;
@@ -544,6 +557,10 @@ flaux-section {
 
 @media screen and (max-width: 900px) {
 
+	.hvac-audit-container {
+		padding: 5rem 1rem 1rem;
+	}
+
 	.hero-section {
 		.hero-image {
 			// margin-bottom: 2rem;
@@ -557,24 +574,17 @@ flaux-section {
 	}
 
 	.trust-content {
-		grid-template-columns: 2fr 1fr;
+		font-size: 0.9rem;
+		grid-template-columns: 1.25fr 1fr !important;
 
 		.trust-text {
 			padding: 1.5rem;
 		}
 
-		.trust-image {
-			iframe {
-				aspect-ratio: 1/2.3;
-			}
-		}
 	}
 }
 
 @media (max-width: 720px) {
-	.hvac-audit-container {
-		padding: 5rem 1rem 1rem;
-	}
 
 	.section {
 		h2 {
@@ -629,15 +639,20 @@ flaux-section {
 	.trust-section {
 
 		.trust-content {
-			grid-template-columns: 1fr;
+			grid-template-columns: 1fr !important;
+			grid-template-rows: minmax(800px, auto) 1fr !important;
 
 			.trust-text {
-				padding-top: 2.5rem !important;
+				padding: 2rem 1.5rem !important;
 			}
 
 			.trust-image {
 				order: -1;
-				max-height: 600px;
+				max-height: 800px;
+
+				iframe {
+					height: 100%;
+				}
 			}
 		}
 	}
@@ -645,11 +660,18 @@ flaux-section {
 	.what-you-get-section {
 		.audit-grid {
 			grid-template-columns: 1fr;
+			gap: 1rem;
 		}
 	}
 
 	.ai-value-section {
-		padding: 2.5rem 2rem;
+		padding: 2rem 1.5rem;
+
+		.ai-benefits {
+			li {
+				padding-block: 0.33rem;
+			}
+		}
 	}
 
 	.contact-content {

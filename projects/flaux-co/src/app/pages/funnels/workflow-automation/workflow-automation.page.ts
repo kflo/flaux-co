@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild, ElementRef } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -26,6 +26,8 @@ export class WorkflowAutomationPage {
 	private seoService = inject(SeoService);
 	questions = questions;
 
+	@ViewChild('auditProcess') auditProcess!: ElementRef<HTMLDivElement>;
+
 	clockUrl = `${environment.r2BucketUrl}vid/flaux-clockwork.mp4`;
 
 	onTimeUpdate(video: HTMLVideoElement) {
@@ -35,6 +37,18 @@ export class WorkflowAutomationPage {
 		if (video.currentTime >= endTime || video.currentTime < startTime) {
 			video.currentTime = startTime;
 		}
+	}
+
+	scrollAudit(direction: 'left' | 'right') {
+		const container = this.auditProcess.nativeElement;
+		const scrollAmount = container.clientWidth * 0.8;
+		const targetScroll = direction === 'left'
+			? container.scrollLeft - scrollAmount
+			: container.scrollLeft + scrollAmount;
+
+		container.scrollTo({
+			left: targetScroll, behavior: 'smooth'
+		});
 	}
 
 	ngOnInit() {

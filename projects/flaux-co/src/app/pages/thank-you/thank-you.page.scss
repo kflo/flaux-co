@@ -18,9 +18,10 @@ flaux-section {
 	color: #eee !important;
 }
 
-.thank-you-container {
+.content-container {
 	padding: 5rem 2rem;
-	max-width: 1000px;
+	width: 100%;
+	max-width: 1200px;
 	margin: 0 auto;
 	min-height: 80vh;
 	display: flex;
@@ -28,14 +29,93 @@ flaux-section {
 	justify-content: center;
 }
 
-.thank-you-content {
+.content-wrapper {
 	text-align: center;
 	background: rgba(black, 0.75);
 	backdrop-filter: blur(1em) brightness(1.2) contrast(1.3);
 	border-radius: 1rem;
 	padding: 4rem 3rem;
 	box-shadow: 0.25em 0.5em 1.5em rgba(0, 0, 0, 0.7);
+	transition: all 0.5s ease;
 }
+
+.footer-note {
+	font-size: 0.9rem;
+	color: #bbb;
+	margin-top: 1rem;
+
+	a {
+		color: $flaux-blue;
+		text-decoration: none;
+		transition: color 0.3s ease;
+
+		&:hover {
+			color: $flaux-salmon;
+			text-decoration: underline;
+		}
+	}
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  CALENDAR                                  */
+/* -------------------------------------------------------------------------- */
+
+.calendar-mode {
+	padding-block: 2rem;
+	padding-inline: 2rem;
+	overflow: hidden;
+	width: 100%;
+	min-height: 700px;
+}
+
+.calendar-embed {
+	width: 100%;
+	overflow: hidden !important;
+
+	>div {
+		width: 100%;
+
+		// Hide scrollbars but allow scrolling
+		scrollbar-width: none; // Firefox
+		-ms-overflow-style: none; // IE/Edge
+
+		&::-webkit-scrollbar {
+			display: none; // Chrome/Safari/Opera
+		}
+	}
+
+	body {
+		overflow: hidden !important;
+	}
+
+	iframe {
+		border: none;
+		overflow: hidden !important;
+
+		// Hide scrollbars
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+
+.appointment-content {
+	width: 100%;
+	height: 100%;
+
+	.intro-message {
+		margin-bottom: 2rem;
+	}
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  THANK YOU                                 */
+/* -------------------------------------------------------------------------- */
+
+.thank-you-content {}
 
 .success-icon {
 	display: flex;
@@ -142,23 +222,6 @@ h1 {
 	}
 }
 
-.footer-note {
-	font-size: 0.9rem;
-	color: #bbb;
-	margin-top: 2rem;
-
-	a {
-		color: $flaux-blue;
-		text-decoration: none;
-		transition: color 0.3s ease;
-
-		&:hover {
-			color: $flaux-salmon;
-			text-decoration: underline;
-		}
-	}
-}
-
 .whatsapp-link {
 	color: $flaux-blue;
 	text-decoration: none !important;
@@ -179,8 +242,22 @@ h1 {
 /* -------------------------------------------------------------------------- */
 
 @media screen and (max-width: 900px) {
-	.thank-you-container {
+	.content-container {
 		padding: 5rem 1rem;
+	}
+
+	.content-wrapper {
+		padding: 2rem 1rem;
+	}
+
+	.calendar-mode {
+		padding-block: 1rem;
+		padding-inline: 1rem;
+	}
+
+	.calendar-embed {
+		width: auto;
+		margin-right: -1rem;
 	}
 
 	.thank-you-content {
@@ -188,8 +265,8 @@ h1 {
 	}
 
 	h1 {
-		font-size: 2rem;
-		line-height: 1.5;
+		font-size: 1.75rem;
+		line-height: 1.75;
 	}
 
 	.main-message {

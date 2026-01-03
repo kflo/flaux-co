@@ -40,10 +40,16 @@
 	// Expansion panel resets
 	--mat-expansion-header-text-color: initial !important;
 	--mat-expansion-header-text-font: initial !important;
+	--mat-expansion-header-text-size: initial !important;
 	--mat-expansion-container-text-color: initial !important;
+	--mat-expansion-container-text-size: initial !important;
+	--mat-expansion-container-text-font: initial !important;
+	--mat-expansion-container-background-color: initial !important;
 	--mat-expansion-header-indicator-color: initial !important;
 	--mat-expansion-header-disabled-state-text-color: #ccc !important;
 	--mat-expansion-header-disabled-state-text-font: initial !important;
+
+
 
 	// Form field resets
 	--mat-form-field-outlined-outline-color: initial !important;
@@ -66,4 +72,24 @@
 	--mat-checkbox-unselected-focus-icon-color: initial !important;
 	--mat-checkbox-unselected-hover-icon-color: initial !important;
 	--mat-checkbox-unselected-icon-color: initial !important;
+
+	--booker-meta-width: 500px !important;
+
+}
+
+// Decorative skewed shine overlay effect
+// $width: width of the shine overlay; $skew: skew angle; $gradient: background gradient; $z-index: stacking order
+@mixin shine-overlay($width: 150px, $skew: -20deg, $gradient: linear-gradient(90deg, transparent, rgba(white, 0.07)), $z-index: 8) {
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: $width;
+		height: 100%;
+		transform: skewX($skew);
+		background: $gradient;
+		content: '';
+		z-index: $z-index;
+		pointer-events: none;
+	}
 }

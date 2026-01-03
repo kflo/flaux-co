@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, timeout } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map, timeout } from 'rxjs/operators';
 import { environment } from 'projects/flaux-co/environments/environment';
 import { UtmService } from './utm/utm.service';
 
@@ -34,6 +34,7 @@ export interface ContactSubmissionResponse {
 	ok: boolean;
 	id?: string;
 	error?: string;
+	payload?: any;
 }
 
 /**
@@ -58,29 +59,23 @@ export class ContactFormService {
 	 * @returns Observable with submission response
 	 */
 	submit(formData: ContactFormData): Observable<ContactSubmissionResponse> {
-		// Prepare payload - only send fields that are defined
-		let payload = {
-			firstName: formData.firstName,
-			lastName: formData.lastName,
-			email: formData.email,
-			...(formData.phone && { phone: formData.phone }),
-			...(formData.company && { company: formData.company }),
-			...(formData.projectType?.length && { projectType: formData.projectType }),
-			...(formData.budget && { budget: formData.budget }),
-			...(formData.timeline && { timeline: formData.timeline }),
-			...(formData.preferredContact && { preferredContact: formData.preferredContact }),
-			...(formData.description && { description: formData.description }),
-			...(formData.serviceArea && { serviceArea: formData.serviceArea }),
-			...(formData.biggestPain && { biggestPain: formData.biggestPain }),
-			...(formData.hasCrm !== undefined && { hasCrm: formData.hasCrm }),
-			...(formData.crmName && { crmName: formData.crmName }),
-			...(formData.hasWebsite !== undefined && { hasWebsite: formData.hasWebsite }),
-			...(formData.websiteUrl && { websiteUrl: formData.websiteUrl }),
-		};
+		// Filter out null, undefined, empty strings, and empty arrays
+		const cleanData = Object.fromEntries(
+			Object.entries(formData).filter(([_, value]) => {
+				if (value === undefined || value === null || value === '') return false;
+				if (Array.isArray(value)) return value.length > 0;
+				return true; // Keeps booleans (false), numbers (0), etc.
+			})
+		);
 
-		payload = this.utm.withUtm(payload);
-
+		const payload = this.utm.withUtm(cleanData);
+		return of({
+			ok: true, payload
+		} as any);
 		return this.http.post<ContactSubmissionResponse>(this.submitContactUrl, payload).pipe(
+			map(response => ({
+				...response, payload
+			})),
 			timeout(this.timeout),
 			catchError(error => this.handleError(error)),
 		);

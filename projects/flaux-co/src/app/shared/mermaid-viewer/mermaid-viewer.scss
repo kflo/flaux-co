@@ -1,0 +1,94 @@
+:host {
+	display: block;
+}
+
+/* --- BASE STYLES --- */
+.diagram-wrapper {
+	position: relative;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	transition: all 0.3s ease;
+	display: flex;
+	flex-direction: column;
+}
+
+.toolbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 12px;
+	background: #f8f9fa;
+	border-bottom: 1px solid #e0e0e0;
+	border-radius: 8px 8px 0 0;
+}
+
+.btn-icon {
+	background: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px 8px;
+	cursor: pointer;
+	font-size: 0.85rem;
+	font-weight: 600;
+}
+
+.mobile-hint {
+	font-size: 0.75rem;
+	color: #666;
+	display: none;
+	/* Hidden on desktop */
+}
+
+/* --- VIEWPORT (Native Momentum Scrolling) --- */
+.diagram-viewport {
+	width: 100%;
+	height: 400px;
+	/* Default embedded height */
+	overflow: auto;
+	/* Native scrollbars */
+	-webkit-overflow-scrolling: touch;
+	/* Smooth iOS scrolling */
+	display: flex;
+	/* Centers content if small */
+	align-items: flex-start;
+	justify-content: flex-start;
+	/* Aligns left for massive charts so start is visible */
+	padding: 20px;
+	/* Prevent pull-to-refresh on mobile when dragging diagram */
+	overscroll-behavior: contain;
+}
+
+/* --- FULLSCREEN MODIFIER --- */
+.is-fullscreen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9999;
+	border-radius: 0;
+	border: none;
+}
+
+.is-fullscreen .diagram-viewport {
+	height: 100%;
+	/* Take full height */
+	background: #ffffff;
+}
+
+/* --- MOBILE SPECIFICS --- */
+@media (max-width: 768px) {
+	.mobile-hint {
+		display: inline-block;
+	}
+
+	/* Ensure text in diagram stays readable on mobile */
+	::ng-deep .mermaid-content svg {
+		min-width: 800px;
+		/* Force horizontal scroll, don't squish! */
+		height: auto;
+	}
+}

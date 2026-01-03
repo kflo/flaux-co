@@ -1,4 +1,4 @@
-import {Routes} from '@angular/router';
+import { Routes } from '@angular/router';
 // import {authGuard, guestGuard} from '@app/guards/auth.guard';
 
 export const routes: Routes = [
@@ -49,7 +49,7 @@ export const routes: Routes = [
 		loadComponent: () => import('@pages/contact/contact.page').then(m => m.ContactPage)
 	},
 	{
-		path: 'thank-you',
+		path: 'submitted',
 		loadComponent: () => import('@pages/thank-you/thank-you.page').then(m => m.ThankYouPage)
 	},
 	{

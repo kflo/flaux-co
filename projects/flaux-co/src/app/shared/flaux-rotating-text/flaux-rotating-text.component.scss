@@ -25,6 +25,7 @@
 
 .words-wrapper {
 	padding-bottom: 0;
+	padding-inline: 6rem;
 }
 
 
@@ -190,5 +191,11 @@
 @media screen and (max-width: 900px) {
 	:host {
 		font-size: 1.2rem;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	.words-wrapper {
+		padding-inline: 1rem;
 	}
 }

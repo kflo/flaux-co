@@ -80,10 +80,10 @@ hr {
 			left: 50%;
 			height: var(--lightning-height);
 			transform: translateX(-50%);
+			background-blend-mode: plus-lighter;
 			filter: saturate(1.1) contrast(1.1) brightness(1.2);
 			mask: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
 			opacity: 0.8;
-			background-blend-mode: plus-lighter;
 		}
 
 		&-video {
@@ -142,6 +142,7 @@ hr {
 			position: relative;
 			width: fit-content;
 			margin-inline: auto;
+			background: linear-gradient(90deg, transparent 0%, rgba(10, 10, 10, 0.6) 20%, rgba(10, 10, 10, 0.6) 80%, transparent 100%);
 		}
 
 		&-text {
@@ -201,8 +202,8 @@ hr {
 /* Trust / Capabilities Section */
 .trust-section {
 	position: relative;
-	padding: 0 3rem;
 	margin-top: 3rem;
+	padding: 0 3rem;
 	overflow: hidden;
 	transform: skewY(-2deg);
 	border: 1px solid rgba($flaux-orange, 0.5);
@@ -210,20 +211,7 @@ hr {
 	backdrop-filter: blur(1px) brightness(1.4);
 	background: linear-gradient(135deg, rgba($flaux-purple, 0.15), rgba($flaux-blue3, 0.1));
 	box-shadow: 0 0 2rem rgba(black, 0.6), inset 0 0 3rem rgba(255, 255, 255, 0.1);
-
-	// Skewed accent
-	&::after {
-		z-index: 111;
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 150px;
-		height: 100%;
-		transform: skewX(-20deg);
-		background: linear-gradient(90deg, transparent, rgba(white, 0.05));
-		content: '';
-		pointer-events: none;
-	}
+	@include shine-overlay();
 
 	&::before {
 		position: absolute;
@@ -316,7 +304,7 @@ hr {
 .problems-section {
 	position: relative;
 	margin-top: 8rem;
-	padding: 3rem;
+	padding: 2.5rem;
 	overflow: hidden;
 	transform: skewY(-2deg);
 	border: 1px solid rgba($flaux-orange, 0.5);
@@ -325,6 +313,7 @@ hr {
 	background: rgba(0, 0, 0, 0.4);
 	box-shadow: 0 0 2rem rgba(black, 0.6), inset 0 0 3rem rgba(255, 255, 255, 0.1);
 	text-align: left;
+	@include shine-overlay();
 
 	.section-bg {
 		z-index: -1;
@@ -343,14 +332,14 @@ hr {
 		}
 
 		&::before {
-			content: '';
 			z-index: 5;
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.8) 80%);
+			background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.8) 95%);
+			content: '';
 		}
 	}
 
@@ -358,35 +347,22 @@ hr {
 		transform: skewY(2deg);
 	}
 
-	// Skewed accent
-	&::after {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 150px;
-		height: 100%;
-		transform: skewX(-20deg);
-		background: linear-gradient(90deg, transparent, rgba(white, 0.05));
-		content: '';
-		pointer-events: none;
-	}
-
 	h2 {
-		text-align: left;
+		text-align: center;
 	}
 
 	.problem-list {
 		display: flex;
 		flex-direction: column;
-		max-height: 32rem; // Fits roughly 4 items
-		overflow-y: auto;
-		scroll-snap-type: y mandatory;
-		margin: 2.5rem 0 1.5rem;
+		max-height: 20rem; // Fits roughly 4 items
+		margin: 2.5rem 5rem 1.5rem;
 		padding: 0 1rem 0 0;
-		gap: 1rem;
+		overflow-y: auto;
+		gap: 0.66rem;
 		list-style: none;
-		scrollbar-width: thin;
+		scroll-snap-type: y mandatory;
 		scrollbar-color: rgba($flaux-salmon, 0.3) transparent;
+		scrollbar-width: thin;
 
 		&::-webkit-scrollbar {
 			width: 6px;
@@ -403,13 +379,13 @@ hr {
 
 		li {
 			flex: 0 0 auto;
-			padding: 1.25rem;
-			scroll-snap-align: start;
+			padding: 0.66rem 1rem;
 			border-left: 4px solid $flaux-salmon;
 			border-radius: 14px;
 			background: rgba(255, 255, 255, 0.03);
 			font-size: 1rem;
 			line-height: 1.6;
+			scroll-snap-align: start;
 			transition: transform 0.2s ease, background 0.2s ease;
 
 			&:hover {
@@ -419,24 +395,102 @@ hr {
 
 			strong:first-of-type {
 				display: block;
-				margin-bottom: 0.35rem;
+				margin-bottom: 0.2rem;
 				color: $flaux-salmon;
 			}
 		}
 	}
+}
 
-	.problem-sting {
-		padding-top: 0.5rem;
-		// border-top: 1px solid rgba(255, 255, 255, 0.1);
-		color: rgba(255, 255, 255, 0.8);
-		font-size: 1.1rem;
-		text-align: center;
+.problem-sting {
+	padding-top: 0.1rem;
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 1.1rem;
+	text-align: center;
+
+	p {
+		padding-block: 0.5rem;
 	}
 }
 
 /* What You Get Section */
 .what-you-get-section {
+	max-width: 1400px !important;
 	margin-top: 8rem;
+
+	.audit-process-wrapper {
+		margin-top: 2rem;
+		position: relative;
+		width: 100%;
+
+		.scroll-btn {
+			display: none;
+			z-index: 10;
+			position: absolute;
+			top: 50%;
+			align-items: center;
+			justify-content: center;
+			width: 3rem;
+			height: 3rem;
+			transform: translateY(-50%);
+			border: 1px solid rgba($flaux-highlight, 0.5);
+			border-radius: 50%;
+			backdrop-filter: blur(10px);
+			background: rgba(0, 0, 0, 0.6);
+			color: $flaux-highlight;
+			font-size: 2rem;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			padding-bottom: 5px;
+
+			&:hover {
+				background: rgba($flaux-highlight, 0.2);
+				box-shadow: 0 0 1rem rgba($flaux-highlight, 0.3);
+			}
+
+			&.scroll-left {
+				left: 1rem;
+			}
+
+			&.scroll-right {
+				right: 1rem;
+			}
+		}
+
+		@media (min-width: 900px) {
+			.scroll-btn {
+				display: flex;
+			}
+		}
+	}
+
+	.audit-process {
+		width: auto;
+		padding-top: 2.5rem;
+		padding-inline: 3rem;
+		overflow: hidden;
+		overflow-x: auto;
+		// border-radius: 2rem;
+		backdrop-filter: blur(1px) contrast(0.9);
+		background: rgba(white, 0.12);
+		box-shadow: 1px 1px 1rem rgba(0, 0, 0, 0.33);
+
+		// Gradient mask to hint at scrollability
+		mask-image: linear-gradient(to right,
+				transparent,
+				black 3rem,
+				black calc(100% - 3rem),
+				transparent);
+		-webkit-mask-image: linear-gradient(to right,
+				transparent,
+				black 3rem,
+				black calc(100% - 3rem),
+				transparent);
+
+		img {
+			max-height: 58dvh;
+		}
+	}
 
 	.audit-grid {
 		display: grid;
@@ -530,6 +584,7 @@ hr {
 	width: 100%;
 	margin: 8rem auto 3rem;
 	background: linear-gradient(90deg, transparent 0%, rgba(10, 10, 10, 0.6) 50%, transparent 100%);
+
 }
 
 /* CTA / Form Section */
@@ -540,12 +595,14 @@ hr {
 
 	.cta-content {
 		position: relative;
-		padding: 4rem;
+		padding: 3rem 4rem;
 		overflow: hidden;
 		border: 1px solid rgba($flaux-blue, 0.3);
 		border-radius: 30px;
 		background: linear-gradient(135deg, rgba($flaux-blue3, 0.4), rgba(10, 10, 10, 0.8));
 		text-align: center;
+		@include shine-overlay();
+
 
 		// Glow effect
 		&::before {
@@ -555,20 +612,6 @@ hr {
 			width: 200%;
 			height: 200%;
 			background: radial-gradient(circle, rgba($flaux-blue, 0.1) 0%, transparent 70%);
-			content: '';
-			pointer-events: none;
-		}
-
-		// Skewed accent
-		&::after {
-			z-index: 111;
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 150px;
-			height: 100%;
-			transform: skewX(-20deg);
-			background: linear-gradient(90deg, transparent, rgba(white, 0.05));
 			content: '';
 			pointer-events: none;
 		}
@@ -607,7 +650,7 @@ hr {
 /* FAQ Section */
 .faq-section {
 	margin-top: 0rem;
-	padding: 5rem 0;
+	padding: 4rem 0;
 	text-align: center;
 
 	h2 {
@@ -648,8 +691,8 @@ hr {
 
 		mat-panel-title {
 			color: #fff !important;
-			font-weight: 600 !important;
-			font-size: 1.1rem !important;
+			// font-weight: 600 !important;
+			// font-size: 1.1rem !important;
 			letter-spacing: 0.5px;
 		}
 
@@ -758,11 +801,25 @@ hr {
 			&-benefits {
 				font-size: 1rem;
 			}
+
+			&-questions-1 {
+				margin-inline: -2rem;
+				background: linear-gradient(90deg, transparent 0%, rgba(10, 10, 10, 0.6) 20%, rgba(10, 10, 10, 0.6) 80%, transparent 100%);
+			}
 		}
 	}
 
 	.problems-section {
-		padding: 2rem 1.5rem 3rem;
+		padding: 2rem 1.5rem 2.5rem;
+
+		.problem-list {
+			margin: 2rem 0rem 1.5rem;
+		}
+	}
+
+	.audit-process {
+		border-radius: 0 !important;
+		margin-inline: -1rem;
 	}
 
 	.audit-grid {
@@ -777,10 +834,10 @@ hr {
 	}
 
 	.solution-section {
-		mask-image: none;
-		background: linear-gradient(90deg, transparent 0%, rgba(10, 10, 10, 0.6) 20%, rgba(10, 10, 10, 0.6) 80%, transparent 100%);
-		padding-inline: 1rem;
 		margin-left: -1rem;
+		padding-inline: 1rem;
+		background: linear-gradient(90deg, transparent 0%, rgba(10, 10, 10, 0.6) 20%, rgba(10, 10, 10, 0.6) 80%, transparent 100%);
+		mask-image: none;
 	}
 
 	.cta-content {

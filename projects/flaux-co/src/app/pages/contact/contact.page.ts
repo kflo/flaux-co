@@ -1,7 +1,7 @@
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import {
-	Component, inject, ViewChild, ElementRef, ChangeDetectorRef,
-	signal, OnInit
+	Component, inject, ViewChild, ElementRef, signal, OnInit,
+	ChangeDetectionStrategy
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -18,6 +18,12 @@ import { MatSliderModule } from '@angular/material/slider';
 import { FooterComponent } from "@app/shared/footer/footer.component";
 import { ContactFormService } from '@app/services/contact-form.service';
 import { FlauxBtnComponent } from '@app/shared/flaux-btn/flaux-btn.component';
+import {
+	INITIAL_FORM_VALUES,
+	PROJECT_TYPE_GROUPS,
+	BUDGET_SLIDER_LABELS,
+	TIMELINE_SLIDER_LABELS
+} from './contact.constants';
 
 @Component({
 	selector: 'flaux-contact',
@@ -36,17 +42,18 @@ import { FlauxBtnComponent } from '@app/shared/flaux-btn/flaux-btn.component';
 		FlauxBtnComponent
 	],
 	templateUrl: './contact.page.html',
-	styleUrls: ['./contact.page.scss']
+	styleUrls: ['./contact.page.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactPage implements OnInit {
-	form: FormGroup | null;
 	private contactFormService = inject(ContactFormService);
 	private snackBar = inject(MatSnackBar);
-	private cdr = inject(ChangeDetectorRef);
 	private router = inject(Router);
 	private breakpointObserver = inject(BreakpointObserver);
 
 	@ViewChild('snapshotWidgetContainer') widgetContainer!: ElementRef;
+
+	form: FormGroup | null;
 
 	isSubmitting = signal(false);
 	isMobile = signal(false);
@@ -58,24 +65,10 @@ export class ContactPage implements OnInit {
 			text: ''
 		};
 
-	private readonly initialFormValues = {
-		firstName: '',
-		lastName: '',
-		email: '',
-		phone: '',
-		prefersEmail: false,
-		prefersPhone: false,
-		prefersSms: false,
-		company: '',
-		projectType: [] as string[],
-		budgetIndex: 0,
-		timelineIndex: 0,
-		description: ''
-	};
+	readonly projectTypeGroups = PROJECT_TYPE_GROUPS;
 
 	constructor (private fb: FormBuilder) {
 		this.form = this.createForm();
-		console.log({ form: this.form?.value });
 	}
 
 	ngOnInit() {
@@ -95,75 +88,24 @@ export class ContactPage implements OnInit {
 
 	private createForm(): FormGroup {
 		return this.fb.group({
-			firstName: [this.initialFormValues.firstName, { validators: [Validators.required] }],
-			lastName: [this.initialFormValues.lastName, { validators: [Validators.required] }],
-			email: [this.initialFormValues.email, { validators: [Validators.required, Validators.email] }],
-			phone: [this.initialFormValues.phone, { validators: [Validators.required, Validators.pattern(/^[0-9\s\-.+()]{12,20}$/)] }],
-			prefersEmail: [this.initialFormValues.prefersEmail],
-			prefersPhone: [this.initialFormValues.prefersPhone],
-			prefersSms: [this.initialFormValues.prefersSms],
-			company: [this.initialFormValues.company],
-			projectType: [this.initialFormValues.projectType],
-			budgetIndex: [this.initialFormValues.budgetIndex],
-			timelineIndex: [this.initialFormValues.timelineIndex],
-			description: [this.initialFormValues.description, { validators: [] }]
+			firstName: [INITIAL_FORM_VALUES.firstName, { validators: [Validators.required] }],
+			lastName: [INITIAL_FORM_VALUES.lastName, { validators: [Validators.required] }],
+			email: [INITIAL_FORM_VALUES.email, { validators: [Validators.required, Validators.email] }],
+			phone: [INITIAL_FORM_VALUES.phone, { validators: [Validators.required, Validators.pattern(/^[0-9\s\-.+()]{12,20}$/)] }],
+			prefersEmail: [INITIAL_FORM_VALUES.prefersEmail],
+			prefersPhone: [INITIAL_FORM_VALUES.prefersPhone],
+			prefersSms: [INITIAL_FORM_VALUES.prefersSms],
+			company: [INITIAL_FORM_VALUES.company],
+			projectType: [INITIAL_FORM_VALUES.projectType],
+			budgetIndex: [INITIAL_FORM_VALUES.budgetIndex],
+			timelineIndex: [INITIAL_FORM_VALUES.timelineIndex],
+			description: [INITIAL_FORM_VALUES.description, { validators: [] }],
+			setAppointment: [INITIAL_FORM_VALUES.setAppointment]
 		});
 	}
 
-	projectTypeGroups = [
-		{
-			label: 'FLAUX AI',
-			options: [
-				'AI Chat Agent',
-				'AI Education & Training',
-				'AI Strategy & Consulting',
-				'AI Voice Agent',
-				'Automation & Integrations',
-				'Marketing & Lead Generation',
-				'Other'
-			]
-		},
-		{
-			label: 'FLAUX AGENCY',
-			options: [
-				'Branding & Identity',
-				'Content Creation',
-				'Digital Marketing, Ads, SEO',
-				'Social Media Management',
-				'Reputation Management',
-				'CRM (Customer Relationship Management)',
-				'Communication (SMS, Email, etc)',
-				'AI Workforce (Receptionist, etc)',
-				'Website Design & Development',
-				'Other'
-			]
-		}
-	];
-
-	budgetSliderLabels = [
-		'TBD',
-		'< $1k',
-		'$1k - $5k',
-		'$5k - $10k',
-		'$10k - $25k',
-		'$25k - $50k',
-		'$50k - $100k',
-		'$100k - $250k',
-		'$250k+',
-	];
-
-	timelineSliderLabels = [
-		'ASAP',
-		'1-4 weeks',
-		'1-3 months',
-		'3-6 months',
-		'6-12 months',
-		'12+ months',
-		'Flexible'
-	];
-
-	budgetDisplayFn = (index: number) => this.budgetSliderLabels[index] ?? '';
-	timelineDisplayFn = (index: number) => this.timelineSliderLabels[index] ?? '';
+	budgetDisplayFn = (index: number) => BUDGET_SLIDER_LABELS[index] ?? '';
+	timelineDisplayFn = (index: number) => TIMELINE_SLIDER_LABELS[index] ?? '';
 
 	hasFlauxAIProjectType(): boolean {
 		const selectedTypes = this.form?.get('projectType')?.value || [];
@@ -194,81 +136,92 @@ export class ContactPage implements OnInit {
 		this.form?.patchValue({ phone: formatted }, { emitEvent: false });
 	}
 
-	onSubmit() {
-		// Reset previous message
-		this.submissionMessage = {
-			type: null,
-			text: ''
-		};
-
-		// Validate form
-		const errors = this.contactFormService.validateForm(this.form?.value);
-		if (errors.length > 0) {
-			this.submissionMessage = {
-				type: 'error',
-				text: errors.join('; ')
-			};
-			return;
-		}
-
-		// Prevent duplicate submissions
-		if (this.isSubmitting()) {
-			return;
-		}
-
-		this.isSubmitting.set(true);
-		const value = this.form?.value;
-
-		// Build comma-delimited preferred contact methods
+	private preparePayload(value: any) {
 		const preferredMethods: string[] = [];
 		if (value.prefersEmail) preferredMethods.push('Email');
 		if (value.prefersPhone) preferredMethods.push('Phone');
 		if (value.prefersSms) preferredMethods.push('SMS');
 
+		const preferredContact = preferredMethods.length > 0 ? preferredMethods.join(', ') : undefined;
+
 		// ! Consolidate description with additional details, due to Vendasta limitations
 		const descriptionParts = [
 			value.description || '',
 			value.projectType?.length ? `🟄 Project Type: ${value.projectType.join(', ')}` : '',
-			`🟄 Budget: ${this.budgetSliderLabels[value.budgetIndex]}`,
-			`🟄 Timeline: ${this.timelineSliderLabels[value.timelineIndex]}`,
-			preferredMethods.length > 0 ? `🟄 Preferred Contact: ${preferredMethods.join(', ')}` : ''
+			`🟄 Budget: ${BUDGET_SLIDER_LABELS[value.budgetIndex]}`,
+			`🟄 Timeline: ${TIMELINE_SLIDER_LABELS[value.timelineIndex]}`,
+			preferredContact ? `🟄 Preferred Contact: ${preferredContact}` : ''
 		].filter(Boolean);
 
-		const result = {
+		return {
 			firstName: value.firstName,
 			lastName: value.lastName,
 			email: value.email,
 			phone: value.phone ? value.phone.replace(/\D/g, '') : undefined,
 			company: value.company || undefined,
 			projectType: value.projectType?.length ? value.projectType : undefined,
-			budget: this.budgetSliderLabels[value.budgetIndex],
-			timeline: this.timelineSliderLabels[value.timelineIndex],
-			preferredContact: preferredMethods.length > 0 ? preferredMethods.join(', ') : undefined,
+			budget: BUDGET_SLIDER_LABELS[value.budgetIndex],
+			timeline: TIMELINE_SLIDER_LABELS[value.timelineIndex],
+			preferredContact,
 			description: descriptionParts.join(' ')
 		};
+	}
 
-		this.contactFormService.submit(result).subscribe({
+	private resetForm() {
+		this.form?.reset(INITIAL_FORM_VALUES);
+		Object.keys(this.form?.controls || {}).forEach(key => {
+			const control = this.form?.get(key);
+			control?.setErrors(null);
+			control?.markAsUntouched();
+			control?.markAsPristine();
+		});
+	}
+
+	onSubmit() {
+		this.submissionMessage = {
+			type: null, text: ''
+		};
+
+		const formValue = this.form?.value;
+
+		const errors = this.contactFormService.validateForm(formValue);
+		if (errors.length > 0) {
+			this.submissionMessage = {
+				type: 'error', text: errors.join('; ')
+			};
+			return;
+		}
+
+		if (this.isSubmitting()) return;
+		this.isSubmitting.set(true);
+
+		const payload = this.preparePayload(formValue);
+
+		console.log({
+			payload, setAppointment: formValue.setAppointment
+		});
+
+		this.contactFormService.submit(payload).subscribe({
 			next: (response) => {
-				console.log('Response received:', response);
+				this.isSubmitting.set(false);
 				if (response?.ok) {
-					this.isSubmitting.set(false);
-					// Reset form and clear validation state
-					this.form?.reset(this.initialFormValues);
-					// Mark all controls as untouched to clear Material error styling
-					Object.keys(this.form?.controls || {}).forEach(key => {
-						this.form?.get(key)?.setErrors(null);
-						this.form?.get(key)?.markAsUntouched();
-						this.form?.get(key)?.markAsPristine();
-					});
-					console.log({ form: this.form?.value });
-
-					// Navigate to thank you page
-					this.router.navigate(['/thank-you']);
+					const queryParams: any = { cal: formValue.setAppointment ? 1 : 0 };
+					if (formValue.setAppointment) {
+						queryParams.name = `${formValue.firstName} ${formValue.lastName}`;
+						queryParams.email = formValue.email;
+						queryParams.utm_source = response.payload?.utm_source;
+						queryParams.utm_medium = response.payload?.utm_medium;
+						queryParams.utm_campaign = response.payload?.utm_campaign;
+						queryParams.utm_content = response.payload?.utm_content;
+					}
+					this.resetForm();
+					this.router.navigate(['/submitted'], { queryParams });
 				} else {
 					this.openSnackBar('Error — ' + (response?.error || 'Failed to submit form. Please try again.'), '✖');
 				}
 			},
 			error: (error) => {
+				this.isSubmitting.set(false);
 				console.error('Submission error:', error);
 				this.openSnackBar('Error — An error occurred while submitting the form. Please try again later.', '✖');
 			},

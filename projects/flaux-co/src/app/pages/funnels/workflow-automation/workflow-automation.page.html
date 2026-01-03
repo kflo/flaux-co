@@ -36,18 +36,20 @@
 
 				<ul class="hero-inner-benefits">
 					<li>Eliminate the <strong><em>"Manual Tax"</em></strong> on your team's creativity and momentum</li>
-					<li>Identify <strong><em>bottlenecks</em></strong> in your current lead-to-cash process</li>
+					<li>Identify <strong><em>bottlenecks</em></strong> in your current workflows and SOPs</li>
 					<li>Get a custom <strong><em>Automation Roadmap</em></strong> with prioritized high-ROI wins</li>
 					<li>The <strong><em>Zero-Friction Framework</em></strong>: Eliminate the chaos and build a business that flows like water</li>
 				</ul>
 			</div>
 			<div class="hero-inner-ctas">
 				<flaux-btn [height]="'1.5em'"
+							  [pulse]="true"
 							  routerLink="/workflow-automation"
 							  fragment="cta"
 							  [hueRotate]="'-20deg'"
 							  class="primary-cta">Workflow Audit | Get Started</flaux-btn>
 				<flaux-btn [height]="'1.5em'"
+							  [pulse]="true"
 							  [hueRotate]="'200deg'"
 							  class="secondary-cta"
 							  data-cal-link="flaux/ai-strategy-call"
@@ -109,7 +111,7 @@
 			<span class="section-bg-overlay"></span>
 		</div>
 		<h2>Manual Work is Technical Debt</h2>
-		<p>
+		<p class="problem-sting">
 			Most businesses are held back by <strong><em>digital friction</em></strong> — the small, repetitive tasks that drain energy and kill momentum.
 		</p>
 		<ul class="problem-list">
@@ -154,11 +156,29 @@
 	<section id="what-you-get"
 				class="section what-you-get-section">
 		<h2>The Workflow Deep Dive: Your Blueprint for Infinite Scale</h2>
-		<p>
+		<p class="problem-sting">
 			We perform a high-velocity analysis of your tech stack to find the high-leverage wins that will drive significant growth.
 		</p>
 
-		<div class="audit-grid">
+		<div class="audit-process-wrapper">
+			<button class="scroll-btn scroll-left"
+					  (click)="scrollAudit('left')"
+					  aria-label="Scroll left">
+				‹
+			</button>
+			<div class="audit-process"
+				  #auditProcess>
+				<img src="../../../../assets/img/automation/consulting-white2@0.5x.png"
+					  alt="Workflow Audit Overview"
+					  class="audit-overview-image">
+			</div>
+			<button class="scroll-btn scroll-right"
+					  (click)="scrollAudit('right')"
+					  aria-label="Scroll right">
+				›
+			</button>
+		</div>
+		<!-- <div class="audit-grid">
 			<article class="audit-item">
 				<h3>1. Stack Inventory</h3>
 				<p>
@@ -195,7 +215,7 @@
 					A high-level design for an <b>n8n-powered orchestration layer</b> that ties your business together.
 				</p>
 			</article>
-		</div>
+		</div> -->
 	</section>
 
 	<!-- THE SOLUTION SECTION -->

@@ -2,7 +2,7 @@
 	position: relative;
 	display: block;
 	border-top: 2px solid #ddd;
-	mask: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+	mask: linear-gradient(90deg, transparent -10%, black 20%, black 80%, transparent 110%);
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.33);
 	backdrop-filter: contrast(0.85);

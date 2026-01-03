@@ -64,14 +64,6 @@
 
 	}
 
-	&:active {
-		transform: scale(0.98) !important;
-		border-radius: 5em;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
-		filter: contrast(1.1) !important;
-		transition-duration: 0.1s !important;
-	}
-
 	h3 {
 		font-family: 'Montserrat', sans-serif;
 		font-variant: all-small-caps;
