@@ -8,23 +8,23 @@
 }
 
 .capabilities-container {
-	padding: 6rem 2rem 2rem;
 	width: 100%;
 	margin: 0 auto;
+	padding: 6rem 2rem 2rem;
 	background: linear-gradient(180deg, black 0%, transparent 15%);
 }
 
 .section-header {
-	text-align: center;
 	margin-bottom: 2rem;
 	padding-inline: 2rem;
+	text-align: center;
 
 	h2 {
-		font-size: 2.8rem;
-		font-family: 'HelloAmerica', sans-serif;
-		font-weight: 300;
-		line-height: 1.6;
 		background: linear-gradient(170deg, $flaux-yellow 33%, $flaux-salmon 66%);
+		font-weight: 300;
+		font-size: 2.8rem;
+		line-height: 1.6;
+		font-family: 'HelloAmerica', sans-serif;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -32,31 +32,31 @@
 	}
 
 	p {
-		font-size: 1.25rem;
-		color: #ddd;
 		margin: 0;
+		color: #ddd;
+		font-size: 1.25rem;
 	}
 }
 
 .capabilities-grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	width: 100%;
-	gap: 0.5rem;
-	max-width: 1600px;
 	justify-self: center;
+	width: 100%;
+	max-width: 1600px;
+	gap: 0.5rem;
 
 }
 
 .capability-card {
-	cursor: pointer;
 	position: relative;
-	padding: 2rem;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-	min-height: 29em;
-	max-height: 33em;
 	max-width: 1600px;
+	min-height: 29em;
+	max-height: 40em;
+	padding: 2rem;
 	overflow: hidden;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
 	transition: all 0.5s ease;
 
 	&:hover {
@@ -65,27 +65,27 @@
 	}
 
 	h3 {
-		font-family: 'Montserrat', sans-serif;
-		font-variant: all-small-caps;
 		margin-block: 0 1rem;
+		font-variant: all-small-caps;
 		line-height: normal;
+		font-family: 'Montserrat', sans-serif;
 	}
 
 	.list-wrapper {
 		display: block;
-		gap: 0.5em;
 		margin-top: 2em;
+		gap: 0.5em;
 
 		li {
 			&:before {
-				content: "✓";
-				color: $flaux-orange;
-				font-weight: bold;
-				font-size: 1.1em;
 				display: inline-block;
 				width: 1em;
 				margin-left: -1em;
 				padding-right: 0.5em;
+				content: "✓";
+				color: $flaux-orange;
+				font-weight: bold;
+				font-size: 1.1em;
 			}
 
 			&::marker {
@@ -97,22 +97,22 @@
 
 	img {
 		position: absolute;
-		padding: 1.5em;
+		padding: 1em;
 		transition: transform 0.5s ease;
 
 	}
 
 	// Full width card
 	&.voice-agents {
-		color: #ddd;
 		grid-column: 1 / -1; // Span all columns
 		background: linear-gradient(180deg,
 				transparent 0%,
 				rgba($flaux-salmon, 0.2) 33%,
 				rgba($flaux-salmon, 0.25) 66%,
 				rgba($flaux-violet, 0.33) 110%);
-		background-size: 100% 300%;
 		background-position: 0 0;
+		background-size: 100% 300%;
+		color: #ddd;
 
 		&:hover {
 			background-position: 0 100%;
@@ -126,29 +126,33 @@
 		}
 
 		img {
-			width: 40%;
-			opacity: .8;
-			shape-outside: url('../../../../../assets/img/automation/voice-agents@2x.png');
-			shape-margin: 4em;
-			float: left;
-			top: 0%;
-			padding: 1.5em 1.5em 0 0;
 			display: inline;
 			position: relative;
+			top: 0%;
+			width: 40%;
+			padding: 1.5em 1.5em 0 0;
+			float: left;
 			filter: drop-shadow(0 0 1em rgba(0, 0, 0, 0.66));
+			opacity: .8;
+			shape-margin: 4em;
+			shape-outside: url('../../../../../assets/img/automation/voice-agents@2x.png');
 		}
 	}
 
 	&.chat-agents {
 		@include pattern-background('type', linear-gradient(135deg, $flaux-blue, $flaux-blue3), auto, color-burn);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 
 		// filter: contrast(1.2);
 		img {
-			width: 55%;
-			bottom: 0;
-			margin-bottom: -3em;
+			position: relative !important;
+			place-self: center;
 			justify-self: anchor-center;
-			position: absolute;
+
+			width: 100%;
+			// margin-bottom: -1em;
 		}
 
 		&:hover {
@@ -159,21 +163,15 @@
 	&.smb-ai-consulting {
 		color: #111;
 		@include pattern-background('simple-dashed', linear-gradient(135deg, $flaux-yellow, $flaux-salmon), 2.5%, color-burn);
-		// filter: contrast(0.99) brightness(0.9);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 
 		img {
-			width: -webkit-fill-available;
-			bottom: 2em;
-			left: 0;
-			// inset: 0;
-			opacity: .85;
-			mix-blend-mode: normal;
-			shape-outside: url('../../../../../assets/img/automation/consulting-1@2x.png');
-			shape-margin: .8em;
-			padding: 0 2em;
-			// float: right;
-			display: inline;
-			position: absolute;
+			position: relative;
+			place-self: center;
+			width: 75%;
+			opacity: .80;
 		}
 	}
 
@@ -190,14 +188,15 @@
 		}
 
 		img {
-			width: 45%;
-			opacity: .8;
-			mix-blend-mode: lighten;
-			shape-outside: url('../../../../../assets/img/automation/ai-brain-7@3x.png');
-			shape-margin: 3.5em;
-			float: right;
 			display: inline;
 			position: relative;
+			top: 2rem;
+			width: 45%;
+			float: right;
+			mix-blend-mode: lighten;
+			opacity: .8;
+			shape-margin: 3.5em;
+			shape-outside: url('../../../../../assets/img/automation/ai-brain-7@3x.png');
 		}
 
 		&:hover {
@@ -207,29 +206,34 @@
 
 	&.ai-powered-marketing {
 		@include pattern-background('shattered-dark', linear-gradient(135deg, $flaux-salmon, $flaux-violet), auto, difference);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 
 		img {
-			width: 80%;
-			padding: 0;
-			opacity: .6;
-			shape-outside: url('../../../../../assets/img/agency/soc-media-splash-2.png');
-			bottom: 0%;
-			left: -1em;
+			position: relative;
+			place-self: center;
 			justify-self: anchor-center;
+			width: 95%;
+			margin-left: -1rem;
+			opacity: .75;
 		}
 	}
 
 	&.smb-ai-education {
 		@include pattern-background('carbon-fibre', linear-gradient(135deg, rgba($flaux-orange, 0.75), rgba($flaux-purple, 1)), auto, soft-light);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 		color: #eee;
-		// filter: saturate(1.25);
 
 		img {
-			width: 65%;
-			bottom: -5%;
-			opacity: .9;
-			mix-blend-mode: normal;
+			position: relative;
+			place-self: center;
 			justify-self: anchor-center;
+			width: 85%;
+			mix-blend-mode: normal;
+			opacity: .9;
 		}
 	}
 
@@ -245,10 +249,7 @@
 	}
 
 	.chat-agents {
-		img {
-			position: absolute !important;
-			width: 50%;
-		}
+		img {}
 	}
 
 }
@@ -275,12 +276,14 @@
 		gap: 1.5rem;
 
 		.voice-agents {
-			max-height: max-content;
 			display: flex;
 			flex-direction: column;
+			max-height: max-content;
 
 			.list-wrapper {
-				padding-inline: 1em;
+				display: grid;
+				padding-inline: 1em 0.5em;
+				gap: 1rem;
 			}
 
 			.capability-img {
@@ -290,14 +293,7 @@
 
 		.chat-agents {
 			img {
-				width: 47%;
-			}
-		}
-
-		.smb-ai-consulting {
-
-			.capability-img {
-				margin-top: 16%;
+				margin-bottom: -1rem;
 			}
 		}
 
@@ -305,7 +301,7 @@
 			img {
 				position: absolute !important;
 				bottom: -15%;
-				left: 5%;
+				left: 25%;
 				width: 75% !important;
 			}
 		}
@@ -316,23 +312,18 @@
 	}
 
 	.features-expansion {
-		margin-left: -2rem;
 		margin-right: -2rem;
 		margin-bottom: -2rem;
+		margin-left: -2rem;
 	}
 }
 
 @media screen and (max-width: 768px) {
 	.chat-agents {
 		img {
-			width: 51% !important;
+			display: block;
+			position: relative;
 		}
 	}
 
-}
-
-@media screen and (min-width: 1800px) {
-	.capabilities-container {
-		// max-width: 2100px;
-	}
 }

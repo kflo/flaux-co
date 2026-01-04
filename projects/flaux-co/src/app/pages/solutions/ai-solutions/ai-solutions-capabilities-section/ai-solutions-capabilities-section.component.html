@@ -53,26 +53,30 @@
 
 			<div class="capability-card chat-agents">
 				<h3>{{ capabilities.chatAgents.title }}</h3>
-				<p>Meet the chat that sells, supports, and schedules—<strong>automatically</strong>.</p>
-				<p>Trained on your <strong>knowledge base</strong>, it recognizes intent, updates CRM, and fires off confirmations. <strong>Always on</strong>. Always on brand. Handoff when it matters.</p>
+				<div>
+					<p>Meet the chat that sells, supports, and schedules—<strong>automatically</strong>.</p>
+					<p>Trained on your <strong>knowledge base</strong>, it recognizes intent, updates CRM, and fires off confirmations. <strong>Always on</strong>. Always on brand. Handoff when it matters.</p>
+					<p>Capture demand in the moment—turn chats into bookings and qualified leads with instant, on‑brand replies that close the loop via SMS/email.</p>
+				</div>
 				<img [src]="capabilities.chatAgents.image"
 					  width="100%"
 					  alt="Chat Agent Illustration"
 					  class="capability-img">
-				<p>Capture demand in the moment—turn chats into bookings and qualified leads with instant, on‑brand replies that close the loop via SMS/email.</p>
 			</div>
 
 			<!-- ----------------------------- CONSULTING ------------------------------ -->
 
 			<div class="capability-card smb-ai-consulting">
 				<h3>{{ capabilities.smbAiConsulting.title }}</h3>
-				<p>Start with a fast AI Audit of your workflows, tools, and customer touchpoints to identify the quickest, <strong>highest‑ROI wins</strong>.</p>
-				<p>From there, we tailor practical solutions — assistants, marketing boosts, and click‑free internal workflows — with clear pricing, training, and metrics so your team owns it.</p>
+				<div>
+					<p>Start with a fast AI Audit of your workflows, tools, and customer touchpoints to identify the quickest, <strong>highest‑ROI wins</strong>.</p>
+					<p>From there, we tailor practical solutions — assistants, marketing boosts, and click‑free internal workflows — with clear pricing, training, and metrics so your team owns it.</p>
+					<p>Prefer to co‑build? Pair our engineers with yours to accelerate delivery.</p>
+				</div>
 				<img [src]="capabilities.smbAiConsulting.image"
 					  width="100%"
 					  alt="AI Consulting Illustration"
 					  class="capability-img">
-				<p>Prefer to co‑build? Pair our engineers with yours to accelerate delivery.</p>
 			</div>
 
 			<!-- -------------------------- CUSTOM SOLUTIONS --------------------------- -->
@@ -91,7 +95,8 @@
 						busywork, and never misses a
 						handoff.</p>
 				</div>
-				<flaux-btn [height]="'1.5em'"
+				<flaux-btn [height]="'1.5rem'"
+							  [width]="'10rem'"
 							  routerLink="/workflow-automation"
 							  [hueRotate]="'-20deg'"
 							  class="primary-cta">Learn More</flaux-btn>
@@ -101,10 +106,12 @@
 
 			<div class="capability-card ai-powered-marketing">
 				<h3>{{ capabilities.aiPoweredMarketing.title }}</h3>
-				<p>Find more of the right customers with practical AI.</p>
-				<p>We help you identify your best audience, create on‑brand posts and ads in minutes, and run them on the channels your customers already use.</p>
-				<p>Clear reports show what’s working, and automated email/SMS follow‑ups turn interest into
-					bookings or sales. Start small, keep costs predictable, and scale as results grow.</p>
+				<div>
+					<p>Find more of the right customers with practical AI.</p>
+					<p>We help you identify your best audience, create on‑brand posts and ads in minutes, and run them on the channels your customers already use.</p>
+					<p>Clear reports show what’s working, and automated email/SMS follow‑ups turn interest into
+						bookings or sales. Start small, keep costs predictable, and scale as results grow.</p>
+				</div>
 				<img [src]="capabilities.aiPoweredMarketing.image"
 					  width="100%"
 					  alt="AI Marketing Illustration"
@@ -115,11 +122,13 @@
 
 			<div class="capability-card smb-ai-education">
 				<h3>{{ capabilities.smbAiEducation.title }}</h3>
-				<p>Equip your team to <strong>use AI with confidence</strong>. Whether virtually or in person, our interactive, role‑based workshops and labs teach how to spot high‑ROI use cases, craft effective prompts, automate daily tasks, and
-					stay
-					compliant with data
-					and privacy.</p>
-				<p>Your team leaves with working prototypes, curated tool playbooks, and a <b>90‑day adoption plan</b> tailored to your business.</p>
+				<div>
+					<p>Equip your team to <strong>use AI with confidence</strong>. Whether virtually or in person, our interactive, role‑based workshops and labs teach how to spot high‑ROI use cases, craft effective prompts, automate daily tasks, and
+						stay
+						compliant with data
+						and privacy.</p>
+					<p>Your team leaves with working prototypes, curated tool playbooks, and a <b>90‑day adoption plan</b> tailored to your business.</p>
+				</div>
 				<img [src]="capabilities.smbAiEducation.image"
 					  width="100%"
 					  alt="AI Education Illustration"

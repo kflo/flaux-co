@@ -8,6 +8,7 @@
 		auto,
 		overlay);
 	position: absolute;
+	width: 100%;
 
 	// Make each section snap to the top
 	>*:not(flaux-footer) {
