@@ -197,10 +197,6 @@ export class ContactPage implements OnInit {
 
 		const payload = this.preparePayload(formValue);
 
-		console.log({
-			payload, setAppointment: formValue.setAppointment
-		});
-
 		this.contactFormService.submit(payload).subscribe({
 			next: (response) => {
 				this.isSubmitting.set(false);

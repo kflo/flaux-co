@@ -69,9 +69,9 @@ export class ContactFormService {
 		);
 
 		const payload = this.utm.withUtm(cleanData);
-		return of({
-			ok: true, payload
-		} as any);
+		// return of({
+		// 	ok: true, payload
+		// } as any);
 		return this.http.post<ContactSubmissionResponse>(this.submitContactUrl, payload).pipe(
 			map(response => ({
 				...response, payload
