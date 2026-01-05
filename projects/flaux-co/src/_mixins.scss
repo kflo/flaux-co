@@ -14,7 +14,7 @@
 // Reusable hover effect for capability cards
 // $scale: e.g., 101%; $contrast: e.g., 110%;
 // $img-translate-y: set to a percentage to lift image; null to skip
-@mixin hover-lift($scale: 101%, $contrast: 110%, $img-translate-y: -5%, $img-translate-x: null) {
+@mixin hover-lift($scale: 101%, $contrast: 110%, $img-translate-y: -2.5%, $img-translate-x: null) {
 	transform: scale($scale);
 	filter: contrast($contrast);
 	// backdrop-filter: contrast($contrast);

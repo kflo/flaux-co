@@ -761,8 +761,9 @@ hr {
 			max-width: 125%;
 			height: auto;
 			margin-top: auto;
-			margin-bottom: -.75rem;
+			margin-top: -.75rem;
 			margin-left: -1.5rem;
+			order: -1;
 
 			video {
 				aspect-ratio: 1;
@@ -796,6 +797,7 @@ hr {
 
 			&-subtitle {
 				font-size: 1.1rem;
+				line-height: 1.25;
 			}
 
 			&-benefits {
@@ -805,6 +807,10 @@ hr {
 			&-questions-1 {
 				margin-inline: -2rem;
 				background: linear-gradient(90deg, transparent 0%, rgba(10, 10, 10, 0.6) 20%, rgba(10, 10, 10, 0.6) 80%, transparent 100%);
+			}
+
+			&-ctas {
+				margin-top: 1.5rem;
 			}
 		}
 	}

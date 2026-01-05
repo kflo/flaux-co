@@ -17,13 +17,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { FooterComponent } from "@app/shared/footer/footer.component";
 import { ContactFormService } from '@app/services/contact-form.service';
-import { FlauxBtnComponent } from '@app/shared/flaux-btn/flaux-btn.component';
 import {
 	INITIAL_FORM_VALUES,
 	PROJECT_TYPE_GROUPS,
 	BUDGET_SLIDER_LABELS,
 	TIMELINE_SLIDER_LABELS
 } from './contact.constants';
+import { SeoService } from '@app/services/seo.service';
 
 @Component({
 	selector: 'flaux-contact',
@@ -39,7 +39,6 @@ import {
 		MatSliderModule,
 		FooterComponent,
 		MatSnackBarModule,
-		FlauxBtnComponent
 	],
 	templateUrl: './contact.page.html',
 	styleUrls: ['./contact.page.scss'],
@@ -67,11 +66,19 @@ export class ContactPage implements OnInit {
 
 	readonly projectTypeGroups = PROJECT_TYPE_GROUPS;
 
-	constructor (private fb: FormBuilder) {
+	private seoService = inject(SeoService);
+
+	constructor (private fb: FormBuilder ) {
 		this.form = this.createForm();
 	}
 
 	ngOnInit() {
+		this.seoService.update({
+			title: 'Contact Us | Flaux',
+			description: 'Get in touch with the Flaux team to discuss your AI and automation needs. We\'re here to help your business grow with cutting-edge solutions.',
+			image: '/assets/img/agency/ai-web-chat-collage.png'
+		});
+
 		this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.TabletPortrait])
 			.subscribe(result => {
 				this.isMobile.set(result.matches);

@@ -49,7 +49,7 @@ export const routes: Routes = [
 		loadComponent: () => import('@pages/contact/contact.page').then(m => m.ContactPage)
 	},
 	{
-		path: 'submitted',
+		path: 'thank-you',
 		loadComponent: () => import('@pages/thank-you/thank-you.page').then(m => m.ThankYouPage)
 	},
 	{

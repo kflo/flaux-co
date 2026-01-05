@@ -60,7 +60,7 @@
 	transition: all 0.5s ease;
 
 	&:hover {
-		@include hover-lift(101%, 120%, -5%);
+		@include hover-lift(101%, 120%, -2.5%);
 
 	}
 
@@ -300,8 +300,9 @@
 		.custom-ai-solutions {
 			img {
 				position: absolute !important;
-				bottom: -15%;
-				left: 25%;
+				bottom: -8%;
+				top: auto;
+				left: 28%;
 				width: 75% !important;
 			}
 		}
