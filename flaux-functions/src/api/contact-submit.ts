@@ -64,6 +64,13 @@ export const submitContact = onRequest({
 			const timeline: string | undefined = body.timeline?.toString().trim();
 			const preferredContact: string | undefined = body.preferredContact?.toString().trim();
 			const description: string | undefined = body.description?.toString().trim();
+			const website: string | undefined = body.website?.toString().trim();
+			const faxNumber: string | undefined = body.faxNumber?.toString().trim();
+			// Convert duration from ms to seconds
+			const rawDuration = Number(body.submissionDuration);
+			const submissionDuration: number | undefined = !isNaN(rawDuration) ?
+				Math.round(rawDuration / 1000) :
+				undefined;
 			const projectType: string[] = Array.isArray(body.projectType) ? body.projectType : [];
 
 			// Extract UTM parameters
@@ -88,6 +95,9 @@ export const submitContact = onRequest({
 				timeline,
 				preferredContact,
 				description,
+				hpWebsite: website,
+				hpFaxNumber: faxNumber,
+				submissionDuration,
 				projectType: projectType.join(", "),
 				source: "flaux.co/contact",
 				utm_source,

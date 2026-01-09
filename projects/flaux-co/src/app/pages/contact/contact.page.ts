@@ -6,6 +6,7 @@ import {
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { take } from 'rxjs/operators';
 
 import { FlauxSectionComponent } from '@app/shared/flaux-section/flaux-section.component';
 
@@ -68,8 +69,13 @@ export class ContactPage implements OnInit {
 
 	private seoService = inject(SeoService);
 
+	private formStartTime: number | null = null;
+
 	constructor (private fb: FormBuilder ) {
 		this.form = this.createForm();
+		this.form.valueChanges.pipe(take(1)).subscribe(() => {
+			this.formStartTime = Date.now();
+		});
 	}
 
 	ngOnInit() {
@@ -95,6 +101,8 @@ export class ContactPage implements OnInit {
 
 	private createForm(): FormGroup {
 		return this.fb.group({
+			website: [''],
+			faxNumber: [''],
 			firstName: [INITIAL_FORM_VALUES.firstName, { validators: [Validators.required] }],
 			lastName: [INITIAL_FORM_VALUES.lastName, { validators: [Validators.required] }],
 			email: [INITIAL_FORM_VALUES.email, { validators: [Validators.required, Validators.email] }],
@@ -170,7 +178,10 @@ export class ContactPage implements OnInit {
 			budget: BUDGET_SLIDER_LABELS[value.budgetIndex],
 			timeline: TIMELINE_SLIDER_LABELS[value.timelineIndex],
 			preferredContact,
-			description: descriptionParts.join(' ')
+			description: descriptionParts.join(' '),
+			website: value.website,
+			faxNumber: value.faxNumber,
+			submissionDuration: this.formStartTime ? Date.now() - this.formStartTime : 0
 		};
 	}
 
@@ -218,7 +229,7 @@ export class ContactPage implements OnInit {
 						queryParams.utm_content = response.payload?.utm_content;
 					}
 					this.resetForm();
-					this.router.navigate(['/submitted'], { queryParams });
+					this.router.navigate(['/thank-you'], { queryParams });
 				} else {
 					this.openSnackBar('Error — ' + (response?.error || 'Failed to submit form. Please try again.'), '✖');
 				}

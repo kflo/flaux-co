@@ -1,11 +1,21 @@
 @use '@angular/material' as mat;
 @use 'variables' as *;
-@use 'mixins' as mixins;
+@use 'mixins' as *;
 @use 'form-buttons' as *;
+
+.hp-field {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 0;
+	width: 0;
+	z-index: -1;
+}
 
 :host {
 	display: block;
-	@include mixins.pattern-background('white-diamond-dark',
+	@include pattern-background('white-diamond-dark',
 		radial-gradient(circle at 15% 10%, $flaux-blue3 30%, rgba(0, 0, 0, 0.5) 105%),
 		auto,
 		screen);
@@ -116,7 +126,7 @@ flaux-section {
 }
 
 .section-header {
-	margin-bottom: 2rem;
+	margin-block: 1.5rem 3.5rem;
 	text-align: center;
 
 	h3 {
