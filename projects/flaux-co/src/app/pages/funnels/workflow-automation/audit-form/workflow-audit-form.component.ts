@@ -32,6 +32,7 @@ export class WorkflowAuditFormComponent {
 
 	form: FormGroup;
 	isSubmitting = signal(false);
+	private formStartTime: number | null = null;
 
 	constructor() {
 		this.form = this.fb.group({
@@ -45,7 +46,18 @@ export class WorkflowAuditFormComponent {
 			hasCrm: [false],
 			crmName: [''],
 			hasWebsite: [false],
-			websiteUrl: ['']
+			websiteUrl: [''],
+			website: [''], // h.p. field
+			faxNumber: [''] // h.p. field
+		});
+
+		// Set start time on first interaction
+		this.form.valueChanges.subscribe({
+			next: () => {
+				if (!this.formStartTime) {
+					this.formStartTime = Date.now();
+				}
+			}
 		});
 	}	onSubmit() {
 		if (this.form.invalid || this.isSubmitting()) {
@@ -75,7 +87,10 @@ export class WorkflowAuditFormComponent {
 			crmName: formValue.crmName,
 			hasWebsite: formValue.hasWebsite,
 			websiteUrl: formValue.websiteUrl,
-			description: descriptionParts.join(' ')
+			description: descriptionParts.join(' '),
+			website: formValue.website,
+			faxNumber: formValue.faxNumber,
+			submissionDuration: this.formStartTime ? Date.now() - this.formStartTime : 0
 		}).subscribe({
 			next: () => {
 				this.isSubmitting.set(false);

@@ -1,5 +1,19 @@
 <form [formGroup]="form"
 		(ngSubmit)="onSubmit()">
+	<!-- h.p. fields -->
+	<input id="website"
+			 type="text"
+			 formControlName="website"
+			 class="hp-field"
+			 tabindex="-1"
+			 autocomplete="off">
+	<input id="faxNumber"
+			 type="text"
+			 formControlName="faxNumber"
+			 class="hp-field"
+			 tabindex="-1"
+			 autocomplete="off">
+
 	<div class="form-row">
 		<mat-form-field appearance="outline"
 							 class="form-field">

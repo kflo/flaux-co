@@ -1,205 +1,219 @@
 <form [formGroup]="form"
-      (ngSubmit)="onSubmit()">
-    <div class="form-row">
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>First Name</mat-label>
-            <input matInput
-                   type="text"
-                   id="firstName"
-                   formControlName="firstName"
-                   placeholder="John">
-            @if (form.get('firstName')?.hasError('required') && form.get('firstName')?.touched) {
-            <mat-error>First Name is required</mat-error>
-            }
-        </mat-form-field>
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>Last Name</mat-label>
-            <input matInput
-                   type="text"
-                   id="lastName"
-                   formControlName="lastName"
-                   placeholder="Smith">
-            @if (form.get('lastName')?.hasError('required') && form.get('lastName')?.touched) {
-            <mat-error>Last Name is required</mat-error>
-            }
-        </mat-form-field>
-    </div>
+		(ngSubmit)="onSubmit()">
+	<!-- h.p. fields -->
+	<input id="website"
+			 type="text"
+			 formControlName="website"
+			 class="hp-field"
+			 tabindex="-1"
+			 autocomplete="off">
+	<input id="faxNumber"
+			 type="text"
+			 formControlName="faxNumber"
+			 class="hp-field"
+			 tabindex="-1"
+			 autocomplete="off">
 
-    @if (uxService.lessThan1100()) {
-    <div class="form-row">
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>Best Email</mat-label>
-            <input matInput
-                   type="email"
-                   id="email"
-                   formControlName="email"
-                   placeholder="you@example.com">
-            @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
-            <mat-error>Email is required</mat-error>
-            }
-            @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
-            <mat-error>Please enter a valid email address</mat-error>
-            }
-        </mat-form-field>
-    </div>
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>First Name</mat-label>
+			<input matInput
+					 type="text"
+					 id="firstName"
+					 formControlName="firstName"
+					 placeholder="John">
+			@if (form.get('firstName')?.hasError('required') && form.get('firstName')?.touched) {
+			<mat-error>First Name is required</mat-error>
+			}
+		</mat-form-field>
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Last Name</mat-label>
+			<input matInput
+					 type="text"
+					 id="lastName"
+					 formControlName="lastName"
+					 placeholder="Smith">
+			@if (form.get('lastName')?.hasError('required') && form.get('lastName')?.touched) {
+			<mat-error>Last Name is required</mat-error>
+			}
+		</mat-form-field>
+	</div>
 
-    <div class="form-row">
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>Best Phone Number</mat-label>
-            <input matInput
-                   type="tel"
-                   id="phone"
-                   formControlName="phone"
-                   placeholder="(555) 555-5555">
-            @if (form.get('phone')?.hasError('required') && form.get('phone')?.touched) {
-            <mat-error>Phone number is required</mat-error>
-            }
-            @if (form.get('phone')?.hasError('pattern') && form.get('phone')?.touched) {
-            <mat-error>Please enter a valid phone number</mat-error>
-            }
-        </mat-form-field>
-    </div>
+	@if (uxService.lessThan1100()) {
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Best Email</mat-label>
+			<input matInput
+					 type="email"
+					 id="email"
+					 formControlName="email"
+					 placeholder="you@example.com">
+			@if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+			<mat-error>Email is required</mat-error>
+			}
+			@if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+			<mat-error>Please enter a valid email address</mat-error>
+			}
+		</mat-form-field>
+	</div>
 
-    <div class="form-row">
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>Company Name</mat-label>
-            <input matInput
-                   type="text"
-                   id="companyName"
-                   formControlName="companyName"
-                   placeholder="Smith Plumbing">
-        </mat-form-field>
-    </div>
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Best Phone Number</mat-label>
+			<input matInput
+					 type="tel"
+					 id="phone"
+					 formControlName="phone"
+					 placeholder="(555) 555-5555">
+			@if (form.get('phone')?.hasError('required') && form.get('phone')?.touched) {
+			<mat-error>Phone number is required</mat-error>
+			}
+			@if (form.get('phone')?.hasError('pattern') && form.get('phone')?.touched) {
+			<mat-error>Please enter a valid phone number</mat-error>
+			}
+		</mat-form-field>
+	</div>
 
-    <div class="form-row">
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>Primary Service Area</mat-label>
-            <input matInput
-                   type="text"
-                   id="serviceArea"
-                   formControlName="serviceArea"
-                   placeholder="e.g., Greater Louisville, KY">
-        </mat-form-field>
-    </div>
-    } @else {
-    <div class="form-row">
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>Best Email</mat-label>
-            <input matInput
-                   type="email"
-                   id="email"
-                   formControlName="email"
-                   placeholder="you@example.com">
-            @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
-            <mat-error>Email is required</mat-error>
-            }
-            @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
-            <mat-error>Please enter a valid email address</mat-error>
-            }
-        </mat-form-field>
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Company Name</mat-label>
+			<input matInput
+					 type="text"
+					 id="companyName"
+					 formControlName="companyName"
+					 placeholder="Smith Plumbing">
+		</mat-form-field>
+	</div>
 
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>Best Phone Number</mat-label>
-            <input matInput
-                   type="tel"
-                   id="phone"
-                   formControlName="phone"
-                   placeholder="(555) 555-5555">
-            @if (form.get('phone')?.hasError('required') && form.get('phone')?.touched) {
-            <mat-error>Phone number is required</mat-error>
-            }
-            @if (form.get('phone')?.hasError('pattern') && form.get('phone')?.touched) {
-            <mat-error>Please enter a valid phone number</mat-error>
-            }
-        </mat-form-field>
-    </div>
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Primary Service Area</mat-label>
+			<input matInput
+					 type="text"
+					 id="serviceArea"
+					 formControlName="serviceArea"
+					 placeholder="e.g., Greater Louisville, KY">
+		</mat-form-field>
+	</div>
+	} @else {
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Best Email</mat-label>
+			<input matInput
+					 type="email"
+					 id="email"
+					 formControlName="email"
+					 placeholder="you@example.com">
+			@if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+			<mat-error>Email is required</mat-error>
+			}
+			@if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+			<mat-error>Please enter a valid email address</mat-error>
+			}
+		</mat-form-field>
 
-    <div class="form-row">
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>Company Name</mat-label>
-            <input matInput
-                   type="text"
-                   id="companyName"
-                   formControlName="companyName"
-                   placeholder="Smith Plumbing">
-        </mat-form-field>
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Best Phone Number</mat-label>
+			<input matInput
+					 type="tel"
+					 id="phone"
+					 formControlName="phone"
+					 placeholder="(555) 555-5555">
+			@if (form.get('phone')?.hasError('required') && form.get('phone')?.touched) {
+			<mat-error>Phone number is required</mat-error>
+			}
+			@if (form.get('phone')?.hasError('pattern') && form.get('phone')?.touched) {
+			<mat-error>Please enter a valid phone number</mat-error>
+			}
+		</mat-form-field>
+	</div>
 
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>Primary Service Area</mat-label>
-            <input matInput
-                   type="text"
-                   id="serviceArea"
-                   formControlName="serviceArea"
-                   placeholder="e.g., Greater Louisville, KY">
-        </mat-form-field>
-    </div>
-    }
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Company Name</mat-label>
+			<input matInput
+					 type="text"
+					 id="companyName"
+					 formControlName="companyName"
+					 placeholder="Smith Plumbing">
+		</mat-form-field>
 
-    <div class="form-row">
-        <mat-form-field appearance="outline"
-                        class="form-field">
-            <mat-label>What's your biggest pain point right now?</mat-label>
-            <textarea matInput
-                      id="biggestPain"
-                      formControlName="biggestPain"
-                      rows="3"
-                      placeholder="e.g., Missed calls, low Google reviews, not enough leads..."></textarea>
-        </mat-form-field>
-    </div>
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>Primary Service Area</mat-label>
+			<input matInput
+					 type="text"
+					 id="serviceArea"
+					 formControlName="serviceArea"
+					 placeholder="e.g., Greater Louisville, KY">
+		</mat-form-field>
+	</div>
+	}
 
-    <div class="checkbox-row">
-        <div class="checkbox-item">
-            <mat-checkbox formControlName="hasCrm">I use a CRM / Field Service Software</mat-checkbox>
-            @if (form.get('hasCrm')?.value) {
-            <mat-form-field appearance="outline"
-                            class="checkbox-input"
-                            subscriptSizing="dynamic">
-                <mat-label>Which one?</mat-label>
-                <input matInput
-                       formControlName="crmName"
-                       placeholder="e.g., ServiceTitan, Housecall Pro">
-            </mat-form-field>
-            }
-        </div>
+	<div class="form-row">
+		<mat-form-field appearance="outline"
+							 class="form-field">
+			<mat-label>What's your biggest pain point right now?</mat-label>
+			<textarea matInput
+						 id="biggestPain"
+						 formControlName="biggestPain"
+						 rows="3"
+						 placeholder="e.g., Missed calls, low Google reviews, not enough leads..."></textarea>
+		</mat-form-field>
+	</div>
 
-        <div class="checkbox-item">
-            <mat-checkbox formControlName="hasWebsite">I have a website</mat-checkbox>
-            @if (form.get('hasWebsite')?.value) {
-            <mat-form-field appearance="outline"
-                            class="checkbox-input"
-                            subscriptSizing="dynamic">
-                <mat-label>Website URL</mat-label>
-                <input matInput
-                       formControlName="websiteUrl"
-                       placeholder="e.g., smithplumbing.com">
-            </mat-form-field>
-            }
-        </div>
-    </div>
+	<div class="checkbox-row">
+		<div class="checkbox-item">
+			<mat-checkbox formControlName="hasCrm">I use a CRM / Field Service Software</mat-checkbox>
+			@if (form.get('hasCrm')?.value) {
+			<mat-form-field appearance="outline"
+								 class="checkbox-input"
+								 subscriptSizing="dynamic">
+				<mat-label>Which one?</mat-label>
+				<input matInput
+						 formControlName="crmName"
+						 placeholder="e.g., ServiceTitan, Housecall Pro">
+			</mat-form-field>
+			}
+		</div>
 
-    <button mat-flat-button
-            color="primary"
-            type="submit"
-            class="submit-button"
-            [disabled]="isSubmitting()">
-        @if (isSubmitting()) {
-        Submitting...
-        } @else {
-        Get My Free Audit
-        }
-    </button>
+		<div class="checkbox-item">
+			<mat-checkbox formControlName="hasWebsite">I have a website</mat-checkbox>
+			@if (form.get('hasWebsite')?.value) {
+			<mat-form-field appearance="outline"
+								 class="checkbox-input"
+								 subscriptSizing="dynamic">
+				<mat-label>Website URL</mat-label>
+				<input matInput
+						 formControlName="websiteUrl"
+						 placeholder="e.g., smithplumbing.com">
+			</mat-form-field>
+			}
+		</div>
+	</div>
 
-    <p class="form-disclaimer">
-        We respect your privacy. No spam, ever.
-    </p>
+	<button mat-flat-button
+			  color="primary"
+			  type="submit"
+			  class="submit-button"
+			  [disabled]="isSubmitting()">
+		@if (isSubmitting()) {
+		Submitting...
+		} @else {
+		Get My Free Audit
+		}
+	</button>
+
+	<p class="form-disclaimer">
+		We respect your privacy. No spam, ever.
+	</p>
 </form>

@@ -25,6 +25,9 @@ export interface ContactFormData {
 	crmName?: string;
 	hasWebsite?: boolean;
 	websiteUrl?: string;
+	website?: string; // h.p. field
+	faxNumber?: string; // h.p. field
+	submissionDuration?: number;
 }
 
 /**
