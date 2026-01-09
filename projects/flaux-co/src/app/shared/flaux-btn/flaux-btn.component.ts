@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgTemplateOutlet } from '@angular/common';
 
-export type FlauxColor = 'highlight' | 'violet' | 'blue3' | 'blue2' | 'blue' | 'purple' | 'pink' | 'yellow' | 'orange' | 'salmon';
+export type FlauxColor = 'highlight' | 'violet' | 'blue3' | 'blue2' | 'blue' | 'purple' | 'pink' | 'yellow' | 'orange' | 'salmon' | 'default';
 
 const FLAUX_COLORS: Record<FlauxColor, { hex: string; hue: number }> = {
 	highlight: {
@@ -44,6 +44,10 @@ const FLAUX_COLORS: Record<FlauxColor, { hex: string; hue: number }> = {
 	salmon: {
 		hex: '#f06b86',
 		hue: 344
+	},
+	default: {
+		hex: '#ffffff',
+		hue: 0
 	}
 };
 
@@ -58,7 +62,8 @@ const FLAUX_COLORS: Record<FlauxColor, { hex: string; hue: number }> = {
 		'[style.--width]': 'width',
 		'[style.--backgroundColor]': 'bgColorValue',
 		'[style.filter]': 'hueRotate ? "hue-rotate(" + hueRotate + ")" : null',
-		'[class.pulse]': 'pulse'
+		'[class.pulse]': 'pulse',
+		'[class.no-bg-img]': 'isDefault'
 	}
 })
 export class FlauxBtnComponent {
@@ -71,9 +76,11 @@ export class FlauxBtnComponent {
 	@Input() hueRotate?: string;
 	@Input() pulse: boolean = false;
 	@Input() set backgroundColor(color: FlauxColor) {
+		this.isDefault = color === 'default';
 		const colorValue = FLAUX_COLORS[color];
 		this.bgColorValue = colorValue ? `${colorValue.hue}deg` : '0deg';
 	}
 
 	bgColorValue: string = '0deg';
+	isDefault: boolean = false;
 }
