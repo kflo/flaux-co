@@ -1,4 +1,67 @@
-<div class="page-content">
-  <h1>Demo</h1>
-  <p>Demo page works!</p>
+<flaux-section height="'auto'"
+					inlinePadding="'2rem'"
+					blockPadding="'4rem'">
+	<div class="demo-container">
+		<header class="demo-header">
+			<h1><span class="highlight">Visual</span> Showcase</h1>
+			<p>A glimpse into our agency's digital craftsmanship and AI implementations.</p>
+		</header>
+
+		<div class="image-grid">
+			@for (image of images; track image.src; let i = $index) {
+			<div class="grid-item"
+				  (click)="openLightbox(i)">
+				<div class="image-wrapper">
+					<img [src]="image.src"
+						  [alt]="image.caption"
+						  loading="lazy">
+					<div class="overlay"></div>
+				</div>
+			</div>
+			}
+		</div>
+	</div>
+</flaux-section>
+
+@if (selectedImageIndex() !== null) {
+<div class="lightbox-overlay"
+	  (click)="closeLightbox()"
+	  (touchstart)="onTouchStart($event)"
+	  (touchend)="onTouchEnd($event)">
+	<button class="nav-btn prev"
+			  (click)="navigate('prev', $event)"
+			  aria-label="Previous image">‹</button>
+
+	<div class="lightbox-content"
+		  [class.zoomed]="isZoomed()"
+		  [class.dragging]="isDragging()"
+		  (click)="toggleZoom($event)"
+		  (mousedown)="onMouseDown($event)">
+		<img [src]="images[selectedImageIndex()!].src"
+			  [alt]="images[selectedImageIndex()!].caption"
+			  [class.zoom-enabled]="isZoomed()"
+			  [style.transform]="isZoomed() ? 'translate3d(' + panX() + 'px, ' + panY() + 'px, 0) scale(var(--zoom-scale))' : ''">
+	</div>
+
+	<button class="nav-btn next"
+			  (click)="navigate('next', $event)"
+			  aria-label="Next image">›</button>
+
+	<button class="close-btn"
+			  (click)="closeLightbox()">×</button>
+
+	<div class="lightbox-counter">
+		{{ selectedImageIndex()! + 1 }} / {{ images.length }}
+	</div>
+
+	<div class="lightbox-caption">
+		<p>{{ images[selectedImageIndex()!].caption }}</p>
+	</div>
+
+	<div class="lightbox-hint">
+		{{ isZoomed() ? 'Click to zoom out' : 'Click to zoom in' }}
+	</div>
 </div>
+}
+
+<flaux-footer></flaux-footer>
