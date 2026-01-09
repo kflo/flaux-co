@@ -18,31 +18,31 @@ A linear carousel component that displays items in a horizontal line with smooth
 
 ### Basic Usage
 ```html
-<flaux-carousel [items]="carouselItems"></flaux-carousel>
+<ai-workforce-carousel [items]="carouselItems"></ai-workforce-carousel>
 ```
 
 ### Advanced Configuration
 ```html
-<flaux-carousel 
+<ai-workforce-carousel 
   [items]="carouselItems"
   [itemWidth]="16"
   [itemSpacing]="3"
   [visibleItems]="7"
   [showControls]="true"
   [enableSwipe]="true">
-</flaux-carousel>
+</ai-workforce-carousel>
 ```
 
 ## Properties
 
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `items` | `CarouselItem[]` | `[]` | Array of items to display |
-| `itemWidth` | `number` | `4` | Width/height of each item in rem |
-| `itemSpacing` | `number` | `2` | Spacing between items in rem |
-| `visibleItems` | `number` | `5` | Number of items visible at once |
-| `showControls` | `boolean` | `true` | Show/hide navigation controls |
-| `enableSwipe` | `boolean` | `true` | Enable/disable touch swipe functionality |
+| Property       | Type             | Default | Description                              |
+| -------------- | ---------------- | ------- | ---------------------------------------- |
+| `items`        | `CarouselItem[]` | `[]`    | Array of items to display                |
+| `itemWidth`    | `number`         | `4`     | Width/height of each item in rem         |
+| `itemSpacing`  | `number`         | `2`     | Spacing between items in rem             |
+| `visibleItems` | `number`         | `5`     | Number of items visible at once          |
+| `showControls` | `boolean`        | `true`  | Show/hide navigation controls            |
+| `enableSwipe`  | `boolean`        | `true`  | Enable/disable touch swipe functionality |
 
 ## CarouselItem Interface
 
@@ -94,20 +94,20 @@ The component uses CSS custom properties for dynamic styling:
 
 ### Compact Layout with Close Spacing
 ```html
-<flaux-carousel 
+<ai-workforce-carousel 
   [items]="items"
   [itemWidth]="12"
   [itemSpacing]="1"
   [visibleItems]="7">
-</flaux-carousel>
+</ai-workforce-carousel>
 ```
 
 ### Spacious Layout with Wide Spacing
 ```html
-<flaux-carousel 
+<ai-workforce-carousel 
   [items]="items"
   [itemWidth]="18"
   [itemSpacing]="4"
   [visibleItems]="3">
-</flaux-carousel>
+</ai-workforce-carousel>
 ```

@@ -1,0 +1,14 @@
+<div class="carousel-bg"></div>
+<flaux-section [height]="'100dvh'"
+					[inlinePadding]="'0'"
+					class="mkt-ai-section"
+					flauxVignette>
+	<ai-workforce-carousel #carousel
+								  [items]="carouselItems"
+								  [showControls]="true"
+								  [itemWidth]="5"
+								  [itemSpacing]="1"
+								  (keydown.arrowLeft)="carousel.turnLeft()"
+								  (keydown.arrowRight)="carousel.turnRight()">
+	</ai-workforce-carousel>
+</flaux-section>

@@ -407,9 +407,10 @@ hr {
 	color: rgba(255, 255, 255, 0.8);
 	font-size: 1.1rem;
 	text-align: center;
+	place-items: center;
 
 	p {
-		padding-block: 0.5rem;
+		padding-block: 0.5rem 1.5rem;
 	}
 }
 

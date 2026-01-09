@@ -1,17 +1,17 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {FlauxSectionComponent} from '@app/shared/flaux-section/flaux-section.component';
-import {CarouselItem, FlauxCarouselComponent} from "@app/shared/flaux-carousel/flaux-carousel.component";
-import {environment} from 'projects/flaux-co/environments/environment';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AiWorkforceCarouselItem, AiWorkforceCarouselComponent } from '@app/shared/ai-workforce-carousel/ai-workforce-carousel.component';
+import { FlauxSectionComponent } from '@app/shared/flaux-section/flaux-section.component';
+import { environment } from 'projects/flaux-co/environments/environment';
 
 @Component({
-	selector: 'mkt-ai-section',
-	imports: [FlauxSectionComponent, FlauxCarouselComponent],
-	templateUrl: './mkt-ai-section.component.html',
-	styleUrl: './mkt-ai-section.component.scss',
+	selector: 'ai-workforce-section',
+	imports: [FlauxSectionComponent, AiWorkforceCarouselComponent],
+	templateUrl: './ai-workforce-section.component.html',
+	styleUrl: './ai-workforce-section.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MktAiSectionComponent {
-	public carouselItems: CarouselItem[] = [
+export class AiWorkforceSectionComponent {
+	public carouselItems: AiWorkforceCarouselItem[] = [
 		{
 			id: 6,
 			text: 'Coming Soon!',

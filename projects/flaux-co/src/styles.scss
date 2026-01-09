@@ -129,8 +129,9 @@ html, body {
 
 /* Scroll snap for full page sections */
 html {
-	scroll-snap-type: y proximity !important;
+	scroll-snap-type: y proximity;
 	scroll-behavior: smooth;
+	scroll-padding-top: var(--navbar-height, 4rem);
 }
 
 /* Links */

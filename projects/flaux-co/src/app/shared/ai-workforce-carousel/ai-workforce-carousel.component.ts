@@ -1,5 +1,5 @@
 import {
-	Component, Input, OnInit, ChangeDetectorRef, inject 
+	Component, Input, OnInit, ChangeDetectorRef, inject
 } from '@angular/core';
 import { NgStyle } from '@angular/common';
 // import { MatRippleModule } from '@angular/material/core';
@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
 import { FlauxBtnComponent } from "../flaux-btn/flaux-btn.component";
 
-export interface CarouselItem {
+export interface AiWorkforceCarouselItem {
 	id: number;
 	text?: string | null;
 	imageUrl?: string;
@@ -31,20 +31,20 @@ export interface CarouselItem {
 
 @Component({
 	standalone: true,
-	selector: 'flaux-carousel',
-	templateUrl: './flaux-carousel.component.html',
+	selector: 'ai-workforce-carousel',
+	templateUrl: './ai-workforce-carousel.component.html',
 	imports: [NgStyle, MatButtonModule, MatIconModule, MatRippleModule, FlauxBtnComponent],
-	styleUrls: ['./flaux-carousel.component.scss']
+	styleUrls: ['./ai-workforce-carousel.component.scss']
 })
-export class FlauxCarouselComponent implements OnInit {
-	@Input() items: CarouselItem[] = [];
+export class AiWorkforceCarouselComponent implements OnInit {
+	@Input() items: AiWorkforceCarouselItem[] = [];
 	@Input() itemWidth: number = 4; // width of each item in rem
 	@Input() itemSpacing: number = 2; // spacing between items in rem
 	@Input() showControls: boolean = true;
 	@Input() visibleItems: number = 5; // number of items visible at once
 	@Input() enableSwipe: boolean = true; // Enable/disable swipe functionality
 
-	public itemElements: { item: CarouselItem, id: string, positionIndex: number }[] = [];
+	public itemElements: { item: AiWorkforceCarouselItem, id: string, positionIndex: number }[] = [];
 	private isAnimating: boolean = false;
 	private wrapAroundElements: Set<string> = new Set(); // Track elements in wrap-around transition
 	public currentOffset: number = 0; // Current scroll offset
@@ -103,7 +103,7 @@ export class FlauxCarouselComponent implements OnInit {
 		}, 500);
 	}
 
-	get featuredItem(): CarouselItem | null {
+	get featuredItem(): AiWorkforceCarouselItem | null {
 		const centerElement = this.itemElements.find(el => this.isCenterElement(el));
 		return centerElement ? centerElement.item : null;
 	}
@@ -244,7 +244,7 @@ export class FlauxCarouselComponent implements OnInit {
 		}
 	}
 
-	public onCarouselItemClick(element: { item: CarouselItem, id: string, positionIndex: number }): void {
+	public onCarouselItemClick(element: { item: AiWorkforceCarouselItem, id: string, positionIndex: number }): void {
 		if (this.isAnimating || this.isCenterElement(element)) return;
 
 		const centerIndex = Math.floor(this.visibleItems / 2);

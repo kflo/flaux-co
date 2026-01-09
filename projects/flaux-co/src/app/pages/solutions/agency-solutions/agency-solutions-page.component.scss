@@ -46,6 +46,7 @@ mkt-ai-section {
 		z-index: 3;
 		text-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7);
 		text-align: end;
+		justify-items: flex-end;
 
 		h1, h2, h3, h4 {
 			text-shadow: 1px 1px 1.3rem rgba(0, 0, 0, 0.8);
@@ -74,10 +75,6 @@ mkt-ai-section {
 
 		.contact-btn {
 			margin-top: 2em !important;
-
-			>* {
-				box-shadow: 1px 1px 1rem #000 !important;
-			}
 		}
 	}
 }
@@ -131,6 +128,7 @@ mkt-ai-section {
 		.hero-heading {
 			text-align: center;
 			flex: 3;
+			justify-items: center;
 
 			p {
 				margin-top: 0.2em;

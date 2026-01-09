@@ -57,7 +57,11 @@
 	overflow: hidden;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
-	transition: all 0.5s ease;
+	transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+		filter 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+		box-shadow 0.5s ease;
+	will-change: transform, filter;
+	backface-visibility: hidden;
 
 	&:hover {
 		@include hover-lift(101%, 120%, -2.5%);
@@ -99,7 +103,7 @@
 		position: absolute;
 		padding: 1em;
 		transition: transform 0.5s ease;
-
+		will-change: transform;
 	}
 
 	// Full width card
@@ -136,6 +140,7 @@
 			opacity: .8;
 			shape-margin: 4em;
 			shape-outside: url('../../../../../assets/img/automation/voice-agents@2x.png');
+			will-change: transform, filter;
 		}
 	}
 
@@ -184,7 +189,7 @@
 			overlay);
 
 		.text-wrapper {
-			margin-bottom: 2rem;
+			margin-bottom: 3rem;
 		}
 
 		img {

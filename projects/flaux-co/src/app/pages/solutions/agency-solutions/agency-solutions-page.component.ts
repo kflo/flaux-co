@@ -6,16 +6,16 @@ import { FlauxGlassSectionComponent } from "@app/shared/glass-section";
 import { QuoteItem } from '@app/pages/home/quotes-section/quotes.data';
 import { FlauxQuoteCarouselComponent } from '@app/shared/quote-carousel/quote-carousel.component';
 import { FlauxQuoteHighlightComponent } from '@app/shared/quote-highlight/quote-highlight.component';
-import { MktAiSectionComponent } from '@app/pages/home/mkt-ai-section/mkt-ai-section.component';
 import { FooterComponent } from '@app/shared/footer/footer.component';
 import { SeoService } from '@app/services/seo.service';
 import { UxService } from '@app/services/ux.service';
 import { FlauxBtnComponent } from '@app/shared/flaux-btn/flaux-btn.component';
 import { FlauxFnComponent } from '@app/shared/flaux-fn/flaux-fn.component';
+import { AiWorkforceSectionComponent } from './ai-workforce-section/ai-workforce-section.component';
 
 @Component({
 	selector: 'agency-solutions-page',
-	imports: [FlauxSectionComponent, BlobBackdropComponent, GradientBackgroundComponent, FlauxGlassSectionComponent, FlauxQuoteCarouselComponent, FlauxQuoteHighlightComponent, MktAiSectionComponent, FooterComponent, FlauxBtnComponent, FlauxFnComponent],
+	imports: [FlauxSectionComponent, BlobBackdropComponent, GradientBackgroundComponent, FlauxGlassSectionComponent, FlauxQuoteCarouselComponent, FlauxQuoteHighlightComponent, AiWorkforceSectionComponent, FooterComponent, FlauxBtnComponent, FlauxFnComponent],
 	hostDirectives: [],
 	templateUrl: './agency-solutions-page.component.html',
 	styleUrl: './agency-solutions-page.component.scss',

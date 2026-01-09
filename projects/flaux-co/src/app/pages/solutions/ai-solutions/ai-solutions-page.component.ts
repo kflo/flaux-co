@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { PrivacyConfirmedSectionComponent } from '../agency-solutions/privacy-confirmed-section/privacy-confirmed-section.component';
 import { AiSolutionsHeroSectionComponent } from "./ai-solutions-hero-section/ai-solutions-hero-section.component";
 import { AiSolutionsCapabilitiesSection } from './ai-solutions-capabilities-section/ai-solutions-capabilities-section.component';
 import { CtaSectionComponent } from "@app/pages/home/cta-section/cta-section.component";
 import { FooterComponent } from "@app/shared/footer/footer.component";
 import { SeoService } from '@app/services/seo.service';
+import { PrivacyConfirmedSectionComponent } from './privacy-confirmed-section/privacy-confirmed-section.component';
 
 @Component({
 	selector: 'ai-solutions-page',

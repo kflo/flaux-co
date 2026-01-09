@@ -1,0 +1,25 @@
+@use 'variables' as *;
+
+:host {
+	display: flex;
+	position: relative;
+}
+
+.carousel-bg {
+	position: absolute;
+	inset: 0;
+	background: url('/assets/img/bg/1.jpg') no-repeat center center;
+	background-size: cover;
+	height: auto;
+	width: 100%;
+	opacity: 1;
+	z-index: 0;
+	mix-blend-mode: screen;
+}
+
+.mkt-ai-section {
+	position: relative;
+	inset: 0;
+	z-index: 0;
+	background-size: cover;
+}

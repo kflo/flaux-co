@@ -13,16 +13,16 @@
 	flex: 1;
 
 	border-radius: 6em;
-	padding-block: 2.5em;
-	padding-inline: 0 3em;
-	backdrop-filter: blur(2rem) brightness(1.2) contrast(0.7);
+	padding-block: 3em;
+	padding-inline: 0 4em;
+	backdrop-filter: blur(2rem) brightness(1.2) contrast(0.7) grayscale(0.3);
 	box-shadow: 0 0 2rem rgba(0, 0, 0, 0.6);
 	gap: 2em;
 	min-height: 26em;
 
 	&.reverse {
 		flex-direction: row-reverse;
-		padding-inline: 3em 0;
+		padding-inline: 4em 0;
 	}
 
 	.image-wrapper {
@@ -74,6 +74,7 @@
 		text-align: center;
 		align-self: flex-start;
 		height: -webkit-fill-available;
+		gap: 2.5rem;
 
 		h1, h2, h3, h4 {
 			font-weight: 500;

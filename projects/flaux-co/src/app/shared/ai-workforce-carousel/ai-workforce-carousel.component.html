@@ -39,9 +39,13 @@
 				  [innerHTML]="featuredItem?.description"></div>
 		</div>
 		@if(featuredItem?.linkUrl) {
-		<flaux-btn routerLink="{{featuredItem?.linkUrl}}"
-					  [height]="'1.5em'">
-			Learn More</flaux-btn>
+		<div class="btn-wrapper">
+			<flaux-btn routerLink="{{featuredItem?.linkUrl}}"
+						  [width]="'15rem'"
+						  [height]="'1.5em'"
+						  [backgroundColor]="'default'">
+				Learn More</flaux-btn>
+		</div>
 		}
 	</div>
 </div>
