@@ -33,10 +33,6 @@ export const routes: Routes = [
 		loadComponent: () => import('@pages/laser-flow-demo/laser-flow-demo.component').then(m => m.LaserFlowDemoComponent)
 	},
 	{
-		path: 'pricing',
-		loadComponent: () => import('@pages/pricing/pricing.page').then(m => m.PricingPage)
-	},
-	{
 		path: 'blog',
 		loadComponent: () => import('@pages/blog/blog.page').then(m => m.BlogPage)
 	},
@@ -56,11 +52,6 @@ export const routes: Routes = [
 		path: 'login',
 		// canActivate: [guestGuard],
 		loadComponent: () => import('@pages/login/login.page').then(m => m.LoginPage)
-	},
-	{
-		path: 'signup',
-		// canActivate: [guestGuard],
-		loadComponent: () => import('@pages/signup/signup.page').then(m => m.SignupPage)
 	},
 	{
 		path: 'reset-password',

@@ -55,7 +55,9 @@
 								"glob": "**/*",
 								"input": "projects/flaux-co/src/assets",
 								"output": "assets"
-							}
+							},
+							"projects/flaux-co/src/sitemap.xml",
+							"projects/flaux-co/src/robots.txt"
 						],
 						"stylePreprocessorOptions": {
 							"includePaths": [
